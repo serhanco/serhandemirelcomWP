@@ -9,6 +9,7 @@ The folders mirror a WordPress install, so each one can be copied (or zipped and
 | [`wp-content/themes/serhandemirel`](wp-content/themes/serhandemirel) | The theme: templates, settings panel, tracking, compiled Tailwind ([README](wp-content/themes/serhandemirel/README.md)) |
 | [`wp-content/plugins/serhandemirel-core`](wp-content/plugins/serhandemirel-core) | **Serhan Demirel Core**: projects, expertise, brands, messages and the contact form, so content survives a theme change ([README](wp-content/plugins/serhandemirel-core/README.md)) |
 | [`scripts/`](scripts) | Local WordPress Playground setup |
+| [`docs/content-model.md`](docs/content-model.md) | Content types and fields: what exists and what is planned (Turkish) |
 | [`docs/screenshots/`](docs/screenshots) | Screenshots of the theme |
 
 Install both: the theme renders the site, the plugin holds its content. Activate the theme first, then the plugin; on activation the plugin imports the expertise cards and brand logos from the theme.
