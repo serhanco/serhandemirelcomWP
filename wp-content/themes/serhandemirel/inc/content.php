@@ -45,7 +45,8 @@ function sd_icon_paths() {
 }
 
 /**
- * Expertise cards: from the plugin, or the static site's five cards.
+ * Expertise cards: from the plugin, or the static site's five cards (translated
+ * by the theme, so a language with no cards of its own still reads naturally).
  *
  * @return array<int, array{title: string, description: string, tags: string[], accent: string, icon: string}>
  */
@@ -57,11 +58,11 @@ function sd_expertise_cards() {
 		}
 	}
 	return array(
-		array( 'title' => 'Marketing & Growth', 'description' => 'Driving measurable growth and expanding reach through data-driven digital marketing strategies.', 'tags' => array( 'Sales Optimization', 'Lead Gen', 'Digital Marketing' ), 'accent' => 'blue', 'icon' => 'growth' ),
-		array( 'title' => 'Digital Products', 'description' => 'Architecting and building modern web applications, platforms, and high-converting landing pages.', 'tags' => array( 'Web Apps', 'Digital Product', 'Landing Pages' ), 'accent' => 'purple', 'icon' => 'code' ),
-		array( 'title' => 'AI & Automation', 'description' => 'Streamlining workflows and accelerating business processes using intelligent AI solutions and smart automation.', 'tags' => array( 'AI Solutions', 'Automation' ), 'accent' => 'emerald', 'icon' => 'flask' ),
-		array( 'title' => 'Strategy & Visibility', 'description' => 'Elevating brand presence through deep competitor analysis and aggressive search engine optimization.', 'tags' => array( 'SEO', 'Competitor Analysis' ), 'accent' => 'pink', 'icon' => 'chart' ),
-		array( 'title' => 'Transformation & Ed', 'description' => 'Guiding companies through digital transformation and providing corporate training for sustainable growth.', 'tags' => array( 'Digital Transformation', 'Training & Ed' ), 'accent' => 'amber', 'icon' => 'book' ),
+		array( 'title' => __( 'Marketing & Growth', 'serhandemirel' ), 'description' => __( 'Driving measurable growth and expanding reach through data-driven digital marketing strategies.', 'serhandemirel' ), 'tags' => array( __( 'Sales Optimization', 'serhandemirel' ), __( 'Lead Gen', 'serhandemirel' ), __( 'Digital Marketing', 'serhandemirel' ) ), 'accent' => 'blue', 'icon' => 'growth' ),
+		array( 'title' => __( 'Digital Products', 'serhandemirel' ), 'description' => __( 'Architecting and building modern web applications, platforms, and high-converting landing pages.', 'serhandemirel' ), 'tags' => array( __( 'Web Apps', 'serhandemirel' ), __( 'Digital Product', 'serhandemirel' ), __( 'Landing Pages', 'serhandemirel' ) ), 'accent' => 'purple', 'icon' => 'code' ),
+		array( 'title' => __( 'AI & Automation', 'serhandemirel' ), 'description' => __( 'Streamlining workflows and accelerating business processes using intelligent AI solutions and smart automation.', 'serhandemirel' ), 'tags' => array( __( 'AI Solutions', 'serhandemirel' ), __( 'Automation', 'serhandemirel' ) ), 'accent' => 'emerald', 'icon' => 'flask' ),
+		array( 'title' => __( 'Strategy & Visibility', 'serhandemirel' ), 'description' => __( 'Elevating brand presence through deep competitor analysis and aggressive search engine optimization.', 'serhandemirel' ), 'tags' => array( __( 'SEO', 'serhandemirel' ), __( 'Competitor Analysis', 'serhandemirel' ) ), 'accent' => 'pink', 'icon' => 'chart' ),
+		array( 'title' => __( 'Transformation & Ed', 'serhandemirel' ), 'description' => __( 'Guiding companies through digital transformation and providing corporate training for sustainable growth.', 'serhandemirel' ), 'tags' => array( __( 'Digital Transformation', 'serhandemirel' ), __( 'Training & Ed', 'serhandemirel' ) ), 'accent' => 'amber', 'icon' => 'book' ),
 	);
 }
 

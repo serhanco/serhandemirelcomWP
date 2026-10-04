@@ -8,6 +8,16 @@
       "password": "password"
     },
     {
+      "step": "installPlugin",
+      "pluginData": {
+        "resource": "wordpress.org/plugins",
+        "slug": "polylang"
+      },
+      "options": {
+        "activate": true
+      }
+    },
+    {
       "step": "activateTheme",
       "themeFolderName": "serhandemirel"
     },
@@ -22,6 +32,13 @@
         "blogdescription": "Digital Solutions Provider",
         "permalink_structure": "/%postname%/"
       }
+    },
+    {
+      "step": "runPHP",
+      "code": "<?php define( 'WP_ADMIN', true ); require_once '/wordpress/wp-load.php'; wp_set_current_user( 1 ); if ( function_exists( 'sdc_setup_languages' ) ) { sdc_setup_languages(); }"
     }
-  ]
+  ],
+  "features": {
+    "networking": true
+  }
 }

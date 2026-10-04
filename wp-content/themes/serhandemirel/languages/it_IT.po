@@ -1,0 +1,855 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Serhan Demirel 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/serhandemirel\n"
+"POT-Creation-Date: 2026-10-04T13:24:39+00:00\n"
+"PO-Revision-Date: 2026-10-04 13:30+0000\n"
+"Last-Translator: Serhan Demirel\n"
+"Language-Team: Italian\n"
+"Language: it_IT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: serhandemirel\n"
+"X-Generator: WP-CLI 2.12.0\n"
+
+#. Theme Name of the theme
+#. Author of the theme
+#: style.css inc/options-page.php:22
+msgid "Serhan Demirel"
+msgstr "Serhan Demirel"
+
+#. Theme URI of the theme
+#. Author URI of the theme
+#: style.css
+msgid "https://serhandemirel.com"
+msgstr "https://serhandemirel.com"
+
+#. Description of the theme
+#: style.css
+msgid ""
+"One-page personal theme for serhandemirel.com. Tailwind (compiled), GSAP + "
+"ScrollTrigger and Lenis smooth scrolling."
+msgstr ""
+"Tema personale one-page per serhandemirel.com. Tailwind (compilato), GSAP + "
+"ScrollTrigger e scorrimento fluido con Lenis."
+
+#: functions.php:29
+msgid ""
+"The Serhan Demirel theme needs the \"Serhan Demirel Core\" plugin. Without "
+"it the contact form does not work."
+msgstr ""
+"Il tema Serhan Demirel richiede il plugin \"Serhan Demirel Core\". Senza di "
+"esso il modulo di contatto non funziona."
+
+#: functions.php:40
+msgid "Main menu"
+msgstr "Menu principale"
+
+#: functions.php:102
+msgid "Sending..."
+msgstr "Invio in corso..."
+
+#: functions.php:103
+msgid "Something went wrong. Please try again."
+msgstr "Qualcosa è andato storto. Riprova."
+
+#: functions.php:104
+msgid "Network error. Please try again later."
+msgstr "Errore di rete. Riprova più tardi."
+
+#: functions.php:105
+msgid "Friend"
+msgstr "Amico"
+
+#: home.php:31
+msgid "No posts yet."
+msgstr "Ancora nessun articolo."
+
+#: inc/content.php:61
+msgid "Marketing & Growth"
+msgstr "Marketing & Crescita"
+
+#: inc/content.php:61
+msgid ""
+"Driving measurable growth and expanding reach through data-driven digital "
+"marketing strategies."
+msgstr ""
+"Crescita misurabile e maggiore visibilità grazie a strategie di digital "
+"marketing basate sui dati."
+
+#: inc/content.php:61
+msgid "Sales Optimization"
+msgstr "Ottimizzazione vendite"
+
+#: inc/content.php:61
+msgid "Lead Gen"
+msgstr "Lead Generation"
+
+#: inc/content.php:61
+msgid "Digital Marketing"
+msgstr "Digital Marketing"
+
+#: inc/content.php:62
+msgid "Digital Products"
+msgstr "Prodotti digitali"
+
+#: inc/content.php:62
+msgid ""
+"Architecting and building modern web applications, platforms, and high-"
+"converting landing pages."
+msgstr ""
+"Progettazione e sviluppo di web app moderne, piattaforme e landing page ad "
+"alta conversione."
+
+#: inc/content.php:62
+msgid "Web Apps"
+msgstr "Web App"
+
+#: inc/content.php:62
+msgid "Digital Product"
+msgstr "Prodotto digitale"
+
+#: inc/content.php:62
+msgid "Landing Pages"
+msgstr "Landing Page"
+
+#: inc/content.php:63
+msgid "AI & Automation"
+msgstr "IA & Automazione"
+
+#: inc/content.php:63
+msgid ""
+"Streamlining workflows and accelerating business processes using intelligent"
+" AI solutions and smart automation."
+msgstr ""
+"Flussi di lavoro più snelli e processi aziendali più rapidi grazie a "
+"soluzioni di IA e automazioni intelligenti."
+
+#: inc/content.php:63
+msgid "AI Solutions"
+msgstr "Soluzioni IA"
+
+#: inc/content.php:63
+msgid "Automation"
+msgstr "Automazione"
+
+#: inc/content.php:64
+msgid "Strategy & Visibility"
+msgstr "Strategia & Visibilità"
+
+#: inc/content.php:64
+msgid ""
+"Elevating brand presence through deep competitor analysis and aggressive "
+"search engine optimization."
+msgstr ""
+"Più forza al brand con analisi approfondite della concorrenza e una SEO "
+"incisiva."
+
+#: inc/content.php:64
+msgid "SEO"
+msgstr "SEO"
+
+#: inc/content.php:64
+msgid "Competitor Analysis"
+msgstr "Analisi della concorrenza"
+
+#: inc/content.php:65
+msgid "Transformation & Ed"
+msgstr "Trasformazione & Formazione"
+
+#: inc/content.php:65
+msgid ""
+"Guiding companies through digital transformation and providing corporate "
+"training for sustainable growth."
+msgstr ""
+"Accompagno le aziende nella trasformazione digitale con una formazione "
+"aziendale orientata alla crescita sostenibile."
+
+#: inc/content.php:65
+msgid "Digital Transformation"
+msgstr "Trasformazione digitale"
+
+#: inc/content.php:65
+msgid "Training & Ed"
+msgstr "Formazione"
+
+#. translators: %d: minutes
+#: inc/content.php:212
+#, php-format
+msgid "%d min read"
+msgid_plural "%d min read"
+msgstr[0] "%d min di lettura"
+msgstr[1] "%d min di lettura"
+
+#: inc/i18n.php:41
+msgid "Expertise"
+msgstr "Competenze"
+
+#: inc/i18n.php:42
+msgid "Brands"
+msgstr "Brand"
+
+#: inc/i18n.php:43
+msgid "Work"
+msgstr "Progetti"
+
+#: inc/i18n.php:44 inc/options.php:179
+msgid "Insights"
+msgstr "Insights"
+
+#: inc/options-page.php:21 inc/options-page.php:81
+msgid "Serhan Demirel theme settings"
+msgstr "Impostazioni del tema Serhan Demirel"
+
+#: inc/options-page.php:84
+msgid "Settings saved."
+msgstr "Impostazioni salvate."
+
+#: inc/options-page.php:95
+msgid "Editing texts in:"
+msgstr "Modifica dei testi in:"
+
+#: inc/options-page.php:101
+msgid ""
+"Fields marked with a globe are saved for this language only. Empty ones show"
+" the text in grey: the theme's own translation, or the default-language text"
+" if the theme has no translation for this language. Other fields are shared "
+"by all languages."
+msgstr ""
+"I campi contrassegnati da un globo vengono salvati solo per questa lingua. "
+"Quelli vuoti mostrano il testo in grigio: la traduzione del tema o, se il "
+"tema non ha una traduzione per questa lingua, il testo nella lingua "
+"predefinita. Gli altri campi sono condivisi da tutte le lingue."
+
+#: inc/options-page.php:156
+msgid "Per language"
+msgstr "Per lingua"
+
+#: inc/options-page.php:168
+msgid "On"
+msgstr "Attivo"
+
+#: inc/options-page.php:192
+msgid "Choose image"
+msgstr "Scegli immagine"
+
+#: inc/options-page.php:193
+msgid "Remove"
+msgstr "Rimuovi"
+
+#: inc/options-page.php:220
+msgid "Sorry, you are not allowed to do that."
+msgstr "Non hai i permessi per eseguire questa azione."
+
+#: inc/options-page.php:228
+msgid "Unknown settings tab or language."
+msgstr "Scheda delle impostazioni o lingua sconosciuta."
+
+#: inc/options.php:38
+msgid "General"
+msgstr "Generale"
+
+#: inc/options.php:41
+msgid "Default SEO title"
+msgstr "Titolo SEO predefinito"
+
+#: inc/options.php:44
+msgid "Serhan Demirel | Digital Solutions Provider"
+msgstr "Serhan Demirel | Consulente di soluzioni digitali"
+
+#: inc/options.php:45
+msgid ""
+"Used for social sharing. The browser tab title comes from Settings → "
+"General."
+msgstr ""
+"Usato per la condivisione sui social. Il titolo della scheda del browser "
+"proviene da Impostazioni → Generali."
+
+#: inc/options.php:48
+msgid "Default SEO description"
+msgstr "Descrizione SEO predefinita"
+
+#: inc/options.php:51
+msgid ""
+"Serhan Demirel - Digital Solutions Provider specializing in business "
+"transformation, scalable digital foundations, and AI & automation."
+msgstr ""
+"Serhan Demirel - Consulente di soluzioni digitali specializzato in "
+"trasformazione aziendale, basi digitali scalabili, IA e automazione."
+
+#: inc/options.php:54
+msgid "Sharing image"
+msgstr "Immagine di condivisione"
+
+#: inc/options.php:56
+msgid ""
+"Shown when the site is shared on LinkedIn, WhatsApp or X. 1200×630 works "
+"best. Empty uses the SD logo."
+msgstr ""
+"Mostrata quando il sito viene condiviso su LinkedIn, WhatsApp o X. Il "
+"formato ideale è 1200×630. Se vuoto, viene usato il logo SD."
+
+#: inc/options.php:61
+msgid "Hero"
+msgstr "Hero"
+
+#: inc/options.php:64
+msgid "Badge"
+msgstr "Badge"
+
+#: inc/options.php:67
+msgid "Engineering the digital future"
+msgstr "Progettiamo il futuro digitale"
+
+#: inc/options.php:70 inc/options.php:286
+msgid "Title"
+msgstr "Titolo"
+
+#: inc/options.php:75
+msgid "Subtitle"
+msgstr "Sottotitolo"
+
+#: inc/options.php:78
+msgid "Digital Solutions Provider"
+msgstr "Consulente di soluzioni digitali"
+
+#: inc/options.php:81
+msgid "Scroll hint"
+msgstr "Invito a scorrere"
+
+#: inc/options.php:84
+msgid "Explore"
+msgstr "Scopri"
+
+#: inc/options.php:89
+msgid "Word slot"
+msgstr "Parola a rotazione"
+
+#: inc/options.php:92
+msgid "Prefix"
+msgstr "Prefisso"
+
+#. translators: Start of the rotating sentence, followed by a verb such as
+#. "design".
+#: inc/options.php:96
+msgid "We can"
+msgstr "Possiamo"
+
+#: inc/options.php:99
+msgid "Words"
+msgstr "Parole"
+
+#. translators: Words shown one after another after the prefix, one per line.
+#. Keep one word per line; the number of lines may differ.
+#: inc/options.php:103
+msgid ""
+"design\n"
+"prototype\n"
+"solve\n"
+"build\n"
+"develop\n"
+"debug\n"
+"learn\n"
+"optimize\n"
+"ship\n"
+"prompt\n"
+"collaborate\n"
+"create\n"
+"transform\n"
+"automate\n"
+"innovate\n"
+"scale\n"
+"integrate\n"
+"deploy\n"
+"succeed"
+msgstr ""
+"progettare\n"
+"prototipare\n"
+"risolvere\n"
+"costruire\n"
+"sviluppare\n"
+"correggere\n"
+"imparare\n"
+"ottimizzare\n"
+"lanciare\n"
+"ideare\n"
+"collaborare\n"
+"creare\n"
+"trasformare\n"
+"automatizzare\n"
+"innovare\n"
+"crescere\n"
+"integrare\n"
+"rilasciare\n"
+"vincere"
+
+#: inc/options.php:104
+msgid ""
+"One word per line, shown in this order. A full stop is added after each "
+"word."
+msgstr ""
+"Una parola per riga, mostrate in questo ordine. Dopo ogni parola viene "
+"aggiunto un punto."
+
+#: inc/options.php:109
+msgid "Sections"
+msgstr "Sezioni"
+
+#: inc/options.php:112
+msgid "Show the Core Expertise section"
+msgstr "Mostra la sezione Competenze chiave"
+
+#: inc/options.php:117
+msgid "Core Expertise: small heading"
+msgstr "Competenze chiave: occhiello"
+
+#: inc/options.php:120
+msgid "Core Expertise"
+msgstr "Competenze chiave"
+
+#: inc/options.php:123
+msgid "Core Expertise: heading"
+msgstr "Competenze chiave: titolo"
+
+#: inc/options.php:126
+msgid "Building scalable digital foundations for tomorrow."
+msgstr "Basi digitali scalabili per il domani."
+
+#: inc/options.php:129
+msgid "Show the Brands section"
+msgstr "Mostra la sezione Brand"
+
+#: inc/options.php:134
+msgid "Brands: small heading"
+msgstr "Brand: occhiello"
+
+#: inc/options.php:137
+msgid "Part of the journey"
+msgstr "Parte del percorso"
+
+#: inc/options.php:140
+msgid "Brands: heading"
+msgstr "Brand: titolo"
+
+#: inc/options.php:143
+msgid "Brands That Shaped My Story"
+msgstr "I brand che hanno segnato il mio percorso"
+
+#: inc/options.php:146
+msgid "Show the Work section"
+msgstr "Mostra la sezione Progetti"
+
+#: inc/options.php:149
+msgid ""
+"Appears once at least one project is published. Projects ticked \"Show on "
+"home page\" are listed; if none are ticked, all projects are."
+msgstr ""
+"Compare quando è pubblicato almeno un progetto. Vengono elencati i progetti "
+"con l'opzione \"Mostra in home page\" selezionata; se nessuno è selezionato,"
+" vengono mostrati tutti."
+
+#: inc/options.php:152
+msgid "Work: small heading"
+msgstr "Progetti: occhiello"
+
+#: inc/options.php:155
+msgid "Selected Work"
+msgstr "Lavori selezionati"
+
+#: inc/options.php:158
+msgid "Work: heading"
+msgstr "Progetti: titolo"
+
+#: inc/options.php:161
+msgid "Featured Projects"
+msgstr "Progetti in evidenza"
+
+#: inc/options.php:164
+msgid "Work: \"All\" filter button"
+msgstr "Progetti: pulsante filtro \"Tutti\""
+
+#: inc/options.php:167
+msgid "All"
+msgstr "Tutti"
+
+#: inc/options.php:170
+msgid "Show the Insights section"
+msgstr "Mostra la sezione Insights"
+
+#: inc/options.php:173
+msgid ""
+"Appears once at least one post is published. Posts ticked \"Show on home "
+"page\" are listed; if none are ticked, the two newest are."
+msgstr ""
+"Compare quando è pubblicato almeno un articolo. Vengono elencati gli "
+"articoli con l'opzione \"Mostra in home page\" selezionata; se nessuno è "
+"selezionato, vengono mostrati i due più recenti."
+
+#: inc/options.php:176
+msgid "Insights: small heading"
+msgstr "Insights: occhiello"
+
+#: inc/options.php:182
+msgid "Insights: heading"
+msgstr "Insights: titolo"
+
+#: inc/options.php:185
+msgid "Latest Thoughts"
+msgstr "Ultime riflessioni"
+
+#: inc/options.php:190 template-parts/nav.php:77
+msgid "Contact"
+msgstr "Contatti"
+
+#: inc/options.php:193
+msgid "WhatsApp number"
+msgstr "Numero WhatsApp"
+
+#: inc/options.php:196
+msgid "International format, digits only, e.g. 905322702736."
+msgstr "Formato internazionale, solo cifre, es. 905322702736."
+
+#: inc/options.php:199
+msgid "WhatsApp starter message"
+msgstr "Messaggio iniziale WhatsApp"
+
+#. translators: Opening line of the WhatsApp message a visitor sends.
+#: inc/options.php:203
+msgid "Hello Serhan,"
+msgstr "Ciao Serhan,"
+
+#: inc/options.php:206
+msgid "Email address"
+msgstr "Indirizzo email"
+
+#: inc/options.php:211
+msgid "Email subject"
+msgstr "Oggetto dell'email"
+
+#. translators: Subject line of the email a visitor sends.
+#: inc/options.php:215
+msgid "Consulting"
+msgstr "Richiesta di consulenza"
+
+#: inc/options.php:233
+msgid "Status badge"
+msgstr "Badge di stato"
+
+#: inc/options.php:236
+msgid "Status: Ready to Innovate"
+msgstr "Stato: pronto a innovare"
+
+#: inc/options.php:239
+msgid "Closing heading, line 1"
+msgstr "Titolo di chiusura, riga 1"
+
+#. translators: Closing heading, line 1, completed by line 2 ("the future.").
+#: inc/options.php:243
+msgid "Let's build"
+msgstr "Costruiamo"
+
+#: inc/options.php:246
+msgid "Closing heading, line 2 (gradient)"
+msgstr "Titolo di chiusura, riga 2 (sfumato)"
+
+#. translators: Closing heading, line 2, completes line 1 ("Let's build").
+#: inc/options.php:250
+msgid "the future."
+msgstr "il futuro."
+
+#: inc/options.php:253
+msgid "Clock time zone"
+msgstr "Fuso orario dell'orologio"
+
+#: inc/options.php:256
+msgid "IANA name, e.g. Europe/Istanbul or Europe/Amsterdam."
+msgstr "Nome IANA, es. Europe/Istanbul o Europe/Amsterdam."
+
+#: inc/options.php:259
+msgid "Time zone label"
+msgstr "Etichetta del fuso orario"
+
+#: inc/options.php:264
+msgid "City label"
+msgstr "Etichetta della città"
+
+#. translators: City and country code shown under the local time.
+#: inc/options.php:268
+msgid "Istanbul, TR"
+msgstr "Istanbul, TR"
+
+#: inc/options.php:271
+msgid "Show the floating WhatsApp / Start a Project bar"
+msgstr "Mostra la barra mobile WhatsApp / Avvia un progetto"
+
+#: inc/options.php:278
+msgid "Form"
+msgstr "Modulo"
+
+#: inc/options.php:281
+msgid "Send form messages to"
+msgstr "Invia i messaggi del modulo a"
+
+#: inc/options.php:283
+msgid "Empty uses the administration email address from Settings → General."
+msgstr ""
+"Se vuoto, viene usato l'indirizzo email di amministrazione indicato in "
+"Impostazioni → Generali."
+
+#: inc/options.php:289
+msgid "Let's Create Something Great"
+msgstr "Creiamo qualcosa di grande"
+
+#: inc/options.php:292
+msgid "Intro"
+msgstr "Introduzione"
+
+#: inc/options.php:295
+msgid "Tell me about your project and I'll get back to you shortly."
+msgstr "Raccontami il tuo progetto: ti risponderò al più presto."
+
+#: inc/options.php:298
+msgid "Button"
+msgstr "Pulsante"
+
+#: inc/options.php:301
+msgid "Send Message"
+msgstr "Invia messaggio"
+
+#: inc/options.php:304
+msgid "Thank-you text"
+msgstr "Testo di ringraziamento"
+
+#: inc/options.php:307
+msgid "I have received your message and will get back to you shortly."
+msgstr "Ho ricevuto il tuo messaggio e ti risponderò al più presto."
+
+#: inc/options.php:312
+msgid "Tracking"
+msgstr "Tracciamento"
+
+#: inc/options.php:315
+msgid "Google Tag Manager ID"
+msgstr "ID di Google Tag Manager"
+
+#: inc/options.php:318
+msgid "e.g. GTM-XXXXXXX."
+msgstr "es. GTM-XXXXXXX."
+
+#: inc/options.php:321
+msgid "Google Analytics 4 ID"
+msgstr "ID di Google Analytics 4"
+
+#: inc/options.php:323
+msgid ""
+"e.g. G-XXXXXXXXXX. Leave empty if GA4 is set up inside Google Tag Manager, "
+"or visits are counted twice."
+msgstr ""
+"es. G-XXXXXXXXXX. Lascia vuoto se GA4 è configurato in Google Tag Manager, "
+"altrimenti le visite vengono conteggiate due volte."
+
+#: inc/options.php:326
+msgid "Meta Pixel ID"
+msgstr "ID del Meta Pixel"
+
+#: inc/options.php:330
+msgid "LinkedIn Insight Tag partner ID"
+msgstr "ID partner del LinkedIn Insight Tag"
+
+#: inc/options.php:334
+msgid "Microsoft Clarity project ID"
+msgstr "ID progetto di Microsoft Clarity"
+
+#: inc/options.php:338
+msgid "Google Consent Mode v2: start with consent denied"
+msgstr "Google Consent Mode v2: parti con il consenso negato"
+
+#: inc/options.php:341
+msgid ""
+"Required for EU visitors. Needs a cookie banner (e.g. Complianz or "
+"CookieYes) to grant consent; without one Google only receives cookieless "
+"pings."
+msgstr ""
+"Obbligatorio per i visitatori dell'UE. Richiede un banner dei cookie (es. "
+"Complianz o CookieYes) per concedere il consenso; senza banner Google riceve"
+" solo ping senza cookie."
+
+#: inc/options.php:344
+msgid "Also track logged-in editors and administrators"
+msgstr "Traccia anche editori e amministratori connessi"
+
+#: inc/options.php:349
+msgid "Extra code: end of <head>"
+msgstr "Codice aggiuntivo: fine di <head>"
+
+#: inc/options.php:354
+msgid "Extra code: start of <body>"
+msgstr "Codice aggiuntivo: inizio di <body>"
+
+#: inc/options.php:359
+msgid "Extra code: end of page"
+msgstr "Codice aggiuntivo: fine pagina"
+
+#: index.php:29
+msgid "Nothing here"
+msgstr "Qui non c'è nulla"
+
+#: index.php:30
+msgid "Back to the homepage"
+msgstr "Torna alla home page"
+
+#: single-sd_project.php:44
+msgid "Visit site"
+msgstr "Visita il sito"
+
+#: template-parts/contact.php:32
+msgid "Local Time"
+msgstr "Ora locale"
+
+#: single-sd_service_page.php:45 template-parts/contact.php:44
+#: template-parts/sticky-contact.php:23 template-profile.php:84
+msgid "Start a Project"
+msgstr "Avvia un progetto"
+
+#: template-parts/contact.php:54 template-parts/sticky-contact.php:16
+msgid "WhatsApp"
+msgstr "WhatsApp"
+
+#: template-parts/contact.php:61
+msgid "Email Me"
+msgstr "Scrivimi"
+
+#. translators: %s: current year
+#: template-parts/contact.php:70
+#, php-format
+msgid "© %s Serhan Demirel. All rights reserved."
+msgstr "© %s Serhan Demirel. Tutti i diritti riservati."
+
+#: template-parts/contact.php:84
+msgid "Back to top"
+msgstr "Torna su"
+
+#: template-parts/insights.php:21
+msgid "All insights"
+msgstr "Tutti gli insights"
+
+#: template-parts/nav.php:23
+msgid "Let's Talk"
+msgstr "Parliamone"
+
+#: template-parts/nav.php:27
+msgid "Language"
+msgstr "Lingua"
+
+#: template-parts/nav.php:56
+msgid "Language:"
+msgstr "Lingua:"
+
+#: template-parts/nav.php:81
+msgid "Menu"
+msgstr "Menu"
+
+#: template-parts/project-modal.php:17
+msgid "Close"
+msgstr "Chiudi"
+
+#: template-parts/project-modal.php:31
+msgid "Name"
+msgstr "Nome"
+
+#: template-parts/project-modal.php:32
+msgid "John Doe"
+msgstr "Mario Rossi"
+
+#: template-parts/project-modal.php:35
+msgid "Email"
+msgstr "Email"
+
+#: template-parts/project-modal.php:36
+msgid "john@example.com"
+msgstr "mario@esempio.it"
+
+#: template-parts/project-modal.php:41
+msgid "Project Details"
+msgstr "Dettagli del progetto"
+
+#: template-parts/project-modal.php:42
+msgid "Describe your project, goals, and timeline..."
+msgstr "Descrivi il progetto, gli obiettivi e le tempistiche..."
+
+#. translators: %s: visitor's first name
+#: template-parts/project-modal.php:65
+#, php-format
+msgid "Awesome, %s!"
+msgstr "Fantastico, %s!"
+
+#: template-parts/project-modal.php:70
+msgid "Close Window"
+msgstr "Chiudi finestra"
+
+#: archive-sd_service_page.php:24 single-sd_service_page.php:32
+msgid "Services"
+msgstr "Servizi"
+
+#: archive-sd_service_page.php:32 template-parts/expertise.php:61
+msgid "Learn more"
+msgstr "Scopri di più"
+
+#. translators: %s: price with currency, e.g. "2,000 EUR"
+#: single-sd_service_page.php:22
+#, php-format
+msgid "From %s"
+msgstr "Da %s"
+
+#: single-sd_service_page.php:34
+msgid "Service"
+msgstr "Servizio"
+
+#: single-sd_service_page.php:51
+msgid "Who it is for"
+msgstr "A chi si rivolge"
+
+#: single-sd_service_page.php:57
+msgid "What you get"
+msgstr "Cosa ottieni"
+
+#: single-sd_service_page.php:69
+msgid "How it works"
+msgstr "Come funziona"
+
+#: single-sd_service_page.php:92
+msgid "Related work"
+msgstr "Lavori correlati"
+
+#: single-sd_service_page.php:105
+msgid "Frequently asked questions"
+msgstr "Domande frequenti"
+
+#. translators: %s: date
+#: single-sd_service_page.php:124
+#, php-format
+msgid "Last updated: %s"
+msgstr "Ultimo aggiornamento: %s"
+
+#. Template Name of the theme
+msgid "Profile (About)"
+msgstr "Profilo (Chi sono)"
+
+#: template-profile.php:20
+msgid "Languages"
+msgstr "Lingue"
+
+#: template-profile.php:21
+msgid "Education"
+msgstr "Formazione"
+
+#: template-profile.php:22
+msgid "Certificates"
+msgstr "Certificazioni"
+
+#: template-profile.php:59
+msgid "Areas of expertise"
+msgstr "Aree di competenza"

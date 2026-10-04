@@ -1,0 +1,961 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Serhan Demirel Core 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/serhandemirel-core\n"
+"POT-Creation-Date: 2026-10-04T11:03:24+00:00\n"
+"PO-Revision-Date: 2026-10-04 13:30+0000\n"
+"Last-Translator: Serhan Demirel\n"
+"Language-Team: Italian\n"
+"Language: it_IT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: serhandemirel-core\n"
+"X-Generator: WP-CLI 2.12.0\n"
+
+#. Plugin Name of the plugin
+#: serhandemirel-core.php
+msgid "Serhan Demirel Core"
+msgstr "Serhan Demirel Core"
+
+#. Plugin URI of the plugin
+#. Author URI of the plugin
+#: serhandemirel-core.php
+msgid "https://serhandemirel.com"
+msgstr "https://serhandemirel.com"
+
+#. Author of the plugin
+#: serhandemirel-core.php
+msgid "Serhan Demirel"
+msgstr "Serhan Demirel"
+
+#: includes/admin-columns.php:20 includes/fields.php:228
+msgid "Logo"
+msgstr "Logo"
+
+#: includes/admin-columns.php:21
+msgid "Visible"
+msgstr "Visibile"
+
+#: includes/admin-columns.php:22 includes/admin-columns.php:25
+#: includes/admin-columns.php:31
+msgid "Order"
+msgstr "Ordine"
+
+#: includes/admin-columns.php:28
+msgid "Client"
+msgstr "Cliente"
+
+#: includes/admin-columns.php:29 includes/fields.php:67
+msgid "Year"
+msgstr "Anno"
+
+#: includes/admin-columns.php:30
+msgid "Home page"
+msgstr "Home page"
+
+#: includes/admin-columns.php:34 includes/fields.php:315
+msgid "Email"
+msgstr "Email"
+
+#: includes/admin-columns.php:35 includes/fields.php:319
+msgid "Language"
+msgstr "Lingua"
+
+#: includes/admin-columns.php:36 includes/fields.php:301
+msgid "Status"
+msgstr "Stato"
+
+#: includes/fields.php:43
+msgid "Project details"
+msgstr "Dettagli del progetto"
+
+#: includes/fields.php:48
+msgid "Client name"
+msgstr "Nome del cliente"
+
+#: includes/fields.php:53
+msgid "Location label"
+msgstr "Etichetta luogo"
+
+#: includes/fields.php:55
+msgid "Shown above the title on the card, e.g. \"Fintech / London\"."
+msgstr "Mostrata sopra il titolo nella scheda, es. \"Fintech / Milano\"."
+
+#: includes/fields.php:58
+msgid "Short summary (card text)"
+msgstr "Breve riepilogo (testo della scheda)"
+
+#: includes/fields.php:62
+msgid "Result metric"
+msgstr "Metrica di risultato"
+
+#: includes/fields.php:64
+msgid "e.g. \"+24% conversion\"."
+msgstr "es. \"+24% di conversioni\"."
+
+#: includes/fields.php:72
+msgid "Live site URL"
+msgstr "URL del sito online"
+
+#: includes/fields.php:77 includes/post-types.php:97
+msgid "Brand"
+msgstr "Brand"
+
+#: includes/fields.php:81
+msgid "The brand logo is shown as a small badge on the card."
+msgstr "Il logo del brand viene mostrato come piccolo badge sulla scheda."
+
+#: includes/fields.php:84
+msgid "Gallery"
+msgstr "Galleria"
+
+#: includes/fields.php:87
+msgid "Images for the project detail page."
+msgstr "Immagini per la pagina di dettaglio del progetto."
+
+#: includes/fields.php:90 includes/fields.php:269
+msgid "Show on home page"
+msgstr "Mostra in home page"
+
+#: includes/fields.php:179
+msgid "Card content"
+msgstr "Contenuto della scheda"
+
+#: includes/fields.php:184
+msgid "Description"
+msgstr "Descrizione"
+
+#: includes/fields.php:188
+msgid "Tags"
+msgstr "Tag"
+
+#: includes/fields.php:190
+msgid "Comma separated, e.g. \"Sales Optimization, Lead Gen\"."
+msgstr "Separati da virgole, es. \"Ottimizzazione vendite, Lead Generation\"."
+
+#: includes/fields.php:193
+msgid "Accent color"
+msgstr "Colore di accento"
+
+#: includes/fields.php:198
+msgid "Blue"
+msgstr "Blu"
+
+#: includes/fields.php:199
+msgid "Purple"
+msgstr "Viola"
+
+#: includes/fields.php:200
+msgid "Green"
+msgstr "Verde"
+
+#: includes/fields.php:201
+msgid "Pink"
+msgstr "Rosa"
+
+#: includes/fields.php:202
+msgid "Amber"
+msgstr "Ambra"
+
+#: includes/fields.php:213
+msgid "Icon"
+msgstr "Icona"
+
+#: includes/fields.php:218
+msgid "Growth chart"
+msgstr "Grafico di crescita"
+
+#: includes/fields.php:219
+msgid "Code"
+msgstr "Codice"
+
+#: includes/fields.php:220
+msgid "Flask"
+msgstr "Provetta"
+
+#: includes/fields.php:221
+msgid "Bar chart"
+msgstr "Grafico a barre"
+
+#: includes/fields.php:222
+msgid "Book"
+msgstr "Libro"
+
+#: includes/fields.php:233
+msgid "White logo"
+msgstr "Logo bianco"
+
+#: includes/fields.php:236
+msgid "Shown in the logo band on the dark background."
+msgstr "Mostrato nella fascia dei loghi su sfondo scuro."
+
+#: includes/fields.php:239
+msgid "Color logo"
+msgstr "Logo a colori"
+
+#: includes/fields.php:242
+msgid "Optional. Used where the logo sits on a light background."
+msgstr "Facoltativo. Usato dove il logo si trova su uno sfondo chiaro."
+
+#: includes/fields.php:245
+msgid "Website"
+msgstr "Sito web"
+
+#: includes/fields.php:248
+msgid "Leave empty to keep the logo unlinked."
+msgstr "Lascia vuoto per non collegare il logo a un link."
+
+#: includes/fields.php:251
+msgid "Show in the logo band"
+msgstr "Mostra nella fascia dei loghi"
+
+#: includes/fields.php:259
+msgid "Insight details"
+msgstr "Dettagli dell'insight"
+
+#: includes/fields.php:264
+msgid "Reading time (minutes)"
+msgstr "Tempo di lettura (minuti)"
+
+#: includes/fields.php:266
+msgid "Leave empty to calculate from the word count."
+msgstr "Lascia vuoto per calcolarlo dal numero di parole."
+
+#: includes/fields.php:272
+msgid "If no post is ticked, the two newest posts are shown."
+msgstr "Se nessun articolo è selezionato, vengono mostrati i due più recenti."
+
+#: includes/fields.php:277
+msgid "Tracking on this page"
+msgstr "Tracciamento su questa pagina"
+
+#: includes/fields.php:282
+msgid "Turn off tracking codes on this page"
+msgstr "Disattiva i codici di tracciamento su questa pagina"
+
+#: includes/fields.php:287
+msgid "Extra code for this page"
+msgstr "Codice aggiuntivo per questa pagina"
+
+#: includes/fields.php:291
+msgid "Printed in <head>, e.g. a conversion pixel for a campaign page."
+msgstr ""
+"Inserito in <head>, es. un pixel di conversione per una pagina di campagna."
+
+#: includes/fields.php:296
+msgid "Message details"
+msgstr "Dettagli del messaggio"
+
+#: includes/fields.php:305
+msgid "New"
+msgstr "Nuovo"
+
+#: includes/fields.php:306
+msgid "Replied"
+msgstr "Risposto"
+
+#: includes/fields.php:307
+msgid "Archived"
+msgstr "Archiviato"
+
+#: includes/fields.php:311
+msgid "Name"
+msgstr "Nome"
+
+#: includes/fields.php:323
+msgid "Source page"
+msgstr "Pagina di provenienza"
+
+#: includes/fields.php:327
+msgid "UTM source"
+msgstr "UTM source"
+
+#: includes/fields.php:331
+msgid "UTM campaign"
+msgstr "UTM campaign"
+
+#: includes/messages.php:23
+msgid "Messages"
+msgstr "Messaggi"
+
+#: includes/messages.php:24 includes/messages.php:25
+msgid "Message"
+msgstr "Messaggio"
+
+#: includes/messages.php:26
+msgid "All Messages"
+msgstr "Tutti i messaggi"
+
+#: includes/messages.php:27
+msgid "No messages yet."
+msgstr "Ancora nessun messaggio."
+
+#: includes/messages.php:87
+msgid "Your session expired. Please reload the page and try again."
+msgstr "La sessione è scaduta. Ricarica la pagina e riprova."
+
+#: includes/messages.php:96
+msgid "Please fill in all fields."
+msgstr "Compila tutti i campi."
+
+#: includes/messages.php:100
+msgid "Invalid email format."
+msgstr "Formato email non valido."
+
+#: includes/messages.php:127
+msgid "Failed to save your message. Please try again later."
+msgstr "Impossibile salvare il messaggio. Riprova più tardi."
+
+#: includes/messages.php:156
+msgid "Your message has been sent successfully. I will get back to you soon!"
+msgstr "Messaggio inviato con successo. Ti risponderò presto!"
+
+#: includes/meta-boxes.php:109
+msgid "— None —"
+msgstr "— Nessuno —"
+
+#: includes/meta-boxes.php:124
+msgid "Choose image"
+msgstr "Scegli immagine"
+
+#: includes/meta-boxes.php:125
+msgid "Remove"
+msgstr "Rimuovi"
+
+#: includes/meta-boxes.php:143
+msgid "Choose images"
+msgstr "Scegli immagini"
+
+#: includes/meta-boxes.php:144
+msgid "Clear"
+msgstr "Svuota"
+
+#: includes/post-types.php:23
+msgid "Projects"
+msgstr "Progetti"
+
+#: includes/post-types.php:24
+msgid "Project"
+msgstr "Progetto"
+
+#: includes/post-types.php:25
+msgid "Add New Project"
+msgstr "Aggiungi nuovo progetto"
+
+#: includes/post-types.php:26
+msgid "Edit Project"
+msgstr "Modifica progetto"
+
+#: includes/post-types.php:27
+msgid "New Project"
+msgstr "Nuovo progetto"
+
+#: includes/post-types.php:28
+msgid "View Project"
+msgstr "Visualizza progetto"
+
+#: includes/post-types.php:29
+msgid "Search Projects"
+msgstr "Cerca progetti"
+
+#: includes/post-types.php:30
+msgid "No projects found."
+msgstr "Nessun progetto trovato."
+
+#: includes/post-types.php:31
+msgid "All Projects"
+msgstr "Tutti i progetti"
+
+#: includes/post-types.php:32
+msgid "Card image (1200×900)"
+msgstr "Immagine della scheda (1200×900)"
+
+#: includes/post-types.php:33
+msgid "Set card image"
+msgstr "Imposta immagine della scheda"
+
+#: includes/post-types.php:74
+msgid "Expertise"
+msgstr "Competenze"
+
+#: includes/post-types.php:75
+msgid "Expertise card"
+msgstr "Scheda competenza"
+
+#: includes/post-types.php:76
+msgid "Add New Expertise Card"
+msgstr "Aggiungi nuova scheda competenza"
+
+#: includes/post-types.php:77
+msgid "Edit Expertise Card"
+msgstr "Modifica scheda competenza"
+
+#: includes/post-types.php:78
+msgid "All Expertise Cards"
+msgstr "Tutte le schede competenza"
+
+#: includes/post-types.php:79
+msgid "No expertise cards found."
+msgstr "Nessuna scheda competenza trovata."
+
+#: includes/post-types.php:96
+msgid "Brands"
+msgstr "Brand"
+
+#: includes/post-types.php:98
+msgid "Add New Brand"
+msgstr "Aggiungi nuovo brand"
+
+#: includes/post-types.php:99
+msgid "Edit Brand"
+msgstr "Modifica brand"
+
+#: includes/post-types.php:100
+msgid "All Brands"
+msgstr "Tutti i brand"
+
+#: includes/post-types.php:101
+msgid "No brands found."
+msgstr "Nessun brand trovato."
+
+#: includes/post-types.php:125
+msgid "Industries"
+msgstr "Settori"
+
+#: includes/post-types.php:126
+msgid "Industry"
+msgstr "Settore"
+
+#: includes/post-types.php:127
+msgid "Add New Industry"
+msgstr "Aggiungi nuovo settore"
+
+#: includes/post-types.php:49 includes/post-types.php:144
+msgid "Services"
+msgstr "Servizi"
+
+#: includes/post-types.php:145
+msgid "Service"
+msgstr "Servizio"
+
+#: includes/post-types.php:146
+msgid "Add New Service"
+msgstr "Aggiungi nuovo servizio"
+
+#: includes/seed.php:315
+msgid ""
+"Serhan Demirel Core: the brand logos from the theme have not been imported "
+"yet."
+msgstr ""
+"Serhan Demirel Core: i loghi dei brand del tema non sono ancora stati "
+"importati."
+
+#: includes/seed.php:317
+msgid "Import logos"
+msgstr "Importa loghi"
+
+#: includes/profile.php:279 includes/seed.php:327 includes/setup.php:244
+msgid "Sorry, you are not allowed to do that."
+msgstr "Non hai i permessi per eseguire questa azione."
+
+#. Description of the plugin
+#: serhandemirel-core.php
+msgid ""
+"Content types, custom fields, the contact form, profile and structured data "
+"for serhandemirel.com. Keeps projects, services, expertise cards, brand "
+"logos and messages safe when the theme changes."
+msgstr ""
+"Tipi di contenuto, campi personalizzati, modulo di contatto, profilo e dati "
+"strutturati per serhandemirel.com. Mantiene al sicuro progetti, servizi, "
+"schede di competenza, loghi dei marchi e messaggi quando si cambia tema."
+
+#: includes/fields.php:97
+msgid "Service details"
+msgstr "Dettagli del servizio"
+
+#: includes/fields.php:102
+msgid "Definition (40–60 words)"
+msgstr "Definizione (40–60 parole)"
+
+#: includes/fields.php:104
+msgid ""
+"Answers \"What is this service?\" in plain words. Shown first on the page "
+"and used in search results and AI answers."
+msgstr ""
+"Risponde a \"Che cos'è questo servizio?\" con parole semplici. Viene "
+"mostrata per prima nella pagina e usata nei risultati di ricerca e nelle "
+"risposte dell'IA."
+
+#: includes/fields.php:107
+msgid "Who it is for"
+msgstr "A chi si rivolge"
+
+#: includes/fields.php:111
+msgid "Deliverables"
+msgstr "Risultati consegnati"
+
+#: includes/fields.php:114 includes/profile.php:102
+msgid "One per line."
+msgstr "Uno per riga."
+
+#: includes/fields.php:117
+msgid "Process"
+msgstr "Processo"
+
+#: includes/fields.php:120
+msgid "One step per line, as \"Step name: what happens\"."
+msgstr "Una fase per riga, nel formato \"Nome della fase: cosa succede\"."
+
+#: includes/fields.php:123
+msgid "Typical duration"
+msgstr "Durata tipica"
+
+#: includes/fields.php:125
+msgid "e.g. \"4–8 weeks\"."
+msgstr "es. \"4–8 settimane\"."
+
+#: includes/fields.php:128
+msgid "Engagement model"
+msgstr "Modalità di collaborazione"
+
+#: includes/fields.php:133
+msgid "Fixed-scope project"
+msgstr "Progetto a perimetro definito"
+
+#: includes/fields.php:134
+msgid "Monthly retainer"
+msgstr "Retainer mensile"
+
+#: includes/fields.php:135
+msgid "Workshop or training"
+msgstr "Workshop o formazione"
+
+#: includes/fields.php:136
+msgid "Hourly consulting"
+msgstr "Consulenza a ore"
+
+#: includes/fields.php:140
+msgid "Price from"
+msgstr "Prezzo a partire da"
+
+#: includes/fields.php:143
+msgid "Leave empty to show no price."
+msgstr "Lasciare vuoto per non mostrare alcun prezzo."
+
+#: includes/fields.php:146
+msgid "Currency"
+msgstr "Valuta"
+
+#: includes/fields.php:158
+msgid "Area served"
+msgstr "Area servita"
+
+#: includes/fields.php:162
+msgid "Countries, or \"Worldwide\" for remote work."
+msgstr "Paesi, oppure \"In tutto il mondo\" per il lavoro da remoto."
+
+#: includes/fields.php:165
+msgid "Frequently asked questions"
+msgstr "Domande frequenti"
+
+#: includes/fields.php:168
+msgid ""
+"A question on one line, its answer on the next lines; an empty line between "
+"questions."
+msgstr ""
+"Una domanda su una riga, la risposta nelle righe successive; una riga vuota "
+"tra una domanda e l'altra."
+
+#: includes/fields.php:171
+msgid "Last reviewed"
+msgstr "Ultima revisione"
+
+#: includes/fields.php:174
+msgid "Shown as \"Last updated\" on the page. Empty uses the last edit date."
+msgstr ""
+"Mostrato come \"Ultimo aggiornamento\" nella pagina. Se vuoto, viene usata "
+"la data dell'ultima modifica."
+
+#: includes/fields.php:206 includes/post-types.php:50
+msgid "Service page"
+msgstr "Pagina del servizio"
+
+#: includes/fields.php:210
+msgid ""
+"The card links to this page. In other languages it links to the page's "
+"translation."
+msgstr ""
+"La scheda rimanda a questa pagina. Nelle altre lingue rimanda alla "
+"traduzione della pagina."
+
+#: includes/llms.php:97
+msgid "Contact form"
+msgstr "Modulo di contatto"
+
+#: includes/post-types.php:51
+msgid "Add New Service Page"
+msgstr "Aggiungi nuova pagina servizio"
+
+#: includes/post-types.php:52
+msgid "Edit Service Page"
+msgstr "Modifica pagina servizio"
+
+#: includes/post-types.php:53
+msgid "New Service Page"
+msgstr "Nuova pagina servizio"
+
+#: includes/post-types.php:54
+msgid "View Service Page"
+msgstr "Visualizza pagina servizio"
+
+#: includes/post-types.php:55
+msgid "Search Service Pages"
+msgstr "Cerca pagine servizio"
+
+#: includes/post-types.php:56
+msgid "No service pages found."
+msgstr "Nessuna pagina servizio trovata."
+
+#: includes/post-types.php:57
+msgid "All Service Pages"
+msgstr "Tutte le pagine servizio"
+
+#: includes/post-types.php:59
+msgid ""
+"One page per service: what it is, who it is for, deliverables, process and "
+"FAQ."
+msgstr ""
+"Una pagina per servizio: che cos'è, a chi si rivolge, risultati, processo e "
+"FAQ."
+
+#: includes/profile.php:27
+msgid "Full name"
+msgstr "Nome completo"
+
+#: includes/profile.php:32
+msgid "Other spellings of the name"
+msgstr "Altre grafie del nome"
+
+#: includes/profile.php:34
+msgid ""
+"One per line, e.g. without Turkish characters. Helps search engines and AI "
+"tools match mentions to you."
+msgstr ""
+"Una per riga, ad es. senza caratteri turchi. Aiuta i motori di ricerca e gli"
+" strumenti di IA ad associare le menzioni a Lei."
+
+#: includes/profile.php:37
+msgid "Job title"
+msgstr "Qualifica professionale"
+
+#: includes/profile.php:40
+msgid "Digital Solutions Provider"
+msgstr "Consulente di soluzioni digitali"
+
+#: includes/profile.php:43
+msgid "Short bio (about 50 words)"
+msgstr "Breve biografia (circa 50 parole)"
+
+#: includes/profile.php:46
+msgid ""
+"Serhan Demirel is an Istanbul-based digital solutions provider. He helps "
+"companies grow through data-driven digital marketing, builds web products "
+"and landing pages, automates work with AI, improves search and AI "
+"visibility, and trains teams for digital transformation."
+msgstr ""
+"Serhan Demirel è un consulente di soluzioni digitali con sede a Istanbul. "
+"Aiuta le aziende a crescere con un marketing digitale basato sui dati, "
+"sviluppa prodotti web e landing page, automatizza il lavoro con l'IA, "
+"migliora la visibilità nei motori di ricerca e nelle risposte dell'IA e "
+"forma i team per la trasformazione digitale."
+
+#: includes/profile.php:47
+msgid ""
+"Written in the third person. Used as the description in structured data and "
+"llms.txt."
+msgstr ""
+"Scritta in terza persona. Usata come descrizione nei dati strutturati e in "
+"llms.txt."
+
+#: includes/profile.php:50
+msgid "Long bio"
+msgstr "Biografia estesa"
+
+#: includes/profile.php:54
+msgid "Shown on the profile page. Paragraphs are separated by an empty line."
+msgstr ""
+"Mostrata nella pagina del profilo. I paragrafi sono separati da una riga "
+"vuota."
+
+#: includes/profile.php:57
+msgid "Photo"
+msgstr "Foto"
+
+#: includes/profile.php:59
+msgid "A square portrait, at least 400×400."
+msgstr "Un ritratto quadrato, almeno 400×400."
+
+#: includes/profile.php:62
+msgid "City"
+msgstr "Città"
+
+#: includes/profile.php:67
+msgid "Country code"
+msgstr "Codice paese"
+
+#: includes/profile.php:70
+msgid "Two letters, e.g. TR or NL."
+msgstr "Due lettere, ad es. TR o NL."
+
+#: includes/profile.php:73
+msgid "Languages spoken"
+msgstr "Lingue parlate"
+
+#: includes/profile.php:75
+msgid "One per line, in English, e.g. Turkish."
+msgstr "Una per riga, in inglese, ad es. Turkish."
+
+#: includes/profile.php:78
+msgid "Areas of expertise"
+msgstr "Aree di competenza"
+
+#: includes/profile.php:81
+msgid ""
+"Digital marketing\n"
+"Growth strategy\n"
+"Lead generation\n"
+"Sales optimization\n"
+"Web application development\n"
+"Landing page optimization\n"
+"AI automation\n"
+"Search engine optimization\n"
+"Generative engine optimization\n"
+"Competitor analysis\n"
+"Digital transformation\n"
+"Corporate training"
+msgstr ""
+"Marketing digitale\n"
+"Strategia di crescita\n"
+"Lead generation\n"
+"Ottimizzazione delle vendite\n"
+"Sviluppo di applicazioni web\n"
+"Ottimizzazione delle landing page\n"
+"Automazione con l'IA\n"
+"Ottimizzazione per i motori di ricerca\n"
+"Generative engine optimization\n"
+"Analisi della concorrenza\n"
+"Trasformazione digitale\n"
+"Formazione aziendale"
+
+#: includes/profile.php:82
+msgid "One topic per line."
+msgstr "Un argomento per riga."
+
+#: includes/profile.php:85
+msgid "Profile links"
+msgstr "Link ai profili"
+
+#: includes/profile.php:88
+msgid ""
+"One URL per line: LinkedIn, X, GitHub, Medium, Wikidata and other profiles "
+"about you."
+msgstr ""
+"Un URL per riga: LinkedIn, X, GitHub, Medium, Wikidata e altri profili che "
+"La riguardano."
+
+#: includes/profile.php:91
+msgid "Company"
+msgstr "Azienda"
+
+#: includes/profile.php:93
+msgid "Your own company or employer, if any."
+msgstr "La Sua azienda o il Suo datore di lavoro, se presente."
+
+#: includes/profile.php:96
+msgid "Company website"
+msgstr "Sito web dell'azienda"
+
+#: includes/profile.php:100
+msgid "Schools"
+msgstr "Scuole"
+
+#: includes/profile.php:105
+msgid "Certificates"
+msgstr "Certificazioni"
+
+#: includes/profile.php:107
+msgid "One per line, e.g. \"Google Ads Search Certification\"."
+msgstr "Una per riga, ad es. \"Google Ads Search Certification\"."
+
+#: includes/profile.php:212 includes/profile.php:231
+msgid "Profile"
+msgstr "Profilo"
+
+#: includes/profile.php:232
+msgid ""
+"Who you are, in one place. Search engines and AI assistants read this from "
+"the structured data on every page and from /llms.txt."
+msgstr ""
+"Chi è, in un unico posto. Motori di ricerca e assistenti IA leggono queste "
+"informazioni dai dati strutturati di ogni pagina e da /llms.txt."
+
+#: includes/profile.php:235
+msgid "Profile saved."
+msgstr "Profilo salvato."
+
+#: includes/profile.php:240
+msgid "Editing texts in:"
+msgstr "Modifica dei testi in:"
+
+#: includes/profile.php:245
+msgid ""
+"Fields marked with a globe are saved for this language only; empty ones use "
+"the default language. Other fields are shared by all languages."
+msgstr ""
+"I campi contrassegnati da un globo vengono salvati solo per questa lingua; "
+"quelli vuoti usano la lingua predefinita. Gli altri campi sono condivisi da "
+"tutte le lingue."
+
+#: includes/setup.php:46
+msgid "Polylang is not active. Install and activate it first."
+msgstr "Polylang non è attivo. Installarlo e attivarlo prima di procedere."
+
+#. translators: 1: locale, 2: error message
+#: includes/setup.php:68
+#, php-format
+msgid "Could not add %1$s: %2$s"
+msgstr "Impossibile aggiungere %1$s: %2$s"
+
+#. translators: %s: locale, e.g. fr_FR
+#: includes/setup.php:72
+#, php-format
+msgid "Added %s."
+msgstr "%s aggiunto."
+
+#: includes/setup.php:96
+msgid ""
+"Polylang set up: English at the site root, other languages in folders, "
+"browser detection left to the theme."
+msgstr ""
+"Polylang configurato: inglese nella radice del sito, altre lingue in "
+"cartelle, rilevamento del browser lasciato al tema."
+
+#: includes/setup.php:100
+msgid "Content without a language was set to English."
+msgstr "I contenuti senza lingua sono stati impostati in inglese."
+
+#: includes/setup.php:105
+msgid "Permalinks set to \"Post name\"."
+msgstr "Permalink impostati su \"Nome articolo\"."
+
+#: includes/setup.php:149
+msgid "Polylang is active"
+msgstr "Polylang è attivo"
+
+#: includes/setup.php:151
+msgid "Plugins → Add New → search \"Polylang\" → Install → Activate."
+msgstr ""
+"Plugin → Aggiungi nuovo plugin → cerca \"Polylang\" → Installa ora → Attiva."
+
+#: includes/setup.php:154
+msgid "All six languages exist"
+msgstr "Tutte e sei le lingue sono presenti"
+
+#: includes/setup.php:156 includes/setup.php:161
+msgid "Press \"Set up languages\" below."
+msgstr "Premere \"Configura lingue\" qui sotto."
+
+#: includes/setup.php:159
+msgid "Polylang's own browser detection is off"
+msgstr "Il rilevamento del browser di Polylang è disattivato"
+
+#: includes/setup.php:164
+msgid "Pretty permalinks"
+msgstr "Permalink leggibili"
+
+#: includes/setup.php:166
+msgid "Settings → Permalinks → Post name."
+msgstr "Impostazioni → Permalink → Nome articolo."
+
+#: includes/setup.php:169
+msgid "Theme translations are installed"
+msgstr "Le traduzioni del tema sono installate"
+
+#: includes/setup.php:171
+msgid ""
+"Use the Serhan Demirel theme from the repository, including its languages "
+"folder."
+msgstr ""
+"Usare il tema Serhan Demirel dal repository, inclusa la cartella languages."
+
+#: includes/setup.php:174
+msgid "Profile is filled in"
+msgstr "Il profilo è compilato"
+
+#: includes/setup.php:176
+msgid "Profile → add your photo, bio and profile links."
+msgstr "Profilo → aggiungere foto, biografia e link ai profili."
+
+#: includes/setup.php:179
+msgid "Service pages are published"
+msgstr "Le pagine servizio sono pubblicate"
+
+#: includes/setup.php:181
+msgid "Services → review the drafts and publish them."
+msgstr "Servizi → rivedere le bozze e pubblicarle."
+
+#: includes/setup.php:184
+msgid "Search engines may index the site"
+msgstr "I motori di ricerca possono indicizzare il sito"
+
+#: includes/setup.php:186
+msgid "Settings → Reading → untick \"Discourage search engines\"."
+msgstr ""
+"Impostazioni → Lettura → deselezionare \"Scoraggia i motori di ricerca "
+"dall'effettuare l'indicizzazione di questo sito\"."
+
+#: includes/setup.php:189
+msgid "Mail can be sent (for the contact form)"
+msgstr "È possibile inviare email (per il modulo di contatto)"
+
+#: includes/setup.php:191
+msgid ""
+"Install an SMTP plugin (e.g. WP Mail SMTP or FluentSMTP) and send a test "
+"email."
+msgstr ""
+"Installare un plugin SMTP (ad es. WP Mail SMTP o FluentSMTP) e inviare "
+"un'email di prova."
+
+#: includes/setup.php:200 includes/setup.php:215
+msgid "Site setup"
+msgstr "Configurazione del sito"
+
+#: includes/setup.php:232
+msgid "Set up languages"
+msgstr "Configura lingue"
+
+#: includes/setup.php:233
+msgid ""
+"Adds English (default, at the site root), Turkish, French, Dutch, German and"
+" Italian to Polylang, downloads their WordPress translations and sets the "
+"recommended options. Safe to run again."
+msgstr ""
+"Aggiunge a Polylang inglese (predefinito, nella radice del sito), turco, "
+"francese, olandese, tedesco e italiano, scarica le relative traduzioni di "
+"WordPress e imposta le opzioni consigliate. Può essere eseguito di nuovo in "
+"sicurezza."
+
+#: includes/setup.php:263
+msgid "Done."
+msgstr "Fatto."
+
+#: includes/setup.php:44
+msgid ""
+"Polylang is not ready on this request; the languages will be set up on the "
+"next admin page."
+msgstr ""
+"Polylang non è ancora pronto in questa richiesta; le lingue verranno "
+"configurate alla prossima pagina di amministrazione."

@@ -56,6 +56,12 @@
                         <?php endforeach; ?>
                     </div>
                     <?php endif; ?>
+                    <?php if ( ! empty( $card['url'] ) ) : ?>
+                    <a href="<?php echo esc_url( $card['url'] ); ?>" class="group/link inline-flex items-center gap-2 mt-6 text-sm font-semibold text-white hover:text-gray-300 transition-colors">
+                        <?php esc_html_e( 'Learn more', 'serhandemirel' ); ?><span class="sr-only">: <?php echo esc_html( $card['title'] ); ?></span>
+                        <span aria-hidden="true" class="inline-block transition-transform group-hover/link:translate-x-1">→</span>
+                    </a>
+                    <?php endif; ?>
                 </div>
                 <?php endforeach; ?>
 

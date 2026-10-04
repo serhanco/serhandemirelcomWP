@@ -28,7 +28,7 @@ function sdc_meta_key( $field ) {
  *
  * Group keys: title, post_types, context (meta box position), fields.
  * Field keys: label, type, shared, help, options (select), post_type (post),
- * default, cap (capability needed to edit).
+ * default, cap (capability needed to edit), rows (textarea height).
  *
  * @return array<string, array>
  */
@@ -93,6 +93,88 @@ function sdc_field_groups() {
 				),
 			),
 		),
+		'service'   => array(
+			'title'      => __( 'Service details', 'serhandemirel-core' ),
+			'post_types' => array( 'sd_service_page' ),
+			'context'    => 'normal',
+			'fields'     => array(
+				'definition'       => array(
+					'label' => __( 'Definition (40–60 words)', 'serhandemirel-core' ),
+					'type'  => 'textarea',
+					'help'  => __( 'Answers "What is this service?" in plain words. Shown first on the page and used in search results and AI answers.', 'serhandemirel-core' ),
+				),
+				'who_for'          => array(
+					'label' => __( 'Who it is for', 'serhandemirel-core' ),
+					'type'  => 'textarea',
+				),
+				'deliverables'     => array(
+					'label' => __( 'Deliverables', 'serhandemirel-core' ),
+					'type'  => 'textarea',
+					'rows'  => 6,
+					'help'  => __( 'One per line.', 'serhandemirel-core' ),
+				),
+				'process'          => array(
+					'label' => __( 'Process', 'serhandemirel-core' ),
+					'type'  => 'textarea',
+					'rows'  => 6,
+					'help'  => __( 'One step per line, as "Step name: what happens".', 'serhandemirel-core' ),
+				),
+				'duration'         => array(
+					'label' => __( 'Typical duration', 'serhandemirel-core' ),
+					'type'  => 'text',
+					'help'  => __( 'e.g. "4–8 weeks".', 'serhandemirel-core' ),
+				),
+				'engagement_model' => array(
+					'label'   => __( 'Engagement model', 'serhandemirel-core' ),
+					'type'    => 'select',
+					'shared'  => true,
+					'default' => 'project',
+					'options' => array(
+						'project'  => __( 'Fixed-scope project', 'serhandemirel-core' ),
+						'retainer' => __( 'Monthly retainer', 'serhandemirel-core' ),
+						'workshop' => __( 'Workshop or training', 'serhandemirel-core' ),
+						'hourly'   => __( 'Hourly consulting', 'serhandemirel-core' ),
+					),
+				),
+				'price_from'       => array(
+					'label'  => __( 'Price from', 'serhandemirel-core' ),
+					'type'   => 'number',
+					'shared' => true,
+					'help'   => __( 'Leave empty to show no price.', 'serhandemirel-core' ),
+				),
+				'currency'         => array(
+					'label'   => __( 'Currency', 'serhandemirel-core' ),
+					'type'    => 'select',
+					'shared'  => true,
+					'default' => 'EUR',
+					'options' => array(
+						'EUR' => 'EUR',
+						'USD' => 'USD',
+						'GBP' => 'GBP',
+						'TRY' => 'TRY',
+					),
+				),
+				'area_served'      => array(
+					'label'   => __( 'Area served', 'serhandemirel-core' ),
+					'type'    => 'text',
+					'shared'  => true,
+					'default' => 'Worldwide',
+					'help'    => __( 'Countries, or "Worldwide" for remote work.', 'serhandemirel-core' ),
+				),
+				'faq'              => array(
+					'label' => __( 'Frequently asked questions', 'serhandemirel-core' ),
+					'type'  => 'textarea',
+					'rows'  => 10,
+					'help'  => __( 'A question on one line, its answer on the next lines; an empty line between questions.', 'serhandemirel-core' ),
+				),
+				'reviewed_date'    => array(
+					'label'  => __( 'Last reviewed', 'serhandemirel-core' ),
+					'type'   => 'date',
+					'shared' => true,
+					'help'   => __( 'Shown as "Last updated" on the page. Empty uses the last edit date.', 'serhandemirel-core' ),
+				),
+			),
+		),
 		'expertise' => array(
 			'title'      => __( 'Card content', 'serhandemirel-core' ),
 			'post_types' => array( 'sd_expertise' ),
@@ -119,6 +201,13 @@ function sdc_field_groups() {
 						'pink'    => __( 'Pink', 'serhandemirel-core' ),
 						'amber'   => __( 'Amber', 'serhandemirel-core' ),
 					),
+				),
+				'service_page' => array(
+					'label'     => __( 'Service page', 'serhandemirel-core' ),
+					'type'      => 'post',
+					'post_type' => 'sd_service_page',
+					'shared'    => true,
+					'help'      => __( 'The card links to this page. In other languages it links to the page\'s translation.', 'serhandemirel-core' ),
 				),
 				'icon'        => array(
 					'label'   => __( 'Icon', 'serhandemirel-core' ),
@@ -186,7 +275,7 @@ function sdc_field_groups() {
 		),
 		'tracking'  => array(
 			'title'      => __( 'Tracking on this page', 'serhandemirel-core' ),
-			'post_types' => array( 'page', 'post', 'sd_project' ),
+			'post_types' => array( 'page', 'post', 'sd_project', 'sd_service_page' ),
 			'context'    => 'side',
 			'fields'     => array(
 				'disable_tracking' => array(
@@ -325,6 +414,9 @@ function sdc_sanitize_field( $value, $field ) {
 		case 'select':
 			$value = (string) $value;
 			return isset( $field['options'][ $value ] ) ? $value : ( $field['default'] ?? '' );
+		case 'date':
+			$value = trim( (string) $value );
+			return preg_match( '/^\d{4}-\d{2}-\d{2}$/', $value ) ? $value : '';
 		case 'gallery':
 			$ids = array_filter( array_map( 'absint', explode( ',', (string) $value ) ) );
 			return implode( ',', $ids );

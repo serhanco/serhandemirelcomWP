@@ -129,7 +129,32 @@ function sdc_seed_content() {
 		sdc_seed_brands();
 		sdc_mark_seeded( 'brands' );
 	}
+	if ( empty( $done['services'] ) ) {
+		sdc_seed_services();
+		sdc_mark_seeded( 'services' );
+	}
+
+	if ( empty( $done['about'] ) ) {
+		sdc_seed_about_page();
+		sdc_mark_seeded( 'about' );
+	}
 }
+
+/**
+ * Run import parts added in a plugin update (e.g. the service pages) on
+ * sites that activated an older version.
+ */
+function sdc_seed_on_update() {
+	if ( get_option( 'sdc_seed_version' ) === SDC_VERSION || ! current_user_can( 'manage_options' ) ) {
+		return;
+	}
+	update_option( 'sdc_seed_version', SDC_VERSION, false );
+	if ( sdc_seeded() ) {
+		sdc_seed_content();
+		update_option( 'sdc_flush_rewrite', 1 );
+	}
+}
+add_action( 'admin_init', 'sdc_seed_on_update' );
 
 /**
  * Create the expertise cards, unless some already exist.

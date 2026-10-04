@@ -2,8 +2,8 @@
 /**
  * Post types and taxonomies.
  *
- * Projects and expertise cards are translated per language; brands and
- * messages are shared by every language (see multilingual.php).
+ * Projects, service pages and expertise cards are translated per language;
+ * brands and messages are shared by every language (see multilingual.php).
  *
  * @package serhandemirel-core
  */
@@ -39,6 +39,31 @@ function sdc_register_post_types() {
 			'has_archive'   => 'work',
 			'rewrite'       => array( 'slug' => 'work', 'with_front' => false ),
 			'supports'      => array( 'title', 'editor', 'thumbnail', 'page-attributes', 'custom-fields', 'revisions' ),
+		)
+	);
+
+	register_post_type(
+		'sd_service_page',
+		array(
+			'labels'        => array(
+				'name'          => __( 'Services', 'serhandemirel-core' ),
+				'singular_name' => __( 'Service page', 'serhandemirel-core' ),
+				'add_new_item'  => __( 'Add New Service Page', 'serhandemirel-core' ),
+				'edit_item'     => __( 'Edit Service Page', 'serhandemirel-core' ),
+				'new_item'      => __( 'New Service Page', 'serhandemirel-core' ),
+				'view_item'     => __( 'View Service Page', 'serhandemirel-core' ),
+				'search_items'  => __( 'Search Service Pages', 'serhandemirel-core' ),
+				'not_found'     => __( 'No service pages found.', 'serhandemirel-core' ),
+				'all_items'     => __( 'All Service Pages', 'serhandemirel-core' ),
+			),
+			'description'   => __( 'One page per service: what it is, who it is for, deliverables, process and FAQ.', 'serhandemirel-core' ),
+			'public'        => true,
+			'show_in_rest'  => true,
+			'menu_icon'     => 'dashicons-clipboard',
+			'menu_position' => 5,
+			'has_archive'   => 'services',
+			'rewrite'       => array( 'slug' => 'services', 'with_front' => false ),
+			'supports'      => array( 'title', 'editor', 'excerpt', 'thumbnail', 'page-attributes', 'custom-fields', 'revisions' ),
 		)
 	);
 
@@ -109,9 +134,11 @@ function sdc_register_taxonomies() {
 		)
 	);
 
+	// Services tag projects (the portfolio filter) and link each service page
+	// to its projects: a service page and the projects sharing its term.
 	register_taxonomy(
 		'sd_service',
-		'sd_project',
+		array( 'sd_project', 'sd_service_page' ),
 		array(
 			'labels'            => array(
 				'name'          => __( 'Services', 'serhandemirel-core' ),

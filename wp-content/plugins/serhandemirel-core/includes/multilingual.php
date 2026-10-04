@@ -3,7 +3,7 @@
  * Polylang integration. wpml-config.xml in the plugin root describes the
  * same rules for WPML (Polylang reads it too).
  *
- * Projects, expertise cards, posts and the project taxonomies get one copy
+ * Projects, service pages, expertise cards, posts and the project taxonomies get one copy
  * per language. Brands and messages are shared by every language. Fields
  * marked "shared" in fields.php stay in sync between translations; the
  * others are copied once into a new translation and then edited per language.
@@ -25,11 +25,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 function sdc_pll_post_types( $post_types, $is_settings ) {
 	if ( $is_settings ) {
 		// Hide our types from the settings list so they cannot be toggled by mistake.
-		unset( $post_types['sd_project'], $post_types['sd_expertise'], $post_types['sd_brand'], $post_types['sd_message'] );
+		unset( $post_types['sd_project'], $post_types['sd_service_page'], $post_types['sd_expertise'], $post_types['sd_brand'], $post_types['sd_message'] );
 		return $post_types;
 	}
-	$post_types['sd_project']   = 'sd_project';
-	$post_types['sd_expertise'] = 'sd_expertise';
+	$post_types['sd_project']      = 'sd_project';
+	$post_types['sd_service_page'] = 'sd_service_page';
+	$post_types['sd_expertise']    = 'sd_expertise';
 	unset( $post_types['sd_brand'], $post_types['sd_message'] );
 	return $post_types;
 }

@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-10-04T11:03:24+00:00\n"
+"POT-Creation-Date: 2026-10-04T13:58:26+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: serhandemirel\n"
@@ -30,6 +30,16 @@ msgstr ""
 #. Description of the theme
 #: style.css
 msgid "One-page personal theme for serhandemirel.com. Tailwind (compiled), GSAP + ScrollTrigger and Lenis smooth scrolling."
+msgstr ""
+
+#: archive-sd_service_page.php:24
+#: single-sd_service_page.php:32
+msgid "Services"
+msgstr ""
+
+#: archive-sd_service_page.php:32
+#: template-parts/expertise.php:61
+msgid "Learn more"
 msgstr ""
 
 #: functions.php:29
@@ -60,8 +70,96 @@ msgstr ""
 msgid "No posts yet."
 msgstr ""
 
+#: inc/content.php:61
+msgid "Marketing & Growth"
+msgstr ""
+
+#: inc/content.php:61
+msgid "Driving measurable growth and expanding reach through data-driven digital marketing strategies."
+msgstr ""
+
+#: inc/content.php:61
+msgid "Sales Optimization"
+msgstr ""
+
+#: inc/content.php:61
+msgid "Lead Gen"
+msgstr ""
+
+#: inc/content.php:61
+msgid "Digital Marketing"
+msgstr ""
+
+#: inc/content.php:62
+msgid "Digital Products"
+msgstr ""
+
+#: inc/content.php:62
+msgid "Architecting and building modern web applications, platforms, and high-converting landing pages."
+msgstr ""
+
+#: inc/content.php:62
+msgid "Web Apps"
+msgstr ""
+
+#: inc/content.php:62
+msgid "Digital Product"
+msgstr ""
+
+#: inc/content.php:62
+msgid "Landing Pages"
+msgstr ""
+
+#: inc/content.php:63
+msgid "AI & Automation"
+msgstr ""
+
+#: inc/content.php:63
+msgid "Streamlining workflows and accelerating business processes using intelligent AI solutions and smart automation."
+msgstr ""
+
+#: inc/content.php:63
+msgid "AI Solutions"
+msgstr ""
+
+#: inc/content.php:63
+msgid "Automation"
+msgstr ""
+
+#: inc/content.php:64
+msgid "Strategy & Visibility"
+msgstr ""
+
+#: inc/content.php:64
+msgid "Elevating brand presence through deep competitor analysis and aggressive search engine optimization."
+msgstr ""
+
+#: inc/content.php:64
+msgid "SEO"
+msgstr ""
+
+#: inc/content.php:64
+msgid "Competitor Analysis"
+msgstr ""
+
+#: inc/content.php:65
+msgid "Transformation & Ed"
+msgstr ""
+
+#: inc/content.php:65
+msgid "Guiding companies through digital transformation and providing corporate training for sustainable growth."
+msgstr ""
+
+#: inc/content.php:65
+msgid "Digital Transformation"
+msgstr ""
+
+#: inc/content.php:65
+msgid "Training & Ed"
+msgstr ""
+
 #. translators: %d: minutes
-#: inc/content.php:211
+#: inc/content.php:212
 #, php-format
 msgid "%d min read"
 msgid_plural "%d min read"
@@ -81,6 +179,7 @@ msgid "Work"
 msgstr ""
 
 #: inc/i18n.php:44
+#: inc/options.php:179
 msgid "Insights"
 msgstr ""
 
@@ -98,292 +197,418 @@ msgid "Editing texts in:"
 msgstr ""
 
 #: inc/options-page.php:101
-msgid "Fields marked with a globe are saved for this language only. Empty ones show the default-language text on the site (shown in grey). Other fields are shared by all languages."
+msgid "Fields marked with a globe are saved for this language only. Empty ones show the text in grey: the theme's own translation, or the default-language text if the theme has no translation for this language. Other fields are shared by all languages."
 msgstr ""
 
-#: inc/options-page.php:160
+#: inc/options-page.php:156
 msgid "Per language"
 msgstr ""
 
-#: inc/options-page.php:172
+#: inc/options-page.php:168
 msgid "On"
 msgstr ""
 
-#: inc/options-page.php:196
+#: inc/options-page.php:192
 msgid "Choose image"
 msgstr ""
 
-#: inc/options-page.php:197
+#: inc/options-page.php:193
 msgid "Remove"
 msgstr ""
 
-#: inc/options-page.php:224
+#: inc/options-page.php:220
 msgid "Sorry, you are not allowed to do that."
 msgstr ""
 
-#: inc/options-page.php:232
+#: inc/options-page.php:228
 msgid "Unknown settings tab or language."
 msgstr ""
 
-#: inc/options.php:36
+#: inc/options.php:38
 msgid "General"
 msgstr ""
 
-#: inc/options.php:39
+#: inc/options.php:41
 msgid "Default SEO title"
 msgstr ""
 
-#: inc/options.php:43
+#: inc/options.php:44
+msgid "Serhan Demirel | Digital Solutions Provider"
+msgstr ""
+
+#: inc/options.php:45
 msgid "Used for social sharing. The browser tab title comes from Settings → General."
 msgstr ""
 
-#: inc/options.php:46
+#: inc/options.php:48
 msgid "Default SEO description"
 msgstr ""
 
-#: inc/options.php:52
-msgid "Sharing image"
+#: inc/options.php:51
+msgid "Serhan Demirel - Digital Solutions Provider specializing in business transformation, scalable digital foundations, and AI & automation."
 msgstr ""
 
 #: inc/options.php:54
+msgid "Sharing image"
+msgstr ""
+
+#: inc/options.php:56
 msgid "Shown when the site is shared on LinkedIn, WhatsApp or X. 1200×630 works best. Empty uses the SD logo."
 msgstr ""
 
-#: inc/options.php:59
+#: inc/options.php:61
 msgid "Hero"
 msgstr ""
 
-#: inc/options.php:62
+#: inc/options.php:64
 msgid "Badge"
 msgstr ""
 
-#: inc/options.php:68
-#: inc/options.php:277
+#: inc/options.php:67
+msgid "Engineering the digital future"
+msgstr ""
+
+#: inc/options.php:70
+#: inc/options.php:286
 msgid "Title"
 msgstr ""
 
-#: inc/options.php:73
+#: inc/options.php:75
 msgid "Subtitle"
 msgstr ""
 
-#: inc/options.php:79
+#: inc/options.php:78
+msgid "Digital Solutions Provider"
+msgstr ""
+
+#: inc/options.php:81
 msgid "Scroll hint"
 msgstr ""
 
-#: inc/options.php:87
+#: inc/options.php:84
+msgid "Explore"
+msgstr ""
+
+#: inc/options.php:89
 msgid "Word slot"
 msgstr ""
 
-#: inc/options.php:90
+#: inc/options.php:92
 msgid "Prefix"
 msgstr ""
 
+#. translators: Start of the rotating sentence, followed by a verb such as "design".
 #: inc/options.php:96
+msgid "We can"
+msgstr ""
+
+#: inc/options.php:99
 msgid "Words"
 msgstr ""
 
-#: inc/options.php:100
+#. translators: Words shown one after another after the prefix, one per line. Keep one word per line; the number of lines may differ.
+#: inc/options.php:103
+msgid ""
+"design\n"
+"prototype\n"
+"solve\n"
+"build\n"
+"develop\n"
+"debug\n"
+"learn\n"
+"optimize\n"
+"ship\n"
+"prompt\n"
+"collaborate\n"
+"create\n"
+"transform\n"
+"automate\n"
+"innovate\n"
+"scale\n"
+"integrate\n"
+"deploy\n"
+"succeed"
+msgstr ""
+
+#: inc/options.php:104
 msgid "One word per line, shown in this order. A full stop is added after each word."
 msgstr ""
 
-#: inc/options.php:105
+#: inc/options.php:109
 msgid "Sections"
 msgstr ""
 
-#: inc/options.php:108
+#: inc/options.php:112
 msgid "Show the Core Expertise section"
 msgstr ""
 
-#: inc/options.php:113
+#: inc/options.php:117
 msgid "Core Expertise: small heading"
 msgstr ""
 
-#: inc/options.php:119
+#: inc/options.php:120
+msgid "Core Expertise"
+msgstr ""
+
+#: inc/options.php:123
 msgid "Core Expertise: heading"
 msgstr ""
 
-#: inc/options.php:125
+#: inc/options.php:126
+msgid "Building scalable digital foundations for tomorrow."
+msgstr ""
+
+#: inc/options.php:129
 msgid "Show the Brands section"
 msgstr ""
 
-#: inc/options.php:130
+#: inc/options.php:134
 msgid "Brands: small heading"
 msgstr ""
 
-#: inc/options.php:136
+#: inc/options.php:137
+msgid "Part of the journey"
+msgstr ""
+
+#: inc/options.php:140
 msgid "Brands: heading"
 msgstr ""
 
-#: inc/options.php:142
+#: inc/options.php:143
+msgid "Brands That Shaped My Story"
+msgstr ""
+
+#: inc/options.php:146
 msgid "Show the Work section"
 msgstr ""
 
-#: inc/options.php:145
+#: inc/options.php:149
 msgid "Appears once at least one project is published. Projects ticked \"Show on home page\" are listed; if none are ticked, all projects are."
 msgstr ""
 
-#: inc/options.php:148
+#: inc/options.php:152
 msgid "Work: small heading"
 msgstr ""
 
-#: inc/options.php:154
+#: inc/options.php:155
+msgid "Selected Work"
+msgstr ""
+
+#: inc/options.php:158
 msgid "Work: heading"
 msgstr ""
 
-#: inc/options.php:160
+#: inc/options.php:161
+msgid "Featured Projects"
+msgstr ""
+
+#: inc/options.php:164
 msgid "Work: \"All\" filter button"
 msgstr ""
 
-#: inc/options.php:166
+#: inc/options.php:167
+msgid "All"
+msgstr ""
+
+#: inc/options.php:170
 msgid "Show the Insights section"
 msgstr ""
 
-#: inc/options.php:169
+#: inc/options.php:173
 msgid "Appears once at least one post is published. Posts ticked \"Show on home page\" are listed; if none are ticked, the two newest are."
 msgstr ""
 
-#: inc/options.php:172
+#: inc/options.php:176
 msgid "Insights: small heading"
 msgstr ""
 
-#: inc/options.php:178
+#: inc/options.php:182
 msgid "Insights: heading"
 msgstr ""
 
-#: inc/options.php:186
-#: template-parts/nav.php:59
+#: inc/options.php:185
+msgid "Latest Thoughts"
+msgstr ""
+
+#: inc/options.php:190
+#: template-parts/nav.php:77
 msgid "Contact"
 msgstr ""
 
-#: inc/options.php:189
+#: inc/options.php:193
 msgid "WhatsApp number"
 msgstr ""
 
-#: inc/options.php:192
+#: inc/options.php:196
 msgid "International format, digits only, e.g. 905322702736."
 msgstr ""
 
-#: inc/options.php:195
+#: inc/options.php:199
 msgid "WhatsApp starter message"
 msgstr ""
 
-#: inc/options.php:201
-msgid "Email address"
+#. translators: Opening line of the WhatsApp message a visitor sends.
+#: inc/options.php:203
+msgid "Hello Serhan,"
 msgstr ""
 
 #: inc/options.php:206
+msgid "Email address"
+msgstr ""
+
+#: inc/options.php:211
 msgid "Email subject"
 msgstr ""
 
-#: inc/options.php:227
-msgid "Status badge"
+#. translators: Subject line of the email a visitor sends.
+#: inc/options.php:215
+msgid "Consulting"
 msgstr ""
 
 #: inc/options.php:233
-msgid "Closing heading, line 1"
+msgid "Status badge"
+msgstr ""
+
+#: inc/options.php:236
+msgid "Status: Ready to Innovate"
 msgstr ""
 
 #: inc/options.php:239
+msgid "Closing heading, line 1"
+msgstr ""
+
+#. translators: Closing heading, line 1, completed by line 2 ("the future.").
+#: inc/options.php:243
+msgid "Let's build"
+msgstr ""
+
+#: inc/options.php:246
 msgid "Closing heading, line 2 (gradient)"
 msgstr ""
 
-#: inc/options.php:245
+#. translators: Closing heading, line 2, completes line 1 ("Let's build").
+#: inc/options.php:250
+msgid "the future."
+msgstr ""
+
+#: inc/options.php:253
 msgid "Clock time zone"
 msgstr ""
 
-#: inc/options.php:248
+#: inc/options.php:256
 msgid "IANA name, e.g. Europe/Istanbul or Europe/Amsterdam."
 msgstr ""
 
-#: inc/options.php:251
+#: inc/options.php:259
 msgid "Time zone label"
 msgstr ""
 
-#: inc/options.php:256
+#: inc/options.php:264
 msgid "City label"
 msgstr ""
 
-#: inc/options.php:262
+#. translators: City and country code shown under the local time.
+#: inc/options.php:268
+msgid "Istanbul, TR"
+msgstr ""
+
+#: inc/options.php:271
 msgid "Show the floating WhatsApp / Start a Project bar"
 msgstr ""
 
-#: inc/options.php:269
+#: inc/options.php:278
 msgid "Form"
 msgstr ""
 
-#: inc/options.php:272
+#: inc/options.php:281
 msgid "Send form messages to"
 msgstr ""
 
-#: inc/options.php:274
+#: inc/options.php:283
 msgid "Empty uses the administration email address from Settings → General."
 msgstr ""
 
-#: inc/options.php:283
+#: inc/options.php:289
+msgid "Let's Create Something Great"
+msgstr ""
+
+#: inc/options.php:292
 msgid "Intro"
 msgstr ""
 
-#: inc/options.php:289
+#: inc/options.php:295
+msgid "Tell me about your project and I'll get back to you shortly."
+msgstr ""
+
+#: inc/options.php:298
 msgid "Button"
 msgstr ""
 
-#: inc/options.php:295
+#: inc/options.php:301
+msgid "Send Message"
+msgstr ""
+
+#: inc/options.php:304
 msgid "Thank-you text"
 msgstr ""
 
-#: inc/options.php:303
-msgid "Tracking"
-msgstr ""
-
-#: inc/options.php:306
-msgid "Google Tag Manager ID"
-msgstr ""
-
-#: inc/options.php:309
-msgid "e.g. GTM-XXXXXXX."
+#: inc/options.php:307
+msgid "I have received your message and will get back to you shortly."
 msgstr ""
 
 #: inc/options.php:312
-msgid "Google Analytics 4 ID"
+msgid "Tracking"
 msgstr ""
 
-#: inc/options.php:314
-msgid "e.g. G-XXXXXXXXXX. Leave empty if GA4 is set up inside Google Tag Manager, or visits are counted twice."
+#: inc/options.php:315
+msgid "Google Tag Manager ID"
 msgstr ""
 
-#: inc/options.php:317
-msgid "Meta Pixel ID"
+#: inc/options.php:318
+msgid "e.g. GTM-XXXXXXX."
 msgstr ""
 
 #: inc/options.php:321
+msgid "Google Analytics 4 ID"
+msgstr ""
+
+#: inc/options.php:323
+msgid "e.g. G-XXXXXXXXXX. Leave empty if GA4 is set up inside Google Tag Manager, or visits are counted twice."
+msgstr ""
+
+#: inc/options.php:326
+msgid "Meta Pixel ID"
+msgstr ""
+
+#: inc/options.php:330
 msgid "LinkedIn Insight Tag partner ID"
 msgstr ""
 
-#: inc/options.php:325
+#: inc/options.php:334
 msgid "Microsoft Clarity project ID"
 msgstr ""
 
-#: inc/options.php:329
+#: inc/options.php:338
 msgid "Google Consent Mode v2: start with consent denied"
 msgstr ""
 
-#: inc/options.php:332
+#: inc/options.php:341
 msgid "Required for EU visitors. Needs a cookie banner (e.g. Complianz or CookieYes) to grant consent; without one Google only receives cookieless pings."
 msgstr ""
 
-#: inc/options.php:335
+#: inc/options.php:344
 msgid "Also track logged-in editors and administrators"
 msgstr ""
 
-#: inc/options.php:340
+#: inc/options.php:349
 msgid "Extra code: end of <head>"
 msgstr ""
 
-#: inc/options.php:345
+#: inc/options.php:354
 msgid "Extra code: start of <body>"
 msgstr ""
 
-#: inc/options.php:350
+#: inc/options.php:359
 msgid "Extra code: end of page"
 msgstr ""
 
@@ -399,13 +624,51 @@ msgstr ""
 msgid "Visit site"
 msgstr ""
 
-#: template-parts/contact.php:32
-msgid "Local Time"
+#. translators: %s: price with currency, e.g. "2,000 EUR"
+#: single-sd_service_page.php:22
+#, php-format
+msgid "From %s"
 msgstr ""
 
+#: single-sd_service_page.php:34
+msgid "Service"
+msgstr ""
+
+#: single-sd_service_page.php:45
 #: template-parts/contact.php:44
 #: template-parts/sticky-contact.php:23
+#: template-profile.php:84
 msgid "Start a Project"
+msgstr ""
+
+#: single-sd_service_page.php:51
+msgid "Who it is for"
+msgstr ""
+
+#: single-sd_service_page.php:57
+msgid "What you get"
+msgstr ""
+
+#: single-sd_service_page.php:69
+msgid "How it works"
+msgstr ""
+
+#: single-sd_service_page.php:92
+msgid "Related work"
+msgstr ""
+
+#: single-sd_service_page.php:105
+msgid "Frequently asked questions"
+msgstr ""
+
+#. translators: %s: date
+#: single-sd_service_page.php:124
+#, php-format
+msgid "Last updated: %s"
+msgstr ""
+
+#: template-parts/contact.php:32
+msgid "Local Time"
 msgstr ""
 
 #: template-parts/contact.php:54
@@ -435,11 +698,15 @@ msgstr ""
 msgid "Let's Talk"
 msgstr ""
 
-#: template-parts/nav.php:46
+#: template-parts/nav.php:27
 msgid "Language"
 msgstr ""
 
-#: template-parts/nav.php:63
+#: template-parts/nav.php:56
+msgid "Language:"
+msgstr ""
+
+#: template-parts/nav.php:81
 msgid "Menu"
 msgstr ""
 
@@ -479,4 +746,24 @@ msgstr ""
 
 #: template-parts/project-modal.php:70
 msgid "Close Window"
+msgstr ""
+
+#. Template Name of the theme
+msgid "Profile (About)"
+msgstr ""
+
+#: template-profile.php:20
+msgid "Languages"
+msgstr ""
+
+#: template-profile.php:21
+msgid "Education"
+msgstr ""
+
+#: template-profile.php:22
+msgid "Certificates"
+msgstr ""
+
+#: template-profile.php:59
+msgid "Areas of expertise"
 msgstr ""
