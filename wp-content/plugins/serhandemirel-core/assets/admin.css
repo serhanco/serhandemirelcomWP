@@ -1,0 +1,12 @@
+.sdc-field { margin: 0 0 16px; }
+.sdc-field > label { display: block; margin-bottom: 4px; }
+.sdc-field input[type="text"],
+.sdc-field input[type="url"],
+.sdc-field input[type="email"],
+.sdc-field textarea,
+.sdc-field select { width: 100%; max-width: 100%; }
+.sdc-field input[type="number"] { width: 8em; }
+.sdc-field textarea.code { font-family: Consolas, Monaco, monospace; font-size: 12px; }
+.sdc-media__preview { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 6px; }
+.sdc-media__preview img { max-height: 64px; width: auto; padding: 6px; background: #1d2327; border-radius: 4px; }
+.column-sdc_logo img { max-height: 32px; width: auto; padding: 4px; background: #1d2327; border-radius: 3px; }

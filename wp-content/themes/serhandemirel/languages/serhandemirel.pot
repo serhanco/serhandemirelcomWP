@@ -1,0 +1,482 @@
+# Copyright (C) 2026 Serhan Demirel
+# This file is distributed under the All rights reserved.
+msgid ""
+msgstr ""
+"Project-Id-Version: Serhan Demirel 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/serhandemirel\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-10-04T11:03:24+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: serhandemirel\n"
+
+#. Theme Name of the theme
+#. Author of the theme
+#: style.css
+#: inc/options-page.php:22
+msgid "Serhan Demirel"
+msgstr ""
+
+#. Theme URI of the theme
+#. Author URI of the theme
+#: style.css
+msgid "https://serhandemirel.com"
+msgstr ""
+
+#. Description of the theme
+#: style.css
+msgid "One-page personal theme for serhandemirel.com. Tailwind (compiled), GSAP + ScrollTrigger and Lenis smooth scrolling."
+msgstr ""
+
+#: functions.php:29
+msgid "The Serhan Demirel theme needs the \"Serhan Demirel Core\" plugin. Without it the contact form does not work."
+msgstr ""
+
+#: functions.php:40
+msgid "Main menu"
+msgstr ""
+
+#: functions.php:102
+msgid "Sending..."
+msgstr ""
+
+#: functions.php:103
+msgid "Something went wrong. Please try again."
+msgstr ""
+
+#: functions.php:104
+msgid "Network error. Please try again later."
+msgstr ""
+
+#: functions.php:105
+msgid "Friend"
+msgstr ""
+
+#: home.php:31
+msgid "No posts yet."
+msgstr ""
+
+#. translators: %d: minutes
+#: inc/content.php:211
+#, php-format
+msgid "%d min read"
+msgid_plural "%d min read"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/i18n.php:41
+msgid "Expertise"
+msgstr ""
+
+#: inc/i18n.php:42
+msgid "Brands"
+msgstr ""
+
+#: inc/i18n.php:43
+msgid "Work"
+msgstr ""
+
+#: inc/i18n.php:44
+msgid "Insights"
+msgstr ""
+
+#: inc/options-page.php:21
+#: inc/options-page.php:81
+msgid "Serhan Demirel theme settings"
+msgstr ""
+
+#: inc/options-page.php:84
+msgid "Settings saved."
+msgstr ""
+
+#: inc/options-page.php:95
+msgid "Editing texts in:"
+msgstr ""
+
+#: inc/options-page.php:101
+msgid "Fields marked with a globe are saved for this language only. Empty ones show the default-language text on the site (shown in grey). Other fields are shared by all languages."
+msgstr ""
+
+#: inc/options-page.php:160
+msgid "Per language"
+msgstr ""
+
+#: inc/options-page.php:172
+msgid "On"
+msgstr ""
+
+#: inc/options-page.php:196
+msgid "Choose image"
+msgstr ""
+
+#: inc/options-page.php:197
+msgid "Remove"
+msgstr ""
+
+#: inc/options-page.php:224
+msgid "Sorry, you are not allowed to do that."
+msgstr ""
+
+#: inc/options-page.php:232
+msgid "Unknown settings tab or language."
+msgstr ""
+
+#: inc/options.php:36
+msgid "General"
+msgstr ""
+
+#: inc/options.php:39
+msgid "Default SEO title"
+msgstr ""
+
+#: inc/options.php:43
+msgid "Used for social sharing. The browser tab title comes from Settings → General."
+msgstr ""
+
+#: inc/options.php:46
+msgid "Default SEO description"
+msgstr ""
+
+#: inc/options.php:52
+msgid "Sharing image"
+msgstr ""
+
+#: inc/options.php:54
+msgid "Shown when the site is shared on LinkedIn, WhatsApp or X. 1200×630 works best. Empty uses the SD logo."
+msgstr ""
+
+#: inc/options.php:59
+msgid "Hero"
+msgstr ""
+
+#: inc/options.php:62
+msgid "Badge"
+msgstr ""
+
+#: inc/options.php:68
+#: inc/options.php:277
+msgid "Title"
+msgstr ""
+
+#: inc/options.php:73
+msgid "Subtitle"
+msgstr ""
+
+#: inc/options.php:79
+msgid "Scroll hint"
+msgstr ""
+
+#: inc/options.php:87
+msgid "Word slot"
+msgstr ""
+
+#: inc/options.php:90
+msgid "Prefix"
+msgstr ""
+
+#: inc/options.php:96
+msgid "Words"
+msgstr ""
+
+#: inc/options.php:100
+msgid "One word per line, shown in this order. A full stop is added after each word."
+msgstr ""
+
+#: inc/options.php:105
+msgid "Sections"
+msgstr ""
+
+#: inc/options.php:108
+msgid "Show the Core Expertise section"
+msgstr ""
+
+#: inc/options.php:113
+msgid "Core Expertise: small heading"
+msgstr ""
+
+#: inc/options.php:119
+msgid "Core Expertise: heading"
+msgstr ""
+
+#: inc/options.php:125
+msgid "Show the Brands section"
+msgstr ""
+
+#: inc/options.php:130
+msgid "Brands: small heading"
+msgstr ""
+
+#: inc/options.php:136
+msgid "Brands: heading"
+msgstr ""
+
+#: inc/options.php:142
+msgid "Show the Work section"
+msgstr ""
+
+#: inc/options.php:145
+msgid "Appears once at least one project is published. Projects ticked \"Show on home page\" are listed; if none are ticked, all projects are."
+msgstr ""
+
+#: inc/options.php:148
+msgid "Work: small heading"
+msgstr ""
+
+#: inc/options.php:154
+msgid "Work: heading"
+msgstr ""
+
+#: inc/options.php:160
+msgid "Work: \"All\" filter button"
+msgstr ""
+
+#: inc/options.php:166
+msgid "Show the Insights section"
+msgstr ""
+
+#: inc/options.php:169
+msgid "Appears once at least one post is published. Posts ticked \"Show on home page\" are listed; if none are ticked, the two newest are."
+msgstr ""
+
+#: inc/options.php:172
+msgid "Insights: small heading"
+msgstr ""
+
+#: inc/options.php:178
+msgid "Insights: heading"
+msgstr ""
+
+#: inc/options.php:186
+#: template-parts/nav.php:59
+msgid "Contact"
+msgstr ""
+
+#: inc/options.php:189
+msgid "WhatsApp number"
+msgstr ""
+
+#: inc/options.php:192
+msgid "International format, digits only, e.g. 905322702736."
+msgstr ""
+
+#: inc/options.php:195
+msgid "WhatsApp starter message"
+msgstr ""
+
+#: inc/options.php:201
+msgid "Email address"
+msgstr ""
+
+#: inc/options.php:206
+msgid "Email subject"
+msgstr ""
+
+#: inc/options.php:227
+msgid "Status badge"
+msgstr ""
+
+#: inc/options.php:233
+msgid "Closing heading, line 1"
+msgstr ""
+
+#: inc/options.php:239
+msgid "Closing heading, line 2 (gradient)"
+msgstr ""
+
+#: inc/options.php:245
+msgid "Clock time zone"
+msgstr ""
+
+#: inc/options.php:248
+msgid "IANA name, e.g. Europe/Istanbul or Europe/Amsterdam."
+msgstr ""
+
+#: inc/options.php:251
+msgid "Time zone label"
+msgstr ""
+
+#: inc/options.php:256
+msgid "City label"
+msgstr ""
+
+#: inc/options.php:262
+msgid "Show the floating WhatsApp / Start a Project bar"
+msgstr ""
+
+#: inc/options.php:269
+msgid "Form"
+msgstr ""
+
+#: inc/options.php:272
+msgid "Send form messages to"
+msgstr ""
+
+#: inc/options.php:274
+msgid "Empty uses the administration email address from Settings → General."
+msgstr ""
+
+#: inc/options.php:283
+msgid "Intro"
+msgstr ""
+
+#: inc/options.php:289
+msgid "Button"
+msgstr ""
+
+#: inc/options.php:295
+msgid "Thank-you text"
+msgstr ""
+
+#: inc/options.php:303
+msgid "Tracking"
+msgstr ""
+
+#: inc/options.php:306
+msgid "Google Tag Manager ID"
+msgstr ""
+
+#: inc/options.php:309
+msgid "e.g. GTM-XXXXXXX."
+msgstr ""
+
+#: inc/options.php:312
+msgid "Google Analytics 4 ID"
+msgstr ""
+
+#: inc/options.php:314
+msgid "e.g. G-XXXXXXXXXX. Leave empty if GA4 is set up inside Google Tag Manager, or visits are counted twice."
+msgstr ""
+
+#: inc/options.php:317
+msgid "Meta Pixel ID"
+msgstr ""
+
+#: inc/options.php:321
+msgid "LinkedIn Insight Tag partner ID"
+msgstr ""
+
+#: inc/options.php:325
+msgid "Microsoft Clarity project ID"
+msgstr ""
+
+#: inc/options.php:329
+msgid "Google Consent Mode v2: start with consent denied"
+msgstr ""
+
+#: inc/options.php:332
+msgid "Required for EU visitors. Needs a cookie banner (e.g. Complianz or CookieYes) to grant consent; without one Google only receives cookieless pings."
+msgstr ""
+
+#: inc/options.php:335
+msgid "Also track logged-in editors and administrators"
+msgstr ""
+
+#: inc/options.php:340
+msgid "Extra code: end of <head>"
+msgstr ""
+
+#: inc/options.php:345
+msgid "Extra code: start of <body>"
+msgstr ""
+
+#: inc/options.php:350
+msgid "Extra code: end of page"
+msgstr ""
+
+#: index.php:29
+msgid "Nothing here"
+msgstr ""
+
+#: index.php:30
+msgid "Back to the homepage"
+msgstr ""
+
+#: single-sd_project.php:44
+msgid "Visit site"
+msgstr ""
+
+#: template-parts/contact.php:32
+msgid "Local Time"
+msgstr ""
+
+#: template-parts/contact.php:44
+#: template-parts/sticky-contact.php:23
+msgid "Start a Project"
+msgstr ""
+
+#: template-parts/contact.php:54
+#: template-parts/sticky-contact.php:16
+msgid "WhatsApp"
+msgstr ""
+
+#: template-parts/contact.php:61
+msgid "Email Me"
+msgstr ""
+
+#. translators: %s: current year
+#: template-parts/contact.php:70
+#, php-format
+msgid "© %s Serhan Demirel. All rights reserved."
+msgstr ""
+
+#: template-parts/contact.php:84
+msgid "Back to top"
+msgstr ""
+
+#: template-parts/insights.php:21
+msgid "All insights"
+msgstr ""
+
+#: template-parts/nav.php:23
+msgid "Let's Talk"
+msgstr ""
+
+#: template-parts/nav.php:46
+msgid "Language"
+msgstr ""
+
+#: template-parts/nav.php:63
+msgid "Menu"
+msgstr ""
+
+#: template-parts/project-modal.php:17
+msgid "Close"
+msgstr ""
+
+#: template-parts/project-modal.php:31
+msgid "Name"
+msgstr ""
+
+#: template-parts/project-modal.php:32
+msgid "John Doe"
+msgstr ""
+
+#: template-parts/project-modal.php:35
+msgid "Email"
+msgstr ""
+
+#: template-parts/project-modal.php:36
+msgid "john@example.com"
+msgstr ""
+
+#: template-parts/project-modal.php:41
+msgid "Project Details"
+msgstr ""
+
+#: template-parts/project-modal.php:42
+msgid "Describe your project, goals, and timeline..."
+msgstr ""
+
+#. translators: %s: visitor's first name
+#: template-parts/project-modal.php:65
+#, php-format
+msgid "Awesome, %s!"
+msgstr ""
+
+#: template-parts/project-modal.php:70
+msgid "Close Window"
+msgstr ""

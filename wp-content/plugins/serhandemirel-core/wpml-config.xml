@@ -1,0 +1,30 @@
+<wpml-config>
+	<custom-types>
+		<custom-type translate="1">sd_project</custom-type>
+		<custom-type translate="1">sd_expertise</custom-type>
+		<custom-type translate="0">sd_brand</custom-type>
+		<custom-type translate="0">sd_message</custom-type>
+	</custom-types>
+	<taxonomies>
+		<taxonomy translate="1">sd_industry</taxonomy>
+		<taxonomy translate="1">sd_service</taxonomy>
+	</taxonomies>
+	<custom-fields>
+		<custom-field action="copy">_sd_client</custom-field>
+		<custom-field action="translate">_sd_location</custom-field>
+		<custom-field action="translate">_sd_summary</custom-field>
+		<custom-field action="translate">_sd_metric</custom-field>
+		<custom-field action="copy">_sd_year</custom-field>
+		<custom-field action="copy">_sd_url</custom-field>
+		<custom-field action="copy">_sd_brand</custom-field>
+		<custom-field action="copy">_sd_gallery</custom-field>
+		<custom-field action="copy">_sd_featured</custom-field>
+		<custom-field action="translate">_sd_description</custom-field>
+		<custom-field action="translate">_sd_tags</custom-field>
+		<custom-field action="copy">_sd_accent</custom-field>
+		<custom-field action="copy">_sd_icon</custom-field>
+		<custom-field action="translate">_sd_read_time</custom-field>
+		<custom-field action="copy">_sd_disable_tracking</custom-field>
+		<custom-field action="copy">_sd_extra_head_code</custom-field>
+	</custom-fields>
+</wpml-config>

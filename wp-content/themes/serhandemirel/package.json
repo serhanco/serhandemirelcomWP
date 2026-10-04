@@ -1,0 +1,12 @@
+{
+  "name": "serhandemirel-theme",
+  "private": true,
+  "description": "Builds assets/css/tailwind.css from the classes used in the theme's PHP and JS files.",
+  "scripts": {
+    "build": "tailwindcss -i assets/css/tailwind.src.css -o assets/css/tailwind.css --minify",
+    "watch": "tailwindcss -i assets/css/tailwind.src.css -o assets/css/tailwind.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "3.4.17"
+  }
+}
