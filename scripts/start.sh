@@ -2,7 +2,8 @@
 # Starts a local WordPress Playground at http://127.0.0.1:9400 with this
 # repo's theme and plugin mounted live (edits show up on reload).
 # Playground keeps its database in memory, so scripts/blueprint.json
-# re-activates the theme and plugin and sets the site title on every start.
+# installs Polylang, re-activates the theme and plugin, sets the site title
+# and runs the language setup (six languages) on every start.
 # Login: admin / password at /wp-login.php. Requires Node 20+.
 set -euo pipefail
 cd "$(dirname "$0")/.."

@@ -26,17 +26,12 @@ msgstr "Serhan Demirel Core"
 msgid "https://serhandemirel.com"
 msgstr "https://serhandemirel.com"
 
-#. Description of the plugin
-#: serhandemirel-core.php
-msgid "Content types, custom fields and the contact form for serhandemirel.com. Keeps projects, expertise cards, brand logos and messages safe when the theme changes."
-msgstr "Contenttypes, aangepaste velden en het contactformulier voor serhandemirel.com. Houdt projecten, expertisekaarten, merklogo's en berichten veilig als het thema verandert."
-
 #. Author of the plugin
 #: serhandemirel-core.php
 msgid "Serhan Demirel"
 msgstr "Serhan Demirel"
 
-#: includes/admin-columns.php:20 includes/fields.php:139
+#: includes/admin-columns.php:20 includes/fields.php:228
 msgid "Logo"
 msgstr "Logo"
 
@@ -44,7 +39,8 @@ msgstr "Logo"
 msgid "Visible"
 msgstr "Zichtbaar"
 
-#: includes/admin-columns.php:22 includes/admin-columns.php:25 includes/admin-columns.php:31
+#: includes/admin-columns.php:22 includes/admin-columns.php:25
+#: includes/admin-columns.php:31
 msgid "Order"
 msgstr "Volgorde"
 
@@ -60,15 +56,15 @@ msgstr "Jaar"
 msgid "Home page"
 msgstr "Homepage"
 
-#: includes/admin-columns.php:34 includes/fields.php:226
+#: includes/admin-columns.php:34 includes/fields.php:315
 msgid "Email"
 msgstr "E-mail"
 
-#: includes/admin-columns.php:35 includes/fields.php:230
+#: includes/admin-columns.php:35 includes/fields.php:319
 msgid "Language"
 msgstr "Taal"
 
-#: includes/admin-columns.php:36 includes/fields.php:212
+#: includes/admin-columns.php:36 includes/fields.php:301
 msgid "Status"
 msgstr "Status"
 
@@ -104,7 +100,7 @@ msgstr "bijv. \"+24% conversie\"."
 msgid "Live site URL"
 msgstr "URL van live site"
 
-#: includes/fields.php:77 includes/post-types.php:72
+#: includes/fields.php:77 includes/post-types.php:97
 msgid "Brand"
 msgstr "Merk"
 
@@ -120,163 +116,166 @@ msgstr "Galerij"
 msgid "Images for the project detail page."
 msgstr "Afbeeldingen voor de projectdetailpagina."
 
-#: includes/fields.php:90 includes/fields.php:180
+#: includes/fields.php:90 includes/fields.php:269
 msgid "Show on home page"
 msgstr "Tonen op homepage"
 
-#: includes/fields.php:97
+#: includes/fields.php:179
 msgid "Card content"
 msgstr "Kaartinhoud"
 
-#: includes/fields.php:102
+#: includes/fields.php:184
 msgid "Description"
 msgstr "Beschrijving"
 
-#: includes/fields.php:106
+#: includes/fields.php:188
 msgid "Tags"
 msgstr "Tags"
 
-#: includes/fields.php:108
+#: includes/fields.php:190
 msgid "Comma separated, e.g. \"Sales Optimization, Lead Gen\"."
 msgstr "Kommagescheiden, bijv. \"Salesoptimalisatie, Leadgeneratie\"."
 
-#: includes/fields.php:111
+#: includes/fields.php:193
 msgid "Accent color"
 msgstr "Accentkleur"
 
-#: includes/fields.php:116
+#: includes/fields.php:198
 msgid "Blue"
 msgstr "Blauw"
 
-#: includes/fields.php:117
+#: includes/fields.php:199
 msgid "Purple"
 msgstr "Paars"
 
-#: includes/fields.php:118
+#: includes/fields.php:200
 msgid "Green"
 msgstr "Groen"
 
-#: includes/fields.php:119
+#: includes/fields.php:201
 msgid "Pink"
 msgstr "Roze"
 
-#: includes/fields.php:120
+#: includes/fields.php:202
 msgid "Amber"
 msgstr "Amber"
 
-#: includes/fields.php:124
+#: includes/fields.php:213
 msgid "Icon"
 msgstr "Pictogram"
 
-#: includes/fields.php:129
+#: includes/fields.php:218
 msgid "Growth chart"
 msgstr "Groeigrafiek"
 
-#: includes/fields.php:130
+#: includes/fields.php:219
 msgid "Code"
 msgstr "Code"
 
-#: includes/fields.php:131
+#: includes/fields.php:220
 msgid "Flask"
 msgstr "Kolf"
 
-#: includes/fields.php:132
+#: includes/fields.php:221
 msgid "Bar chart"
 msgstr "Staafdiagram"
 
-#: includes/fields.php:133
+#: includes/fields.php:222
 msgid "Book"
 msgstr "Boek"
 
-#: includes/fields.php:144
+#: includes/fields.php:233
 msgid "White logo"
 msgstr "Wit logo"
 
-#: includes/fields.php:147
+#: includes/fields.php:236
 msgid "Shown in the logo band on the dark background."
 msgstr "Getoond in de logobalk op de donkere achtergrond."
 
-#: includes/fields.php:150
+#: includes/fields.php:239
 msgid "Color logo"
 msgstr "Kleurenlogo"
 
-#: includes/fields.php:153
+#: includes/fields.php:242
 msgid "Optional. Used where the logo sits on a light background."
 msgstr "Optioneel. Gebruikt waar het logo op een lichte achtergrond staat."
 
-#: includes/fields.php:156
+#: includes/fields.php:245
 msgid "Website"
 msgstr "Website"
 
-#: includes/fields.php:159
+#: includes/fields.php:248
 msgid "Leave empty to keep the logo unlinked."
 msgstr "Laat leeg om het logo niet te linken."
 
-#: includes/fields.php:162
+#: includes/fields.php:251
 msgid "Show in the logo band"
 msgstr "Tonen in de logobalk"
 
-#: includes/fields.php:170
+#: includes/fields.php:259
 msgid "Insight details"
 msgstr "Details inzicht"
 
-#: includes/fields.php:175
+#: includes/fields.php:264
 msgid "Reading time (minutes)"
 msgstr "Leestijd (minuten)"
 
-#: includes/fields.php:177
+#: includes/fields.php:266
 msgid "Leave empty to calculate from the word count."
 msgstr "Laat leeg om te berekenen op basis van het aantal woorden."
 
-#: includes/fields.php:183
+#: includes/fields.php:272
 msgid "If no post is ticked, the two newest posts are shown."
-msgstr "Als er geen bericht is aangevinkt, worden de twee nieuwste berichten getoond."
+msgstr ""
+"Als er geen bericht is aangevinkt, worden de twee nieuwste berichten "
+"getoond."
 
-#: includes/fields.php:188
+#: includes/fields.php:277
 msgid "Tracking on this page"
 msgstr "Tracking op deze pagina"
 
-#: includes/fields.php:193
+#: includes/fields.php:282
 msgid "Turn off tracking codes on this page"
 msgstr "Trackingcodes op deze pagina uitschakelen"
 
-#: includes/fields.php:198
+#: includes/fields.php:287
 msgid "Extra code for this page"
 msgstr "Extra code voor deze pagina"
 
-#: includes/fields.php:202
+#: includes/fields.php:291
 msgid "Printed in <head>, e.g. a conversion pixel for a campaign page."
-msgstr "Wordt in <head> geplaatst, bijv. een conversiepixel voor een campagnepagina."
+msgstr ""
+"Wordt in <head> geplaatst, bijv. een conversiepixel voor een campagnepagina."
 
-#: includes/fields.php:207
+#: includes/fields.php:296
 msgid "Message details"
 msgstr "Berichtdetails"
 
-#: includes/fields.php:216
+#: includes/fields.php:305
 msgid "New"
 msgstr "Nieuw"
 
-#: includes/fields.php:217
+#: includes/fields.php:306
 msgid "Replied"
 msgstr "Beantwoord"
 
-#: includes/fields.php:218
+#: includes/fields.php:307
 msgid "Archived"
 msgstr "Gearchiveerd"
 
-#: includes/fields.php:222
+#: includes/fields.php:311
 msgid "Name"
 msgstr "Naam"
 
-#: includes/fields.php:234
+#: includes/fields.php:323
 msgid "Source page"
 msgstr "Bronpagina"
 
-#: includes/fields.php:238
+#: includes/fields.php:327
 msgid "UTM source"
 msgstr "UTM-bron"
 
-#: includes/fields.php:242
+#: includes/fields.php:331
 msgid "UTM campaign"
 msgstr "UTM-campagne"
 
@@ -380,82 +379,576 @@ msgstr "Kaartafbeelding (1200×900)"
 msgid "Set card image"
 msgstr "Kaartafbeelding instellen"
 
-#: includes/post-types.php:49
+#: includes/post-types.php:74
 msgid "Expertise"
 msgstr "Expertise"
 
-#: includes/post-types.php:50
+#: includes/post-types.php:75
 msgid "Expertise card"
 msgstr "Expertisekaart"
 
-#: includes/post-types.php:51
+#: includes/post-types.php:76
 msgid "Add New Expertise Card"
 msgstr "Nieuwe expertisekaart toevoegen"
 
-#: includes/post-types.php:52
+#: includes/post-types.php:77
 msgid "Edit Expertise Card"
 msgstr "Expertisekaart bewerken"
 
-#: includes/post-types.php:53
+#: includes/post-types.php:78
 msgid "All Expertise Cards"
 msgstr "Alle expertisekaarten"
 
-#: includes/post-types.php:54
+#: includes/post-types.php:79
 msgid "No expertise cards found."
 msgstr "Geen expertisekaarten gevonden."
 
-#: includes/post-types.php:71
+#: includes/post-types.php:96
 msgid "Brands"
 msgstr "Merken"
 
-#: includes/post-types.php:73
+#: includes/post-types.php:98
 msgid "Add New Brand"
 msgstr "Nieuw merk toevoegen"
 
-#: includes/post-types.php:74
+#: includes/post-types.php:99
 msgid "Edit Brand"
 msgstr "Merk bewerken"
 
-#: includes/post-types.php:75
+#: includes/post-types.php:100
 msgid "All Brands"
 msgstr "Alle merken"
 
-#: includes/post-types.php:76
+#: includes/post-types.php:101
 msgid "No brands found."
 msgstr "Geen merken gevonden."
 
-#: includes/post-types.php:100
+#: includes/post-types.php:125
 msgid "Industries"
 msgstr "Branches"
 
-#: includes/post-types.php:101
+#: includes/post-types.php:126
 msgid "Industry"
 msgstr "Branche"
 
-#: includes/post-types.php:102
+#: includes/post-types.php:127
 msgid "Add New Industry"
 msgstr "Nieuwe branche toevoegen"
 
-#: includes/post-types.php:117
+#: includes/post-types.php:49 includes/post-types.php:144
 msgid "Services"
 msgstr "Diensten"
 
-#: includes/post-types.php:118
+#: includes/post-types.php:145
 msgid "Service"
 msgstr "Dienst"
 
-#: includes/post-types.php:119
+#: includes/post-types.php:146
 msgid "Add New Service"
 msgstr "Nieuwe dienst toevoegen"
 
-#: includes/seed.php:290
-msgid "Serhan Demirel Core: the brand logos from the theme have not been imported yet."
-msgstr "Serhan Demirel Core: de merklogo's uit het thema zijn nog niet geïmporteerd."
+#: includes/seed.php:315
+msgid ""
+"Serhan Demirel Core: the brand logos from the theme have not been imported "
+"yet."
+msgstr ""
+"Serhan Demirel Core: de merklogo's uit het thema zijn nog niet geïmporteerd."
 
-#: includes/seed.php:292
+#: includes/seed.php:317
 msgid "Import logos"
 msgstr "Logo's importeren"
 
-#: includes/seed.php:302
+#: includes/profile.php:279 includes/seed.php:327 includes/setup.php:227
 msgid "Sorry, you are not allowed to do that."
 msgstr "Je hebt geen toestemming om dat te doen."
+
+#. Description of the plugin
+#: serhandemirel-core.php
+msgid ""
+"Content types, custom fields, the contact form, profile and structured data "
+"for serhandemirel.com. Keeps projects, services, expertise cards, brand "
+"logos and messages safe when the theme changes."
+msgstr ""
+"Contenttypes, aangepaste velden, het contactformulier, profiel en "
+"gestructureerde data voor serhandemirel.com. Houdt projecten, diensten, "
+"expertisekaarten, merklogo's en berichten veilig wanneer het thema "
+"verandert."
+
+#: includes/fields.php:97
+msgid "Service details"
+msgstr "Dienstgegevens"
+
+#: includes/fields.php:102
+msgid "Definition (40–60 words)"
+msgstr "Definitie (40–60 woorden)"
+
+#: includes/fields.php:104
+msgid ""
+"Answers \"What is this service?\" in plain words. Shown first on the page "
+"and used in search results and AI answers."
+msgstr ""
+"Beantwoordt \"Wat is deze dienst?\" in eenvoudige woorden. Wordt als eerste "
+"op de pagina getoond en gebruikt in zoekresultaten en AI-antwoorden."
+
+#: includes/fields.php:107
+msgid "Who it is for"
+msgstr "Voor wie"
+
+#: includes/fields.php:111
+msgid "Deliverables"
+msgstr "Opleveringen"
+
+#: includes/fields.php:114 includes/profile.php:102
+msgid "One per line."
+msgstr "Eén per regel."
+
+#: includes/fields.php:117
+msgid "Process"
+msgstr "Werkwijze"
+
+#: includes/fields.php:120
+msgid "One step per line, as \"Step name: what happens\"."
+msgstr "Eén stap per regel, als \"Naam van de stap: wat er gebeurt\"."
+
+#: includes/fields.php:123
+msgid "Typical duration"
+msgstr "Gebruikelijke duur"
+
+#: includes/fields.php:125
+msgid "e.g. \"4–8 weeks\"."
+msgstr "bijv. \"4–8 weken\"."
+
+#: includes/fields.php:128
+msgid "Engagement model"
+msgstr "Samenwerkingsvorm"
+
+#: includes/fields.php:133
+msgid "Fixed-scope project"
+msgstr "Project met vaste scope"
+
+#: includes/fields.php:134
+msgid "Monthly retainer"
+msgstr "Maandelijkse retainer"
+
+#: includes/fields.php:135
+msgid "Workshop or training"
+msgstr "Workshop of training"
+
+#: includes/fields.php:136
+msgid "Hourly consulting"
+msgstr "Consultancy per uur"
+
+#: includes/fields.php:140
+msgid "Price from"
+msgstr "Prijs vanaf"
+
+#: includes/fields.php:143
+msgid "Leave empty to show no price."
+msgstr "Laat leeg om geen prijs te tonen."
+
+#: includes/fields.php:146
+msgid "Currency"
+msgstr "Valuta"
+
+#: includes/fields.php:158
+msgid "Area served"
+msgstr "Servicegebied"
+
+#: includes/fields.php:162
+msgid "Countries, or \"Worldwide\" for remote work."
+msgstr "Landen, of \"Wereldwijd\" voor werk op afstand."
+
+#: includes/fields.php:165
+msgid "Frequently asked questions"
+msgstr "Veelgestelde vragen"
+
+#: includes/fields.php:168
+msgid ""
+"A question on one line, its answer on the next lines; an empty line between "
+"questions."
+msgstr ""
+"Een vraag op één regel, het antwoord op de volgende regels; een lege regel "
+"tussen vragen."
+
+#: includes/fields.php:171
+msgid "Last reviewed"
+msgstr "Laatst gecontroleerd"
+
+#: includes/fields.php:174
+msgid "Shown as \"Last updated\" on the page. Empty uses the last edit date."
+msgstr ""
+"Wordt op de pagina getoond als \"Laatst bijgewerkt\". Leeg gebruikt de datum"
+" van de laatste bewerking."
+
+#: includes/fields.php:206 includes/post-types.php:50
+msgid "Service page"
+msgstr "Dienstpagina"
+
+#: includes/fields.php:210
+msgid ""
+"The card links to this page. In other languages it links to the page's "
+"translation."
+msgstr ""
+"De kaart linkt naar deze pagina. In andere talen linkt deze naar de "
+"vertaling van de pagina."
+
+#: includes/llms.php:97
+msgid "Contact form"
+msgstr "Contactformulier"
+
+#: includes/post-types.php:51
+msgid "Add New Service Page"
+msgstr "Nieuwe dienstpagina toevoegen"
+
+#: includes/post-types.php:52
+msgid "Edit Service Page"
+msgstr "Dienstpagina bewerken"
+
+#: includes/post-types.php:53
+msgid "New Service Page"
+msgstr "Nieuwe dienstpagina"
+
+#: includes/post-types.php:54
+msgid "View Service Page"
+msgstr "Dienstpagina bekijken"
+
+#: includes/post-types.php:55
+msgid "Search Service Pages"
+msgstr "Dienstpagina's zoeken"
+
+#: includes/post-types.php:56
+msgid "No service pages found."
+msgstr "Geen dienstpagina's gevonden."
+
+#: includes/post-types.php:57
+msgid "All Service Pages"
+msgstr "Alle dienstpagina's"
+
+#: includes/post-types.php:59
+msgid ""
+"One page per service: what it is, who it is for, deliverables, process and "
+"FAQ."
+msgstr ""
+"Eén pagina per dienst: wat het is, voor wie, opleveringen, werkwijze en FAQ."
+
+#: includes/profile.php:27
+msgid "Full name"
+msgstr "Volledige naam"
+
+#: includes/profile.php:32
+msgid "Other spellings of the name"
+msgstr "Andere schrijfwijzen van de naam"
+
+#: includes/profile.php:34
+msgid ""
+"One per line, e.g. without Turkish characters. Helps search engines and AI "
+"tools match mentions to you."
+msgstr ""
+"Eén per regel, bijv. zonder Turkse tekens. Helpt zoekmachines en AI-tools "
+"vermeldingen aan u te koppelen."
+
+#: includes/profile.php:37
+msgid "Job title"
+msgstr "Functietitel"
+
+#: includes/profile.php:40
+msgid "Digital Solutions Provider"
+msgstr "Digital Solutions Provider"
+
+#: includes/profile.php:43
+msgid "Short bio (about 50 words)"
+msgstr "Korte bio (ongeveer 50 woorden)"
+
+#: includes/profile.php:46
+msgid ""
+"Serhan Demirel is an Istanbul-based digital solutions provider. He helps "
+"companies grow through data-driven digital marketing, builds web products "
+"and landing pages, automates work with AI, improves search and AI "
+"visibility, and trains teams for digital transformation."
+msgstr ""
+"Serhan Demirel is een digital solutions provider uit Istanbul. Hij helpt "
+"bedrijven groeien met datagedreven digitale marketing, bouwt webproducten en"
+" landingspagina's, automatiseert werk met AI, verbetert de zichtbaarheid in "
+"zoekmachines en AI, en traint teams voor digitale transformatie."
+
+#: includes/profile.php:47
+msgid ""
+"Written in the third person. Used as the description in structured data and "
+"llms.txt."
+msgstr ""
+"Geschreven in de derde persoon. Gebruikt als beschrijving in gestructureerde"
+" data en llms.txt."
+
+#: includes/profile.php:50
+msgid "Long bio"
+msgstr "Lange bio"
+
+#: includes/profile.php:54
+msgid "Shown on the profile page. Paragraphs are separated by an empty line."
+msgstr ""
+"Wordt op de profielpagina getoond. Alinea's worden gescheiden door een lege "
+"regel."
+
+#: includes/profile.php:57
+msgid "Photo"
+msgstr "Foto"
+
+#: includes/profile.php:59
+msgid "A square portrait, at least 400×400."
+msgstr "Een vierkant portret, minimaal 400×400."
+
+#: includes/profile.php:62
+msgid "City"
+msgstr "Stad"
+
+#: includes/profile.php:67
+msgid "Country code"
+msgstr "Landcode"
+
+#: includes/profile.php:70
+msgid "Two letters, e.g. TR or NL."
+msgstr "Twee letters, bijv. TR of NL."
+
+#: includes/profile.php:73
+msgid "Languages spoken"
+msgstr "Gesproken talen"
+
+#: includes/profile.php:75
+msgid "One per line, in English, e.g. Turkish."
+msgstr "Eén per regel, in het Engels, bijv. Turkish."
+
+#: includes/profile.php:78
+msgid "Areas of expertise"
+msgstr "Expertisegebieden"
+
+#: includes/profile.php:81
+msgid ""
+"Digital marketing\n"
+"Growth strategy\n"
+"Lead generation\n"
+"Sales optimization\n"
+"Web application development\n"
+"Landing page optimization\n"
+"AI automation\n"
+"Search engine optimization\n"
+"Generative engine optimization\n"
+"Competitor analysis\n"
+"Digital transformation\n"
+"Corporate training"
+msgstr ""
+"Digitale marketing\n"
+"Groeistrategie\n"
+"Leadgeneratie\n"
+"Verkoopoptimalisatie\n"
+"Ontwikkeling van webapplicaties\n"
+"Optimalisatie van landingspagina's\n"
+"AI-automatisering\n"
+"Zoekmachineoptimalisatie\n"
+"Generative engine optimization\n"
+"Concurrentieanalyse\n"
+"Digitale transformatie\n"
+"Bedrijfstrainingen"
+
+#: includes/profile.php:82
+msgid "One topic per line."
+msgstr "Eén onderwerp per regel."
+
+#: includes/profile.php:85
+msgid "Profile links"
+msgstr "Profiellinks"
+
+#: includes/profile.php:88
+msgid ""
+"One URL per line: LinkedIn, X, GitHub, Medium, Wikidata and other profiles "
+"about you."
+msgstr ""
+"Eén URL per regel: LinkedIn, X, GitHub, Medium, Wikidata en andere profielen"
+" over u."
+
+#: includes/profile.php:91
+msgid "Company"
+msgstr "Bedrijf"
+
+#: includes/profile.php:93
+msgid "Your own company or employer, if any."
+msgstr "Uw eigen bedrijf of werkgever, indien van toepassing."
+
+#: includes/profile.php:96
+msgid "Company website"
+msgstr "Website van het bedrijf"
+
+#: includes/profile.php:100
+msgid "Schools"
+msgstr "Scholen"
+
+#: includes/profile.php:105
+msgid "Certificates"
+msgstr "Certificaten"
+
+#: includes/profile.php:107
+msgid "One per line, e.g. \"Google Ads Search Certification\"."
+msgstr "Eén per regel, bijv. \"Google Ads Search Certification\"."
+
+#: includes/profile.php:212 includes/profile.php:231
+msgid "Profile"
+msgstr "Profiel"
+
+#: includes/profile.php:232
+msgid ""
+"Who you are, in one place. Search engines and AI assistants read this from "
+"the structured data on every page and from /llms.txt."
+msgstr ""
+"Wie u bent, op één plek. Zoekmachines en AI-assistenten lezen dit uit de "
+"gestructureerde data op elke pagina en uit /llms.txt."
+
+#: includes/profile.php:235
+msgid "Profile saved."
+msgstr "Profiel opgeslagen."
+
+#: includes/profile.php:240
+msgid "Editing texts in:"
+msgstr "Teksten bewerken in:"
+
+#: includes/profile.php:245
+msgid ""
+"Fields marked with a globe are saved for this language only; empty ones use "
+"the default language. Other fields are shared by all languages."
+msgstr ""
+"Velden met een wereldbol worden alleen voor deze taal opgeslagen; lege "
+"velden gebruiken de standaardtaal. Andere velden worden door alle talen "
+"gedeeld."
+
+#: includes/setup.php:40
+msgid "Polylang is not active. Install and activate it first."
+msgstr "Polylang is niet actief. Installeer en activeer het eerst."
+
+#. translators: 1: locale, 2: error message
+#: includes/setup.php:61
+#, php-format
+msgid "Could not add %1$s: %2$s"
+msgstr "Kon %1$s niet toevoegen: %2$s"
+
+#. translators: %s: locale, e.g. fr_FR
+#: includes/setup.php:65
+#, php-format
+msgid "Added %s."
+msgstr "%s toegevoegd."
+
+#: includes/setup.php:89
+msgid ""
+"Polylang set up: English at the site root, other languages in folders, "
+"browser detection left to the theme."
+msgstr ""
+"Polylang ingesteld: Engels op de hoofdmap van de site, andere talen in "
+"mappen, browserdetectie overgelaten aan het thema."
+
+#: includes/setup.php:93
+msgid "Content without a language was set to English."
+msgstr "Content zonder taal is ingesteld op Engels."
+
+#: includes/setup.php:98
+msgid "Permalinks set to \"Post name\"."
+msgstr "Permalinks ingesteld op \"Berichtnaam\"."
+
+#: includes/setup.php:132
+msgid "Polylang is active"
+msgstr "Polylang is actief"
+
+#: includes/setup.php:134
+msgid "Plugins → Add New → search \"Polylang\" → Install → Activate."
+msgstr ""
+"Plugins → Nieuwe plugin toevoegen → zoek \"Polylang\" → Nu installeren → "
+"Activeren."
+
+#: includes/setup.php:137
+msgid "All six languages exist"
+msgstr "Alle zes talen bestaan"
+
+#: includes/setup.php:139 includes/setup.php:144
+msgid "Press \"Set up languages\" below."
+msgstr "Klik hieronder op \"Talen instellen\"."
+
+#: includes/setup.php:142
+msgid "Polylang's own browser detection is off"
+msgstr "De eigen browserdetectie van Polylang staat uit"
+
+#: includes/setup.php:147
+msgid "Pretty permalinks"
+msgstr "Leesbare permalinks"
+
+#: includes/setup.php:149
+msgid "Settings → Permalinks → Post name."
+msgstr "Instellingen → Permalinks → Berichtnaam."
+
+#: includes/setup.php:152
+msgid "Theme translations are installed"
+msgstr "Themavertalingen zijn geïnstalleerd"
+
+#: includes/setup.php:154
+msgid ""
+"Use the Serhan Demirel theme from the repository, including its languages "
+"folder."
+msgstr ""
+"Gebruik het Serhan Demirel-thema uit de repository, inclusief de map "
+"languages."
+
+#: includes/setup.php:157
+msgid "Profile is filled in"
+msgstr "Profiel is ingevuld"
+
+#: includes/setup.php:159
+msgid "Profile → add your photo, bio and profile links."
+msgstr "Profiel → voeg uw foto, bio en profiellinks toe."
+
+#: includes/setup.php:162
+msgid "Service pages are published"
+msgstr "Dienstpagina's zijn gepubliceerd"
+
+#: includes/setup.php:164
+msgid "Services → review the drafts and publish them."
+msgstr "Diensten → controleer de concepten en publiceer ze."
+
+#: includes/setup.php:167
+msgid "Search engines may index the site"
+msgstr "Zoekmachines mogen de site indexeren"
+
+#: includes/setup.php:169
+msgid "Settings → Reading → untick \"Discourage search engines\"."
+msgstr ""
+"Instellingen → Lezen → vink \"Zoekmachines ontmoedigen deze site te "
+"indexeren\" uit."
+
+#: includes/setup.php:172
+msgid "Mail can be sent (for the contact form)"
+msgstr "E-mail kan worden verzonden (voor het contactformulier)"
+
+#: includes/setup.php:174
+msgid ""
+"Install an SMTP plugin (e.g. WP Mail SMTP or FluentSMTP) and send a test "
+"email."
+msgstr ""
+"Installeer een SMTP-plugin (bijv. WP Mail SMTP of FluentSMTP) en verstuur "
+"een testmail."
+
+#: includes/setup.php:183 includes/setup.php:198
+msgid "Site setup"
+msgstr "Site-instellingen"
+
+#: includes/setup.php:215
+msgid "Set up languages"
+msgstr "Talen instellen"
+
+#: includes/setup.php:216
+msgid ""
+"Adds English (default, at the site root), Turkish, French, Dutch, German and"
+" Italian to Polylang, downloads their WordPress translations and sets the "
+"recommended options. Safe to run again."
+msgstr ""
+"Voegt Engels (standaard, op de hoofdmap van de site), Turks, Frans, "
+"Nederlands, Duits en Italiaans toe aan Polylang, downloadt de bijbehorende "
+"WordPress-vertalingen en stelt de aanbevolen opties in. Kan veilig opnieuw "
+"worden uitgevoerd."
+
+#: includes/setup.php:246
+msgid "Done."
+msgstr "Klaar."

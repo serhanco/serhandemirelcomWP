@@ -214,10 +214,11 @@ function initPortfolio() {
     const expertiseSlider = document.getElementById('expertise-slider');
 
     if (expertiseSlider) {
-        let isDown = false, startX, scrollLeft;
+        let isDown = false, dragged = false, startX, scrollLeft;
 
         expertiseSlider.addEventListener('mousedown', (e) => {
             isDown = true;
+            dragged = false;
             expertiseSlider.style.cursor = 'grabbing';
             startX = e.pageX - expertiseSlider.getBoundingClientRect().left;
             scrollLeft = expertiseSlider.scrollLeft;
@@ -230,8 +231,13 @@ function initPortfolio() {
         document.addEventListener('mousemove', (e) => {
             if (!isDown) return;
             const x = e.pageX - expertiseSlider.getBoundingClientRect().left;
+            if (Math.abs(x - startX) > 5) dragged = true;
             expertiseSlider.scrollLeft = scrollLeft - (x - startX);
         });
+        // A drag that ends on a card link is not a click.
+        expertiseSlider.addEventListener('click', (e) => {
+            if (dragged && e.target.closest('a')) e.preventDefault();
+        }, true);
 
         // Ok butonları
         const prevBtn = document.getElementById('scroll-prev');

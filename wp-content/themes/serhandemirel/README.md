@@ -23,6 +23,8 @@ The front page renders whenever "Your homepage displays" is left on "Your latest
 | `functions.php` | Asset loading (compiled Tailwind, Inter, GSAP, ScrollTrigger, Lenis), meta/OG tags |
 | `inc/content.php` | Data for the front-page sections, read from the Core plugin with built-in fallbacks |
 | `single-sd_project.php`, `archive-sd_project.php` | Project page and `/work/` list (also industry and service archives) |
+| `single-sd_service_page.php`, `archive-sd_service_page.php` | Service page (definition, who it is for, deliverables, process, related work, FAQ, last updated) and `/services/` list |
+| `template-profile.php` | Page template **Profile (About)**: photo, bio and facts from the plugin's Profile screen |
 | `home.php`, `single.php` | Insights list (posts page and archives) and article page |
 | `inc/options.php` | Settings fields, defaults and `sd_opt()`; per-language values with fallback to the default language |
 | `inc/options-page.php` | The **Serhan Demirel** settings screen in wp-admin |

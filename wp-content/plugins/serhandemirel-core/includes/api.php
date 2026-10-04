@@ -62,7 +62,7 @@ function sdc_get_brands() {
 /**
  * Expertise cards in display order.
  *
- * @return array<int, array{title: string, description: string, tags: string[], accent: string, icon: string}>
+ * @return array<int, array{title: string, description: string, tags: string[], accent: string, icon: string, url: string}>
  */
 function sdc_get_expertise() {
 	$cards = array();
@@ -80,6 +80,7 @@ function sdc_get_expertise() {
 			'tags'        => array_values( array_filter( array_map( 'trim', explode( ',', (string) sdc_get( $post->ID, 'tags' ) ) ) ) ),
 			'accent'      => (string) sdc_get( $post->ID, 'accent' ),
 			'icon'        => (string) sdc_get( $post->ID, 'icon' ),
+			'url'         => sdc_translated_permalink( (int) sdc_get( $post->ID, 'service_page' ) ),
 		);
 	}
 	return $cards;
@@ -146,4 +147,134 @@ function sdc_read_time( $post_id ) {
 	}
 	$words = str_word_count( wp_strip_all_tags( (string) get_post_field( 'post_content', $post_id ) ) );
 	return max( 1, (int) ceil( $words / 200 ) );
+}
+
+/**
+ * Permalink of a post in the current language: its translation when one is
+ * published, else the post itself; empty when the post is not published.
+ *
+ * @param int $post_id Post ID.
+ * @return string
+ */
+function sdc_translated_permalink( $post_id ) {
+	if ( ! $post_id ) {
+		return '';
+	}
+	if ( function_exists( 'pll_get_post' ) ) {
+		$translation = pll_get_post( $post_id );
+		if ( $translation && 'publish' === get_post_status( $translation ) ) {
+			$post_id = $translation;
+		}
+	}
+	return 'publish' === get_post_status( $post_id ) ? (string) get_permalink( $post_id ) : '';
+}
+
+/**
+ * Non-empty lines of a text field.
+ *
+ * @param string $text Field value.
+ * @return string[]
+ */
+function sdc_lines( $text ) {
+	return array_values( array_filter( array_map( 'trim', preg_split( '/\r\n|\r|\n/', (string) $text ) ) ) );
+}
+
+/**
+ * Questions and answers from a FAQ field: a question line, its answer on
+ * the following lines, an empty line between pairs.
+ *
+ * @param string $text Field value.
+ * @return array<int, array{question: string, answer: string}>
+ */
+function sdc_parse_faq( $text ) {
+	$faq = array();
+	foreach ( preg_split( '/(\r\n|\r|\n)\s*(\r\n|\r|\n)/', trim( (string) $text ) ) as $block ) {
+		$lines = sdc_lines( $block );
+		if ( count( $lines ) < 2 ) {
+			continue;
+		}
+		$faq[] = array(
+			'question' => array_shift( $lines ),
+			'answer'   => implode( ' ', $lines ),
+		);
+	}
+	return $faq;
+}
+
+/**
+ * Steps from a process field: one "Step name: what happens" per line.
+ *
+ * @param string $text Field value.
+ * @return array<int, array{title: string, text: string}>
+ */
+function sdc_parse_steps( $text ) {
+	$steps = array();
+	foreach ( sdc_lines( $text ) as $line ) {
+		$parts   = array_map( 'trim', explode( ':', $line, 2 ) );
+		$steps[] = array(
+			'title' => $parts[0],
+			'text'  => $parts[1] ?? '',
+		);
+	}
+	return $steps;
+}
+
+/**
+ * Published service pages in display order (current language).
+ *
+ * @return array<int, array>
+ */
+function sdc_get_services() {
+	$posts = get_posts(
+		array(
+			'post_type'      => 'sd_service_page',
+			'posts_per_page' => -1,
+			'orderby'        => array( 'menu_order' => 'ASC', 'title' => 'ASC' ),
+		)
+	);
+	return array_map( 'sdc_service_data', $posts );
+}
+
+/**
+ * Everything a service page shows.
+ *
+ * @param WP_Post|int $post Service page.
+ * @return array
+ */
+function sdc_service_data( $post ) {
+	$post        = get_post( $post );
+	$terms       = get_the_terms( $post, 'sd_service' );
+	$term_ids    = is_array( $terms ) ? wp_list_pluck( $terms, 'term_id' ) : array();
+	$engagements = sdc_field_groups()['service']['fields']['engagement_model']['options'];
+	$engagement  = (string) sdc_get( $post->ID, 'engagement_model' );
+	return array(
+		'id'               => $post->ID,
+		'title'            => $post->post_title,
+		'permalink'        => get_permalink( $post ),
+		'excerpt'          => has_excerpt( $post ) ? get_the_excerpt( $post ) : '',
+		'image'            => (string) get_the_post_thumbnail_url( $post, 'large' ),
+		'definition'       => (string) sdc_get( $post->ID, 'definition' ),
+		'who_for'          => (string) sdc_get( $post->ID, 'who_for' ),
+		'deliverables'     => sdc_lines( sdc_get( $post->ID, 'deliverables' ) ),
+		'process'          => sdc_parse_steps( sdc_get( $post->ID, 'process' ) ),
+		'duration'         => (string) sdc_get( $post->ID, 'duration' ),
+		'engagement'       => $engagement,
+		'engagement_label' => $engagements[ $engagement ] ?? '',
+		'price_from'       => (int) sdc_get( $post->ID, 'price_from' ),
+		'currency'         => (string) sdc_get( $post->ID, 'currency' ),
+		'area_served'      => (string) sdc_get( $post->ID, 'area_served' ),
+		'faq'              => sdc_parse_faq( sdc_get( $post->ID, 'faq' ) ),
+		'reviewed'         => (string) sdc_get( $post->ID, 'reviewed_date' ),
+		'modified'         => get_post_modified_time( 'Y-m-d', false, $post ),
+		'projects'         => $term_ids ? array_map(
+			'sdc_project_data',
+			get_posts(
+				array(
+					'post_type'      => 'sd_project',
+					'posts_per_page' => 6,
+					'tax_query'      => array( array( 'taxonomy' => 'sd_service', 'terms' => $term_ids ) ), // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query -- few projects.
+				)
+			)
+		) : array(),
+	);
 }

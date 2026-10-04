@@ -29,12 +29,20 @@ msgstr "https://serhandemirel.com"
 
 #. Description of the theme
 #: style.css
-msgid "One-page personal theme for serhandemirel.com. Tailwind (compiled), GSAP + ScrollTrigger and Lenis smooth scrolling."
-msgstr "serhandemirel.com için tek sayfalık kişisel tema. Tailwind (derlenmiş), GSAP + ScrollTrigger ve Lenis ile yumuşak kaydırma."
+msgid ""
+"One-page personal theme for serhandemirel.com. Tailwind (compiled), GSAP + "
+"ScrollTrigger and Lenis smooth scrolling."
+msgstr ""
+"serhandemirel.com için tek sayfalık kişisel tema. Tailwind (derlenmiş), GSAP"
+" + ScrollTrigger ve Lenis ile yumuşak kaydırma."
 
 #: functions.php:29
-msgid "The Serhan Demirel theme needs the \"Serhan Demirel Core\" plugin. Without it the contact form does not work."
-msgstr "Serhan Demirel teması \"Serhan Demirel Core\" eklentisine ihtiyaç duyar. Bu eklenti olmadan iletişim formu çalışmaz."
+msgid ""
+"The Serhan Demirel theme needs the \"Serhan Demirel Core\" plugin. Without "
+"it the contact form does not work."
+msgstr ""
+"Serhan Demirel teması \"Serhan Demirel Core\" eklentisine ihtiyaç duyar. Bu "
+"eklenti olmadan iletişim formu çalışmaz."
 
 #: functions.php:40
 msgid "Main menu"
@@ -65,8 +73,12 @@ msgid "Marketing & Growth"
 msgstr "Pazarlama ve Büyüme"
 
 #: inc/content.php:61
-msgid "Driving measurable growth and expanding reach through data-driven digital marketing strategies."
-msgstr "Veriye dayalı dijital pazarlama stratejileriyle ölçülebilir büyüme sağlıyor, erişiminizi genişletiyorum."
+msgid ""
+"Driving measurable growth and expanding reach through data-driven digital "
+"marketing strategies."
+msgstr ""
+"Veriye dayalı dijital pazarlama stratejileriyle ölçülebilir büyüme sağlıyor,"
+" erişiminizi genişletiyorum."
 
 #: inc/content.php:61
 msgid "Sales Optimization"
@@ -85,8 +97,12 @@ msgid "Digital Products"
 msgstr "Dijital Ürünler"
 
 #: inc/content.php:62
-msgid "Architecting and building modern web applications, platforms, and high-converting landing pages."
-msgstr "Modern web uygulamaları, platformlar ve yüksek dönüşüm sağlayan açılış sayfaları tasarlayıp hayata geçiriyorum."
+msgid ""
+"Architecting and building modern web applications, platforms, and high-"
+"converting landing pages."
+msgstr ""
+"Modern web uygulamaları, platformlar ve yüksek dönüşüm sağlayan açılış "
+"sayfaları tasarlayıp hayata geçiriyorum."
 
 #: inc/content.php:62
 msgid "Web Apps"
@@ -105,8 +121,12 @@ msgid "AI & Automation"
 msgstr "Yapay Zekâ ve Otomasyon"
 
 #: inc/content.php:63
-msgid "Streamlining workflows and accelerating business processes using intelligent AI solutions and smart automation."
-msgstr "Akıllı yapay zekâ çözümleri ve otomasyonla iş akışlarını sadeleştiriyor, süreçlerinizi hızlandırıyorum."
+msgid ""
+"Streamlining workflows and accelerating business processes using intelligent"
+" AI solutions and smart automation."
+msgstr ""
+"Akıllı yapay zekâ çözümleri ve otomasyonla iş akışlarını sadeleştiriyor, "
+"süreçlerinizi hızlandırıyorum."
 
 #: inc/content.php:63
 msgid "AI Solutions"
@@ -121,8 +141,12 @@ msgid "Strategy & Visibility"
 msgstr "Strateji ve Görünürlük"
 
 #: inc/content.php:64
-msgid "Elevating brand presence through deep competitor analysis and aggressive search engine optimization."
-msgstr "Derinlemesine rakip analizi ve iddialı arama motoru optimizasyonuyla markanızın görünürlüğünü zirveye taşıyorum."
+msgid ""
+"Elevating brand presence through deep competitor analysis and aggressive "
+"search engine optimization."
+msgstr ""
+"Derinlemesine rakip analizi ve iddialı arama motoru optimizasyonuyla "
+"markanızın görünürlüğünü zirveye taşıyorum."
 
 #: inc/content.php:64
 msgid "SEO"
@@ -137,8 +161,12 @@ msgid "Transformation & Ed"
 msgstr "Dönüşüm ve Eğitim"
 
 #: inc/content.php:65
-msgid "Guiding companies through digital transformation and providing corporate training for sustainable growth."
-msgstr "Şirketlere dijital dönüşüm yolculuklarında rehberlik ediyor, sürdürülebilir büyüme için kurumsal eğitimler veriyorum."
+msgid ""
+"Guiding companies through digital transformation and providing corporate "
+"training for sustainable growth."
+msgstr ""
+"Şirketlere dijital dönüşüm yolculuklarında rehberlik ediyor, sürdürülebilir "
+"büyüme için kurumsal eğitimler veriyorum."
 
 #: inc/content.php:65
 msgid "Digital Transformation"
@@ -185,8 +213,16 @@ msgid "Editing texts in:"
 msgstr "Düzenlenen metinlerin dili:"
 
 #: inc/options-page.php:101
-msgid "Fields marked with a globe are saved for this language only. Empty ones show the text in grey: the theme's own translation, or the default-language text if the theme has no translation for this language. Other fields are shared by all languages."
-msgstr "Dünya simgesiyle işaretli alanlar yalnızca bu dil için kaydedilir. Boş alanlarda metin gri olarak gösterilir: temanın kendi çevirisi ya da tema bu dil için çeviri içermiyorsa varsayılan dildeki metin. Diğer alanlar tüm dillerde ortaktır."
+msgid ""
+"Fields marked with a globe are saved for this language only. Empty ones show"
+" the text in grey: the theme's own translation, or the default-language text"
+" if the theme has no translation for this language. Other fields are shared "
+"by all languages."
+msgstr ""
+"Dünya simgesiyle işaretli alanlar yalnızca bu dil için kaydedilir. Boş "
+"alanlarda metin gri olarak gösterilir: temanın kendi çevirisi ya da tema bu "
+"dil için çeviri içermiyorsa varsayılan dildeki metin. Diğer alanlar tüm "
+"dillerde ortaktır."
 
 #: inc/options-page.php:156
 msgid "Per language"
@@ -225,24 +261,36 @@ msgid "Serhan Demirel | Digital Solutions Provider"
 msgstr "Serhan Demirel | Dijital Çözüm Uzmanı"
 
 #: inc/options.php:45
-msgid "Used for social sharing. The browser tab title comes from Settings → General."
-msgstr "Sosyal medya paylaşımlarında kullanılır. Tarayıcı sekmesindeki başlık Ayarlar → Genel bölümünden gelir."
+msgid ""
+"Used for social sharing. The browser tab title comes from Settings → "
+"General."
+msgstr ""
+"Sosyal medya paylaşımlarında kullanılır. Tarayıcı sekmesindeki başlık "
+"Ayarlar → Genel bölümünden gelir."
 
 #: inc/options.php:48
 msgid "Default SEO description"
 msgstr "Varsayılan SEO açıklaması"
 
 #: inc/options.php:51
-msgid "Serhan Demirel - Digital Solutions Provider specializing in business transformation, scalable digital foundations, and AI & automation."
-msgstr "Serhan Demirel - İş dönüşümü, ölçeklenebilir dijital altyapılar, yapay zekâ ve otomasyon alanlarında uzman dijital çözüm danışmanı."
+msgid ""
+"Serhan Demirel - Digital Solutions Provider specializing in business "
+"transformation, scalable digital foundations, and AI & automation."
+msgstr ""
+"Serhan Demirel - İş dönüşümü, ölçeklenebilir dijital altyapılar, yapay zekâ "
+"ve otomasyon alanlarında uzman dijital çözüm danışmanı."
 
 #: inc/options.php:54
 msgid "Sharing image"
 msgstr "Paylaşım görseli"
 
 #: inc/options.php:56
-msgid "Shown when the site is shared on LinkedIn, WhatsApp or X. 1200×630 works best. Empty uses the SD logo."
-msgstr "Site LinkedIn, WhatsApp veya X'te paylaşıldığında gösterilir. En iyi sonuç 1200×630 boyutuyla alınır. Boş bırakılırsa SD logosu kullanılır."
+msgid ""
+"Shown when the site is shared on LinkedIn, WhatsApp or X. 1200×630 works "
+"best. Empty uses the SD logo."
+msgstr ""
+"Site LinkedIn, WhatsApp veya X'te paylaşıldığında gösterilir. En iyi sonuç "
+"1200×630 boyutuyla alınır. Boş bırakılırsa SD logosu kullanılır."
 
 #: inc/options.php:61
 msgid "Hero"
@@ -284,7 +332,8 @@ msgstr "Dönen kelimeler"
 msgid "Prefix"
 msgstr "Ön ek"
 
-#. translators: Start of the rotating sentence, followed by a verb such as "design".
+#. translators: Start of the rotating sentence, followed by a verb such as
+#. "design".
 #: inc/options.php:96
 msgid "We can"
 msgstr "Birlikte"
@@ -293,7 +342,8 @@ msgstr "Birlikte"
 msgid "Words"
 msgstr "Kelimeler"
 
-#. translators: Words shown one after another after the prefix, one per line. Keep one word per line; the number of lines may differ.
+#. translators: Words shown one after another after the prefix, one per line.
+#. Keep one word per line; the number of lines may differ.
 #: inc/options.php:103
 msgid ""
 "design\n"
@@ -337,8 +387,12 @@ msgstr ""
 "başarırız"
 
 #: inc/options.php:104
-msgid "One word per line, shown in this order. A full stop is added after each word."
-msgstr "Her satıra bir kelime yazın; kelimeler bu sırayla gösterilir. Her kelimenin sonuna nokta eklenir."
+msgid ""
+"One word per line, shown in this order. A full stop is added after each "
+"word."
+msgstr ""
+"Her satıra bir kelime yazın; kelimeler bu sırayla gösterilir. Her kelimenin "
+"sonuna nokta eklenir."
 
 #: inc/options.php:109
 msgid "Sections"
@@ -389,8 +443,12 @@ msgid "Show the Work section"
 msgstr "Projeler bölümünü göster"
 
 #: inc/options.php:149
-msgid "Appears once at least one project is published. Projects ticked \"Show on home page\" are listed; if none are ticked, all projects are."
-msgstr "En az bir proje yayımlandığında görünür. \"Ana sayfada göster\" işaretli projeler listelenir; hiçbiri işaretli değilse tüm projeler listelenir."
+msgid ""
+"Appears once at least one project is published. Projects ticked \"Show on "
+"home page\" are listed; if none are ticked, all projects are."
+msgstr ""
+"En az bir proje yayımlandığında görünür. \"Ana sayfada göster\" işaretli "
+"projeler listelenir; hiçbiri işaretli değilse tüm projeler listelenir."
 
 #: inc/options.php:152
 msgid "Work: small heading"
@@ -421,8 +479,12 @@ msgid "Show the Insights section"
 msgstr "İçgörüler bölümünü göster"
 
 #: inc/options.php:173
-msgid "Appears once at least one post is published. Posts ticked \"Show on home page\" are listed; if none are ticked, the two newest are."
-msgstr "En az bir yazı yayımlandığında görünür. \"Ana sayfada göster\" işaretli yazılar listelenir; hiçbiri işaretli değilse en yeni iki yazı listelenir."
+msgid ""
+"Appears once at least one post is published. Posts ticked \"Show on home "
+"page\" are listed; if none are ticked, the two newest are."
+msgstr ""
+"En az bir yazı yayımlandığında görünür. \"Ana sayfada göster\" işaretli "
+"yazılar listelenir; hiçbiri işaretli değilse en yeni iki yazı listelenir."
 
 #: inc/options.php:176
 msgid "Insights: small heading"
@@ -531,7 +593,9 @@ msgstr "Form mesajlarının gönderileceği adres"
 
 #: inc/options.php:283
 msgid "Empty uses the administration email address from Settings → General."
-msgstr "Boş bırakılırsa Ayarlar → Genel bölümündeki yönetim e-posta adresi kullanılır."
+msgstr ""
+"Boş bırakılırsa Ayarlar → Genel bölümündeki yönetim e-posta adresi "
+"kullanılır."
 
 #: inc/options.php:289
 msgid "Let's Create Something Great"
@@ -578,8 +642,12 @@ msgid "Google Analytics 4 ID"
 msgstr "Google Analytics 4 kimliği"
 
 #: inc/options.php:323
-msgid "e.g. G-XXXXXXXXXX. Leave empty if GA4 is set up inside Google Tag Manager, or visits are counted twice."
-msgstr "örn. G-XXXXXXXXXX. GA4 Google Tag Manager içinde kuruluysa boş bırakın, aksi halde ziyaretler iki kez sayılır."
+msgid ""
+"e.g. G-XXXXXXXXXX. Leave empty if GA4 is set up inside Google Tag Manager, "
+"or visits are counted twice."
+msgstr ""
+"örn. G-XXXXXXXXXX. GA4 Google Tag Manager içinde kuruluysa boş bırakın, aksi"
+" halde ziyaretler iki kez sayılır."
 
 #: inc/options.php:326
 msgid "Meta Pixel ID"
@@ -598,8 +666,14 @@ msgid "Google Consent Mode v2: start with consent denied"
 msgstr "Google Consent Mode v2: onay reddedilmiş olarak başlat"
 
 #: inc/options.php:341
-msgid "Required for EU visitors. Needs a cookie banner (e.g. Complianz or CookieYes) to grant consent; without one Google only receives cookieless pings."
-msgstr "AB'den gelen ziyaretçiler için zorunludur. Onay verilebilmesi için bir çerez bildirimi (örn. Complianz veya CookieYes) gerekir; bu olmadan Google yalnızca çerezsiz sinyaller alır."
+msgid ""
+"Required for EU visitors. Needs a cookie banner (e.g. Complianz or "
+"CookieYes) to grant consent; without one Google only receives cookieless "
+"pings."
+msgstr ""
+"AB'den gelen ziyaretçiler için zorunludur. Onay verilebilmesi için bir çerez"
+" bildirimi (örn. Complianz veya CookieYes) gerekir; bu olmadan Google "
+"yalnızca çerezsiz sinyaller alır."
 
 #: inc/options.php:344
 msgid "Also track logged-in editors and administrators"
@@ -633,7 +707,8 @@ msgstr "Siteyi ziyaret et"
 msgid "Local Time"
 msgstr "Yerel Saat"
 
-#: template-parts/contact.php:44 template-parts/sticky-contact.php:23
+#: single-sd_service_page.php:45 template-parts/contact.php:44
+#: template-parts/sticky-contact.php:23 template-profile.php:84
 msgid "Start a Project"
 msgstr "Proje Başlatın"
 
@@ -712,3 +787,67 @@ msgstr "Harika, %s!"
 #: template-parts/project-modal.php:70
 msgid "Close Window"
 msgstr "Pencereyi Kapat"
+
+#: archive-sd_service_page.php:24 single-sd_service_page.php:32
+msgid "Services"
+msgstr "Hizmetler"
+
+#: archive-sd_service_page.php:32 template-parts/expertise.php:61
+msgid "Learn more"
+msgstr "Daha fazla bilgi"
+
+#. translators: %s: price with currency, e.g. "2,000 EUR"
+#: single-sd_service_page.php:22
+#, php-format
+msgid "From %s"
+msgstr "Başlangıç: %s"
+
+#: single-sd_service_page.php:34
+msgid "Service"
+msgstr "Hizmet"
+
+#: single-sd_service_page.php:51
+msgid "Who it is for"
+msgstr "Kimler için"
+
+#: single-sd_service_page.php:57
+msgid "What you get"
+msgstr "Neler sunuyoruz"
+
+#: single-sd_service_page.php:69
+msgid "How it works"
+msgstr "Nasıl çalışır"
+
+#: single-sd_service_page.php:92
+msgid "Related work"
+msgstr "İlgili çalışmalar"
+
+#: single-sd_service_page.php:105
+msgid "Frequently asked questions"
+msgstr "Sıkça sorulan sorular"
+
+#. translators: %s: date
+#: single-sd_service_page.php:124
+#, php-format
+msgid "Last updated: %s"
+msgstr "Son güncelleme: %s"
+
+#. Template Name of the theme
+msgid "Profile (About)"
+msgstr "Profil (Hakkımda)"
+
+#: template-profile.php:20
+msgid "Languages"
+msgstr "Diller"
+
+#: template-profile.php:21
+msgid "Education"
+msgstr "Eğitim"
+
+#: template-profile.php:22
+msgid "Certificates"
+msgstr "Sertifikalar"
+
+#: template-profile.php:59
+msgid "Areas of expertise"
+msgstr "Uzmanlık alanları"

@@ -1,6 +1,7 @@
 <wpml-config>
 	<custom-types>
 		<custom-type translate="1">sd_project</custom-type>
+		<custom-type translate="1">sd_service_page</custom-type>
 		<custom-type translate="1">sd_expertise</custom-type>
 		<custom-type translate="0">sd_brand</custom-type>
 		<custom-type translate="0">sd_message</custom-type>
@@ -24,6 +25,18 @@
 		<custom-field action="copy">_sd_accent</custom-field>
 		<custom-field action="copy">_sd_icon</custom-field>
 		<custom-field action="translate">_sd_read_time</custom-field>
+		<custom-field action="translate">_sd_definition</custom-field>
+		<custom-field action="translate">_sd_who_for</custom-field>
+		<custom-field action="translate">_sd_deliverables</custom-field>
+		<custom-field action="translate">_sd_process</custom-field>
+		<custom-field action="translate">_sd_duration</custom-field>
+		<custom-field action="copy">_sd_engagement_model</custom-field>
+		<custom-field action="copy">_sd_price_from</custom-field>
+		<custom-field action="copy">_sd_currency</custom-field>
+		<custom-field action="copy">_sd_area_served</custom-field>
+		<custom-field action="translate">_sd_faq</custom-field>
+		<custom-field action="copy">_sd_reviewed_date</custom-field>
+		<custom-field action="copy">_sd_service_page</custom-field>
 		<custom-field action="copy">_sd_disable_tracking</custom-field>
 		<custom-field action="copy">_sd_extra_head_code</custom-field>
 	</custom-fields>

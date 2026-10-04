@@ -11,6 +11,7 @@ serhandemirel.com'da hangi içerik türlerinin ve alanların olduğunu, hangiler
 | Tür | Slug | Destekler | Çeviri |
 |---|---|---|---|
 | Projects | `sd_project` | başlık, editör, öne çıkan görsel (1200×900), sıralama, revizyonlar; `/work/`; taksonomiler `sd_industry`, `sd_service` | Her dilde ayrı kopya |
+| Services | `sd_service_page` | başlık, editör, özet, öne çıkan görsel, sıralama, revizyonlar; `/services/`; taksonomi `sd_service` (aynı terim projelerle ortak, "Related work" buradan gelir) | Her dilde ayrı kopya |
 | Expertise | `sd_expertise` | başlık, sıralama | Her dilde ayrı kopya |
 | Brands | `sd_brand` | başlık, sıralama | Tek kayıt |
 | Messages | `sd_message` | başlık, editör; yalnızca iletişim formu oluşturur | Tek kayıt |
@@ -19,11 +20,19 @@ serhandemirel.com'da hangi içerik türlerinin ve alanların olduğunu, hangiler
 | Tür | Ortak alanlar | Çevrilen alanlar |
 |---|---|---|
 | Projects | client (text), year (number), url (url), brand (sd_brand), gallery (galeri), featured (checkbox) | location (text), summary (textarea), metric (text) |
-| Expertise | accent (select), icon (select) | description (textarea), tags (text) |
+| Services | engagement_model (select: project / retainer / workshop / hourly), price_from (number), currency (EUR / USD / GBP / TRY), area_served (text), reviewed_date (date) | definition (textarea, 40–60 kelime), who_for (textarea), deliverables (satır başına bir çıktı), process ("Adım: açıklama" satırları), duration (text), faq (soru satırı + cevap, aralarında boş satır) |
+| Expertise | accent (select), icon (select), service_page (sd_service_page) | description (textarea), tags (text) |
 | Brands | logo_white (image), logo_color (image), url (url), visible (checkbox) | |
 | Insights | featured (checkbox) | read_time (number) |
 | Messages | status, name, email, lang, source_url, utm_source, utm_campaign (tek kayıt) | |
-| Sayfa, yazı, proje | disable_tracking (checkbox), extra_head_code (kod, `unfiltered_html` gerekir) | |
+| Sayfa, yazı, proje, hizmet | disable_tracking (checkbox), extra_head_code (kod, `unfiltered_html` gerekir) | |
+
+**Profil (Person)**: içerik türü değil, eklentideki *Profile* ekranında tek kayıt (`sdc_profile` seçeneği). Ortak: full_name, alternate_names, headshot, city, country, languages_spoken, same_as, works_for, works_for_url, alumni_of, credentials. Dile göre: job_title, short_bio, long_bio, knows_about (boş bırakılırsa varsayılan dildeki değer kullanılır). Tema şablonu `template-profile.php` ("Profile (About)") bunu Hakkımda sayfasında gösterir.
+
+**Otomatik çıktılar**
+- JSON-LD (`includes/schema.php`): her sayfada Person + WebSite + sayfa düğümü (ana sayfa ve Hakkımda: ProfilePage; diğerleri WebPage / CollectionPage). Yazılarda BlogPosting, projelerde CreativeWork, hizmetlerde Service (offers, hasOfferCatalog) + FAQPage. Yoast, Rank Math, AIOSEO veya SEOPress etkinse basılmaz.
+- `/llms.txt` (`includes/llms.php`): profil, diller, hizmetler, projeler, yazılar ve iletişim; varsayılan dilde.
+- Hizmet sayfalarında görünür "Last updated" tarihi (reviewed_date, yoksa son değişiklik).
 
 ## Planlanan (henüz kodda yok)
 
@@ -38,7 +47,7 @@ Google'ın AI Overviews'u, ChatGPT, Perplexity ve Claude gibi yapay zekâ yanıt
 3. **Ölçülebilir, kaynaklı gerçekler:** "+24% dönüşüm", tarih, süre ve kaynak gibi bilgiler. Sayılar ve kaynaklar alıntılanma olasılığını belirgin şekilde artırıyor.
 4. **Soru–cevap blokları:** FAQ içeriği hâlâ AEO için çok değerli. Not: Google, 2023'ten beri FAQ zengin sonucunu çoğu siteye göstermiyor. Yine de içerik hem yanıt motorlarına hem de LLM'lere doğrudan besleniyor.
 5. **Tazelik ve yazar güvenilirliği (E-E-A-T):** Görünür "son güncelleme" tarihi, gerçek yazar bilgisi ve ilgili deneyim.
-6. **Yapılandırılmış veri (JSON-LD):** Alanlar ayrı ayrı tutulursa tema bunlardan otomatik şema üretebilir. Şu an temada JSON-LD yok, bu önerilerin çoğu bunu besliyor.
+6. **Yapılandırılmış veri (JSON-LD):** Alanlar ayrı ayrı tutulursa tema bunlardan otomatik şema üretebilir. Eklentinin JSON-LD çıktısı bu alanlardan beslenir.
 
 ---
 
@@ -56,11 +65,6 @@ Google'ın AI Overviews'u, ChatGPT, Perplexity ve Claude gibi yapay zekâ yanıt
 | testimonial | sd_testimonial ilişkisi | Ortak | Kanıt; sayfada alıntı olarak görünür |
 | video_url | url | Ortak | VideoObject şeması |
 | updated_note | date | Ortak | Görünür "son güncelleme" |
-
-#### Expertise (`sd_expertise`)
-| Alan | Tip | Dil | Neden |
-|---|---|---|---|
-| service_page | sd_service ilişkisi | Ortak | Kart şu an hiçbir yere gitmiyor; hizmet sayfasına bağlanmalı |
 
 #### Brands (`sd_brand`)
 | Alan | Tip | Dil | Neden |
@@ -94,23 +98,8 @@ Google'ın AI Overviews'u, ChatGPT, Perplexity ve Claude gibi yapay zekâ yanıt
 
 ### 2. Yeni içerik türü önerileri (öncelik sırasıyla)
 
-#### ① Services (`sd_service`) : en yüksek öncelik
-Şu an "Services" yalnızca projeleri filtrelemek için kullanılan bir taksonomi. Her hizmetin kendi sayfası olursa "B2B SEO danışmanı", "Shopify CRO uzmanı" gibi aramalarda ve AI önerilerinde görünür olmanın ana yolu bu sayfalar olur. Mevcut taksonomi filtre olarak kalabilir, her terim bir hizmet sayfasına bağlanır.
-
-| Alan | Tip | Dil |
-|---|---|---|
-| definition (40–60 kelime "Bu hizmet nedir?") | textarea | Çevrilir |
-| who_for (kimler için) | textarea | Çevrilir |
-| deliverables (çıktılar) | tekrarlayıcı | Çevrilir |
-| process (adım başlığı, açıklama) | tekrarlayıcı | Çevrilir |
-| duration / engagement_model | text / select | Çevrilir / Ortak |
-| price_from + currency | number + select | Ortak |
-| area_served (ülke ya da "Remote / Worldwide") | text | Ortak |
-| faq | tekrarlayıcı | Çevrilir |
-| related_projects / related_insights | ilişki | Ortak |
-| service_term | sd_service terimi | Ortak |
-
-Şema: `Service` (provider = Person, areaServed, offers) + `FAQPage`.
+#### ① Services: koda girdi
+`sd_service_page` olarak eklendi (yukarıya bakın). Kalanlar: related_insights ilişkisi; deliverables, process ve faq şimdilik satır bazlı metin, ileride tekrarlayıcı alana çevrilebilir.
 
 #### ② FAQ (`sd_faq`)
 Merkezi bir soru bankası. Aynı soru hizmet, proje ve ana sayfada tekrar kullanılabilir; tek yerde güncellenir.
@@ -160,17 +149,10 @@ Konuşmalar, podcastler, röportajlar, ödüller ve başka sitelerde yayınlanan
 
 ### 3. İçerik türü değil, site ayarı olarak eklenmeli
 
-**Kişi / varlık profili (Person)**, eklenti ayarlarında tek kayıt olarak tutulur. GEO için en kritik parça bu:
-- full_name, alternate_names (yazım farkları), job_title (çevrilir), short_bio (çevrilir, 50 kelime), long_bio (çevrilir)
-- headshot, location (şehir/ülke), languages_spoken
-- knows_about (uzmanlık konuları listesi)
-- same_as: LinkedIn, X, GitHub, Medium, Wikidata vb.
-- works_for / alumni_of / credentials (sertifikalar)
-
-Tema bundan her sayfaya tek bir JSON-LD grafiği basar: Person + WebSite + o sayfanın türü (Service, Article, CreativeWork, FAQPage).
+**Kişi / varlık profili (Person)** ve JSON-LD grafiği koda girdi (yukarıya bakın).
 
 **Diğer teknik maddeler** (alan değil, ama aynı hedefe hizmet ediyor):
-- `llms.txt`: hizmetler, öne çıkan projeler ve yazılardan otomatik üretilen özet dosya.
+- ~~`llms.txt`~~: koda girdi.
 - AI tarayıcı politikası: GPTBot, ClaudeBot, PerplexityBot ve Google-Extended için izin verilip verilmeyeceği bilinçli seçilmeli. Görünürlük isteniyorsa açık kalmalı.
 - Görünür "son güncelleme" tarihi ve `dateModified`.
 - hreflang Polylang ile zaten var. Her dilde tldr ve definition alanları gerçekten çevrilmeli, makine çevirisi bırakılmamalı.
@@ -178,8 +160,8 @@ Tema bundan her sayfaya tek bir JSON-LD grafiği basar: Person + WebSite + o say
 ---
 
 ### Önerilen sıra
-1. Person profili ve JSON-LD altyapısı
-2. Services türü ve Expertise kartlarının hizmet sayfalarına bağlanması
+1. ~~Person profili ve JSON-LD altyapısı~~ (yapıldı)
+2. ~~Services türü ve Expertise kartlarının hizmet sayfalarına bağlanması~~ (yapıldı)
 3. Mevcut türlere eklenecek alanlar (Projects, Insights, Brands, Messages)
 4. FAQ ve Testimonials
 5. Appearances; ihtiyaç olursa Glossary ve Resources

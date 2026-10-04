@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-10-04T13:24:39+00:00\n"
+"POT-Creation-Date: 2026-10-04T13:58:26+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: serhandemirel\n"
@@ -30,6 +30,16 @@ msgstr ""
 #. Description of the theme
 #: style.css
 msgid "One-page personal theme for serhandemirel.com. Tailwind (compiled), GSAP + ScrollTrigger and Lenis smooth scrolling."
+msgstr ""
+
+#: archive-sd_service_page.php:24
+#: single-sd_service_page.php:32
+msgid "Services"
+msgstr ""
+
+#: archive-sd_service_page.php:32
+#: template-parts/expertise.php:61
+msgid "Learn more"
 msgstr ""
 
 #: functions.php:29
@@ -614,13 +624,51 @@ msgstr ""
 msgid "Visit site"
 msgstr ""
 
-#: template-parts/contact.php:32
-msgid "Local Time"
+#. translators: %s: price with currency, e.g. "2,000 EUR"
+#: single-sd_service_page.php:22
+#, php-format
+msgid "From %s"
 msgstr ""
 
+#: single-sd_service_page.php:34
+msgid "Service"
+msgstr ""
+
+#: single-sd_service_page.php:45
 #: template-parts/contact.php:44
 #: template-parts/sticky-contact.php:23
+#: template-profile.php:84
 msgid "Start a Project"
+msgstr ""
+
+#: single-sd_service_page.php:51
+msgid "Who it is for"
+msgstr ""
+
+#: single-sd_service_page.php:57
+msgid "What you get"
+msgstr ""
+
+#: single-sd_service_page.php:69
+msgid "How it works"
+msgstr ""
+
+#: single-sd_service_page.php:92
+msgid "Related work"
+msgstr ""
+
+#: single-sd_service_page.php:105
+msgid "Frequently asked questions"
+msgstr ""
+
+#. translators: %s: date
+#: single-sd_service_page.php:124
+#, php-format
+msgid "Last updated: %s"
+msgstr ""
+
+#: template-parts/contact.php:32
+msgid "Local Time"
 msgstr ""
 
 #: template-parts/contact.php:54
@@ -698,4 +746,24 @@ msgstr ""
 
 #: template-parts/project-modal.php:70
 msgid "Close Window"
+msgstr ""
+
+#. Template Name of the theme
+msgid "Profile (About)"
+msgstr ""
+
+#: template-profile.php:20
+msgid "Languages"
+msgstr ""
+
+#: template-profile.php:21
+msgid "Education"
+msgstr ""
+
+#: template-profile.php:22
+msgid "Certificates"
+msgstr ""
+
+#: template-profile.php:59
+msgid "Areas of expertise"
 msgstr ""

@@ -79,7 +79,7 @@ function sdc_render_field( $name, $field, $value ) {
 
 		switch ( $field['type'] ) {
 			case 'textarea':
-				printf( '<textarea id="%s" name="%s" rows="3">%s</textarea>', esc_attr( $id ), esc_attr( $input_name ), esc_textarea( $value ) );
+				printf( '<textarea id="%s" name="%s" rows="%d" placeholder="%s">%s</textarea>', esc_attr( $id ), esc_attr( $input_name ), (int) ( $field['rows'] ?? 3 ), esc_attr( $field['placeholder'] ?? '' ), esc_textarea( $value ) );
 				break;
 
 			case 'code':
@@ -146,13 +146,14 @@ function sdc_render_field( $name, $field, $value ) {
 				break;
 
 			default:
-				$type = in_array( $field['type'], array( 'url', 'email', 'number' ), true ) ? $field['type'] : 'text';
+				$type = in_array( $field['type'], array( 'url', 'email', 'number', 'date' ), true ) ? $field['type'] : 'text';
 				printf(
-					'<input type="%s" id="%s" name="%s" value="%s">',
+					'<input type="%s" id="%s" name="%s" value="%s" placeholder="%s">',
 					esc_attr( $type ),
 					esc_attr( $id ),
 					esc_attr( $input_name ),
-					esc_attr( 'number' === $type && ! $value ? '' : $value )
+					esc_attr( 'number' === $type && ! $value ? '' : $value ),
+					esc_attr( $field['placeholder'] ?? '' )
 				);
 		}
 	}
@@ -202,6 +203,12 @@ add_action( 'save_post', 'sdc_save_meta_boxes', 10, 2 );
  * @param string $hook Admin page hook.
  */
 function sdc_admin_assets( $hook ) {
+	if ( 'toplevel_page_sdc-profile' === $hook ) {
+		wp_enqueue_media();
+		wp_enqueue_script( 'sdc-admin', SDC_URL . 'assets/admin.js', array( 'jquery' ), SDC_VERSION, true );
+		wp_enqueue_style( 'sdc-admin', SDC_URL . 'assets/admin.css', array(), SDC_VERSION );
+		return;
+	}
 	if ( 'edit.php' === $hook ) {
 		wp_enqueue_style( 'sdc-admin', SDC_URL . 'assets/admin.css', array(), SDC_VERSION );
 		return;

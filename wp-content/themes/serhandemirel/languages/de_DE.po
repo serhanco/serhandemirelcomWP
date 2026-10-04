@@ -29,12 +29,20 @@ msgstr "https://serhandemirel.com"
 
 #. Description of the theme
 #: style.css
-msgid "One-page personal theme for serhandemirel.com. Tailwind (compiled), GSAP + ScrollTrigger and Lenis smooth scrolling."
-msgstr "One-Page-Theme für die persönliche Website serhandemirel.com. Tailwind (kompiliert), GSAP + ScrollTrigger und sanftes Scrollen mit Lenis."
+msgid ""
+"One-page personal theme for serhandemirel.com. Tailwind (compiled), GSAP + "
+"ScrollTrigger and Lenis smooth scrolling."
+msgstr ""
+"One-Page-Theme für die persönliche Website serhandemirel.com. Tailwind "
+"(kompiliert), GSAP + ScrollTrigger und sanftes Scrollen mit Lenis."
 
 #: functions.php:29
-msgid "The Serhan Demirel theme needs the \"Serhan Demirel Core\" plugin. Without it the contact form does not work."
-msgstr "Das Theme Serhan Demirel benötigt das Plugin „Serhan Demirel Core“. Ohne das Plugin funktioniert das Kontaktformular nicht."
+msgid ""
+"The Serhan Demirel theme needs the \"Serhan Demirel Core\" plugin. Without "
+"it the contact form does not work."
+msgstr ""
+"Das Theme Serhan Demirel benötigt das Plugin „Serhan Demirel Core“. Ohne das"
+" Plugin funktioniert das Kontaktformular nicht."
 
 #: functions.php:40
 msgid "Main menu"
@@ -65,8 +73,12 @@ msgid "Marketing & Growth"
 msgstr "Marketing & Wachstum"
 
 #: inc/content.php:61
-msgid "Driving measurable growth and expanding reach through data-driven digital marketing strategies."
-msgstr "Messbares Wachstum und mehr Reichweite durch datengetriebene digitale Marketingstrategien."
+msgid ""
+"Driving measurable growth and expanding reach through data-driven digital "
+"marketing strategies."
+msgstr ""
+"Messbares Wachstum und mehr Reichweite durch datengetriebene digitale "
+"Marketingstrategien."
 
 #: inc/content.php:61
 msgid "Sales Optimization"
@@ -85,8 +97,12 @@ msgid "Digital Products"
 msgstr "Digitale Produkte"
 
 #: inc/content.php:62
-msgid "Architecting and building modern web applications, platforms, and high-converting landing pages."
-msgstr "Konzeption und Entwicklung moderner Web-Apps, Plattformen und konversionsstarker Landingpages."
+msgid ""
+"Architecting and building modern web applications, platforms, and high-"
+"converting landing pages."
+msgstr ""
+"Konzeption und Entwicklung moderner Web-Apps, Plattformen und "
+"konversionsstarker Landingpages."
 
 #: inc/content.php:62
 msgid "Web Apps"
@@ -105,8 +121,12 @@ msgid "AI & Automation"
 msgstr "KI & Automatisierung"
 
 #: inc/content.php:63
-msgid "Streamlining workflows and accelerating business processes using intelligent AI solutions and smart automation."
-msgstr "Schlankere Workflows und schnellere Geschäftsprozesse dank intelligenter KI-Lösungen und smarter Automatisierung."
+msgid ""
+"Streamlining workflows and accelerating business processes using intelligent"
+" AI solutions and smart automation."
+msgstr ""
+"Schlankere Workflows und schnellere Geschäftsprozesse dank intelligenter KI-"
+"Lösungen und smarter Automatisierung."
 
 #: inc/content.php:63
 msgid "AI Solutions"
@@ -121,8 +141,12 @@ msgid "Strategy & Visibility"
 msgstr "Strategie & Sichtbarkeit"
 
 #: inc/content.php:64
-msgid "Elevating brand presence through deep competitor analysis and aggressive search engine optimization."
-msgstr "Mehr Markenpräsenz durch fundierte Wettbewerbsanalysen und konsequente Suchmaschinenoptimierung."
+msgid ""
+"Elevating brand presence through deep competitor analysis and aggressive "
+"search engine optimization."
+msgstr ""
+"Mehr Markenpräsenz durch fundierte Wettbewerbsanalysen und konsequente "
+"Suchmaschinenoptimierung."
 
 #: inc/content.php:64
 msgid "SEO"
@@ -137,8 +161,12 @@ msgid "Transformation & Ed"
 msgstr "Wandel & Weiterbildung"
 
 #: inc/content.php:65
-msgid "Guiding companies through digital transformation and providing corporate training for sustainable growth."
-msgstr "Ich begleite Unternehmen durch die digitale Transformation und biete Firmenschulungen für nachhaltiges Wachstum."
+msgid ""
+"Guiding companies through digital transformation and providing corporate "
+"training for sustainable growth."
+msgstr ""
+"Ich begleite Unternehmen durch die digitale Transformation und biete "
+"Firmenschulungen für nachhaltiges Wachstum."
 
 #: inc/content.php:65
 msgid "Digital Transformation"
@@ -185,8 +213,16 @@ msgid "Editing texts in:"
 msgstr "Texte bearbeiten in:"
 
 #: inc/options-page.php:101
-msgid "Fields marked with a globe are saved for this language only. Empty ones show the text in grey: the theme's own translation, or the default-language text if the theme has no translation for this language. Other fields are shared by all languages."
-msgstr "Felder mit einem Globus werden nur für diese Sprache gespeichert. Leere Felder zeigen den Text in Grau: die Übersetzung des Themes oder den Text der Standardsprache, falls das Theme keine Übersetzung für diese Sprache hat. Alle anderen Felder gelten für alle Sprachen."
+msgid ""
+"Fields marked with a globe are saved for this language only. Empty ones show"
+" the text in grey: the theme's own translation, or the default-language text"
+" if the theme has no translation for this language. Other fields are shared "
+"by all languages."
+msgstr ""
+"Felder mit einem Globus werden nur für diese Sprache gespeichert. Leere "
+"Felder zeigen den Text in Grau: die Übersetzung des Themes oder den Text der"
+" Standardsprache, falls das Theme keine Übersetzung für diese Sprache hat. "
+"Alle anderen Felder gelten für alle Sprachen."
 
 #: inc/options-page.php:156
 msgid "Per language"
@@ -225,24 +261,38 @@ msgid "Serhan Demirel | Digital Solutions Provider"
 msgstr "Serhan Demirel | Anbieter digitaler Lösungen"
 
 #: inc/options.php:45
-msgid "Used for social sharing. The browser tab title comes from Settings → General."
-msgstr "Wird beim Teilen in sozialen Netzwerken verwendet. Der Titel im Browser-Tab kommt aus Einstellungen → Allgemein."
+msgid ""
+"Used for social sharing. The browser tab title comes from Settings → "
+"General."
+msgstr ""
+"Wird beim Teilen in sozialen Netzwerken verwendet. Der Titel im Browser-Tab "
+"kommt aus Einstellungen → Allgemein."
 
 #: inc/options.php:48
 msgid "Default SEO description"
 msgstr "Standard-SEO-Beschreibung"
 
 #: inc/options.php:51
-msgid "Serhan Demirel - Digital Solutions Provider specializing in business transformation, scalable digital foundations, and AI & automation."
-msgstr "Serhan Demirel – Anbieter digitaler Lösungen mit Fokus auf Unternehmenstransformation, skalierbare digitale Grundlagen sowie KI & Automatisierung."
+msgid ""
+"Serhan Demirel - Digital Solutions Provider specializing in business "
+"transformation, scalable digital foundations, and AI & automation."
+msgstr ""
+"Serhan Demirel – Anbieter digitaler Lösungen mit Fokus auf "
+"Unternehmenstransformation, skalierbare digitale Grundlagen sowie KI & "
+"Automatisierung."
 
 #: inc/options.php:54
 msgid "Sharing image"
 msgstr "Vorschaubild zum Teilen"
 
 #: inc/options.php:56
-msgid "Shown when the site is shared on LinkedIn, WhatsApp or X. 1200×630 works best. Empty uses the SD logo."
-msgstr "Wird angezeigt, wenn die Website auf LinkedIn, WhatsApp oder X geteilt wird. Am besten eignen sich 1200×630 Pixel. Leer bedeutet: Das SD-Logo wird verwendet."
+msgid ""
+"Shown when the site is shared on LinkedIn, WhatsApp or X. 1200×630 works "
+"best. Empty uses the SD logo."
+msgstr ""
+"Wird angezeigt, wenn die Website auf LinkedIn, WhatsApp oder X geteilt wird."
+" Am besten eignen sich 1200×630 Pixel. Leer bedeutet: Das SD-Logo wird "
+"verwendet."
 
 #: inc/options.php:61
 msgid "Hero"
@@ -284,7 +334,8 @@ msgstr "Wortwechsel"
 msgid "Prefix"
 msgstr "Präfix"
 
-#. translators: Start of the rotating sentence, followed by a verb such as "design".
+#. translators: Start of the rotating sentence, followed by a verb such as
+#. "design".
 #: inc/options.php:96
 msgid "We can"
 msgstr "Wir können"
@@ -293,7 +344,8 @@ msgstr "Wir können"
 msgid "Words"
 msgstr "Wörter"
 
-#. translators: Words shown one after another after the prefix, one per line. Keep one word per line; the number of lines may differ.
+#. translators: Words shown one after another after the prefix, one per line.
+#. Keep one word per line; the number of lines may differ.
 #: inc/options.php:103
 msgid ""
 "design\n"
@@ -337,8 +389,12 @@ msgstr ""
 "begeistern"
 
 #: inc/options.php:104
-msgid "One word per line, shown in this order. A full stop is added after each word."
-msgstr "Ein Wort pro Zeile, in dieser Reihenfolge angezeigt. Nach jedem Wort wird ein Punkt ergänzt."
+msgid ""
+"One word per line, shown in this order. A full stop is added after each "
+"word."
+msgstr ""
+"Ein Wort pro Zeile, in dieser Reihenfolge angezeigt. Nach jedem Wort wird "
+"ein Punkt ergänzt."
 
 #: inc/options.php:109
 msgid "Sections"
@@ -389,8 +445,13 @@ msgid "Show the Work section"
 msgstr "Bereich „Projekte“ anzeigen"
 
 #: inc/options.php:149
-msgid "Appears once at least one project is published. Projects ticked \"Show on home page\" are listed; if none are ticked, all projects are."
-msgstr "Erscheint, sobald mindestens ein Projekt veröffentlicht ist. Angezeigt werden Projekte mit Häkchen bei „Auf der Startseite anzeigen“; ist keines markiert, werden alle Projekte angezeigt."
+msgid ""
+"Appears once at least one project is published. Projects ticked \"Show on "
+"home page\" are listed; if none are ticked, all projects are."
+msgstr ""
+"Erscheint, sobald mindestens ein Projekt veröffentlicht ist. Angezeigt "
+"werden Projekte mit Häkchen bei „Auf der Startseite anzeigen“; ist keines "
+"markiert, werden alle Projekte angezeigt."
 
 #: inc/options.php:152
 msgid "Work: small heading"
@@ -421,8 +482,13 @@ msgid "Show the Insights section"
 msgstr "Bereich „Insights“ anzeigen"
 
 #: inc/options.php:173
-msgid "Appears once at least one post is published. Posts ticked \"Show on home page\" are listed; if none are ticked, the two newest are."
-msgstr "Erscheint, sobald mindestens ein Beitrag veröffentlicht ist. Angezeigt werden Beiträge mit Häkchen bei „Auf der Startseite anzeigen“; ist keiner markiert, werden die zwei neuesten angezeigt."
+msgid ""
+"Appears once at least one post is published. Posts ticked \"Show on home "
+"page\" are listed; if none are ticked, the two newest are."
+msgstr ""
+"Erscheint, sobald mindestens ein Beitrag veröffentlicht ist. Angezeigt "
+"werden Beiträge mit Häkchen bei „Auf der Startseite anzeigen“; ist keiner "
+"markiert, werden die zwei neuesten angezeigt."
 
 #: inc/options.php:176
 msgid "Insights: small heading"
@@ -531,7 +597,9 @@ msgstr "Formularnachrichten senden an"
 
 #: inc/options.php:283
 msgid "Empty uses the administration email address from Settings → General."
-msgstr "Leer bedeutet: Die Administrator-E-Mail-Adresse aus Einstellungen → Allgemein wird verwendet."
+msgstr ""
+"Leer bedeutet: Die Administrator-E-Mail-Adresse aus Einstellungen → "
+"Allgemein wird verwendet."
 
 #: inc/options.php:289
 msgid "Let's Create Something Great"
@@ -543,7 +611,8 @@ msgstr "Einleitung"
 
 #: inc/options.php:295
 msgid "Tell me about your project and I'll get back to you shortly."
-msgstr "Erzählen Sie mir von Ihrem Projekt – ich melde mich in Kürze bei Ihnen."
+msgstr ""
+"Erzählen Sie mir von Ihrem Projekt – ich melde mich in Kürze bei Ihnen."
 
 #: inc/options.php:298
 msgid "Button"
@@ -578,8 +647,12 @@ msgid "Google Analytics 4 ID"
 msgstr "Google Analytics 4 ID"
 
 #: inc/options.php:323
-msgid "e.g. G-XXXXXXXXXX. Leave empty if GA4 is set up inside Google Tag Manager, or visits are counted twice."
-msgstr "z. B. G-XXXXXXXXXX. Leer lassen, wenn GA4 im Google Tag Manager eingerichtet ist – sonst werden Besuche doppelt gezählt."
+msgid ""
+"e.g. G-XXXXXXXXXX. Leave empty if GA4 is set up inside Google Tag Manager, "
+"or visits are counted twice."
+msgstr ""
+"z. B. G-XXXXXXXXXX. Leer lassen, wenn GA4 im Google Tag Manager eingerichtet"
+" ist – sonst werden Besuche doppelt gezählt."
 
 #: inc/options.php:326
 msgid "Meta Pixel ID"
@@ -598,8 +671,14 @@ msgid "Google Consent Mode v2: start with consent denied"
 msgstr "Google Consent Mode v2: mit verweigerter Einwilligung starten"
 
 #: inc/options.php:341
-msgid "Required for EU visitors. Needs a cookie banner (e.g. Complianz or CookieYes) to grant consent; without one Google only receives cookieless pings."
-msgstr "Erforderlich für Besucher aus der EU. Benötigt ein Cookie-Banner (z. B. Complianz oder CookieYes), um die Einwilligung zu erteilen; ohne Banner erhält Google nur cookielose Pings."
+msgid ""
+"Required for EU visitors. Needs a cookie banner (e.g. Complianz or "
+"CookieYes) to grant consent; without one Google only receives cookieless "
+"pings."
+msgstr ""
+"Erforderlich für Besucher aus der EU. Benötigt ein Cookie-Banner (z. B. "
+"Complianz oder CookieYes), um die Einwilligung zu erteilen; ohne Banner "
+"erhält Google nur cookielose Pings."
 
 #: inc/options.php:344
 msgid "Also track logged-in editors and administrators"
@@ -633,7 +712,8 @@ msgstr "Website besuchen"
 msgid "Local Time"
 msgstr "Ortszeit"
 
-#: template-parts/contact.php:44 template-parts/sticky-contact.php:23
+#: single-sd_service_page.php:45 template-parts/contact.php:44
+#: template-parts/sticky-contact.php:23 template-profile.php:84
 msgid "Start a Project"
 msgstr "Projekt starten"
 
@@ -712,3 +792,67 @@ msgstr "Großartig, %s!"
 #: template-parts/project-modal.php:70
 msgid "Close Window"
 msgstr "Fenster schließen"
+
+#: archive-sd_service_page.php:24 single-sd_service_page.php:32
+msgid "Services"
+msgstr "Leistungen"
+
+#: archive-sd_service_page.php:32 template-parts/expertise.php:61
+msgid "Learn more"
+msgstr "Mehr erfahren"
+
+#. translators: %s: price with currency, e.g. "2,000 EUR"
+#: single-sd_service_page.php:22
+#, php-format
+msgid "From %s"
+msgstr "Ab %s"
+
+#: single-sd_service_page.php:34
+msgid "Service"
+msgstr "Leistung"
+
+#: single-sd_service_page.php:51
+msgid "Who it is for"
+msgstr "Für wen"
+
+#: single-sd_service_page.php:57
+msgid "What you get"
+msgstr "Was Sie erhalten"
+
+#: single-sd_service_page.php:69
+msgid "How it works"
+msgstr "So funktioniert es"
+
+#: single-sd_service_page.php:92
+msgid "Related work"
+msgstr "Ähnliche Projekte"
+
+#: single-sd_service_page.php:105
+msgid "Frequently asked questions"
+msgstr "Häufig gestellte Fragen"
+
+#. translators: %s: date
+#: single-sd_service_page.php:124
+#, php-format
+msgid "Last updated: %s"
+msgstr "Zuletzt aktualisiert: %s"
+
+#. Template Name of the theme
+msgid "Profile (About)"
+msgstr "Profil (Über mich)"
+
+#: template-profile.php:20
+msgid "Languages"
+msgstr "Sprachen"
+
+#: template-profile.php:21
+msgid "Education"
+msgstr "Ausbildung"
+
+#: template-profile.php:22
+msgid "Certificates"
+msgstr "Zertifikate"
+
+#: template-profile.php:59
+msgid "Areas of expertise"
+msgstr "Fachgebiete"
