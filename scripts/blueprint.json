@@ -35,7 +35,7 @@
     },
     {
       "step": "runPHP",
-      "code": "<?php require_once '/wordpress/wp-load.php'; wp_set_current_user( 1 ); if ( function_exists( 'sdc_setup_languages' ) ) { sdc_setup_languages(); }"
+      "code": "<?php define( 'WP_ADMIN', true ); require_once '/wordpress/wp-load.php'; wp_set_current_user( 1 ); if ( function_exists( 'sdc_setup_languages' ) ) { sdc_setup_languages(); }"
     }
   ],
   "features": {

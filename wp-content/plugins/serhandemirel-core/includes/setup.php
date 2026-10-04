@@ -37,8 +37,15 @@ function sdc_setup_has_polylang() {
  */
 function sdc_setup_languages() {
 	if ( ! sdc_setup_has_polylang() ) {
+		if ( defined( 'POLYLANG_VERSION' ) ) {
+			// Polylang is active but, without any language yet, it does not
+			// load on the front end: finish the setup on the next admin page.
+			update_option( 'sdc_setup_pending', 1 );
+			return array( __( 'Polylang is not ready on this request; the languages will be set up on the next admin page.', 'serhandemirel-core' ) );
+		}
 		return array( __( 'Polylang is not active. Install and activate it first.', 'serhandemirel-core' ) );
 	}
+	delete_option( 'sdc_setup_pending' );
 	$done     = array();
 	$model    = PLL()->model;
 	$existing = (array) pll_languages_list( array( 'fields' => 'locale' ) );
@@ -101,6 +108,16 @@ function sdc_setup_languages() {
 
 	return $done;
 }
+
+/**
+ * Finish a setup that was asked for before Polylang could load.
+ */
+function sdc_setup_run_pending() {
+	if ( get_option( 'sdc_setup_pending' ) && current_user_can( 'manage_options' ) && sdc_setup_has_polylang() ) {
+		sdc_setup_languages();
+	}
+}
+add_action( 'admin_init', 'sdc_setup_run_pending' );
 
 /**
  * Flush permalinks on the request after setup, once Polylang has added

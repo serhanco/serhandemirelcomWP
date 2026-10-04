@@ -457,7 +457,7 @@ msgstr ""
 msgid "Import logos"
 msgstr "Importa loghi"
 
-#: includes/profile.php:279 includes/seed.php:327 includes/setup.php:227
+#: includes/profile.php:279 includes/seed.php:327 includes/setup.php:244
 msgid "Sorry, you are not allowed to do that."
 msgstr "Non hai i permessi per eseguire questa azione."
 
@@ -819,23 +819,23 @@ msgstr ""
 "quelli vuoti usano la lingua predefinita. Gli altri campi sono condivisi da "
 "tutte le lingue."
 
-#: includes/setup.php:40
+#: includes/setup.php:46
 msgid "Polylang is not active. Install and activate it first."
 msgstr "Polylang non è attivo. Installarlo e attivarlo prima di procedere."
 
 #. translators: 1: locale, 2: error message
-#: includes/setup.php:61
+#: includes/setup.php:68
 #, php-format
 msgid "Could not add %1$s: %2$s"
 msgstr "Impossibile aggiungere %1$s: %2$s"
 
 #. translators: %s: locale, e.g. fr_FR
-#: includes/setup.php:65
+#: includes/setup.php:72
 #, php-format
 msgid "Added %s."
 msgstr "%s aggiunto."
 
-#: includes/setup.php:89
+#: includes/setup.php:96
 msgid ""
 "Polylang set up: English at the site root, other languages in folders, "
 "browser detection left to the theme."
@@ -843,85 +843,85 @@ msgstr ""
 "Polylang configurato: inglese nella radice del sito, altre lingue in "
 "cartelle, rilevamento del browser lasciato al tema."
 
-#: includes/setup.php:93
+#: includes/setup.php:100
 msgid "Content without a language was set to English."
 msgstr "I contenuti senza lingua sono stati impostati in inglese."
 
-#: includes/setup.php:98
+#: includes/setup.php:105
 msgid "Permalinks set to \"Post name\"."
 msgstr "Permalink impostati su \"Nome articolo\"."
 
-#: includes/setup.php:132
+#: includes/setup.php:149
 msgid "Polylang is active"
 msgstr "Polylang è attivo"
 
-#: includes/setup.php:134
+#: includes/setup.php:151
 msgid "Plugins → Add New → search \"Polylang\" → Install → Activate."
 msgstr ""
 "Plugin → Aggiungi nuovo plugin → cerca \"Polylang\" → Installa ora → Attiva."
 
-#: includes/setup.php:137
+#: includes/setup.php:154
 msgid "All six languages exist"
 msgstr "Tutte e sei le lingue sono presenti"
 
-#: includes/setup.php:139 includes/setup.php:144
+#: includes/setup.php:156 includes/setup.php:161
 msgid "Press \"Set up languages\" below."
 msgstr "Premere \"Configura lingue\" qui sotto."
 
-#: includes/setup.php:142
+#: includes/setup.php:159
 msgid "Polylang's own browser detection is off"
 msgstr "Il rilevamento del browser di Polylang è disattivato"
 
-#: includes/setup.php:147
+#: includes/setup.php:164
 msgid "Pretty permalinks"
 msgstr "Permalink leggibili"
 
-#: includes/setup.php:149
+#: includes/setup.php:166
 msgid "Settings → Permalinks → Post name."
 msgstr "Impostazioni → Permalink → Nome articolo."
 
-#: includes/setup.php:152
+#: includes/setup.php:169
 msgid "Theme translations are installed"
 msgstr "Le traduzioni del tema sono installate"
 
-#: includes/setup.php:154
+#: includes/setup.php:171
 msgid ""
 "Use the Serhan Demirel theme from the repository, including its languages "
 "folder."
 msgstr ""
 "Usare il tema Serhan Demirel dal repository, inclusa la cartella languages."
 
-#: includes/setup.php:157
+#: includes/setup.php:174
 msgid "Profile is filled in"
 msgstr "Il profilo è compilato"
 
-#: includes/setup.php:159
+#: includes/setup.php:176
 msgid "Profile → add your photo, bio and profile links."
 msgstr "Profilo → aggiungere foto, biografia e link ai profili."
 
-#: includes/setup.php:162
+#: includes/setup.php:179
 msgid "Service pages are published"
 msgstr "Le pagine servizio sono pubblicate"
 
-#: includes/setup.php:164
+#: includes/setup.php:181
 msgid "Services → review the drafts and publish them."
 msgstr "Servizi → rivedere le bozze e pubblicarle."
 
-#: includes/setup.php:167
+#: includes/setup.php:184
 msgid "Search engines may index the site"
 msgstr "I motori di ricerca possono indicizzare il sito"
 
-#: includes/setup.php:169
+#: includes/setup.php:186
 msgid "Settings → Reading → untick \"Discourage search engines\"."
 msgstr ""
 "Impostazioni → Lettura → deselezionare \"Scoraggia i motori di ricerca "
 "dall'effettuare l'indicizzazione di questo sito\"."
 
-#: includes/setup.php:172
+#: includes/setup.php:189
 msgid "Mail can be sent (for the contact form)"
 msgstr "È possibile inviare email (per il modulo di contatto)"
 
-#: includes/setup.php:174
+#: includes/setup.php:191
 msgid ""
 "Install an SMTP plugin (e.g. WP Mail SMTP or FluentSMTP) and send a test "
 "email."
@@ -929,15 +929,15 @@ msgstr ""
 "Installare un plugin SMTP (ad es. WP Mail SMTP o FluentSMTP) e inviare "
 "un'email di prova."
 
-#: includes/setup.php:183 includes/setup.php:198
+#: includes/setup.php:200 includes/setup.php:215
 msgid "Site setup"
 msgstr "Configurazione del sito"
 
-#: includes/setup.php:215
+#: includes/setup.php:232
 msgid "Set up languages"
 msgstr "Configura lingue"
 
-#: includes/setup.php:216
+#: includes/setup.php:233
 msgid ""
 "Adds English (default, at the site root), Turkish, French, Dutch, German and"
 " Italian to Polylang, downloads their WordPress translations and sets the "
@@ -948,6 +948,14 @@ msgstr ""
 "WordPress e imposta le opzioni consigliate. Può essere eseguito di nuovo in "
 "sicurezza."
 
-#: includes/setup.php:246
+#: includes/setup.php:263
 msgid "Done."
 msgstr "Fatto."
+
+#: includes/setup.php:44
+msgid ""
+"Polylang is not ready on this request; the languages will be set up on the "
+"next admin page."
+msgstr ""
+"Polylang non è ancora pronto in questa richiesta; le lingue verranno "
+"configurate alla prossima pagina di amministrazione."
