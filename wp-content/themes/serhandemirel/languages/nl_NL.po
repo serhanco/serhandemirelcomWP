@@ -1,300 +1,297 @@
-# Copyright (C) 2026 Serhan Demirel
-# This file is distributed under the All rights reserved.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: Serhan Demirel 1.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/serhandemirel\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"POT-Creation-Date: 2026-10-04T13:24:39+00:00\n"
+"PO-Revision-Date: 2026-10-04 13:30+0000\n"
+"Last-Translator: Serhan Demirel\n"
+"Language-Team: Dutch\n"
+"Language: nl_NL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-10-04T13:24:39+00:00\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.12.0\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Domain: serhandemirel\n"
+"X-Generator: WP-CLI 2.12.0\n"
 
 #. Theme Name of the theme
 #. Author of the theme
-#: style.css
-#: inc/options-page.php:22
+#: style.css inc/options-page.php:22
 msgid "Serhan Demirel"
-msgstr ""
+msgstr "Serhan Demirel"
 
 #. Theme URI of the theme
 #. Author URI of the theme
 #: style.css
 msgid "https://serhandemirel.com"
-msgstr ""
+msgstr "https://serhandemirel.com"
 
 #. Description of the theme
 #: style.css
 msgid "One-page personal theme for serhandemirel.com. Tailwind (compiled), GSAP + ScrollTrigger and Lenis smooth scrolling."
-msgstr ""
+msgstr "One-page thema voor serhandemirel.com. Tailwind (gecompileerd), GSAP + ScrollTrigger en Lenis smooth scrolling."
 
 #: functions.php:29
 msgid "The Serhan Demirel theme needs the \"Serhan Demirel Core\" plugin. Without it the contact form does not work."
-msgstr ""
+msgstr "Het Serhan Demirel-thema heeft de plugin \"Serhan Demirel Core\" nodig. Zonder deze plugin werkt het contactformulier niet."
 
 #: functions.php:40
 msgid "Main menu"
-msgstr ""
+msgstr "Hoofdmenu"
 
 #: functions.php:102
 msgid "Sending..."
-msgstr ""
+msgstr "Verzenden..."
 
 #: functions.php:103
 msgid "Something went wrong. Please try again."
-msgstr ""
+msgstr "Er is iets misgegaan. Probeer het opnieuw."
 
 #: functions.php:104
 msgid "Network error. Please try again later."
-msgstr ""
+msgstr "Netwerkfout. Probeer het later opnieuw."
 
 #: functions.php:105
 msgid "Friend"
-msgstr ""
+msgstr "Vriend"
 
 #: home.php:31
 msgid "No posts yet."
-msgstr ""
+msgstr "Nog geen berichten."
 
 #: inc/content.php:61
 msgid "Marketing & Growth"
-msgstr ""
+msgstr "Marketing & groei"
 
 #: inc/content.php:61
 msgid "Driving measurable growth and expanding reach through data-driven digital marketing strategies."
-msgstr ""
+msgstr "Meetbare groei en meer bereik met datagedreven digitale marketingstrategieën."
 
 #: inc/content.php:61
 msgid "Sales Optimization"
-msgstr ""
+msgstr "Salesoptimalisatie"
 
 #: inc/content.php:61
 msgid "Lead Gen"
-msgstr ""
+msgstr "Leadgeneratie"
 
 #: inc/content.php:61
 msgid "Digital Marketing"
-msgstr ""
+msgstr "Digitale marketing"
 
 #: inc/content.php:62
 msgid "Digital Products"
-msgstr ""
+msgstr "Digitale producten"
 
 #: inc/content.php:62
 msgid "Architecting and building modern web applications, platforms, and high-converting landing pages."
-msgstr ""
+msgstr "Ontwerp en bouw van moderne webapplicaties, platforms en landingspagina's die converteren."
 
 #: inc/content.php:62
 msgid "Web Apps"
-msgstr ""
+msgstr "Webapps"
 
 #: inc/content.php:62
 msgid "Digital Product"
-msgstr ""
+msgstr "Digitaal product"
 
 #: inc/content.php:62
 msgid "Landing Pages"
-msgstr ""
+msgstr "Landingspagina's"
 
 #: inc/content.php:63
 msgid "AI & Automation"
-msgstr ""
+msgstr "AI & automatisering"
 
 #: inc/content.php:63
 msgid "Streamlining workflows and accelerating business processes using intelligent AI solutions and smart automation."
-msgstr ""
+msgstr "Workflows stroomlijnen en bedrijfsprocessen versnellen met slimme AI-oplossingen en automatisering."
 
 #: inc/content.php:63
 msgid "AI Solutions"
-msgstr ""
+msgstr "AI-oplossingen"
 
 #: inc/content.php:63
 msgid "Automation"
-msgstr ""
+msgstr "Automatisering"
 
 #: inc/content.php:64
 msgid "Strategy & Visibility"
-msgstr ""
+msgstr "Strategie & zichtbaarheid"
 
 #: inc/content.php:64
 msgid "Elevating brand presence through deep competitor analysis and aggressive search engine optimization."
-msgstr ""
+msgstr "Je merk sterker op de kaart zetten met diepgaande concurrentieanalyse en doortastende zoekmachineoptimalisatie."
 
 #: inc/content.php:64
 msgid "SEO"
-msgstr ""
+msgstr "SEO"
 
 #: inc/content.php:64
 msgid "Competitor Analysis"
-msgstr ""
+msgstr "Concurrentieanalyse"
 
 #: inc/content.php:65
 msgid "Transformation & Ed"
-msgstr ""
+msgstr "Transformatie & training"
 
 #: inc/content.php:65
 msgid "Guiding companies through digital transformation and providing corporate training for sustainable growth."
-msgstr ""
+msgstr "Bedrijven begeleiden bij hun digitale transformatie en bedrijfstrainingen geven voor duurzame groei."
 
 #: inc/content.php:65
 msgid "Digital Transformation"
-msgstr ""
+msgstr "Digitale transformatie"
 
 #: inc/content.php:65
 msgid "Training & Ed"
-msgstr ""
+msgstr "Training & opleiding"
 
 #. translators: %d: minutes
 #: inc/content.php:212
 #, php-format
 msgid "%d min read"
 msgid_plural "%d min read"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d min. leestijd"
+msgstr[1] "%d min. leestijd"
 
 #: inc/i18n.php:41
 msgid "Expertise"
-msgstr ""
+msgstr "Expertise"
 
 #: inc/i18n.php:42
 msgid "Brands"
-msgstr ""
+msgstr "Merken"
 
 #: inc/i18n.php:43
 msgid "Work"
-msgstr ""
+msgstr "Werk"
 
-#: inc/i18n.php:44
-#: inc/options.php:179
+#: inc/i18n.php:44 inc/options.php:179
 msgid "Insights"
-msgstr ""
+msgstr "Inzichten"
 
-#: inc/options-page.php:21
-#: inc/options-page.php:81
+#: inc/options-page.php:21 inc/options-page.php:81
 msgid "Serhan Demirel theme settings"
-msgstr ""
+msgstr "Instellingen Serhan Demirel-thema"
 
 #: inc/options-page.php:84
 msgid "Settings saved."
-msgstr ""
+msgstr "Instellingen opgeslagen."
 
 #: inc/options-page.php:95
 msgid "Editing texts in:"
-msgstr ""
+msgstr "Teksten bewerken in:"
 
 #: inc/options-page.php:101
 msgid "Fields marked with a globe are saved for this language only. Empty ones show the text in grey: the theme's own translation, or the default-language text if the theme has no translation for this language. Other fields are shared by all languages."
-msgstr ""
+msgstr "Velden met een wereldbol worden alleen voor deze taal opgeslagen. Lege velden tonen de tekst in grijs: de eigen vertaling van het thema, of de tekst in de standaardtaal als het thema geen vertaling voor deze taal heeft. Andere velden gelden voor alle talen."
 
 #: inc/options-page.php:156
 msgid "Per language"
-msgstr ""
+msgstr "Per taal"
 
 #: inc/options-page.php:168
 msgid "On"
-msgstr ""
+msgstr "Aan"
 
 #: inc/options-page.php:192
 msgid "Choose image"
-msgstr ""
+msgstr "Afbeelding kiezen"
 
 #: inc/options-page.php:193
 msgid "Remove"
-msgstr ""
+msgstr "Verwijderen"
 
 #: inc/options-page.php:220
 msgid "Sorry, you are not allowed to do that."
-msgstr ""
+msgstr "Je hebt geen toestemming om dat te doen."
 
 #: inc/options-page.php:228
 msgid "Unknown settings tab or language."
-msgstr ""
+msgstr "Onbekend instellingentabblad of onbekende taal."
 
 #: inc/options.php:38
 msgid "General"
-msgstr ""
+msgstr "Algemeen"
 
 #: inc/options.php:41
 msgid "Default SEO title"
-msgstr ""
+msgstr "Standaard SEO-titel"
 
 #: inc/options.php:44
 msgid "Serhan Demirel | Digital Solutions Provider"
-msgstr ""
+msgstr "Serhan Demirel | Digital Solutions Provider"
 
 #: inc/options.php:45
 msgid "Used for social sharing. The browser tab title comes from Settings → General."
-msgstr ""
+msgstr "Wordt gebruikt bij delen op sociale media. De titel in het browsertabblad komt uit Instellingen → Algemeen."
 
 #: inc/options.php:48
 msgid "Default SEO description"
-msgstr ""
+msgstr "Standaard SEO-beschrijving"
 
 #: inc/options.php:51
 msgid "Serhan Demirel - Digital Solutions Provider specializing in business transformation, scalable digital foundations, and AI & automation."
-msgstr ""
+msgstr "Serhan Demirel - aanbieder van digitale oplossingen, gespecialiseerd in bedrijfstransformatie, schaalbare digitale fundamenten en AI & automatisering."
 
 #: inc/options.php:54
 msgid "Sharing image"
-msgstr ""
+msgstr "Afbeelding voor delen"
 
 #: inc/options.php:56
 msgid "Shown when the site is shared on LinkedIn, WhatsApp or X. 1200×630 works best. Empty uses the SD logo."
-msgstr ""
+msgstr "Wordt getoond als de site wordt gedeeld op LinkedIn, WhatsApp of X. 1200×630 werkt het best. Leeg gebruikt het SD-logo."
 
 #: inc/options.php:61
 msgid "Hero"
-msgstr ""
+msgstr "Hero"
 
 #: inc/options.php:64
 msgid "Badge"
-msgstr ""
+msgstr "Badge"
 
 #: inc/options.php:67
 msgid "Engineering the digital future"
-msgstr ""
+msgstr "De digitale toekomst bouwen"
 
-#: inc/options.php:70
-#: inc/options.php:286
+#: inc/options.php:70 inc/options.php:286
 msgid "Title"
-msgstr ""
+msgstr "Titel"
 
 #: inc/options.php:75
 msgid "Subtitle"
-msgstr ""
+msgstr "Ondertitel"
 
 #: inc/options.php:78
 msgid "Digital Solutions Provider"
-msgstr ""
+msgstr "Digital Solutions Provider"
 
 #: inc/options.php:81
 msgid "Scroll hint"
-msgstr ""
+msgstr "Scrollhint"
 
 #: inc/options.php:84
 msgid "Explore"
-msgstr ""
+msgstr "Ontdek"
 
 #: inc/options.php:89
 msgid "Word slot"
-msgstr ""
+msgstr "Woordslot"
 
 #: inc/options.php:92
 msgid "Prefix"
-msgstr ""
+msgstr "Voorvoegsel"
 
 #. translators: Start of the rotating sentence, followed by a verb such as "design".
 #: inc/options.php:96
 msgid "We can"
-msgstr ""
+msgstr "We kunnen"
 
 #: inc/options.php:99
 msgid "Words"
-msgstr ""
+msgstr "Woorden"
 
 #. translators: Words shown one after another after the prefix, one per line. Keep one word per line; the number of lines may differ.
 #: inc/options.php:103
@@ -319,383 +316,399 @@ msgid ""
 "deploy\n"
 "succeed"
 msgstr ""
+"ontwerpen\n"
+"prototypen\n"
+"oplossen\n"
+"bouwen\n"
+"ontwikkelen\n"
+"debuggen\n"
+"leren\n"
+"optimaliseren\n"
+"lanceren\n"
+"prompten\n"
+"samenwerken\n"
+"creëren\n"
+"transformeren\n"
+"automatiseren\n"
+"innoveren\n"
+"opschalen\n"
+"integreren\n"
+"uitrollen\n"
+"slagen"
 
 #: inc/options.php:104
 msgid "One word per line, shown in this order. A full stop is added after each word."
-msgstr ""
+msgstr "Eén woord per regel, in deze volgorde getoond. Na elk woord wordt een punt toegevoegd."
 
 #: inc/options.php:109
 msgid "Sections"
-msgstr ""
+msgstr "Secties"
 
 #: inc/options.php:112
 msgid "Show the Core Expertise section"
-msgstr ""
+msgstr "De sectie Kernexpertise tonen"
 
 #: inc/options.php:117
 msgid "Core Expertise: small heading"
-msgstr ""
+msgstr "Kernexpertise: kleine kop"
 
 #: inc/options.php:120
 msgid "Core Expertise"
-msgstr ""
+msgstr "Kernexpertise"
 
 #: inc/options.php:123
 msgid "Core Expertise: heading"
-msgstr ""
+msgstr "Kernexpertise: kop"
 
 #: inc/options.php:126
 msgid "Building scalable digital foundations for tomorrow."
-msgstr ""
+msgstr "Schaalbare digitale fundamenten bouwen voor morgen."
 
 #: inc/options.php:129
 msgid "Show the Brands section"
-msgstr ""
+msgstr "De sectie Merken tonen"
 
 #: inc/options.php:134
 msgid "Brands: small heading"
-msgstr ""
+msgstr "Merken: kleine kop"
 
 #: inc/options.php:137
 msgid "Part of the journey"
-msgstr ""
+msgstr "Onderdeel van de reis"
 
 #: inc/options.php:140
 msgid "Brands: heading"
-msgstr ""
+msgstr "Merken: kop"
 
 #: inc/options.php:143
 msgid "Brands That Shaped My Story"
-msgstr ""
+msgstr "Merken die mijn verhaal vormden"
 
 #: inc/options.php:146
 msgid "Show the Work section"
-msgstr ""
+msgstr "De sectie Werk tonen"
 
 #: inc/options.php:149
 msgid "Appears once at least one project is published. Projects ticked \"Show on home page\" are listed; if none are ticked, all projects are."
-msgstr ""
+msgstr "Verschijnt zodra er minstens één project is gepubliceerd. Projecten met \"Tonen op homepage\" aangevinkt worden getoond; als er geen zijn aangevinkt, worden alle projecten getoond."
 
 #: inc/options.php:152
 msgid "Work: small heading"
-msgstr ""
+msgstr "Werk: kleine kop"
 
 #: inc/options.php:155
 msgid "Selected Work"
-msgstr ""
+msgstr "Geselecteerd werk"
 
 #: inc/options.php:158
 msgid "Work: heading"
-msgstr ""
+msgstr "Werk: kop"
 
 #: inc/options.php:161
 msgid "Featured Projects"
-msgstr ""
+msgstr "Uitgelichte projecten"
 
 #: inc/options.php:164
 msgid "Work: \"All\" filter button"
-msgstr ""
+msgstr "Werk: filterknop \"Alle\""
 
 #: inc/options.php:167
 msgid "All"
-msgstr ""
+msgstr "Alle"
 
 #: inc/options.php:170
 msgid "Show the Insights section"
-msgstr ""
+msgstr "De sectie Inzichten tonen"
 
 #: inc/options.php:173
 msgid "Appears once at least one post is published. Posts ticked \"Show on home page\" are listed; if none are ticked, the two newest are."
-msgstr ""
+msgstr "Verschijnt zodra er minstens één bericht is gepubliceerd. Berichten met \"Tonen op homepage\" aangevinkt worden getoond; als er geen zijn aangevinkt, worden de twee nieuwste getoond."
 
 #: inc/options.php:176
 msgid "Insights: small heading"
-msgstr ""
+msgstr "Inzichten: kleine kop"
 
 #: inc/options.php:182
 msgid "Insights: heading"
-msgstr ""
+msgstr "Inzichten: kop"
 
 #: inc/options.php:185
 msgid "Latest Thoughts"
-msgstr ""
+msgstr "Laatste gedachten"
 
-#: inc/options.php:190
-#: template-parts/nav.php:77
+#: inc/options.php:190 template-parts/nav.php:77
 msgid "Contact"
-msgstr ""
+msgstr "Contact"
 
 #: inc/options.php:193
 msgid "WhatsApp number"
-msgstr ""
+msgstr "WhatsApp-nummer"
 
 #: inc/options.php:196
 msgid "International format, digits only, e.g. 905322702736."
-msgstr ""
+msgstr "Internationaal formaat, alleen cijfers, bijv. 905322702736."
 
 #: inc/options.php:199
 msgid "WhatsApp starter message"
-msgstr ""
+msgstr "WhatsApp-startbericht"
 
 #. translators: Opening line of the WhatsApp message a visitor sends.
 #: inc/options.php:203
 msgid "Hello Serhan,"
-msgstr ""
+msgstr "Hallo Serhan,"
 
 #: inc/options.php:206
 msgid "Email address"
-msgstr ""
+msgstr "E-mailadres"
 
 #: inc/options.php:211
 msgid "Email subject"
-msgstr ""
+msgstr "E-mailonderwerp"
 
 #. translators: Subject line of the email a visitor sends.
 #: inc/options.php:215
 msgid "Consulting"
-msgstr ""
+msgstr "Advies"
 
 #: inc/options.php:233
 msgid "Status badge"
-msgstr ""
+msgstr "Statusbadge"
 
 #: inc/options.php:236
 msgid "Status: Ready to Innovate"
-msgstr ""
+msgstr "Status: klaar om te innoveren"
 
 #: inc/options.php:239
 msgid "Closing heading, line 1"
-msgstr ""
+msgstr "Slotkop, regel 1"
 
 #. translators: Closing heading, line 1, completed by line 2 ("the future.").
 #: inc/options.php:243
 msgid "Let's build"
-msgstr ""
+msgstr "Laten we bouwen aan"
 
 #: inc/options.php:246
 msgid "Closing heading, line 2 (gradient)"
-msgstr ""
+msgstr "Slotkop, regel 2 (verloop)"
 
 #. translators: Closing heading, line 2, completes line 1 ("Let's build").
 #: inc/options.php:250
 msgid "the future."
-msgstr ""
+msgstr "de toekomst."
 
 #: inc/options.php:253
 msgid "Clock time zone"
-msgstr ""
+msgstr "Tijdzone van de klok"
 
 #: inc/options.php:256
 msgid "IANA name, e.g. Europe/Istanbul or Europe/Amsterdam."
-msgstr ""
+msgstr "IANA-naam, bijv. Europe/Istanbul of Europe/Amsterdam."
 
 #: inc/options.php:259
 msgid "Time zone label"
-msgstr ""
+msgstr "Label tijdzone"
 
 #: inc/options.php:264
 msgid "City label"
-msgstr ""
+msgstr "Label stad"
 
 #. translators: City and country code shown under the local time.
 #: inc/options.php:268
 msgid "Istanbul, TR"
-msgstr ""
+msgstr "Istanbul, TR"
 
 #: inc/options.php:271
 msgid "Show the floating WhatsApp / Start a Project bar"
-msgstr ""
+msgstr "De zwevende balk WhatsApp / Start een project tonen"
 
 #: inc/options.php:278
 msgid "Form"
-msgstr ""
+msgstr "Formulier"
 
 #: inc/options.php:281
 msgid "Send form messages to"
-msgstr ""
+msgstr "Formulierberichten verzenden naar"
 
 #: inc/options.php:283
 msgid "Empty uses the administration email address from Settings → General."
-msgstr ""
+msgstr "Leeg gebruikt het e-mailadres voor beheer uit Instellingen → Algemeen."
 
 #: inc/options.php:289
 msgid "Let's Create Something Great"
-msgstr ""
+msgstr "Laten we samen iets geweldigs maken"
 
 #: inc/options.php:292
 msgid "Intro"
-msgstr ""
+msgstr "Intro"
 
 #: inc/options.php:295
 msgid "Tell me about your project and I'll get back to you shortly."
-msgstr ""
+msgstr "Vertel me over je project, dan neem ik snel contact met je op."
 
 #: inc/options.php:298
 msgid "Button"
-msgstr ""
+msgstr "Knop"
 
 #: inc/options.php:301
 msgid "Send Message"
-msgstr ""
+msgstr "Bericht versturen"
 
 #: inc/options.php:304
 msgid "Thank-you text"
-msgstr ""
+msgstr "Bedanktekst"
 
 #: inc/options.php:307
 msgid "I have received your message and will get back to you shortly."
-msgstr ""
+msgstr "Ik heb je bericht ontvangen en neem snel contact met je op."
 
 #: inc/options.php:312
 msgid "Tracking"
-msgstr ""
+msgstr "Tracking"
 
 #: inc/options.php:315
 msgid "Google Tag Manager ID"
-msgstr ""
+msgstr "Google Tag Manager-ID"
 
 #: inc/options.php:318
 msgid "e.g. GTM-XXXXXXX."
-msgstr ""
+msgstr "bijv. GTM-XXXXXXX."
 
 #: inc/options.php:321
 msgid "Google Analytics 4 ID"
-msgstr ""
+msgstr "Google Analytics 4-ID"
 
 #: inc/options.php:323
 msgid "e.g. G-XXXXXXXXXX. Leave empty if GA4 is set up inside Google Tag Manager, or visits are counted twice."
-msgstr ""
+msgstr "bijv. G-XXXXXXXXXX. Laat leeg als GA4 binnen Google Tag Manager is ingesteld, anders worden bezoeken dubbel geteld."
 
 #: inc/options.php:326
 msgid "Meta Pixel ID"
-msgstr ""
+msgstr "Meta Pixel-ID"
 
 #: inc/options.php:330
 msgid "LinkedIn Insight Tag partner ID"
-msgstr ""
+msgstr "Partner-ID LinkedIn Insight Tag"
 
 #: inc/options.php:334
 msgid "Microsoft Clarity project ID"
-msgstr ""
+msgstr "Project-ID Microsoft Clarity"
 
 #: inc/options.php:338
 msgid "Google Consent Mode v2: start with consent denied"
-msgstr ""
+msgstr "Google Consent Mode v2: starten met toestemming geweigerd"
 
 #: inc/options.php:341
 msgid "Required for EU visitors. Needs a cookie banner (e.g. Complianz or CookieYes) to grant consent; without one Google only receives cookieless pings."
-msgstr ""
+msgstr "Verplicht voor bezoekers uit de EU. Vereist een cookiebanner (bijv. Complianz of CookieYes) om toestemming te geven; zonder banner ontvangt Google alleen cookieloze pings."
 
 #: inc/options.php:344
 msgid "Also track logged-in editors and administrators"
-msgstr ""
+msgstr "Ook ingelogde redacteuren en beheerders tracken"
 
 #: inc/options.php:349
 msgid "Extra code: end of <head>"
-msgstr ""
+msgstr "Extra code: einde van <head>"
 
 #: inc/options.php:354
 msgid "Extra code: start of <body>"
-msgstr ""
+msgstr "Extra code: begin van <body>"
 
 #: inc/options.php:359
 msgid "Extra code: end of page"
-msgstr ""
+msgstr "Extra code: einde van de pagina"
 
 #: index.php:29
 msgid "Nothing here"
-msgstr ""
+msgstr "Hier is niets"
 
 #: index.php:30
 msgid "Back to the homepage"
-msgstr ""
+msgstr "Terug naar de homepage"
 
 #: single-sd_project.php:44
 msgid "Visit site"
-msgstr ""
+msgstr "Website bekijken"
 
 #: template-parts/contact.php:32
 msgid "Local Time"
-msgstr ""
+msgstr "Lokale tijd"
 
-#: template-parts/contact.php:44
-#: template-parts/sticky-contact.php:23
+#: template-parts/contact.php:44 template-parts/sticky-contact.php:23
 msgid "Start a Project"
-msgstr ""
+msgstr "Start een project"
 
-#: template-parts/contact.php:54
-#: template-parts/sticky-contact.php:16
+#: template-parts/contact.php:54 template-parts/sticky-contact.php:16
 msgid "WhatsApp"
-msgstr ""
+msgstr "WhatsApp"
 
 #: template-parts/contact.php:61
 msgid "Email Me"
-msgstr ""
+msgstr "Mail me"
 
 #. translators: %s: current year
 #: template-parts/contact.php:70
 #, php-format
 msgid "© %s Serhan Demirel. All rights reserved."
-msgstr ""
+msgstr "© %s Serhan Demirel. Alle rechten voorbehouden."
 
 #: template-parts/contact.php:84
 msgid "Back to top"
-msgstr ""
+msgstr "Terug naar boven"
 
 #: template-parts/insights.php:21
 msgid "All insights"
-msgstr ""
+msgstr "Alle inzichten"
 
 #: template-parts/nav.php:23
 msgid "Let's Talk"
-msgstr ""
+msgstr "Laten we praten"
 
 #: template-parts/nav.php:27
 msgid "Language"
-msgstr ""
+msgstr "Taal"
 
 #: template-parts/nav.php:56
 msgid "Language:"
-msgstr ""
+msgstr "Taal:"
 
 #: template-parts/nav.php:81
 msgid "Menu"
-msgstr ""
+msgstr "Menu"
 
 #: template-parts/project-modal.php:17
 msgid "Close"
-msgstr ""
+msgstr "Sluiten"
 
 #: template-parts/project-modal.php:31
 msgid "Name"
-msgstr ""
+msgstr "Naam"
 
 #: template-parts/project-modal.php:32
 msgid "John Doe"
-msgstr ""
+msgstr "Jan Jansen"
 
 #: template-parts/project-modal.php:35
 msgid "Email"
-msgstr ""
+msgstr "E-mail"
 
 #: template-parts/project-modal.php:36
 msgid "john@example.com"
-msgstr ""
+msgstr "jan@voorbeeld.nl"
 
 #: template-parts/project-modal.php:41
 msgid "Project Details"
-msgstr ""
+msgstr "Projectdetails"
 
 #: template-parts/project-modal.php:42
 msgid "Describe your project, goals, and timeline..."
-msgstr ""
+msgstr "Beschrijf je project, doelen en planning..."
 
 #. translators: %s: visitor's first name
 #: template-parts/project-modal.php:65
 #, php-format
 msgid "Awesome, %s!"
-msgstr ""
+msgstr "Top, %s!"
 
 #: template-parts/project-modal.php:70
 msgid "Close Window"
-msgstr ""
+msgstr "Venster sluiten"

@@ -28,7 +28,8 @@ The front page renders whenever "Your homepage displays" is left on "Your latest
 | `inc/options-page.php` | The **Serhan Demirel** settings screen in wp-admin |
 | `inc/tracking.php` | GTM, GA4, Meta Pixel, LinkedIn, Clarity, extra code, Consent Mode defaults, per-page switch |
 | `inc/brands.php` | Brand logo list and order for the marquee |
-| `assets/js/` | The page scripts that used to be inline in `index.html`; `tracking.js` pushes `sd_form_submit`, `sd_whatsapp_click` and `sd_email_click` to `dataLayer` and stores the UTM campaign in an `sd_utm` cookie |
+| `inc/i18n.php` | Navigation links, language switcher data, first-visit browser-language redirect, `x-default` hreflang |
+| `assets/js/` | The page scripts (`language.js` runs the switcher) that used to be inline in `index.html`; `tracking.js` pushes `sd_form_submit`, `sd_whatsapp_click` and `sd_email_click` to `dataLayer` and stores the UTM campaign in an `sd_utm` cookie |
 
 ## Contact form
 
@@ -36,7 +37,7 @@ The form posts to `admin-ajax.php`; the **Serhan Demirel Core** plugin saves eac
 
 ## Settings
 
-wp-admin → **Serhan Demirel** has tabs for General (SEO and sharing image), Hero, Word slot, Sections (show/hide and headings), Contact, Form and Tracking. With Polylang, texts marked with a globe are saved per language; an empty field shows the default-language text. Tracking codes are skipped for logged-in editors (unless enabled), in previews and on pages with **Turn off tracking codes on this page** ticked. When Yoast, Rank Math, AIOSEO or SEOPress is active, the theme leaves the description and social tags to it.
+wp-admin → **Serhan Demirel** has tabs for General (SEO and sharing image), Hero, Word slot, Sections (show/hide and headings), Contact, Form and Tracking. With Polylang, texts marked with a globe are saved per language; an empty field shows the theme's translation of the built-in text (or the default-language text in a language the theme has no translation for). Tracking codes are skipped for logged-in editors (unless enabled), in previews and on pages with **Turn off tracking codes on this page** ticked. When Yoast, Rank Math, AIOSEO or SEOPress is active, the theme leaves the description and social tags to it.
 
 ## Styles
 
@@ -58,9 +59,24 @@ Projects live at `/work/` and `/work/<project>/`. For an Insights list, create a
   "Title Attribute" can hold an emoji, shown next to it in the mobile menu.
   Without a menu, the navbar links to the visible front-page sections.
 - **Languages:** with Polylang active, a language switcher appears in the navbar
-  and the mobile menu. With Polylang, assign one menu per language.
-- **Translations:** every theme string is in `languages/serhandemirel.pot`
-  (the plugin's in `serhandemirel-core/languages/serhandemirel-core.pot`).
-  Translate with Poedit or Loco Translate into `languages/<locale>.po/.mo`
-  (e.g. `fr_FR.mo`). Regenerate the .pot after changing strings:
-  `wp i18n make-pot . languages/serhandemirel.pot --exclude=node_modules,assets/css`.
+  (globe button with the current code, opening a list of languages) and in the
+  mobile menu (a grid of language codes and names). With Polylang, assign one
+  menu per language. Set Polylang up with the default language (English) at the
+  site root and the others in folders (`/tr/`, `/fr/`, ...).
+- **Browser language:** on a visitor's first visit to the English home page, a
+  small script in `<head>` sends them to the home page in their browser's
+  language when the site has it (e.g. a German browser goes to `/de/`). The
+  choice is saved in the `sd_lang` cookie for a year, and picking a language in
+  the switcher overwrites it, so nobody is redirected against their will.
+  Other pages, crawlers and visits that come from the site's own pages are
+  never redirected. Keep Polylang's own **Detect browser language** option off.
+  The theme also adds the `hreflang="x-default"` link (the English URL) that
+  Polylang leaves out when English has no URL prefix.
+- **Translations:** the theme ships Turkish, French, Dutch, German and Italian
+  in `languages/<locale>.po/.mo` (the plugin's in
+  `serhandemirel-core/languages/serhandemirel-core-<locale>.po/.mo`). They
+  cover the interface and the built-in site texts: in a language with a
+  translation, an empty field in the **Serhan Demirel** settings shows the
+  translated built-in text; texts you enter per language always win.
+  Edit them with Poedit or Loco Translate. Regenerate the .pot after changing
+  strings: `wp i18n make-pot . languages/serhandemirel.pot --exclude=node_modules,assets/css`.

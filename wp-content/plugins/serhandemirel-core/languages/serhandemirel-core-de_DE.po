@@ -1,0 +1,461 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Serhan Demirel Core 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/serhandemirel-core\n"
+"POT-Creation-Date: 2026-10-04T11:03:24+00:00\n"
+"PO-Revision-Date: 2026-10-04 13:30+0000\n"
+"Last-Translator: Serhan Demirel\n"
+"Language-Team: German\n"
+"Language: de_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: serhandemirel-core\n"
+"X-Generator: WP-CLI 2.12.0\n"
+
+#. Plugin Name of the plugin
+#: serhandemirel-core.php
+msgid "Serhan Demirel Core"
+msgstr "Serhan Demirel Core"
+
+#. Plugin URI of the plugin
+#. Author URI of the plugin
+#: serhandemirel-core.php
+msgid "https://serhandemirel.com"
+msgstr "https://serhandemirel.com"
+
+#. Description of the plugin
+#: serhandemirel-core.php
+msgid "Content types, custom fields and the contact form for serhandemirel.com. Keeps projects, expertise cards, brand logos and messages safe when the theme changes."
+msgstr "Inhaltstypen, benutzerdefinierte Felder und das Kontaktformular für serhandemirel.com. Projekte, Expertise-Karten, Markenlogos und Nachrichten bleiben bei einem Theme-Wechsel erhalten."
+
+#. Author of the plugin
+#: serhandemirel-core.php
+msgid "Serhan Demirel"
+msgstr "Serhan Demirel"
+
+#: includes/admin-columns.php:20 includes/fields.php:139
+msgid "Logo"
+msgstr "Logo"
+
+#: includes/admin-columns.php:21
+msgid "Visible"
+msgstr "Sichtbar"
+
+#: includes/admin-columns.php:22 includes/admin-columns.php:25 includes/admin-columns.php:31
+msgid "Order"
+msgstr "Reihenfolge"
+
+#: includes/admin-columns.php:28
+msgid "Client"
+msgstr "Kunde"
+
+#: includes/admin-columns.php:29 includes/fields.php:67
+msgid "Year"
+msgstr "Jahr"
+
+#: includes/admin-columns.php:30
+msgid "Home page"
+msgstr "Startseite"
+
+#: includes/admin-columns.php:34 includes/fields.php:226
+msgid "Email"
+msgstr "E-Mail"
+
+#: includes/admin-columns.php:35 includes/fields.php:230
+msgid "Language"
+msgstr "Sprache"
+
+#: includes/admin-columns.php:36 includes/fields.php:212
+msgid "Status"
+msgstr "Status"
+
+#: includes/fields.php:43
+msgid "Project details"
+msgstr "Projektdetails"
+
+#: includes/fields.php:48
+msgid "Client name"
+msgstr "Kundenname"
+
+#: includes/fields.php:53
+msgid "Location label"
+msgstr "Ortsangabe"
+
+#: includes/fields.php:55
+msgid "Shown above the title on the card, e.g. \"Fintech / London\"."
+msgstr "Wird auf der Karte über dem Titel angezeigt, z. B. „Fintech / London“."
+
+#: includes/fields.php:58
+msgid "Short summary (card text)"
+msgstr "Kurzbeschreibung (Kartentext)"
+
+#: includes/fields.php:62
+msgid "Result metric"
+msgstr "Ergebniskennzahl"
+
+#: includes/fields.php:64
+msgid "e.g. \"+24% conversion\"."
+msgstr "z. B. „+24 % Conversion“."
+
+#: includes/fields.php:72
+msgid "Live site URL"
+msgstr "URL der Live-Website"
+
+#: includes/fields.php:77 includes/post-types.php:72
+msgid "Brand"
+msgstr "Marke"
+
+#: includes/fields.php:81
+msgid "The brand logo is shown as a small badge on the card."
+msgstr "Das Markenlogo wird als kleines Badge auf der Karte angezeigt."
+
+#: includes/fields.php:84
+msgid "Gallery"
+msgstr "Galerie"
+
+#: includes/fields.php:87
+msgid "Images for the project detail page."
+msgstr "Bilder für die Projektdetailseite."
+
+#: includes/fields.php:90 includes/fields.php:180
+msgid "Show on home page"
+msgstr "Auf der Startseite anzeigen"
+
+#: includes/fields.php:97
+msgid "Card content"
+msgstr "Karteninhalt"
+
+#: includes/fields.php:102
+msgid "Description"
+msgstr "Beschreibung"
+
+#: includes/fields.php:106
+msgid "Tags"
+msgstr "Schlagwörter"
+
+#: includes/fields.php:108
+msgid "Comma separated, e.g. \"Sales Optimization, Lead Gen\"."
+msgstr "Durch Kommas getrennt, z. B. „Vertriebsoptimierung, Leadgenerierung“."
+
+#: includes/fields.php:111
+msgid "Accent color"
+msgstr "Akzentfarbe"
+
+#: includes/fields.php:116
+msgid "Blue"
+msgstr "Blau"
+
+#: includes/fields.php:117
+msgid "Purple"
+msgstr "Lila"
+
+#: includes/fields.php:118
+msgid "Green"
+msgstr "Grün"
+
+#: includes/fields.php:119
+msgid "Pink"
+msgstr "Pink"
+
+#: includes/fields.php:120
+msgid "Amber"
+msgstr "Bernstein"
+
+#: includes/fields.php:124
+msgid "Icon"
+msgstr "Icon"
+
+#: includes/fields.php:129
+msgid "Growth chart"
+msgstr "Wachstumsdiagramm"
+
+#: includes/fields.php:130
+msgid "Code"
+msgstr "Code"
+
+#: includes/fields.php:131
+msgid "Flask"
+msgstr "Kolben"
+
+#: includes/fields.php:132
+msgid "Bar chart"
+msgstr "Balkendiagramm"
+
+#: includes/fields.php:133
+msgid "Book"
+msgstr "Buch"
+
+#: includes/fields.php:144
+msgid "White logo"
+msgstr "Weißes Logo"
+
+#: includes/fields.php:147
+msgid "Shown in the logo band on the dark background."
+msgstr "Wird im Logoband auf dem dunklen Hintergrund angezeigt."
+
+#: includes/fields.php:150
+msgid "Color logo"
+msgstr "Farbiges Logo"
+
+#: includes/fields.php:153
+msgid "Optional. Used where the logo sits on a light background."
+msgstr "Optional. Wird verwendet, wo das Logo auf hellem Hintergrund steht."
+
+#: includes/fields.php:156
+msgid "Website"
+msgstr "Website"
+
+#: includes/fields.php:159
+msgid "Leave empty to keep the logo unlinked."
+msgstr "Leer lassen, um das Logo nicht zu verlinken."
+
+#: includes/fields.php:162
+msgid "Show in the logo band"
+msgstr "Im Logoband anzeigen"
+
+#: includes/fields.php:170
+msgid "Insight details"
+msgstr "Insight-Details"
+
+#: includes/fields.php:175
+msgid "Reading time (minutes)"
+msgstr "Lesezeit (Minuten)"
+
+#: includes/fields.php:177
+msgid "Leave empty to calculate from the word count."
+msgstr "Leer lassen, um sie anhand der Wortanzahl zu berechnen."
+
+#: includes/fields.php:183
+msgid "If no post is ticked, the two newest posts are shown."
+msgstr "Ist kein Beitrag markiert, werden die zwei neuesten Beiträge angezeigt."
+
+#: includes/fields.php:188
+msgid "Tracking on this page"
+msgstr "Tracking auf dieser Seite"
+
+#: includes/fields.php:193
+msgid "Turn off tracking codes on this page"
+msgstr "Tracking-Codes auf dieser Seite deaktivieren"
+
+#: includes/fields.php:198
+msgid "Extra code for this page"
+msgstr "Zusätzlicher Code für diese Seite"
+
+#: includes/fields.php:202
+msgid "Printed in <head>, e.g. a conversion pixel for a campaign page."
+msgstr "Wird im <head> ausgegeben, z. B. ein Conversion-Pixel für eine Kampagnenseite."
+
+#: includes/fields.php:207
+msgid "Message details"
+msgstr "Nachrichtendetails"
+
+#: includes/fields.php:216
+msgid "New"
+msgstr "Neu"
+
+#: includes/fields.php:217
+msgid "Replied"
+msgstr "Beantwortet"
+
+#: includes/fields.php:218
+msgid "Archived"
+msgstr "Archiviert"
+
+#: includes/fields.php:222
+msgid "Name"
+msgstr "Name"
+
+#: includes/fields.php:234
+msgid "Source page"
+msgstr "Quellseite"
+
+#: includes/fields.php:238
+msgid "UTM source"
+msgstr "UTM-Quelle"
+
+#: includes/fields.php:242
+msgid "UTM campaign"
+msgstr "UTM-Kampagne"
+
+#: includes/messages.php:23
+msgid "Messages"
+msgstr "Nachrichten"
+
+#: includes/messages.php:24 includes/messages.php:25
+msgid "Message"
+msgstr "Nachricht"
+
+#: includes/messages.php:26
+msgid "All Messages"
+msgstr "Alle Nachrichten"
+
+#: includes/messages.php:27
+msgid "No messages yet."
+msgstr "Noch keine Nachrichten."
+
+#: includes/messages.php:87
+msgid "Your session expired. Please reload the page and try again."
+msgstr "Ihre Sitzung ist abgelaufen. Bitte laden Sie die Seite neu und versuchen Sie es erneut."
+
+#: includes/messages.php:96
+msgid "Please fill in all fields."
+msgstr "Bitte füllen Sie alle Felder aus."
+
+#: includes/messages.php:100
+msgid "Invalid email format."
+msgstr "Ungültiges E-Mail-Format."
+
+#: includes/messages.php:127
+msgid "Failed to save your message. Please try again later."
+msgstr "Ihre Nachricht konnte nicht gespeichert werden. Bitte versuchen Sie es später erneut."
+
+#: includes/messages.php:156
+msgid "Your message has been sent successfully. I will get back to you soon!"
+msgstr "Ihre Nachricht wurde erfolgreich gesendet. Ich melde mich in Kürze bei Ihnen!"
+
+#: includes/meta-boxes.php:109
+msgid "— None —"
+msgstr "— Keine —"
+
+#: includes/meta-boxes.php:124
+msgid "Choose image"
+msgstr "Bild auswählen"
+
+#: includes/meta-boxes.php:125
+msgid "Remove"
+msgstr "Entfernen"
+
+#: includes/meta-boxes.php:143
+msgid "Choose images"
+msgstr "Bilder auswählen"
+
+#: includes/meta-boxes.php:144
+msgid "Clear"
+msgstr "Leeren"
+
+#: includes/post-types.php:23
+msgid "Projects"
+msgstr "Projekte"
+
+#: includes/post-types.php:24
+msgid "Project"
+msgstr "Projekt"
+
+#: includes/post-types.php:25
+msgid "Add New Project"
+msgstr "Neues Projekt hinzufügen"
+
+#: includes/post-types.php:26
+msgid "Edit Project"
+msgstr "Projekt bearbeiten"
+
+#: includes/post-types.php:27
+msgid "New Project"
+msgstr "Neues Projekt"
+
+#: includes/post-types.php:28
+msgid "View Project"
+msgstr "Projekt ansehen"
+
+#: includes/post-types.php:29
+msgid "Search Projects"
+msgstr "Projekte durchsuchen"
+
+#: includes/post-types.php:30
+msgid "No projects found."
+msgstr "Keine Projekte gefunden."
+
+#: includes/post-types.php:31
+msgid "All Projects"
+msgstr "Alle Projekte"
+
+#: includes/post-types.php:32
+msgid "Card image (1200×900)"
+msgstr "Kartenbild (1200×900)"
+
+#: includes/post-types.php:33
+msgid "Set card image"
+msgstr "Kartenbild festlegen"
+
+#: includes/post-types.php:49
+msgid "Expertise"
+msgstr "Expertise"
+
+#: includes/post-types.php:50
+msgid "Expertise card"
+msgstr "Expertise-Karte"
+
+#: includes/post-types.php:51
+msgid "Add New Expertise Card"
+msgstr "Neue Expertise-Karte hinzufügen"
+
+#: includes/post-types.php:52
+msgid "Edit Expertise Card"
+msgstr "Expertise-Karte bearbeiten"
+
+#: includes/post-types.php:53
+msgid "All Expertise Cards"
+msgstr "Alle Expertise-Karten"
+
+#: includes/post-types.php:54
+msgid "No expertise cards found."
+msgstr "Keine Expertise-Karten gefunden."
+
+#: includes/post-types.php:71
+msgid "Brands"
+msgstr "Marken"
+
+#: includes/post-types.php:73
+msgid "Add New Brand"
+msgstr "Neue Marke hinzufügen"
+
+#: includes/post-types.php:74
+msgid "Edit Brand"
+msgstr "Marke bearbeiten"
+
+#: includes/post-types.php:75
+msgid "All Brands"
+msgstr "Alle Marken"
+
+#: includes/post-types.php:76
+msgid "No brands found."
+msgstr "Keine Marken gefunden."
+
+#: includes/post-types.php:100
+msgid "Industries"
+msgstr "Branchen"
+
+#: includes/post-types.php:101
+msgid "Industry"
+msgstr "Branche"
+
+#: includes/post-types.php:102
+msgid "Add New Industry"
+msgstr "Neue Branche hinzufügen"
+
+#: includes/post-types.php:117
+msgid "Services"
+msgstr "Leistungen"
+
+#: includes/post-types.php:118
+msgid "Service"
+msgstr "Leistung"
+
+#: includes/post-types.php:119
+msgid "Add New Service"
+msgstr "Neue Leistung hinzufügen"
+
+#: includes/seed.php:290
+msgid "Serhan Demirel Core: the brand logos from the theme have not been imported yet."
+msgstr "Serhan Demirel Core: Die Markenlogos aus dem Theme wurden noch nicht importiert."
+
+#: includes/seed.php:292
+msgid "Import logos"
+msgstr "Logos importieren"
+
+#: includes/seed.php:302
+msgid "Sorry, you are not allowed to do that."
+msgstr "Sie sind leider nicht berechtigt, dies zu tun."

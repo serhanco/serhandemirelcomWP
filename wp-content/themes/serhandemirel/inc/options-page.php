@@ -98,7 +98,7 @@ function sd_render_options_page() {
 				<?php endforeach; ?>
 			</p>
 			<?php if ( $lang !== $default_lang ) : ?>
-				<p class="description"><?php esc_html_e( 'Fields marked with a globe are saved for this language only. Empty ones show the default-language text on the site (shown in grey). Other fields are shared by all languages.', 'serhandemirel' ); ?></p>
+				<p class="description"><?php esc_html_e( 'Fields marked with a globe are saved for this language only. Empty ones show the text in grey: the theme\'s own translation, or the default-language text if the theme has no translation for this language. Other fields are shared by all languages.', 'serhandemirel' ); ?></p>
 			<?php endif; ?>
 		<?php endif; ?>
 
@@ -137,15 +137,11 @@ function sd_render_options_page() {
 function sd_render_option_row( $key, $field, $lang, $default_lang, $multilingual ) {
 	$i18n    = ! empty( $field['i18n'] );
 	$stored  = sd_stored_value( $key, $i18n ? $lang : null );
-	$default = $field['default'] ?? ( 'checkbox' === $field['type'] ? false : '' );
+	$default = $i18n ? sd_option_default( $key, $default_lang ) : sd_option_default( $key );
 
 	// Placeholder: what the site shows when this language's field is empty.
-	$fallback = $default;
-	if ( $i18n && $lang !== $default_lang ) {
-		$base     = sd_stored_value( $key, $default_lang );
-		$fallback = ( null !== $base && '' !== $base ) ? $base : $default;
-	}
-	$value = $stored;
+	$fallback = $i18n ? sd_i18n_fallback( $key, $lang ) : $default;
+	$value    = $stored;
 	if ( null === $value ) {
 		$value = ( $i18n && $lang !== $default_lang ) ? '' : $default;
 	}

@@ -3,9 +3,10 @@
  * Theme options: field definitions, storage and the sd_opt() accessor.
  *
  * Every option is declared once in sd_option_tabs(). Fields marked
- * "i18n" are saved per language and fall back to the default language,
- * then to the built-in default (the text the static site used). Other
- * fields are shared by every language.
+ * "i18n" are saved per language. Left empty, they show the theme's built-in
+ * text translated into that language (languages/<locale>.mo); in a language
+ * the theme has no translation for, the default language's saved text.
+ * Other fields are shared by every language.
  *
  * Stored in one option, "sd_theme_options":
  *   array( 'global' => array( key => value ), 'lang' => array( 'en' => array( key => value ), ... ) )
@@ -26,9 +27,10 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @return array<string, array{title: string, fields: array<string, array>}>
  */
 function sd_option_tabs() {
-	static $tabs = null;
-	if ( null !== $tabs ) {
-		return $tabs;
+	static $cache = array();
+	$locale       = determine_locale();
+	if ( isset( $cache[ $locale ] ) ) {
+		return $cache[ $locale ];
 	}
 
 	$tabs = array(
@@ -39,14 +41,14 @@ function sd_option_tabs() {
 					'label'   => __( 'Default SEO title', 'serhandemirel' ),
 					'type'    => 'text',
 					'i18n'    => true,
-					'default' => 'Serhan Demirel | Digital Solutions Provider',
+					'default' => __( 'Serhan Demirel | Digital Solutions Provider', 'serhandemirel' ),
 					'help'    => __( 'Used for social sharing. The browser tab title comes from Settings → General.', 'serhandemirel' ),
 				),
 				'seo_description' => array(
 					'label'   => __( 'Default SEO description', 'serhandemirel' ),
 					'type'    => 'textarea',
 					'i18n'    => true,
-					'default' => 'Serhan Demirel - Digital Solutions Provider specializing in business transformation, scalable digital foundations, and AI & automation.',
+					'default' => __( 'Serhan Demirel - Digital Solutions Provider specializing in business transformation, scalable digital foundations, and AI & automation.', 'serhandemirel' ),
 				),
 				'og_image'        => array(
 					'label' => __( 'Sharing image', 'serhandemirel' ),
@@ -62,7 +64,7 @@ function sd_option_tabs() {
 					'label'   => __( 'Badge', 'serhandemirel' ),
 					'type'    => 'text',
 					'i18n'    => true,
-					'default' => 'Engineering the digital future',
+					'default' => __( 'Engineering the digital future', 'serhandemirel' ),
 				),
 				'hero_title'    => array(
 					'label'   => __( 'Title', 'serhandemirel' ),
@@ -73,13 +75,13 @@ function sd_option_tabs() {
 					'label'   => __( 'Subtitle', 'serhandemirel' ),
 					'type'    => 'text',
 					'i18n'    => true,
-					'default' => 'Digital Solutions Provider',
+					'default' => __( 'Digital Solutions Provider', 'serhandemirel' ),
 				),
 				'hero_explore'  => array(
 					'label'   => __( 'Scroll hint', 'serhandemirel' ),
 					'type'    => 'text',
 					'i18n'    => true,
-					'default' => 'Explore',
+					'default' => __( 'Explore', 'serhandemirel' ),
 				),
 			),
 		),
@@ -90,13 +92,15 @@ function sd_option_tabs() {
 					'label'   => __( 'Prefix', 'serhandemirel' ),
 					'type'    => 'text',
 					'i18n'    => true,
-					'default' => 'We can',
+					/* translators: Start of the rotating sentence, followed by a verb such as "design". */
+					'default' => __( 'We can', 'serhandemirel' ),
 				),
 				'words'        => array(
 					'label'   => __( 'Words', 'serhandemirel' ),
 					'type'    => 'lines',
 					'i18n'    => true,
-					'default' => "design\nprototype\nsolve\nbuild\ndevelop\ndebug\nlearn\noptimize\nship\nprompt\ncollaborate\ncreate\ntransform\nautomate\ninnovate\nscale\nintegrate\ndeploy\nsucceed",
+					/* translators: Words shown one after another after the prefix, one per line. Keep one word per line; the number of lines may differ. */
+					'default' => __( "design\nprototype\nsolve\nbuild\ndevelop\ndebug\nlearn\noptimize\nship\nprompt\ncollaborate\ncreate\ntransform\nautomate\ninnovate\nscale\nintegrate\ndeploy\nsucceed", 'serhandemirel' ),
 					'help'    => __( 'One word per line, shown in this order. A full stop is added after each word.', 'serhandemirel' ),
 				),
 			),
@@ -113,13 +117,13 @@ function sd_option_tabs() {
 					'label'   => __( 'Core Expertise: small heading', 'serhandemirel' ),
 					'type'    => 'text',
 					'i18n'    => true,
-					'default' => 'Core Expertise',
+					'default' => __( 'Core Expertise', 'serhandemirel' ),
 				),
 				'expertise_title'   => array(
 					'label'   => __( 'Core Expertise: heading', 'serhandemirel' ),
 					'type'    => 'text',
 					'i18n'    => true,
-					'default' => 'Building scalable digital foundations for tomorrow.',
+					'default' => __( 'Building scalable digital foundations for tomorrow.', 'serhandemirel' ),
 				),
 				'show_brands'       => array(
 					'label'   => __( 'Show the Brands section', 'serhandemirel' ),
@@ -130,13 +134,13 @@ function sd_option_tabs() {
 					'label'   => __( 'Brands: small heading', 'serhandemirel' ),
 					'type'    => 'text',
 					'i18n'    => true,
-					'default' => 'Part of the journey',
+					'default' => __( 'Part of the journey', 'serhandemirel' ),
 				),
 				'brands_title'      => array(
 					'label'   => __( 'Brands: heading', 'serhandemirel' ),
 					'type'    => 'text',
 					'i18n'    => true,
-					'default' => 'Brands That Shaped My Story',
+					'default' => __( 'Brands That Shaped My Story', 'serhandemirel' ),
 				),
 				'show_work'         => array(
 					'label'   => __( 'Show the Work section', 'serhandemirel' ),
@@ -148,19 +152,19 @@ function sd_option_tabs() {
 					'label'   => __( 'Work: small heading', 'serhandemirel' ),
 					'type'    => 'text',
 					'i18n'    => true,
-					'default' => 'Selected Work',
+					'default' => __( 'Selected Work', 'serhandemirel' ),
 				),
 				'work_title'        => array(
 					'label'   => __( 'Work: heading', 'serhandemirel' ),
 					'type'    => 'text',
 					'i18n'    => true,
-					'default' => 'Featured Projects',
+					'default' => __( 'Featured Projects', 'serhandemirel' ),
 				),
 				'work_all_label'    => array(
 					'label'   => __( 'Work: "All" filter button', 'serhandemirel' ),
 					'type'    => 'text',
 					'i18n'    => true,
-					'default' => 'All',
+					'default' => __( 'All', 'serhandemirel' ),
 				),
 				'show_insights'     => array(
 					'label'   => __( 'Show the Insights section', 'serhandemirel' ),
@@ -172,13 +176,13 @@ function sd_option_tabs() {
 					'label'   => __( 'Insights: small heading', 'serhandemirel' ),
 					'type'    => 'text',
 					'i18n'    => true,
-					'default' => 'Insights',
+					'default' => __( 'Insights', 'serhandemirel' ),
 				),
 				'insights_title'    => array(
 					'label'   => __( 'Insights: heading', 'serhandemirel' ),
 					'type'    => 'text',
 					'i18n'    => true,
-					'default' => 'Latest Thoughts',
+					'default' => __( 'Latest Thoughts', 'serhandemirel' ),
 				),
 			),
 		),
@@ -195,7 +199,8 @@ function sd_option_tabs() {
 					'label'   => __( 'WhatsApp starter message', 'serhandemirel' ),
 					'type'    => 'text',
 					'i18n'    => true,
-					'default' => 'Hello Serhan,',
+					/* translators: Opening line of the WhatsApp message a visitor sends. */
+					'default' => __( 'Hello Serhan,', 'serhandemirel' ),
 				),
 				'email'           => array(
 					'label'   => __( 'Email address', 'serhandemirel' ),
@@ -206,7 +211,8 @@ function sd_option_tabs() {
 					'label'   => __( 'Email subject', 'serhandemirel' ),
 					'type'    => 'text',
 					'i18n'    => true,
-					'default' => 'Consulting',
+					/* translators: Subject line of the email a visitor sends. */
+					'default' => __( 'Consulting', 'serhandemirel' ),
 				),
 				'linkedin'        => array(
 					'label'   => 'LinkedIn',
@@ -227,19 +233,21 @@ function sd_option_tabs() {
 					'label'   => __( 'Status badge', 'serhandemirel' ),
 					'type'    => 'text',
 					'i18n'    => true,
-					'default' => 'Status: Ready to Innovate',
+					'default' => __( 'Status: Ready to Innovate', 'serhandemirel' ),
 				),
 				'cta_line1'       => array(
 					'label'   => __( 'Closing heading, line 1', 'serhandemirel' ),
 					'type'    => 'text',
 					'i18n'    => true,
-					'default' => "Let's build",
+					/* translators: Closing heading, line 1, completed by line 2 ("the future."). */
+					'default' => __( "Let's build", 'serhandemirel' ),
 				),
 				'cta_line2'       => array(
 					'label'   => __( 'Closing heading, line 2 (gradient)', 'serhandemirel' ),
 					'type'    => 'text',
 					'i18n'    => true,
-					'default' => 'the future.',
+					/* translators: Closing heading, line 2, completes line 1 ("Let's build"). */
+					'default' => __( 'the future.', 'serhandemirel' ),
 				),
 				'timezone'        => array(
 					'label'   => __( 'Clock time zone', 'serhandemirel' ),
@@ -256,7 +264,8 @@ function sd_option_tabs() {
 					'label'   => __( 'City label', 'serhandemirel' ),
 					'type'    => 'text',
 					'i18n'    => true,
-					'default' => 'Istanbul, TR',
+					/* translators: City and country code shown under the local time. */
+					'default' => __( 'Istanbul, TR', 'serhandemirel' ),
 				),
 				'sticky_bar'      => array(
 					'label'   => __( 'Show the floating WhatsApp / Start a Project bar', 'serhandemirel' ),
@@ -277,25 +286,25 @@ function sd_option_tabs() {
 					'label'   => __( 'Title', 'serhandemirel' ),
 					'type'    => 'text',
 					'i18n'    => true,
-					'default' => "Let's Create Something Great",
+					'default' => __( "Let's Create Something Great", 'serhandemirel' ),
 				),
 				'form_intro'        => array(
 					'label'   => __( 'Intro', 'serhandemirel' ),
 					'type'    => 'text',
 					'i18n'    => true,
-					'default' => "Tell me about your project and I'll get back to you shortly.",
+					'default' => __( "Tell me about your project and I'll get back to you shortly.", 'serhandemirel' ),
 				),
 				'form_button'       => array(
 					'label'   => __( 'Button', 'serhandemirel' ),
 					'type'    => 'text',
 					'i18n'    => true,
-					'default' => 'Send Message',
+					'default' => __( 'Send Message', 'serhandemirel' ),
 				),
 				'form_success_text' => array(
 					'label'   => __( 'Thank-you text', 'serhandemirel' ),
 					'type'    => 'text',
 					'i18n'    => true,
-					'default' => 'I have received your message and will get back to you shortly.',
+					'default' => __( 'I have received your message and will get back to you shortly.', 'serhandemirel' ),
 				),
 			),
 		),
@@ -355,6 +364,7 @@ function sd_option_tabs() {
 		),
 	);
 
+	$cache[ $locale ] = $tabs;
 	return $tabs;
 }
 
@@ -446,9 +456,8 @@ function sd_stored_value( $key, $lang = null ) {
 /**
  * Value of a theme option for the current language.
  *
- * i18n text left empty in a language falls back to the default language,
- * then to the built-in default. A shared field saved empty stays empty
- * (e.g. to remove a tracking ID).
+ * i18n text left empty in a language shows sd_i18n_fallback(). A shared
+ * field saved empty stays empty (e.g. to remove a tracking ID).
  *
  * @param string $key Option key.
  * @return mixed
@@ -465,13 +474,81 @@ function sd_opt( $key ) {
 		return null === $value ? $default : $value;
 	}
 
-	foreach ( array( sd_current_lang(), sd_default_lang() ) as $lang ) {
-		$value = sd_stored_value( $key, $lang );
+	$value = sd_stored_value( $key );
+	if ( null !== $value && '' !== $value ) {
+		return $value;
+	}
+	return sd_i18n_fallback( $key, sd_current_lang() );
+}
+
+/**
+ * What an empty per-language field shows in a language.
+ *
+ * The default language, and languages the theme ships a translation for,
+ * get the built-in text in that language. Other languages get the default
+ * language's saved text, then the built-in text.
+ *
+ * @param string $key  Option key.
+ * @param string $lang Language slug.
+ * @return mixed
+ */
+function sd_i18n_fallback( $key, $lang ) {
+	$default_lang = sd_default_lang();
+	if ( $lang !== $default_lang && ! sd_has_theme_translation( $lang ) ) {
+		$value = sd_stored_value( $key, $default_lang );
 		if ( null !== $value && '' !== $value ) {
 			return $value;
 		}
 	}
-	return $default;
+	return sd_option_default( $key, $lang );
+}
+
+/**
+ * Built-in default of a field, translated into a language.
+ *
+ * @param string      $key  Option key.
+ * @param string|null $lang Language slug; null for the current locale.
+ * @return mixed
+ */
+function sd_option_default( $key, $lang = null ) {
+	$locale   = $lang ? sd_lang_locale( $lang ) : '';
+	$switched = $locale && switch_to_locale( $locale );
+	$field    = sd_option_field( $key );
+	if ( $switched ) {
+		restore_previous_locale();
+	}
+	if ( ! $field ) {
+		return null;
+	}
+	return $field['default'] ?? ( 'checkbox' === $field['type'] ? false : '' );
+}
+
+/**
+ * WordPress locale of a language slug, e.g. "fr" => "fr_FR".
+ *
+ * @param string $lang Language slug.
+ * @return string
+ */
+function sd_lang_locale( $lang ) {
+	if ( function_exists( 'pll_languages_list' ) ) {
+		$slugs   = pll_languages_list( array( 'fields' => 'slug' ) );
+		$locales = pll_languages_list( array( 'fields' => 'locale' ) );
+		$index   = array_search( $lang, (array) $slugs, true );
+		if ( false !== $index && isset( $locales[ $index ] ) ) {
+			return $locales[ $index ];
+		}
+	}
+	return get_locale();
+}
+
+/**
+ * Whether the theme ships a translation for a language.
+ *
+ * @param string $lang Language slug.
+ * @return bool
+ */
+function sd_has_theme_translation( $lang ) {
+	return file_exists( get_template_directory() . '/languages/' . sd_lang_locale( $lang ) . '.mo' );
 }
 
 /**

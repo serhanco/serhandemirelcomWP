@@ -1,0 +1,461 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Serhan Demirel Core 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/serhandemirel-core\n"
+"POT-Creation-Date: 2026-10-04T11:03:24+00:00\n"
+"PO-Revision-Date: 2026-10-04 13:30+0000\n"
+"Last-Translator: Serhan Demirel\n"
+"Language-Team: Turkish\n"
+"Language: tr_TR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Domain: serhandemirel-core\n"
+"X-Generator: WP-CLI 2.12.0\n"
+
+#. Plugin Name of the plugin
+#: serhandemirel-core.php
+msgid "Serhan Demirel Core"
+msgstr "Serhan Demirel Core"
+
+#. Plugin URI of the plugin
+#. Author URI of the plugin
+#: serhandemirel-core.php
+msgid "https://serhandemirel.com"
+msgstr "https://serhandemirel.com"
+
+#. Description of the plugin
+#: serhandemirel-core.php
+msgid "Content types, custom fields and the contact form for serhandemirel.com. Keeps projects, expertise cards, brand logos and messages safe when the theme changes."
+msgstr "serhandemirel.com için içerik türleri, özel alanlar ve iletişim formu. Tema değiştiğinde projeleri, uzmanlık kartlarını, marka logolarını ve mesajları güvende tutar."
+
+#. Author of the plugin
+#: serhandemirel-core.php
+msgid "Serhan Demirel"
+msgstr "Serhan Demirel"
+
+#: includes/admin-columns.php:20 includes/fields.php:139
+msgid "Logo"
+msgstr "Logo"
+
+#: includes/admin-columns.php:21
+msgid "Visible"
+msgstr "Görünür"
+
+#: includes/admin-columns.php:22 includes/admin-columns.php:25 includes/admin-columns.php:31
+msgid "Order"
+msgstr "Sıra"
+
+#: includes/admin-columns.php:28
+msgid "Client"
+msgstr "Müşteri"
+
+#: includes/admin-columns.php:29 includes/fields.php:67
+msgid "Year"
+msgstr "Yıl"
+
+#: includes/admin-columns.php:30
+msgid "Home page"
+msgstr "Ana sayfa"
+
+#: includes/admin-columns.php:34 includes/fields.php:226
+msgid "Email"
+msgstr "E-posta"
+
+#: includes/admin-columns.php:35 includes/fields.php:230
+msgid "Language"
+msgstr "Dil"
+
+#: includes/admin-columns.php:36 includes/fields.php:212
+msgid "Status"
+msgstr "Durum"
+
+#: includes/fields.php:43
+msgid "Project details"
+msgstr "Proje ayrıntıları"
+
+#: includes/fields.php:48
+msgid "Client name"
+msgstr "Müşteri adı"
+
+#: includes/fields.php:53
+msgid "Location label"
+msgstr "Konum etiketi"
+
+#: includes/fields.php:55
+msgid "Shown above the title on the card, e.g. \"Fintech / London\"."
+msgstr "Kartta başlığın üstünde gösterilir; örn. \"Fintech / Londra\"."
+
+#: includes/fields.php:58
+msgid "Short summary (card text)"
+msgstr "Kısa özet (kart metni)"
+
+#: includes/fields.php:62
+msgid "Result metric"
+msgstr "Sonuç metriği"
+
+#: includes/fields.php:64
+msgid "e.g. \"+24% conversion\"."
+msgstr "örn. \"+%24 dönüşüm\"."
+
+#: includes/fields.php:72
+msgid "Live site URL"
+msgstr "Canlı site URL'si"
+
+#: includes/fields.php:77 includes/post-types.php:72
+msgid "Brand"
+msgstr "Marka"
+
+#: includes/fields.php:81
+msgid "The brand logo is shown as a small badge on the card."
+msgstr "Marka logosu kartta küçük bir rozet olarak gösterilir."
+
+#: includes/fields.php:84
+msgid "Gallery"
+msgstr "Galeri"
+
+#: includes/fields.php:87
+msgid "Images for the project detail page."
+msgstr "Proje ayrıntı sayfası için görseller."
+
+#: includes/fields.php:90 includes/fields.php:180
+msgid "Show on home page"
+msgstr "Ana sayfada göster"
+
+#: includes/fields.php:97
+msgid "Card content"
+msgstr "Kart içeriği"
+
+#: includes/fields.php:102
+msgid "Description"
+msgstr "Açıklama"
+
+#: includes/fields.php:106
+msgid "Tags"
+msgstr "Etiketler"
+
+#: includes/fields.php:108
+msgid "Comma separated, e.g. \"Sales Optimization, Lead Gen\"."
+msgstr "Virgülle ayırın; örn. \"Satış Optimizasyonu, Potansiyel Müşteri\"."
+
+#: includes/fields.php:111
+msgid "Accent color"
+msgstr "Vurgu rengi"
+
+#: includes/fields.php:116
+msgid "Blue"
+msgstr "Mavi"
+
+#: includes/fields.php:117
+msgid "Purple"
+msgstr "Mor"
+
+#: includes/fields.php:118
+msgid "Green"
+msgstr "Yeşil"
+
+#: includes/fields.php:119
+msgid "Pink"
+msgstr "Pembe"
+
+#: includes/fields.php:120
+msgid "Amber"
+msgstr "Kehribar"
+
+#: includes/fields.php:124
+msgid "Icon"
+msgstr "Simge"
+
+#: includes/fields.php:129
+msgid "Growth chart"
+msgstr "Büyüme grafiği"
+
+#: includes/fields.php:130
+msgid "Code"
+msgstr "Kod"
+
+#: includes/fields.php:131
+msgid "Flask"
+msgstr "Deney şişesi"
+
+#: includes/fields.php:132
+msgid "Bar chart"
+msgstr "Sütun grafik"
+
+#: includes/fields.php:133
+msgid "Book"
+msgstr "Kitap"
+
+#: includes/fields.php:144
+msgid "White logo"
+msgstr "Beyaz logo"
+
+#: includes/fields.php:147
+msgid "Shown in the logo band on the dark background."
+msgstr "Koyu arka plandaki logo şeridinde gösterilir."
+
+#: includes/fields.php:150
+msgid "Color logo"
+msgstr "Renkli logo"
+
+#: includes/fields.php:153
+msgid "Optional. Used where the logo sits on a light background."
+msgstr "İsteğe bağlı. Logonun açık renkli arka plan üzerinde durduğu yerlerde kullanılır."
+
+#: includes/fields.php:156
+msgid "Website"
+msgstr "Web sitesi"
+
+#: includes/fields.php:159
+msgid "Leave empty to keep the logo unlinked."
+msgstr "Logonun bağlantısız kalması için boş bırakın."
+
+#: includes/fields.php:162
+msgid "Show in the logo band"
+msgstr "Logo şeridinde göster"
+
+#: includes/fields.php:170
+msgid "Insight details"
+msgstr "İçgörü ayrıntıları"
+
+#: includes/fields.php:175
+msgid "Reading time (minutes)"
+msgstr "Okuma süresi (dakika)"
+
+#: includes/fields.php:177
+msgid "Leave empty to calculate from the word count."
+msgstr "Kelime sayısından hesaplanması için boş bırakın."
+
+#: includes/fields.php:183
+msgid "If no post is ticked, the two newest posts are shown."
+msgstr "Hiçbir yazı işaretlenmezse en yeni iki yazı gösterilir."
+
+#: includes/fields.php:188
+msgid "Tracking on this page"
+msgstr "Bu sayfada izleme"
+
+#: includes/fields.php:193
+msgid "Turn off tracking codes on this page"
+msgstr "Bu sayfada izleme kodlarını kapat"
+
+#: includes/fields.php:198
+msgid "Extra code for this page"
+msgstr "Bu sayfa için ek kod"
+
+#: includes/fields.php:202
+msgid "Printed in <head>, e.g. a conversion pixel for a campaign page."
+msgstr "<head> içine eklenir; örn. bir kampanya sayfası için dönüşüm pikseli."
+
+#: includes/fields.php:207
+msgid "Message details"
+msgstr "Mesaj ayrıntıları"
+
+#: includes/fields.php:216
+msgid "New"
+msgstr "Yeni"
+
+#: includes/fields.php:217
+msgid "Replied"
+msgstr "Yanıtlandı"
+
+#: includes/fields.php:218
+msgid "Archived"
+msgstr "Arşivlendi"
+
+#: includes/fields.php:222
+msgid "Name"
+msgstr "Ad"
+
+#: includes/fields.php:234
+msgid "Source page"
+msgstr "Kaynak sayfa"
+
+#: includes/fields.php:238
+msgid "UTM source"
+msgstr "UTM kaynağı"
+
+#: includes/fields.php:242
+msgid "UTM campaign"
+msgstr "UTM kampanyası"
+
+#: includes/messages.php:23
+msgid "Messages"
+msgstr "Mesajlar"
+
+#: includes/messages.php:24 includes/messages.php:25
+msgid "Message"
+msgstr "Mesaj"
+
+#: includes/messages.php:26
+msgid "All Messages"
+msgstr "Tüm mesajlar"
+
+#: includes/messages.php:27
+msgid "No messages yet."
+msgstr "Henüz mesaj yok."
+
+#: includes/messages.php:87
+msgid "Your session expired. Please reload the page and try again."
+msgstr "Oturumunuzun süresi doldu. Lütfen sayfayı yenileyip tekrar deneyin."
+
+#: includes/messages.php:96
+msgid "Please fill in all fields."
+msgstr "Lütfen tüm alanları doldurun."
+
+#: includes/messages.php:100
+msgid "Invalid email format."
+msgstr "Geçersiz e-posta biçimi."
+
+#: includes/messages.php:127
+msgid "Failed to save your message. Please try again later."
+msgstr "Mesajınız kaydedilemedi. Lütfen daha sonra tekrar deneyin."
+
+#: includes/messages.php:156
+msgid "Your message has been sent successfully. I will get back to you soon!"
+msgstr "Mesajınız başarıyla gönderildi. En kısa sürede size dönüş yapacağım!"
+
+#: includes/meta-boxes.php:109
+msgid "— None —"
+msgstr "— Hiçbiri —"
+
+#: includes/meta-boxes.php:124
+msgid "Choose image"
+msgstr "Görsel seç"
+
+#: includes/meta-boxes.php:125
+msgid "Remove"
+msgstr "Kaldır"
+
+#: includes/meta-boxes.php:143
+msgid "Choose images"
+msgstr "Görselleri seç"
+
+#: includes/meta-boxes.php:144
+msgid "Clear"
+msgstr "Temizle"
+
+#: includes/post-types.php:23
+msgid "Projects"
+msgstr "Projeler"
+
+#: includes/post-types.php:24
+msgid "Project"
+msgstr "Proje"
+
+#: includes/post-types.php:25
+msgid "Add New Project"
+msgstr "Yeni proje ekle"
+
+#: includes/post-types.php:26
+msgid "Edit Project"
+msgstr "Projeyi düzenle"
+
+#: includes/post-types.php:27
+msgid "New Project"
+msgstr "Yeni proje"
+
+#: includes/post-types.php:28
+msgid "View Project"
+msgstr "Projeyi görüntüle"
+
+#: includes/post-types.php:29
+msgid "Search Projects"
+msgstr "Projelerde ara"
+
+#: includes/post-types.php:30
+msgid "No projects found."
+msgstr "Proje bulunamadı."
+
+#: includes/post-types.php:31
+msgid "All Projects"
+msgstr "Tüm projeler"
+
+#: includes/post-types.php:32
+msgid "Card image (1200×900)"
+msgstr "Kart görseli (1200×900)"
+
+#: includes/post-types.php:33
+msgid "Set card image"
+msgstr "Kart görselini ayarla"
+
+#: includes/post-types.php:49
+msgid "Expertise"
+msgstr "Uzmanlıklar"
+
+#: includes/post-types.php:50
+msgid "Expertise card"
+msgstr "Uzmanlık kartı"
+
+#: includes/post-types.php:51
+msgid "Add New Expertise Card"
+msgstr "Yeni uzmanlık kartı ekle"
+
+#: includes/post-types.php:52
+msgid "Edit Expertise Card"
+msgstr "Uzmanlık kartını düzenle"
+
+#: includes/post-types.php:53
+msgid "All Expertise Cards"
+msgstr "Tüm uzmanlık kartları"
+
+#: includes/post-types.php:54
+msgid "No expertise cards found."
+msgstr "Uzmanlık kartı bulunamadı."
+
+#: includes/post-types.php:71
+msgid "Brands"
+msgstr "Markalar"
+
+#: includes/post-types.php:73
+msgid "Add New Brand"
+msgstr "Yeni marka ekle"
+
+#: includes/post-types.php:74
+msgid "Edit Brand"
+msgstr "Markayı düzenle"
+
+#: includes/post-types.php:75
+msgid "All Brands"
+msgstr "Tüm markalar"
+
+#: includes/post-types.php:76
+msgid "No brands found."
+msgstr "Marka bulunamadı."
+
+#: includes/post-types.php:100
+msgid "Industries"
+msgstr "Sektörler"
+
+#: includes/post-types.php:101
+msgid "Industry"
+msgstr "Sektör"
+
+#: includes/post-types.php:102
+msgid "Add New Industry"
+msgstr "Yeni sektör ekle"
+
+#: includes/post-types.php:117
+msgid "Services"
+msgstr "Hizmetler"
+
+#: includes/post-types.php:118
+msgid "Service"
+msgstr "Hizmet"
+
+#: includes/post-types.php:119
+msgid "Add New Service"
+msgstr "Yeni hizmet ekle"
+
+#: includes/seed.php:290
+msgid "Serhan Demirel Core: the brand logos from the theme have not been imported yet."
+msgstr "Serhan Demirel Core: temadaki marka logoları henüz içe aktarılmadı."
+
+#: includes/seed.php:292
+msgid "Import logos"
+msgstr "Logoları içe aktar"
+
+#: includes/seed.php:302
+msgid "Sorry, you are not allowed to do that."
+msgstr "Üzgünüz, bunu yapma izniniz yok."
