@@ -10,7 +10,7 @@ get_header();
 
 while ( have_posts() ) :
 	the_post();
-	$service = function_exists( 'sdc_service_data' ) ? sdc_service_data( get_post() ) : array();
+	$service = sdc_service_data( get_post() );
 	$updated = ! empty( $service['reviewed'] ) ? $service['reviewed'] : get_the_modified_date( 'Y-m-d' );
 	$facts   = array_filter(
 		array(

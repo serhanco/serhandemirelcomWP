@@ -2,9 +2,8 @@
 /**
  * Content for the front-page sections.
  *
- * Reads the Serhan Demirel Core plugin's content types when the plugin is
- * active, and falls back to the content the static site shipped with, so
- * the page never renders empty.
+ * Reads the theme's content types (inc/post-types.php) and falls back to
+ * the content the static site shipped with, so the page never renders empty.
  *
  * @package serhandemirel
  */
@@ -45,17 +44,15 @@ function sd_icon_paths() {
 }
 
 /**
- * Expertise cards: from the plugin, or the static site's five cards (translated
+ * Expertise cards: from the Expertise menu, or the static site's five cards (translated
  * by the theme, so a language with no cards of its own still reads naturally).
  *
  * @return array<int, array{title: string, description: string, tags: string[], accent: string, icon: string}>
  */
 function sd_expertise_cards() {
-	if ( function_exists( 'sdc_get_expertise' ) ) {
-		$cards = sdc_get_expertise();
-		if ( $cards ) {
-			return $cards;
-		}
+	$cards = sdc_get_expertise();
+	if ( $cards ) {
+		return $cards;
 	}
 	return array(
 		array( 'title' => __( 'Marketing & Growth', 'serhandemirel' ), 'description' => __( 'Driving measurable growth and expanding reach through data-driven digital marketing strategies.', 'serhandemirel' ), 'tags' => array( __( 'Sales Optimization', 'serhandemirel' ), __( 'Lead Gen', 'serhandemirel' ), __( 'Digital Marketing', 'serhandemirel' ) ), 'accent' => 'blue', 'icon' => 'growth' ),
@@ -67,33 +64,31 @@ function sd_expertise_cards() {
 }
 
 /**
- * Logos for the marquee script: from the plugin's Brands, or the bundled files.
+ * Logos for the marquee script: from the Brands menu, or the bundled files.
  *
  * @return array<int, array{white: string, color: string, alt: string, url: string}>
  */
 function sd_marquee_logos() {
-	if ( function_exists( 'sdc_get_brands' ) ) {
-		$brands = sdc_get_brands();
-		if ( $brands ) {
-			return array_map(
-				function ( $brand ) {
-					return array(
-						'white' => $brand['white'],
-						'color' => $brand['color'],
-						'alt'   => $brand['name'],
-						'url'   => $brand['url'],
-					);
-				},
-				$brands
-			);
-		}
+	$brands = sdc_get_brands();
+	if ( $brands ) {
+		return array_map(
+			function ( $brand ) {
+				return array(
+					'white' => $brand['white'],
+					'color' => $brand['color'],
+					'alt'   => $brand['name'],
+					'url'   => $brand['url'],
+				);
+			},
+			$brands
+		);
 	}
-	$base = get_template_directory_uri() . '/assets/img/brands/';
+	$base = get_template_directory_uri() . '/assets/img/brands/white/';
 	return array_map(
 		function ( $logo ) use ( $base ) {
 			return array(
-				'white' => $base . 'white/' . $logo['src'],
-				'color' => $base . 'color/' . $logo['src'],
+				'white' => $base . $logo['src'],
+				'color' => '',
 				'alt'   => $logo['alt'],
 				'url'   => '',
 			);
@@ -110,12 +105,9 @@ function sd_marquee_logos() {
 function sd_work_projects() {
 	static $projects = null;
 	if ( null === $projects ) {
-		$projects = array();
-		if ( function_exists( 'sdc_get_projects' ) ) {
-			$projects = sdc_get_projects( true );
-			if ( ! $projects ) {
-				$projects = sdc_get_projects();
-			}
+		$projects = sdc_get_projects( true );
+		if ( ! $projects ) {
+			$projects = sdc_get_projects();
 		}
 	}
 	return $projects;
@@ -189,11 +181,7 @@ function sd_show_section( $section ) {
  * @return int
  */
 function sd_read_time( $post_id ) {
-	if ( function_exists( 'sdc_read_time' ) ) {
-		return sdc_read_time( $post_id );
-	}
-	$words = str_word_count( wp_strip_all_tags( (string) get_post_field( 'post_content', $post_id ) ) );
-	return max( 1, (int) ceil( $words / 200 ) );
+	return sdc_read_time( $post_id );
 }
 
 /**

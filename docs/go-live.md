@@ -5,12 +5,13 @@ serhandemirel.com'u gerçek sunucuda açmak için sırayla yapılacaklar. Çoğu
 ## 1. Sunucu
 
 - PHP 8.1+ ve MySQL 8 / MariaDB 10.6+ olan bir WordPress hostingi, HTTPS (Let's Encrypt yeterli).
-- Bu repodaki iki klasörü sunucuya yükleyin:
-  - `wp-content/themes/serhandemirel` (içindeki `languages/` ve derlenmiş `assets/css/tailwind.css` dahil; `node_modules` gerekmez)
-  - `wp-content/plugins/serhandemirel-core`
-- **Görünüm → Temalar**: Serhan Demirel temasını etkinleştirin. **Eklentiler**: Serhan Demirel Core'u etkinleştirin. Etkinleştirme, örnek uzmanlık kartlarını, markaları, hizmet terimlerini, 5 hizmet sayfası taslağını ve bir "About" taslağını oluşturur.
+- Bu repodaki `wp-content/themes/serhandemirel` klasörünü sunucuya yükleyin (içindeki `languages/` ve derlenmiş `assets/css/tailwind.css` dahil; `node_modules` gerekmez). Ayrı bir eklenti gerekmez.
+- **Görünüm → Temalar**: Serhan Demirel temasını etkinleştirin. Etkinleştirme, örnek uzmanlık kartlarını, markaları, hizmet terimlerini, 5 hizmet sayfası taslağını ve bir "About" taslağını oluşturur.
+- Önceden **Serhan Demirel Core** eklentisi kuruluysa: temayı güncelledikten sonra eklentiyi **Eklentiler** sayfasından devre dışı bırakıp silin. İçerik, ayarlar ve mesajlar aynı yerde kalır.
 
 ## 2. Diller
+
+Site tek dilde de çalışır: Polylang kurulmazsa **Ayarlar → Genel → Site dili** neyse site o dilde açılır (tema çevirileri hazır), dil seçici ve yönlendirme görünmez. Altı dilli site için:
 
 1. **Eklentiler → Yeni ekle**: "Polylang" arayın, kurun, etkinleştirin. Kurulum sihirbazı açılırsa atlayabilirsiniz.
 2. **Araçlar → Site setup → Set up languages** düğmesine basın (ya da sunucuda `wp sdc setup`). Bu düğme:
@@ -31,7 +32,7 @@ serhandemirel.com'u gerçek sunucuda açmak için sırayla yapılacaklar. Çoğu
 ## 4. Arama motorları ve AI
 
 - **Ayarlar → Okuma**: "Arama motorlarının siteyi dizine eklemesini engelle" işaretini kaldırın.
-- Yapılandırılmış veri (JSON-LD) ve `/llms.txt` eklenti tarafından otomatik üretilir. Yoast, Rank Math, AIOSEO veya SEOPress kurarsanız eklentinin JSON-LD'si kendini kapatır (çakışma olmaz). Kontrol için: [Google Zengin Sonuç Testi](https://search.google.com/test/rich-results) ve [Schema Markup Validator](https://validator.schema.org/).
+- Yapılandırılmış veri (JSON-LD) ve `/llms.txt` tema tarafından otomatik üretilir. Yoast, Rank Math, AIOSEO veya SEOPress kurarsanız temanın JSON-LD'si kendini kapatır (çakışma olmaz). Kontrol için: [Google Zengin Sonuç Testi](https://search.google.com/test/rich-results) ve [Schema Markup Validator](https://validator.schema.org/).
 - `https://serhandemirel.com/llms.txt` adresini açıp metni okuyun.
 - Google Search Console ve Bing Webmaster Tools'a siteyi ekleyin, `wp-sitemap.xml` site haritasını gönderin.
 - AI tarayıcıları (GPTBot, ClaudeBot, PerplexityBot, Google-Extended) varsayılan olarak engellenmez. Görünürlük hedefi için böyle kalması önerilir.
@@ -39,6 +40,7 @@ serhandemirel.com'u gerçek sunucuda açmak için sırayla yapılacaklar. Çoğu
 ## 5. İletişim formu
 
 - Bir SMTP eklentisi kurun (WP Mail SMTP veya FluentSMTP) ve test e-postası gönderin. Form mesajları ayrıca **Messages** altında saklanır.
+- Spam koruması temada: görünmeyen bir "website" alanı (botlar doldurur, mesaj kaydedilmez) ve aynı ziyaretçiden saatte en fazla 5 mesaj. Form nonce kullanmadığı için önbellek eklentisiyle de çalışır.
 
 ## 6. Son kontrol
 

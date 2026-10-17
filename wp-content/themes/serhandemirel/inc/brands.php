@@ -1,7 +1,8 @@
 <?php
 /**
- * Brand logos shown in the "Brands That Shaped My Story" marquee, in display order.
- * Files live in assets/img/brands/white/ and assets/img/brands/color/.
+ * Bundled brand logos, in marquee order. Files live in assets/img/brands/white/.
+ * Imported once into the Brands menu (inc/seed.php); the marquee falls back to
+ * these files while that menu is empty.
  *
  * @package serhandemirel
  */

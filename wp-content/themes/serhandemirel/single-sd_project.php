@@ -9,7 +9,7 @@ get_header();
 
 while ( have_posts() ) :
 	the_post();
-	$project    = function_exists( 'sdc_project_data' ) ? sdc_project_data( get_post() ) : array();
+	$project    = sdc_project_data( get_post() );
 	$industries = get_the_terms( get_the_ID(), 'sd_industry' );
 	?>
 <main class="relative overflow-hidden">

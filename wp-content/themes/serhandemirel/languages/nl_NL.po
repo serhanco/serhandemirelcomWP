@@ -17,32 +17,15 @@ msgstr ""
 
 #. Theme Name of the theme
 #. Author of the theme
-#: style.css inc/options-page.php:22
+#: style.css inc/options-page.php:22 serhandemirel-core.php
 msgid "Serhan Demirel"
 msgstr "Serhan Demirel"
 
 #. Theme URI of the theme
 #. Author URI of the theme
-#: style.css
+#: style.css serhandemirel-core.php
 msgid "https://serhandemirel.com"
 msgstr "https://serhandemirel.com"
-
-#. Description of the theme
-#: style.css
-msgid ""
-"One-page personal theme for serhandemirel.com. Tailwind (compiled), GSAP + "
-"ScrollTrigger and Lenis smooth scrolling."
-msgstr ""
-"One-page thema voor serhandemirel.com. Tailwind (gecompileerd), GSAP + "
-"ScrollTrigger en Lenis smooth scrolling."
-
-#: functions.php:29
-msgid ""
-"The Serhan Demirel theme needs the \"Serhan Demirel Core\" plugin. Without "
-"it the contact form does not work."
-msgstr ""
-"Het Serhan Demirel-thema heeft de plugin \"Serhan Demirel Core\" nodig. "
-"Zonder deze plugin werkt het contactformulier niet."
 
 #: functions.php:40
 msgid "Main menu"
@@ -184,11 +167,11 @@ msgid_plural "%d min read"
 msgstr[0] "%d min. leestijd"
 msgstr[1] "%d min. leestijd"
 
-#: inc/i18n.php:41
+#: inc/i18n.php:41 inc/post-types.php:74
 msgid "Expertise"
 msgstr "Expertise"
 
-#: inc/i18n.php:42
+#: inc/i18n.php:42 inc/post-types.php:96
 msgid "Brands"
 msgstr "Merken"
 
@@ -208,7 +191,7 @@ msgstr "Instellingen Serhan Demirel-thema"
 msgid "Settings saved."
 msgstr "Instellingen opgeslagen."
 
-#: inc/options-page.php:95
+#: inc/options-page.php:95 inc/profile.php:240
 msgid "Editing texts in:"
 msgstr "Teksten bewerken in:"
 
@@ -232,15 +215,16 @@ msgstr "Per taal"
 msgid "On"
 msgstr "Aan"
 
-#: inc/options-page.php:192
+#: inc/options-page.php:192 inc/meta-boxes.php:124
 msgid "Choose image"
 msgstr "Afbeelding kiezen"
 
-#: inc/options-page.php:193
+#: inc/options-page.php:193 inc/meta-boxes.php:125
 msgid "Remove"
 msgstr "Verwijderen"
 
-#: inc/options-page.php:220
+#: inc/options-page.php:220 inc/profile.php:279 inc/seed.php:327
+#: inc/setup.php:244
 msgid "Sorry, you are not allowed to do that."
 msgstr "Je hebt geen toestemming om dat te doen."
 
@@ -313,7 +297,7 @@ msgstr "Titel"
 msgid "Subtitle"
 msgstr "Ondertitel"
 
-#: inc/options.php:78
+#: inc/options.php:78 inc/profile.php:40
 msgid "Digital Solutions Provider"
 msgstr "Digital Solutions Provider"
 
@@ -740,7 +724,7 @@ msgstr "Alle inzichten"
 msgid "Let's Talk"
 msgstr "Laten we praten"
 
-#: template-parts/nav.php:27
+#: template-parts/nav.php:27 inc/admin-columns.php:35 inc/fields.php:319
 msgid "Language"
 msgstr "Taal"
 
@@ -756,7 +740,7 @@ msgstr "Menu"
 msgid "Close"
 msgstr "Sluiten"
 
-#: template-parts/project-modal.php:31
+#: template-parts/project-modal.php:31 inc/fields.php:311
 msgid "Name"
 msgstr "Naam"
 
@@ -764,7 +748,8 @@ msgstr "Naam"
 msgid "John Doe"
 msgstr "Jan Jansen"
 
-#: template-parts/project-modal.php:35
+#: template-parts/project-modal.php:35 inc/admin-columns.php:34
+#: inc/fields.php:315
 msgid "Email"
 msgstr "E-mail"
 
@@ -791,6 +776,7 @@ msgid "Close Window"
 msgstr "Venster sluiten"
 
 #: archive-sd_service_page.php:24 single-sd_service_page.php:32
+#: inc/post-types.php:49 inc/post-types.php:144
 msgid "Services"
 msgstr "Diensten"
 
@@ -804,11 +790,11 @@ msgstr "Meer informatie"
 msgid "From %s"
 msgstr "Vanaf %s"
 
-#: single-sd_service_page.php:34
+#: single-sd_service_page.php:34 inc/post-types.php:145
 msgid "Service"
 msgstr "Dienst"
 
-#: single-sd_service_page.php:51
+#: single-sd_service_page.php:51 inc/fields.php:107
 msgid "Who it is for"
 msgstr "Voor wie"
 
@@ -824,7 +810,7 @@ msgstr "Werkwijze"
 msgid "Related work"
 msgstr "Gerelateerd werk"
 
-#: single-sd_service_page.php:105
+#: single-sd_service_page.php:105 inc/fields.php:165
 msgid "Frequently asked questions"
 msgstr "Veelgestelde vragen"
 
@@ -846,10 +832,875 @@ msgstr "Talen"
 msgid "Education"
 msgstr "Opleiding"
 
-#: template-profile.php:22
+#: template-profile.php:22 inc/profile.php:105
 msgid "Certificates"
 msgstr "Certificaten"
 
-#: template-profile.php:59
+#: template-profile.php:59 inc/profile.php:78
 msgid "Areas of expertise"
 msgstr "Expertisegebieden"
+
+#: inc/admin-columns.php:20 inc/fields.php:228
+msgid "Logo"
+msgstr "Logo"
+
+#: inc/admin-columns.php:21
+msgid "Visible"
+msgstr "Zichtbaar"
+
+#: inc/admin-columns.php:22 inc/admin-columns.php:25 inc/admin-columns.php:31
+msgid "Order"
+msgstr "Volgorde"
+
+#: inc/admin-columns.php:28
+msgid "Client"
+msgstr "Klant"
+
+#: inc/admin-columns.php:29 inc/fields.php:67
+msgid "Year"
+msgstr "Jaar"
+
+#: inc/admin-columns.php:30
+msgid "Home page"
+msgstr "Homepage"
+
+#: inc/admin-columns.php:36 inc/fields.php:301
+msgid "Status"
+msgstr "Status"
+
+#: inc/fields.php:43
+msgid "Project details"
+msgstr "Projectdetails"
+
+#: inc/fields.php:48
+msgid "Client name"
+msgstr "Klantnaam"
+
+#: inc/fields.php:53
+msgid "Location label"
+msgstr "Locatielabel"
+
+#: inc/fields.php:55
+msgid "Shown above the title on the card, e.g. \"Fintech / London\"."
+msgstr "Getoond boven de titel op de kaart, bijv. \"Fintech / Londen\"."
+
+#: inc/fields.php:58
+msgid "Short summary (card text)"
+msgstr "Korte samenvatting (kaarttekst)"
+
+#: inc/fields.php:62
+msgid "Result metric"
+msgstr "Resultaat"
+
+#: inc/fields.php:64
+msgid "e.g. \"+24% conversion\"."
+msgstr "bijv. \"+24% conversie\"."
+
+#: inc/fields.php:72
+msgid "Live site URL"
+msgstr "URL van live site"
+
+#: inc/fields.php:77 inc/post-types.php:97
+msgid "Brand"
+msgstr "Merk"
+
+#: inc/fields.php:81
+msgid "The brand logo is shown as a small badge on the card."
+msgstr "Het merklogo wordt als kleine badge op de kaart getoond."
+
+#: inc/fields.php:84
+msgid "Gallery"
+msgstr "Galerij"
+
+#: inc/fields.php:87
+msgid "Images for the project detail page."
+msgstr "Afbeeldingen voor de projectdetailpagina."
+
+#: inc/fields.php:90 inc/fields.php:269
+msgid "Show on home page"
+msgstr "Tonen op homepage"
+
+#: inc/fields.php:179
+msgid "Card content"
+msgstr "Kaartinhoud"
+
+#: inc/fields.php:184
+msgid "Description"
+msgstr "Beschrijving"
+
+#: inc/fields.php:188
+msgid "Tags"
+msgstr "Tags"
+
+#: inc/fields.php:190
+msgid "Comma separated, e.g. \"Sales Optimization, Lead Gen\"."
+msgstr "Kommagescheiden, bijv. \"Salesoptimalisatie, Leadgeneratie\"."
+
+#: inc/fields.php:193
+msgid "Accent color"
+msgstr "Accentkleur"
+
+#: inc/fields.php:198
+msgid "Blue"
+msgstr "Blauw"
+
+#: inc/fields.php:199
+msgid "Purple"
+msgstr "Paars"
+
+#: inc/fields.php:200
+msgid "Green"
+msgstr "Groen"
+
+#: inc/fields.php:201
+msgid "Pink"
+msgstr "Roze"
+
+#: inc/fields.php:202
+msgid "Amber"
+msgstr "Amber"
+
+#: inc/fields.php:213
+msgid "Icon"
+msgstr "Pictogram"
+
+#: inc/fields.php:218
+msgid "Growth chart"
+msgstr "Groeigrafiek"
+
+#: inc/fields.php:219
+msgid "Code"
+msgstr "Code"
+
+#: inc/fields.php:220
+msgid "Flask"
+msgstr "Kolf"
+
+#: inc/fields.php:221
+msgid "Bar chart"
+msgstr "Staafdiagram"
+
+#: inc/fields.php:222
+msgid "Book"
+msgstr "Boek"
+
+#: inc/fields.php:233
+msgid "White logo"
+msgstr "Wit logo"
+
+#: inc/fields.php:236
+msgid "Shown in the logo band on the dark background."
+msgstr "Getoond in de logobalk op de donkere achtergrond."
+
+#: inc/fields.php:239
+msgid "Color logo"
+msgstr "Kleurenlogo"
+
+#: inc/fields.php:242
+msgid "Optional. Used where the logo sits on a light background."
+msgstr "Optioneel. Gebruikt waar het logo op een lichte achtergrond staat."
+
+#: inc/fields.php:245
+msgid "Website"
+msgstr "Website"
+
+#: inc/fields.php:248
+msgid "Leave empty to keep the logo unlinked."
+msgstr "Laat leeg om het logo niet te linken."
+
+#: inc/fields.php:251
+msgid "Show in the logo band"
+msgstr "Tonen in de logobalk"
+
+#: inc/fields.php:259
+msgid "Insight details"
+msgstr "Details inzicht"
+
+#: inc/fields.php:264
+msgid "Reading time (minutes)"
+msgstr "Leestijd (minuten)"
+
+#: inc/fields.php:266
+msgid "Leave empty to calculate from the word count."
+msgstr "Laat leeg om te berekenen op basis van het aantal woorden."
+
+#: inc/fields.php:272
+msgid "If no post is ticked, the two newest posts are shown."
+msgstr ""
+"Als er geen bericht is aangevinkt, worden de twee nieuwste berichten "
+"getoond."
+
+#: inc/fields.php:277
+msgid "Tracking on this page"
+msgstr "Tracking op deze pagina"
+
+#: inc/fields.php:282
+msgid "Turn off tracking codes on this page"
+msgstr "Trackingcodes op deze pagina uitschakelen"
+
+#: inc/fields.php:287
+msgid "Extra code for this page"
+msgstr "Extra code voor deze pagina"
+
+#: inc/fields.php:291
+msgid "Printed in <head>, e.g. a conversion pixel for a campaign page."
+msgstr ""
+"Wordt in <head> geplaatst, bijv. een conversiepixel voor een campagnepagina."
+
+#: inc/fields.php:296
+msgid "Message details"
+msgstr "Berichtdetails"
+
+#: inc/fields.php:305
+msgid "New"
+msgstr "Nieuw"
+
+#: inc/fields.php:306
+msgid "Replied"
+msgstr "Beantwoord"
+
+#: inc/fields.php:307
+msgid "Archived"
+msgstr "Gearchiveerd"
+
+#: inc/fields.php:323
+msgid "Source page"
+msgstr "Bronpagina"
+
+#: inc/fields.php:327
+msgid "UTM source"
+msgstr "UTM-bron"
+
+#: inc/fields.php:331
+msgid "UTM campaign"
+msgstr "UTM-campagne"
+
+#: inc/messages.php:23
+msgid "Messages"
+msgstr "Berichten"
+
+#: inc/messages.php:24 inc/messages.php:25
+msgid "Message"
+msgstr "Bericht"
+
+#: inc/messages.php:26
+msgid "All Messages"
+msgstr "Alle berichten"
+
+#: inc/messages.php:27
+msgid "No messages yet."
+msgstr "Nog geen berichten."
+
+#: inc/messages.php:96
+msgid "Please fill in all fields."
+msgstr "Vul alle velden in."
+
+#: inc/messages.php:100
+msgid "Invalid email format."
+msgstr "Ongeldig e-mailadres."
+
+#: inc/messages.php:127
+msgid "Failed to save your message. Please try again later."
+msgstr "Je bericht kon niet worden opgeslagen. Probeer het later opnieuw."
+
+#: inc/messages.php:156
+msgid "Your message has been sent successfully. I will get back to you soon!"
+msgstr "Je bericht is verzonden. Ik neem snel contact met je op!"
+
+#: inc/meta-boxes.php:109
+msgid "— None —"
+msgstr "— Geen —"
+
+#: inc/meta-boxes.php:143
+msgid "Choose images"
+msgstr "Afbeeldingen kiezen"
+
+#: inc/meta-boxes.php:144
+msgid "Clear"
+msgstr "Wissen"
+
+#: inc/post-types.php:23
+msgid "Projects"
+msgstr "Projecten"
+
+#: inc/post-types.php:24
+msgid "Project"
+msgstr "Project"
+
+#: inc/post-types.php:25
+msgid "Add New Project"
+msgstr "Nieuw project toevoegen"
+
+#: inc/post-types.php:26
+msgid "Edit Project"
+msgstr "Project bewerken"
+
+#: inc/post-types.php:27
+msgid "New Project"
+msgstr "Nieuw project"
+
+#: inc/post-types.php:28
+msgid "View Project"
+msgstr "Project bekijken"
+
+#: inc/post-types.php:29
+msgid "Search Projects"
+msgstr "Projecten zoeken"
+
+#: inc/post-types.php:30
+msgid "No projects found."
+msgstr "Geen projecten gevonden."
+
+#: inc/post-types.php:31
+msgid "All Projects"
+msgstr "Alle projecten"
+
+#: inc/post-types.php:32
+msgid "Card image (1200×900)"
+msgstr "Kaartafbeelding (1200×900)"
+
+#: inc/post-types.php:33
+msgid "Set card image"
+msgstr "Kaartafbeelding instellen"
+
+#: inc/post-types.php:75
+msgid "Expertise card"
+msgstr "Expertisekaart"
+
+#: inc/post-types.php:76
+msgid "Add New Expertise Card"
+msgstr "Nieuwe expertisekaart toevoegen"
+
+#: inc/post-types.php:77
+msgid "Edit Expertise Card"
+msgstr "Expertisekaart bewerken"
+
+#: inc/post-types.php:78
+msgid "All Expertise Cards"
+msgstr "Alle expertisekaarten"
+
+#: inc/post-types.php:79
+msgid "No expertise cards found."
+msgstr "Geen expertisekaarten gevonden."
+
+#: inc/post-types.php:98
+msgid "Add New Brand"
+msgstr "Nieuw merk toevoegen"
+
+#: inc/post-types.php:99
+msgid "Edit Brand"
+msgstr "Merk bewerken"
+
+#: inc/post-types.php:100
+msgid "All Brands"
+msgstr "Alle merken"
+
+#: inc/post-types.php:101
+msgid "No brands found."
+msgstr "Geen merken gevonden."
+
+#: inc/post-types.php:125
+msgid "Industries"
+msgstr "Branches"
+
+#: inc/post-types.php:126
+msgid "Industry"
+msgstr "Branche"
+
+#: inc/post-types.php:127
+msgid "Add New Industry"
+msgstr "Nieuwe branche toevoegen"
+
+#: inc/post-types.php:146
+msgid "Add New Service"
+msgstr "Nieuwe dienst toevoegen"
+
+#: inc/fields.php:97
+msgid "Service details"
+msgstr "Dienstgegevens"
+
+#: inc/fields.php:102
+msgid "Definition (40–60 words)"
+msgstr "Definitie (40–60 woorden)"
+
+#: inc/fields.php:104
+msgid ""
+"Answers \"What is this service?\" in plain words. Shown first on the page "
+"and used in search results and AI answers."
+msgstr ""
+"Beantwoordt \"Wat is deze dienst?\" in eenvoudige woorden. Wordt als eerste "
+"op de pagina getoond en gebruikt in zoekresultaten en AI-antwoorden."
+
+#: inc/fields.php:111
+msgid "Deliverables"
+msgstr "Opleveringen"
+
+#: inc/fields.php:114 inc/profile.php:102
+msgid "One per line."
+msgstr "Eén per regel."
+
+#: inc/fields.php:117
+msgid "Process"
+msgstr "Werkwijze"
+
+#: inc/fields.php:120
+msgid "One step per line, as \"Step name: what happens\"."
+msgstr "Eén stap per regel, als \"Naam van de stap: wat er gebeurt\"."
+
+#: inc/fields.php:123
+msgid "Typical duration"
+msgstr "Gebruikelijke duur"
+
+#: inc/fields.php:125
+msgid "e.g. \"4–8 weeks\"."
+msgstr "bijv. \"4–8 weken\"."
+
+#: inc/fields.php:128
+msgid "Engagement model"
+msgstr "Samenwerkingsvorm"
+
+#: inc/fields.php:133
+msgid "Fixed-scope project"
+msgstr "Project met vaste scope"
+
+#: inc/fields.php:134
+msgid "Monthly retainer"
+msgstr "Maandelijkse retainer"
+
+#: inc/fields.php:135
+msgid "Workshop or training"
+msgstr "Workshop of training"
+
+#: inc/fields.php:136
+msgid "Hourly consulting"
+msgstr "Consultancy per uur"
+
+#: inc/fields.php:140
+msgid "Price from"
+msgstr "Prijs vanaf"
+
+#: inc/fields.php:143
+msgid "Leave empty to show no price."
+msgstr "Laat leeg om geen prijs te tonen."
+
+#: inc/fields.php:146
+msgid "Currency"
+msgstr "Valuta"
+
+#: inc/fields.php:158
+msgid "Area served"
+msgstr "Servicegebied"
+
+#: inc/fields.php:162
+msgid "Countries, or \"Worldwide\" for remote work."
+msgstr "Landen, of \"Wereldwijd\" voor werk op afstand."
+
+#: inc/fields.php:168
+msgid ""
+"A question on one line, its answer on the next lines; an empty line between "
+"questions."
+msgstr ""
+"Een vraag op één regel, het antwoord op de volgende regels; een lege regel "
+"tussen vragen."
+
+#: inc/fields.php:171
+msgid "Last reviewed"
+msgstr "Laatst gecontroleerd"
+
+#: inc/fields.php:174
+msgid "Shown as \"Last updated\" on the page. Empty uses the last edit date."
+msgstr ""
+"Wordt op de pagina getoond als \"Laatst bijgewerkt\". Leeg gebruikt de datum"
+" van de laatste bewerking."
+
+#: inc/fields.php:206 inc/post-types.php:50
+msgid "Service page"
+msgstr "Dienstpagina"
+
+#: inc/fields.php:210
+msgid ""
+"The card links to this page. In other languages it links to the page's "
+"translation."
+msgstr ""
+"De kaart linkt naar deze pagina. In andere talen linkt deze naar de "
+"vertaling van de pagina."
+
+#: inc/llms.php:97
+msgid "Contact form"
+msgstr "Contactformulier"
+
+#: inc/post-types.php:51
+msgid "Add New Service Page"
+msgstr "Nieuwe dienstpagina toevoegen"
+
+#: inc/post-types.php:52
+msgid "Edit Service Page"
+msgstr "Dienstpagina bewerken"
+
+#: inc/post-types.php:53
+msgid "New Service Page"
+msgstr "Nieuwe dienstpagina"
+
+#: inc/post-types.php:54
+msgid "View Service Page"
+msgstr "Dienstpagina bekijken"
+
+#: inc/post-types.php:55
+msgid "Search Service Pages"
+msgstr "Dienstpagina's zoeken"
+
+#: inc/post-types.php:56
+msgid "No service pages found."
+msgstr "Geen dienstpagina's gevonden."
+
+#: inc/post-types.php:57
+msgid "All Service Pages"
+msgstr "Alle dienstpagina's"
+
+#: inc/post-types.php:59
+msgid ""
+"One page per service: what it is, who it is for, deliverables, process and "
+"FAQ."
+msgstr ""
+"Eén pagina per dienst: wat het is, voor wie, opleveringen, werkwijze en FAQ."
+
+#: inc/profile.php:27
+msgid "Full name"
+msgstr "Volledige naam"
+
+#: inc/profile.php:32
+msgid "Other spellings of the name"
+msgstr "Andere schrijfwijzen van de naam"
+
+#: inc/profile.php:34
+msgid ""
+"One per line, e.g. without Turkish characters. Helps search engines and AI "
+"tools match mentions to you."
+msgstr ""
+"Eén per regel, bijv. zonder Turkse tekens. Helpt zoekmachines en AI-tools "
+"vermeldingen aan u te koppelen."
+
+#: inc/profile.php:37
+msgid "Job title"
+msgstr "Functietitel"
+
+#: inc/profile.php:43
+msgid "Short bio (about 50 words)"
+msgstr "Korte bio (ongeveer 50 woorden)"
+
+#: inc/profile.php:46
+msgid ""
+"Serhan Demirel is an Istanbul-based digital solutions provider. He helps "
+"companies grow through data-driven digital marketing, builds web products "
+"and landing pages, automates work with AI, improves search and AI "
+"visibility, and trains teams for digital transformation."
+msgstr ""
+"Serhan Demirel is een digital solutions provider uit Istanbul. Hij helpt "
+"bedrijven groeien met datagedreven digitale marketing, bouwt webproducten en"
+" landingspagina's, automatiseert werk met AI, verbetert de zichtbaarheid in "
+"zoekmachines en AI, en traint teams voor digitale transformatie."
+
+#: inc/profile.php:47
+msgid ""
+"Written in the third person. Used as the description in structured data and "
+"llms.txt."
+msgstr ""
+"Geschreven in de derde persoon. Gebruikt als beschrijving in gestructureerde"
+" data en llms.txt."
+
+#: inc/profile.php:50
+msgid "Long bio"
+msgstr "Lange bio"
+
+#: inc/profile.php:54
+msgid "Shown on the profile page. Paragraphs are separated by an empty line."
+msgstr ""
+"Wordt op de profielpagina getoond. Alinea's worden gescheiden door een lege "
+"regel."
+
+#: inc/profile.php:57
+msgid "Photo"
+msgstr "Foto"
+
+#: inc/profile.php:59
+msgid "A square portrait, at least 400×400."
+msgstr "Een vierkant portret, minimaal 400×400."
+
+#: inc/profile.php:62
+msgid "City"
+msgstr "Stad"
+
+#: inc/profile.php:67
+msgid "Country code"
+msgstr "Landcode"
+
+#: inc/profile.php:70
+msgid "Two letters, e.g. TR or NL."
+msgstr "Twee letters, bijv. TR of NL."
+
+#: inc/profile.php:73
+msgid "Languages spoken"
+msgstr "Gesproken talen"
+
+#: inc/profile.php:75
+msgid "One per line, in English, e.g. Turkish."
+msgstr "Eén per regel, in het Engels, bijv. Turkish."
+
+#: inc/profile.php:81
+msgid ""
+"Digital marketing\n"
+"Growth strategy\n"
+"Lead generation\n"
+"Sales optimization\n"
+"Web application development\n"
+"Landing page optimization\n"
+"AI automation\n"
+"Search engine optimization\n"
+"Generative engine optimization\n"
+"Competitor analysis\n"
+"Digital transformation\n"
+"Corporate training"
+msgstr ""
+"Digitale marketing\n"
+"Groeistrategie\n"
+"Leadgeneratie\n"
+"Verkoopoptimalisatie\n"
+"Ontwikkeling van webapplicaties\n"
+"Optimalisatie van landingspagina's\n"
+"AI-automatisering\n"
+"Zoekmachineoptimalisatie\n"
+"Generative engine optimization\n"
+"Concurrentieanalyse\n"
+"Digitale transformatie\n"
+"Bedrijfstrainingen"
+
+#: inc/profile.php:82
+msgid "One topic per line."
+msgstr "Eén onderwerp per regel."
+
+#: inc/profile.php:85
+msgid "Profile links"
+msgstr "Profiellinks"
+
+#: inc/profile.php:88
+msgid ""
+"One URL per line: LinkedIn, X, GitHub, Medium, Wikidata and other profiles "
+"about you."
+msgstr ""
+"Eén URL per regel: LinkedIn, X, GitHub, Medium, Wikidata en andere profielen"
+" over u."
+
+#: inc/profile.php:91
+msgid "Company"
+msgstr "Bedrijf"
+
+#: inc/profile.php:93
+msgid "Your own company or employer, if any."
+msgstr "Uw eigen bedrijf of werkgever, indien van toepassing."
+
+#: inc/profile.php:96
+msgid "Company website"
+msgstr "Website van het bedrijf"
+
+#: inc/profile.php:100
+msgid "Schools"
+msgstr "Scholen"
+
+#: inc/profile.php:107
+msgid "One per line, e.g. \"Google Ads Search Certification\"."
+msgstr "Eén per regel, bijv. \"Google Ads Search Certification\"."
+
+#: inc/profile.php:212 inc/profile.php:231
+msgid "Profile"
+msgstr "Profiel"
+
+#: inc/profile.php:232
+msgid ""
+"Who you are, in one place. Search engines and AI assistants read this from "
+"the structured data on every page and from /llms.txt."
+msgstr ""
+"Wie u bent, op één plek. Zoekmachines en AI-assistenten lezen dit uit de "
+"gestructureerde data op elke pagina en uit /llms.txt."
+
+#: inc/profile.php:235
+msgid "Profile saved."
+msgstr "Profiel opgeslagen."
+
+#: inc/profile.php:245
+msgid ""
+"Fields marked with a globe are saved for this language only; empty ones use "
+"the default language. Other fields are shared by all languages."
+msgstr ""
+"Velden met een wereldbol worden alleen voor deze taal opgeslagen; lege "
+"velden gebruiken de standaardtaal. Andere velden worden door alle talen "
+"gedeeld."
+
+#: inc/setup.php:46
+msgid "Polylang is not active. Install and activate it first."
+msgstr "Polylang is niet actief. Installeer en activeer het eerst."
+
+#. translators: 1: locale, 2: error message
+#: inc/setup.php:68
+#, php-format
+msgid "Could not add %1$s: %2$s"
+msgstr "Kon %1$s niet toevoegen: %2$s"
+
+#. translators: %s: locale, e.g. fr_FR
+#: inc/setup.php:72
+#, php-format
+msgid "Added %s."
+msgstr "%s toegevoegd."
+
+#: inc/setup.php:96
+msgid ""
+"Polylang set up: English at the site root, other languages in folders, "
+"browser detection left to the theme."
+msgstr ""
+"Polylang ingesteld: Engels op de hoofdmap van de site, andere talen in "
+"mappen, browserdetectie overgelaten aan het thema."
+
+#: inc/setup.php:100
+msgid "Content without a language was set to English."
+msgstr "Content zonder taal is ingesteld op Engels."
+
+#: inc/setup.php:105
+msgid "Permalinks set to \"Post name\"."
+msgstr "Permalinks ingesteld op \"Berichtnaam\"."
+
+#: inc/setup.php:154
+msgid "All six languages exist"
+msgstr "Alle zes talen bestaan"
+
+#: inc/setup.php:156 inc/setup.php:161
+msgid "Press \"Set up languages\" below."
+msgstr "Klik hieronder op \"Talen instellen\"."
+
+#: inc/setup.php:159
+msgid "Polylang's own browser detection is off"
+msgstr "De eigen browserdetectie van Polylang staat uit"
+
+#: inc/setup.php:164
+msgid "Pretty permalinks"
+msgstr "Leesbare permalinks"
+
+#: inc/setup.php:166
+msgid "Settings → Permalinks → Post name."
+msgstr "Instellingen → Permalinks → Berichtnaam."
+
+#: inc/setup.php:174
+msgid "Profile is filled in"
+msgstr "Profiel is ingevuld"
+
+#: inc/setup.php:176
+msgid "Profile → add your photo, bio and profile links."
+msgstr "Profiel → voeg uw foto, bio en profiellinks toe."
+
+#: inc/setup.php:179
+msgid "Service pages are published"
+msgstr "Dienstpagina's zijn gepubliceerd"
+
+#: inc/setup.php:181
+msgid "Services → review the drafts and publish them."
+msgstr "Diensten → controleer de concepten en publiceer ze."
+
+#: inc/setup.php:184
+msgid "Search engines may index the site"
+msgstr "Zoekmachines mogen de site indexeren"
+
+#: inc/setup.php:186
+msgid "Settings → Reading → untick \"Discourage search engines\"."
+msgstr ""
+"Instellingen → Lezen → vink \"Zoekmachines ontmoedigen deze site te "
+"indexeren\" uit."
+
+#: inc/setup.php:189
+msgid "Mail can be sent (for the contact form)"
+msgstr "E-mail kan worden verzonden (voor het contactformulier)"
+
+#: inc/setup.php:191
+msgid ""
+"Install an SMTP plugin (e.g. WP Mail SMTP or FluentSMTP) and send a test "
+"email."
+msgstr ""
+"Installeer een SMTP-plugin (bijv. WP Mail SMTP of FluentSMTP) en verstuur "
+"een testmail."
+
+#: inc/setup.php:200 inc/setup.php:215
+msgid "Site setup"
+msgstr "Site-instellingen"
+
+#: inc/setup.php:232
+msgid "Set up languages"
+msgstr "Talen instellen"
+
+#: inc/setup.php:233
+msgid ""
+"Adds English (default, at the site root), Turkish, French, Dutch, German and"
+" Italian to Polylang, downloads their WordPress translations and sets the "
+"recommended options. Safe to run again."
+msgstr ""
+"Voegt Engels (standaard, op de hoofdmap van de site), Turks, Frans, "
+"Nederlands, Duits en Italiaans toe aan Polylang, downloadt de bijbehorende "
+"WordPress-vertalingen en stelt de aanbevolen opties in. Kan veilig opnieuw "
+"worden uitgevoerd."
+
+#: inc/setup.php:263
+msgid "Done."
+msgstr "Klaar."
+
+#: inc/setup.php:44
+msgid ""
+"Polylang is not ready on this request; the languages will be set up on the "
+"next admin page."
+msgstr ""
+"Polylang is bij dit verzoek nog niet klaar; de talen worden ingesteld op de "
+"volgende beheerpagina."
+
+#: style.css
+msgid ""
+"One-page personal theme for serhandemirel.com, with its projects, services, "
+"expertise cards, brand logos, profile, contact form, structured data and "
+"llms.txt built in. Works with or without Polylang. Tailwind (compiled), GSAP"
+" + ScrollTrigger and Lenis, all self-hosted."
+msgstr ""
+"One-page thema voor serhandemirel.com, met projecten, diensten, "
+"expertisekaarten, merklogo’s, profiel, contactformulier, gestructureerde "
+"data en llms.txt ingebouwd. Werkt met of zonder Polylang. Tailwind "
+"(gecompileerd), GSAP + ScrollTrigger en Lenis, allemaal vanuit het thema "
+"geladen."
+
+#: inc/setup.php
+msgid "More than one language (optional)"
+msgstr "Meer dan één taal (optioneel)"
+
+#: functions.php
+msgid ""
+"The Serhan Demirel theme now includes everything the \"Serhan Demirel Core\""
+" plugin did. Deactivate and delete the plugin under Plugins; your projects, "
+"services, messages and profile stay as they are."
+msgstr ""
+"Het Serhan Demirel-thema bevat nu alles wat de plugin \"Serhan Demirel "
+"Core\" deed. Deactiveer en verwijder de plugin onder Plugins; uw projecten, "
+"diensten, berichten en profiel blijven zoals ze zijn."
+
+#: inc/setup.php
+msgid ""
+"The site runs in the language set under Settings → General. For the six-"
+"language site, install and activate Polylang (Plugins → Add New → "
+"\"Polylang\"), then press \"Set up languages\" below."
+msgstr ""
+"De site draait in de taal die is ingesteld onder Instellingen → Algemeen. "
+"Voor de site in zes talen installeert en activeert u Polylang (Plugins → "
+"Nieuwe plugin → \"Polylang\") en klikt u daarna hieronder op \"Talen "
+"instellen\"."
+
+#: inc/messages.php
+msgid "Too many messages. Please try again in an hour, or write on WhatsApp."
+msgstr ""
+"Te veel berichten. Probeer het over een uur opnieuw of stuur een bericht via"
+" WhatsApp."
+
+#: inc/profile.php
+msgctxt "job title"
+msgid "Digital Solutions Provider"
+msgstr "Digital Solutions Provider"

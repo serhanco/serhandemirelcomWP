@@ -43,6 +43,12 @@
                 </div>
 
 
+                <!-- Left empty by people; spam bots fill it in. -->
+                <div style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden" aria-hidden="true">
+                    <label for="sd-website">Website</label>
+                    <input type="text" id="sd-website" name="website" tabindex="-1" autocomplete="off">
+                </div>
+
                 <div id="formMessage" class="hidden rounded-xl p-4 text-sm font-medium transition-all"></div>
 
                 <button type="submit" id="submitBtn" class="w-full group relative overflow-hidden rounded-xl p-[1px] mt-2">

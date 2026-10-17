@@ -12,7 +12,7 @@ get_header();
 
 while ( have_posts() ) :
 	the_post();
-	$profile = function_exists( 'sdc_get_profile' ) ? sdc_get_profile() : array();
+	$profile = sdc_get_profile();
 	$name    = $profile['full_name'] ?? get_bloginfo( 'name' );
 	$photo   = $profile['headshot_url'] ?? '';
 	$place   = trim( ( $profile['city'] ?? '' ) . ( ! empty( $profile['country'] ) ? ', ' . $profile['country'] : '' ), ', ' );
