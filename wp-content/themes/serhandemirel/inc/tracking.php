@@ -1,7 +1,7 @@
 <?php
 /**
  * Tracking codes from the "Tracking" settings tab, Consent Mode defaults,
- * per-page switches (from the Serhan Demirel Core plugin's fields) and the
+ * per-page switches (the "Tracking on this page" box, inc/fields.php) and the
  * front-end dataLayer events script.
  *
  * @package serhandemirel

@@ -19,7 +19,6 @@ document.getElementById('projectForm').addEventListener('submit', function(e) {
 
     const formData = new FormData(form);
     formData.append('action', sdContact.action);
-    formData.append('nonce', sdContact.nonce);
     formData.append('lang', sdContact.lang || '');
     formData.append('source', window.location.href);
 

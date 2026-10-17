@@ -1,8 +1,8 @@
 # İçerik modeli
 
-serhandemirel.com'da hangi içerik türlerinin ve alanların olduğunu, hangilerinin eklenmesinin planlandığını anlatır. Bu dosya kodun spesifikasyonudur: `serhandemirel-core` eklentisinde bir tür ya da alan eklendiğinde veya değiştirildiğinde aynı PR'da burası da güncellenir.
+serhandemirel.com'da hangi içerik türlerinin ve alanların olduğunu, hangilerinin eklenmesinin planlandığını anlatır. Bu dosya kodun spesifikasyonudur: `serhandemirel` temasında bir tür ya da alan eklendiğinde veya değiştirildiğinde aynı PR'da burası da güncellenir.
 
-- Alanların tek tanım yeri: [`includes/fields.php`](../wp-content/plugins/serhandemirel-core/includes/fields.php). Meta anahtarları `_sd_<alan>` biçiminde.
+- Alanların tek tanım yeri: [`inc/fields.php`](../wp-content/themes/serhandemirel/inc/fields.php). Meta anahtarları `_sd_<alan>` biçiminde.
 - Hangi içeriğin ne zaman yazılacağı bu dosyada değil, [İçerik Yol Haritası](https://claude.ai/code/artifact/67e2ea58-54af-4f9e-a697-ad2c1449dc7e) belgesinde takip edilir.
 - "Ortak" = Polylang'de tüm dillerde aynı kalır. "Çevrilir" = yeni çeviriye bir kez kopyalanır, sonra her dilde ayrı düzenlenir.
 
@@ -22,16 +22,16 @@ serhandemirel.com'da hangi içerik türlerinin ve alanların olduğunu, hangiler
 | Projects | client (text), year (number), url (url), brand (sd_brand), gallery (galeri), featured (checkbox) | location (text), summary (textarea), metric (text) |
 | Services | engagement_model (select: project / retainer / workshop / hourly), price_from (number), currency (EUR / USD / GBP / TRY), area_served (text), reviewed_date (date) | definition (textarea, 40–60 kelime), who_for (textarea), deliverables (satır başına bir çıktı), process ("Adım: açıklama" satırları), duration (text), faq (soru satırı + cevap, aralarında boş satır) |
 | Expertise | accent (select), icon (select), service_page (sd_service_page) | description (textarea), tags (text) |
-| Brands | logo_white (image), logo_color (image), url (url), visible (checkbox) | |
+| Brands | logo_white (image), logo_color (image, isteğe bağlı; tema yalnızca beyaz logoları içe aktarır ve gösterir), url (url), visible (checkbox) | |
 | Insights | featured (checkbox) | read_time (number) |
 | Messages | status, name, email, lang, source_url, utm_source, utm_campaign (tek kayıt) | |
 | Sayfa, yazı, proje, hizmet | disable_tracking (checkbox), extra_head_code (kod, `unfiltered_html` gerekir) | |
 
-**Profil (Person)**: içerik türü değil, eklentideki *Profile* ekranında tek kayıt (`sdc_profile` seçeneği). Ortak: full_name, alternate_names, headshot, city, country, languages_spoken, same_as, works_for, works_for_url, alumni_of, credentials. Dile göre: job_title, short_bio, long_bio, knows_about (boş bırakılırsa varsayılan dildeki değer kullanılır). Tema şablonu `template-profile.php` ("Profile (About)") bunu Hakkımda sayfasında gösterir.
+**Profil (Person)**: içerik türü değil, temadaki *Profile* ekranında tek kayıt (`sdc_profile` seçeneği). Ortak: full_name, alternate_names, headshot, city, country, languages_spoken, same_as, works_for, works_for_url, alumni_of, credentials. Dile göre: job_title, short_bio, long_bio, knows_about (boş bırakılırsa varsayılan dildeki değer kullanılır). Tema şablonu `template-profile.php` ("Profile (About)") bunu Hakkımda sayfasında gösterir.
 
 **Otomatik çıktılar**
-- JSON-LD (`includes/schema.php`): her sayfada Person + WebSite + sayfa düğümü (ana sayfa ve Hakkımda: ProfilePage; diğerleri WebPage / CollectionPage). Yazılarda BlogPosting, projelerde CreativeWork, hizmetlerde Service (offers, hasOfferCatalog) + FAQPage. Yoast, Rank Math, AIOSEO veya SEOPress etkinse basılmaz.
-- `/llms.txt` (`includes/llms.php`): profil, diller, hizmetler, projeler, yazılar ve iletişim; varsayılan dilde.
+- JSON-LD (`inc/schema.php`): her sayfada Person + WebSite + sayfa düğümü (ana sayfa ve Hakkımda: ProfilePage; diğerleri WebPage / CollectionPage). Yazılarda BlogPosting, projelerde CreativeWork, hizmetlerde Service (offers, hasOfferCatalog) + FAQPage. Yoast, Rank Math, AIOSEO veya SEOPress etkinse basılmaz.
+- `/llms.txt` (`inc/llms.php`): profil, diller, hizmetler, projeler, yazılar ve iletişim; varsayılan dilde.
 - Hizmet sayfalarında görünür "Last updated" tarihi (reviewed_date, yoksa son değişiklik).
 
 ## Planlanan (henüz kodda yok)

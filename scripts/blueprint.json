@@ -22,10 +22,6 @@
       "themeFolderName": "serhandemirel"
     },
     {
-      "step": "activatePlugin",
-      "pluginPath": "serhandemirel-core/serhandemirel-core.php"
-    },
-    {
       "step": "setSiteOptions",
       "options": {
         "blogname": "Serhan Demirel",

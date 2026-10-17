@@ -17,32 +17,15 @@ msgstr ""
 
 #. Theme Name of the theme
 #. Author of the theme
-#: style.css inc/options-page.php:22
+#: style.css inc/options-page.php:22 serhandemirel-core.php
 msgid "Serhan Demirel"
 msgstr "Serhan Demirel"
 
 #. Theme URI of the theme
 #. Author URI of the theme
-#: style.css
+#: style.css serhandemirel-core.php
 msgid "https://serhandemirel.com"
 msgstr "https://serhandemirel.com"
-
-#. Description of the theme
-#: style.css
-msgid ""
-"One-page personal theme for serhandemirel.com. Tailwind (compiled), GSAP + "
-"ScrollTrigger and Lenis smooth scrolling."
-msgstr ""
-"serhandemirel.com için tek sayfalık kişisel tema. Tailwind (derlenmiş), GSAP"
-" + ScrollTrigger ve Lenis ile yumuşak kaydırma."
-
-#: functions.php:29
-msgid ""
-"The Serhan Demirel theme needs the \"Serhan Demirel Core\" plugin. Without "
-"it the contact form does not work."
-msgstr ""
-"Serhan Demirel teması \"Serhan Demirel Core\" eklentisine ihtiyaç duyar. Bu "
-"eklenti olmadan iletişim formu çalışmaz."
 
 #: functions.php:40
 msgid "Main menu"
@@ -184,11 +167,11 @@ msgid_plural "%d min read"
 msgstr[0] "%d dk okuma"
 msgstr[1] "%d dk okuma"
 
-#: inc/i18n.php:41
+#: inc/i18n.php:41 inc/post-types.php:74
 msgid "Expertise"
 msgstr "Uzmanlık"
 
-#: inc/i18n.php:42
+#: inc/i18n.php:42 inc/post-types.php:96
 msgid "Brands"
 msgstr "Markalar"
 
@@ -208,7 +191,7 @@ msgstr "Serhan Demirel tema ayarları"
 msgid "Settings saved."
 msgstr "Ayarlar kaydedildi."
 
-#: inc/options-page.php:95
+#: inc/options-page.php:95 inc/profile.php:240
 msgid "Editing texts in:"
 msgstr "Düzenlenen metinlerin dili:"
 
@@ -232,15 +215,16 @@ msgstr "Dile özel"
 msgid "On"
 msgstr "Açık"
 
-#: inc/options-page.php:192
+#: inc/options-page.php:192 inc/meta-boxes.php:124
 msgid "Choose image"
 msgstr "Görsel seç"
 
-#: inc/options-page.php:193
+#: inc/options-page.php:193 inc/meta-boxes.php:125
 msgid "Remove"
 msgstr "Kaldır"
 
-#: inc/options-page.php:220
+#: inc/options-page.php:220 inc/profile.php:279 inc/seed.php:327
+#: inc/setup.php:244
 msgid "Sorry, you are not allowed to do that."
 msgstr "Üzgünüz, bunu yapma izniniz yok."
 
@@ -312,7 +296,7 @@ msgstr "Başlık"
 msgid "Subtitle"
 msgstr "Alt başlık"
 
-#: inc/options.php:78
+#: inc/options.php:78 inc/profile.php:40
 msgid "Digital Solutions Provider"
 msgstr "Dijital Çözüm Uzmanı"
 
@@ -738,7 +722,7 @@ msgstr "Tüm içgörüler"
 msgid "Let's Talk"
 msgstr "Konuşalım"
 
-#: template-parts/nav.php:27
+#: template-parts/nav.php:27 inc/admin-columns.php:35 inc/fields.php:319
 msgid "Language"
 msgstr "Dil"
 
@@ -754,7 +738,7 @@ msgstr "Menü"
 msgid "Close"
 msgstr "Kapat"
 
-#: template-parts/project-modal.php:31
+#: template-parts/project-modal.php:31 inc/fields.php:311
 msgid "Name"
 msgstr "Ad Soyad"
 
@@ -762,7 +746,8 @@ msgstr "Ad Soyad"
 msgid "John Doe"
 msgstr "Ahmet Yılmaz"
 
-#: template-parts/project-modal.php:35
+#: template-parts/project-modal.php:35 inc/admin-columns.php:34
+#: inc/fields.php:315
 msgid "Email"
 msgstr "E-posta"
 
@@ -789,6 +774,7 @@ msgid "Close Window"
 msgstr "Pencereyi Kapat"
 
 #: archive-sd_service_page.php:24 single-sd_service_page.php:32
+#: inc/post-types.php:49 inc/post-types.php:144
 msgid "Services"
 msgstr "Hizmetler"
 
@@ -802,11 +788,11 @@ msgstr "Daha fazla bilgi"
 msgid "From %s"
 msgstr "Başlangıç: %s"
 
-#: single-sd_service_page.php:34
+#: single-sd_service_page.php:34 inc/post-types.php:145
 msgid "Service"
 msgstr "Hizmet"
 
-#: single-sd_service_page.php:51
+#: single-sd_service_page.php:51 inc/fields.php:107
 msgid "Who it is for"
 msgstr "Kimler için"
 
@@ -822,7 +808,7 @@ msgstr "Nasıl çalışır"
 msgid "Related work"
 msgstr "İlgili çalışmalar"
 
-#: single-sd_service_page.php:105
+#: single-sd_service_page.php:105 inc/fields.php:165
 msgid "Frequently asked questions"
 msgstr "Sıkça sorulan sorular"
 
@@ -844,10 +830,870 @@ msgstr "Diller"
 msgid "Education"
 msgstr "Eğitim"
 
-#: template-profile.php:22
+#: template-profile.php:22 inc/profile.php:105
 msgid "Certificates"
 msgstr "Sertifikalar"
 
-#: template-profile.php:59
+#: template-profile.php:59 inc/profile.php:78
 msgid "Areas of expertise"
 msgstr "Uzmanlık alanları"
+
+#: inc/admin-columns.php:20 inc/fields.php:228
+msgid "Logo"
+msgstr "Logo"
+
+#: inc/admin-columns.php:21
+msgid "Visible"
+msgstr "Görünür"
+
+#: inc/admin-columns.php:22 inc/admin-columns.php:25 inc/admin-columns.php:31
+msgid "Order"
+msgstr "Sıra"
+
+#: inc/admin-columns.php:28
+msgid "Client"
+msgstr "Müşteri"
+
+#: inc/admin-columns.php:29 inc/fields.php:67
+msgid "Year"
+msgstr "Yıl"
+
+#: inc/admin-columns.php:30
+msgid "Home page"
+msgstr "Ana sayfa"
+
+#: inc/admin-columns.php:36 inc/fields.php:301
+msgid "Status"
+msgstr "Durum"
+
+#: inc/fields.php:43
+msgid "Project details"
+msgstr "Proje ayrıntıları"
+
+#: inc/fields.php:48
+msgid "Client name"
+msgstr "Müşteri adı"
+
+#: inc/fields.php:53
+msgid "Location label"
+msgstr "Konum etiketi"
+
+#: inc/fields.php:55
+msgid "Shown above the title on the card, e.g. \"Fintech / London\"."
+msgstr "Kartta başlığın üstünde gösterilir; örn. \"Fintech / Londra\"."
+
+#: inc/fields.php:58
+msgid "Short summary (card text)"
+msgstr "Kısa özet (kart metni)"
+
+#: inc/fields.php:62
+msgid "Result metric"
+msgstr "Sonuç metriği"
+
+#: inc/fields.php:64
+msgid "e.g. \"+24% conversion\"."
+msgstr "örn. \"+%24 dönüşüm\"."
+
+#: inc/fields.php:72
+msgid "Live site URL"
+msgstr "Canlı site URL'si"
+
+#: inc/fields.php:77 inc/post-types.php:97
+msgid "Brand"
+msgstr "Marka"
+
+#: inc/fields.php:81
+msgid "The brand logo is shown as a small badge on the card."
+msgstr "Marka logosu kartta küçük bir rozet olarak gösterilir."
+
+#: inc/fields.php:84
+msgid "Gallery"
+msgstr "Galeri"
+
+#: inc/fields.php:87
+msgid "Images for the project detail page."
+msgstr "Proje ayrıntı sayfası için görseller."
+
+#: inc/fields.php:90 inc/fields.php:269
+msgid "Show on home page"
+msgstr "Ana sayfada göster"
+
+#: inc/fields.php:179
+msgid "Card content"
+msgstr "Kart içeriği"
+
+#: inc/fields.php:184
+msgid "Description"
+msgstr "Açıklama"
+
+#: inc/fields.php:188
+msgid "Tags"
+msgstr "Etiketler"
+
+#: inc/fields.php:190
+msgid "Comma separated, e.g. \"Sales Optimization, Lead Gen\"."
+msgstr "Virgülle ayırın; örn. \"Satış Optimizasyonu, Potansiyel Müşteri\"."
+
+#: inc/fields.php:193
+msgid "Accent color"
+msgstr "Vurgu rengi"
+
+#: inc/fields.php:198
+msgid "Blue"
+msgstr "Mavi"
+
+#: inc/fields.php:199
+msgid "Purple"
+msgstr "Mor"
+
+#: inc/fields.php:200
+msgid "Green"
+msgstr "Yeşil"
+
+#: inc/fields.php:201
+msgid "Pink"
+msgstr "Pembe"
+
+#: inc/fields.php:202
+msgid "Amber"
+msgstr "Kehribar"
+
+#: inc/fields.php:213
+msgid "Icon"
+msgstr "Simge"
+
+#: inc/fields.php:218
+msgid "Growth chart"
+msgstr "Büyüme grafiği"
+
+#: inc/fields.php:219
+msgid "Code"
+msgstr "Kod"
+
+#: inc/fields.php:220
+msgid "Flask"
+msgstr "Deney şişesi"
+
+#: inc/fields.php:221
+msgid "Bar chart"
+msgstr "Sütun grafik"
+
+#: inc/fields.php:222
+msgid "Book"
+msgstr "Kitap"
+
+#: inc/fields.php:233
+msgid "White logo"
+msgstr "Beyaz logo"
+
+#: inc/fields.php:236
+msgid "Shown in the logo band on the dark background."
+msgstr "Koyu arka plandaki logo şeridinde gösterilir."
+
+#: inc/fields.php:239
+msgid "Color logo"
+msgstr "Renkli logo"
+
+#: inc/fields.php:242
+msgid "Optional. Used where the logo sits on a light background."
+msgstr ""
+"İsteğe bağlı. Logonun açık renkli arka plan üzerinde durduğu yerlerde "
+"kullanılır."
+
+#: inc/fields.php:245
+msgid "Website"
+msgstr "Web sitesi"
+
+#: inc/fields.php:248
+msgid "Leave empty to keep the logo unlinked."
+msgstr "Logonun bağlantısız kalması için boş bırakın."
+
+#: inc/fields.php:251
+msgid "Show in the logo band"
+msgstr "Logo şeridinde göster"
+
+#: inc/fields.php:259
+msgid "Insight details"
+msgstr "İçgörü ayrıntıları"
+
+#: inc/fields.php:264
+msgid "Reading time (minutes)"
+msgstr "Okuma süresi (dakika)"
+
+#: inc/fields.php:266
+msgid "Leave empty to calculate from the word count."
+msgstr "Kelime sayısından hesaplanması için boş bırakın."
+
+#: inc/fields.php:272
+msgid "If no post is ticked, the two newest posts are shown."
+msgstr "Hiçbir yazı işaretlenmezse en yeni iki yazı gösterilir."
+
+#: inc/fields.php:277
+msgid "Tracking on this page"
+msgstr "Bu sayfada izleme"
+
+#: inc/fields.php:282
+msgid "Turn off tracking codes on this page"
+msgstr "Bu sayfada izleme kodlarını kapat"
+
+#: inc/fields.php:287
+msgid "Extra code for this page"
+msgstr "Bu sayfa için ek kod"
+
+#: inc/fields.php:291
+msgid "Printed in <head>, e.g. a conversion pixel for a campaign page."
+msgstr "<head> içine eklenir; örn. bir kampanya sayfası için dönüşüm pikseli."
+
+#: inc/fields.php:296
+msgid "Message details"
+msgstr "Mesaj ayrıntıları"
+
+#: inc/fields.php:305
+msgid "New"
+msgstr "Yeni"
+
+#: inc/fields.php:306
+msgid "Replied"
+msgstr "Yanıtlandı"
+
+#: inc/fields.php:307
+msgid "Archived"
+msgstr "Arşivlendi"
+
+#: inc/fields.php:323
+msgid "Source page"
+msgstr "Kaynak sayfa"
+
+#: inc/fields.php:327
+msgid "UTM source"
+msgstr "UTM kaynağı"
+
+#: inc/fields.php:331
+msgid "UTM campaign"
+msgstr "UTM kampanyası"
+
+#: inc/messages.php:23
+msgid "Messages"
+msgstr "Mesajlar"
+
+#: inc/messages.php:24 inc/messages.php:25
+msgid "Message"
+msgstr "Mesaj"
+
+#: inc/messages.php:26
+msgid "All Messages"
+msgstr "Tüm mesajlar"
+
+#: inc/messages.php:27
+msgid "No messages yet."
+msgstr "Henüz mesaj yok."
+
+#: inc/messages.php:96
+msgid "Please fill in all fields."
+msgstr "Lütfen tüm alanları doldurun."
+
+#: inc/messages.php:100
+msgid "Invalid email format."
+msgstr "Geçersiz e-posta biçimi."
+
+#: inc/messages.php:127
+msgid "Failed to save your message. Please try again later."
+msgstr "Mesajınız kaydedilemedi. Lütfen daha sonra tekrar deneyin."
+
+#: inc/messages.php:156
+msgid "Your message has been sent successfully. I will get back to you soon!"
+msgstr "Mesajınız başarıyla gönderildi. En kısa sürede size dönüş yapacağım!"
+
+#: inc/meta-boxes.php:109
+msgid "— None —"
+msgstr "— Hiçbiri —"
+
+#: inc/meta-boxes.php:143
+msgid "Choose images"
+msgstr "Görselleri seç"
+
+#: inc/meta-boxes.php:144
+msgid "Clear"
+msgstr "Temizle"
+
+#: inc/post-types.php:23
+msgid "Projects"
+msgstr "Projeler"
+
+#: inc/post-types.php:24
+msgid "Project"
+msgstr "Proje"
+
+#: inc/post-types.php:25
+msgid "Add New Project"
+msgstr "Yeni proje ekle"
+
+#: inc/post-types.php:26
+msgid "Edit Project"
+msgstr "Projeyi düzenle"
+
+#: inc/post-types.php:27
+msgid "New Project"
+msgstr "Yeni proje"
+
+#: inc/post-types.php:28
+msgid "View Project"
+msgstr "Projeyi görüntüle"
+
+#: inc/post-types.php:29
+msgid "Search Projects"
+msgstr "Projelerde ara"
+
+#: inc/post-types.php:30
+msgid "No projects found."
+msgstr "Proje bulunamadı."
+
+#: inc/post-types.php:31
+msgid "All Projects"
+msgstr "Tüm projeler"
+
+#: inc/post-types.php:32
+msgid "Card image (1200×900)"
+msgstr "Kart görseli (1200×900)"
+
+#: inc/post-types.php:33
+msgid "Set card image"
+msgstr "Kart görselini ayarla"
+
+#: inc/post-types.php:75
+msgid "Expertise card"
+msgstr "Uzmanlık kartı"
+
+#: inc/post-types.php:76
+msgid "Add New Expertise Card"
+msgstr "Yeni uzmanlık kartı ekle"
+
+#: inc/post-types.php:77
+msgid "Edit Expertise Card"
+msgstr "Uzmanlık kartını düzenle"
+
+#: inc/post-types.php:78
+msgid "All Expertise Cards"
+msgstr "Tüm uzmanlık kartları"
+
+#: inc/post-types.php:79
+msgid "No expertise cards found."
+msgstr "Uzmanlık kartı bulunamadı."
+
+#: inc/post-types.php:98
+msgid "Add New Brand"
+msgstr "Yeni marka ekle"
+
+#: inc/post-types.php:99
+msgid "Edit Brand"
+msgstr "Markayı düzenle"
+
+#: inc/post-types.php:100
+msgid "All Brands"
+msgstr "Tüm markalar"
+
+#: inc/post-types.php:101
+msgid "No brands found."
+msgstr "Marka bulunamadı."
+
+#: inc/post-types.php:125
+msgid "Industries"
+msgstr "Sektörler"
+
+#: inc/post-types.php:126
+msgid "Industry"
+msgstr "Sektör"
+
+#: inc/post-types.php:127
+msgid "Add New Industry"
+msgstr "Yeni sektör ekle"
+
+#: inc/post-types.php:146
+msgid "Add New Service"
+msgstr "Yeni hizmet ekle"
+
+#: inc/fields.php:97
+msgid "Service details"
+msgstr "Hizmet ayrıntıları"
+
+#: inc/fields.php:102
+msgid "Definition (40–60 words)"
+msgstr "Tanım (40–60 kelime)"
+
+#: inc/fields.php:104
+msgid ""
+"Answers \"What is this service?\" in plain words. Shown first on the page "
+"and used in search results and AI answers."
+msgstr ""
+"\"Bu hizmet nedir?\" sorusunu sade bir dille yanıtlar. Sayfada ilk sırada "
+"gösterilir; arama sonuçlarında ve yapay zekâ yanıtlarında kullanılır."
+
+#: inc/fields.php:111
+msgid "Deliverables"
+msgstr "Teslim edilenler"
+
+#: inc/fields.php:114 inc/profile.php:102
+msgid "One per line."
+msgstr "Her satıra bir tane."
+
+#: inc/fields.php:117
+msgid "Process"
+msgstr "Süreç"
+
+#: inc/fields.php:120
+msgid "One step per line, as \"Step name: what happens\"."
+msgstr "Her satıra bir adım, \"Adım adı: ne yapılır\" biçiminde."
+
+#: inc/fields.php:123
+msgid "Typical duration"
+msgstr "Tipik süre"
+
+#: inc/fields.php:125
+msgid "e.g. \"4–8 weeks\"."
+msgstr "ör. \"4–8 hafta\"."
+
+#: inc/fields.php:128
+msgid "Engagement model"
+msgstr "Çalışma modeli"
+
+#: inc/fields.php:133
+msgid "Fixed-scope project"
+msgstr "Sabit kapsamlı proje"
+
+#: inc/fields.php:134
+msgid "Monthly retainer"
+msgstr "Aylık hizmet sözleşmesi"
+
+#: inc/fields.php:135
+msgid "Workshop or training"
+msgstr "Atölye veya eğitim"
+
+#: inc/fields.php:136
+msgid "Hourly consulting"
+msgstr "Saatlik danışmanlık"
+
+#: inc/fields.php:140
+msgid "Price from"
+msgstr "Başlangıç fiyatı"
+
+#: inc/fields.php:143
+msgid "Leave empty to show no price."
+msgstr "Fiyat göstermemek için boş bırakın."
+
+#: inc/fields.php:146
+msgid "Currency"
+msgstr "Para birimi"
+
+#: inc/fields.php:158
+msgid "Area served"
+msgstr "Hizmet bölgesi"
+
+#: inc/fields.php:162
+msgid "Countries, or \"Worldwide\" for remote work."
+msgstr "Ülkeler veya uzaktan çalışma için \"Worldwide\"."
+
+#: inc/fields.php:168
+msgid ""
+"A question on one line, its answer on the next lines; an empty line between "
+"questions."
+msgstr ""
+"Soru bir satırda, yanıtı sonraki satırlarda; sorular arasında bir boş satır."
+
+#: inc/fields.php:171
+msgid "Last reviewed"
+msgstr "Son gözden geçirme"
+
+#: inc/fields.php:174
+msgid "Shown as \"Last updated\" on the page. Empty uses the last edit date."
+msgstr ""
+"Sayfada \"Son güncelleme\" olarak gösterilir. Boş bırakılırsa son düzenleme "
+"tarihi kullanılır."
+
+#: inc/fields.php:206 inc/post-types.php:50
+msgid "Service page"
+msgstr "Hizmet sayfası"
+
+#: inc/fields.php:210
+msgid ""
+"The card links to this page. In other languages it links to the page's "
+"translation."
+msgstr ""
+"Kart bu sayfaya bağlanır. Diğer dillerde sayfanın çevirisine bağlanır."
+
+#: inc/llms.php:97
+msgid "Contact form"
+msgstr "İletişim formu"
+
+#: inc/post-types.php:51
+msgid "Add New Service Page"
+msgstr "Yeni hizmet sayfası ekle"
+
+#: inc/post-types.php:52
+msgid "Edit Service Page"
+msgstr "Hizmet sayfasını düzenle"
+
+#: inc/post-types.php:53
+msgid "New Service Page"
+msgstr "Yeni hizmet sayfası"
+
+#: inc/post-types.php:54
+msgid "View Service Page"
+msgstr "Hizmet sayfasını görüntüle"
+
+#: inc/post-types.php:55
+msgid "Search Service Pages"
+msgstr "Hizmet sayfalarında ara"
+
+#: inc/post-types.php:56
+msgid "No service pages found."
+msgstr "Hizmet sayfası bulunamadı."
+
+#: inc/post-types.php:57
+msgid "All Service Pages"
+msgstr "Tüm hizmet sayfaları"
+
+#: inc/post-types.php:59
+msgid ""
+"One page per service: what it is, who it is for, deliverables, process and "
+"FAQ."
+msgstr ""
+"Her hizmet için bir sayfa: ne olduğu, kimler için olduğu, teslim edilenler, "
+"süreç ve SSS."
+
+#: inc/profile.php:27
+msgid "Full name"
+msgstr "Ad soyad"
+
+#: inc/profile.php:32
+msgid "Other spellings of the name"
+msgstr "Adın diğer yazılışları"
+
+#: inc/profile.php:34
+msgid ""
+"One per line, e.g. without Turkish characters. Helps search engines and AI "
+"tools match mentions to you."
+msgstr ""
+"Her satıra bir tane, ör. Türkçe karakterler olmadan. Arama motorlarının ve "
+"yapay zekâ araçlarının sizden yapılan bahisleri sizinle eşleştirmesine "
+"yardımcı olur."
+
+#: inc/profile.php:37
+msgid "Job title"
+msgstr "Unvan"
+
+#: inc/profile.php:43
+msgid "Short bio (about 50 words)"
+msgstr "Kısa biyografi (yaklaşık 50 kelime)"
+
+#: inc/profile.php:46
+msgid ""
+"Serhan Demirel is an Istanbul-based digital solutions provider. He helps "
+"companies grow through data-driven digital marketing, builds web products "
+"and landing pages, automates work with AI, improves search and AI "
+"visibility, and trains teams for digital transformation."
+msgstr ""
+"Serhan Demirel, İstanbul merkezli bir dijital çözüm uzmanıdır. Veriye dayalı"
+" dijital pazarlamayla şirketlerin büyümesine yardımcı olur, web ürünleri ve "
+"açılış sayfaları geliştirir, yapay zekâ ile iş süreçlerini otomatikleştirir,"
+" arama ve yapay zekâ görünürlüğünü artırır ve ekipleri dijital dönüşüm için "
+"eğitir."
+
+#: inc/profile.php:47
+msgid ""
+"Written in the third person. Used as the description in structured data and "
+"llms.txt."
+msgstr ""
+"Üçüncü tekil şahıs ağzından yazılır. Yapılandırılmış verilerde ve "
+"llms.txt'de açıklama olarak kullanılır."
+
+#: inc/profile.php:50
+msgid "Long bio"
+msgstr "Uzun biyografi"
+
+#: inc/profile.php:54
+msgid "Shown on the profile page. Paragraphs are separated by an empty line."
+msgstr "Profil sayfasında gösterilir. Paragraflar bir boş satırla ayrılır."
+
+#: inc/profile.php:57
+msgid "Photo"
+msgstr "Fotoğraf"
+
+#: inc/profile.php:59
+msgid "A square portrait, at least 400×400."
+msgstr "Kare bir portre, en az 400×400."
+
+#: inc/profile.php:62
+msgid "City"
+msgstr "Şehir"
+
+#: inc/profile.php:67
+msgid "Country code"
+msgstr "Ülke kodu"
+
+#: inc/profile.php:70
+msgid "Two letters, e.g. TR or NL."
+msgstr "İki harf, ör. TR veya NL."
+
+#: inc/profile.php:73
+msgid "Languages spoken"
+msgstr "Konuşulan diller"
+
+#: inc/profile.php:75
+msgid "One per line, in English, e.g. Turkish."
+msgstr "Her satıra bir tane, İngilizce olarak, ör. Turkish."
+
+#: inc/profile.php:81
+msgid ""
+"Digital marketing\n"
+"Growth strategy\n"
+"Lead generation\n"
+"Sales optimization\n"
+"Web application development\n"
+"Landing page optimization\n"
+"AI automation\n"
+"Search engine optimization\n"
+"Generative engine optimization\n"
+"Competitor analysis\n"
+"Digital transformation\n"
+"Corporate training"
+msgstr ""
+"Dijital pazarlama\n"
+"Büyüme stratejisi\n"
+"Potansiyel müşteri kazanımı\n"
+"Satış optimizasyonu\n"
+"Web uygulaması geliştirme\n"
+"Açılış sayfası optimizasyonu\n"
+"Yapay zekâ otomasyonu\n"
+"Arama motoru optimizasyonu\n"
+"Üretken motor optimizasyonu\n"
+"Rakip analizi\n"
+"Dijital dönüşüm\n"
+"Kurumsal eğitim"
+
+#: inc/profile.php:82
+msgid "One topic per line."
+msgstr "Her satıra bir konu."
+
+#: inc/profile.php:85
+msgid "Profile links"
+msgstr "Profil bağlantıları"
+
+#: inc/profile.php:88
+msgid ""
+"One URL per line: LinkedIn, X, GitHub, Medium, Wikidata and other profiles "
+"about you."
+msgstr ""
+"Her satıra bir URL: LinkedIn, X, GitHub, Medium, Wikidata ve sizinle ilgili "
+"diğer profiller."
+
+#: inc/profile.php:91
+msgid "Company"
+msgstr "Şirket"
+
+#: inc/profile.php:93
+msgid "Your own company or employer, if any."
+msgstr "Varsa kendi şirketiniz veya işvereniniz."
+
+#: inc/profile.php:96
+msgid "Company website"
+msgstr "Şirket web sitesi"
+
+#: inc/profile.php:100
+msgid "Schools"
+msgstr "Okullar"
+
+#: inc/profile.php:107
+msgid "One per line, e.g. \"Google Ads Search Certification\"."
+msgstr "Her satıra bir tane, ör. \"Google Ads Search Certification\"."
+
+#: inc/profile.php:212 inc/profile.php:231
+msgid "Profile"
+msgstr "Profil"
+
+#: inc/profile.php:232
+msgid ""
+"Who you are, in one place. Search engines and AI assistants read this from "
+"the structured data on every page and from /llms.txt."
+msgstr ""
+"Kim olduğunuz, tek bir yerde. Arama motorları ve yapay zekâ asistanları bunu"
+" her sayfadaki yapılandırılmış verilerden ve /llms.txt'den okur."
+
+#: inc/profile.php:235
+msgid "Profile saved."
+msgstr "Profil kaydedildi."
+
+#: inc/profile.php:245
+msgid ""
+"Fields marked with a globe are saved for this language only; empty ones use "
+"the default language. Other fields are shared by all languages."
+msgstr ""
+"Dünya simgesiyle işaretli alanlar yalnızca bu dil için kaydedilir; boş "
+"olanlar varsayılan dili kullanır. Diğer alanlar tüm dillerde ortaktır."
+
+#: inc/setup.php:46
+msgid "Polylang is not active. Install and activate it first."
+msgstr "Polylang etkin değil. Önce yükleyip etkinleştirin."
+
+#. translators: 1: locale, 2: error message
+#: inc/setup.php:68
+#, php-format
+msgid "Could not add %1$s: %2$s"
+msgstr "%1$s eklenemedi: %2$s"
+
+#. translators: %s: locale, e.g. fr_FR
+#: inc/setup.php:72
+#, php-format
+msgid "Added %s."
+msgstr "%s eklendi."
+
+#: inc/setup.php:96
+msgid ""
+"Polylang set up: English at the site root, other languages in folders, "
+"browser detection left to the theme."
+msgstr ""
+"Polylang kuruldu: İngilizce sitenin kök dizininde, diğer diller klasörlerde,"
+" tarayıcı dili algılama temaya bırakıldı."
+
+#: inc/setup.php:100
+msgid "Content without a language was set to English."
+msgstr "Dili olmayan içerikler İngilizce olarak ayarlandı."
+
+#: inc/setup.php:105
+msgid "Permalinks set to \"Post name\"."
+msgstr "Kalıcı bağlantılar \"Yazı adı\" olarak ayarlandı."
+
+#: inc/setup.php:154
+msgid "All six languages exist"
+msgstr "Altı dilin tamamı mevcut"
+
+#: inc/setup.php:156 inc/setup.php:161
+msgid "Press \"Set up languages\" below."
+msgstr "Aşağıdaki \"Dilleri kur\" düğmesine basın."
+
+#: inc/setup.php:159
+msgid "Polylang's own browser detection is off"
+msgstr "Polylang'ın kendi tarayıcı dili algılaması kapalı"
+
+#: inc/setup.php:164
+msgid "Pretty permalinks"
+msgstr "Okunabilir kalıcı bağlantılar"
+
+#: inc/setup.php:166
+msgid "Settings → Permalinks → Post name."
+msgstr "Ayarlar → Kalıcı bağlantılar → Yazı adı."
+
+#: inc/setup.php:174
+msgid "Profile is filled in"
+msgstr "Profil doldurulmuş"
+
+#: inc/setup.php:176
+msgid "Profile → add your photo, bio and profile links."
+msgstr ""
+"Profil → fotoğrafınızı, biyografinizi ve profil bağlantılarınızı ekleyin."
+
+#: inc/setup.php:179
+msgid "Service pages are published"
+msgstr "Hizmet sayfaları yayımlanmış"
+
+#: inc/setup.php:181
+msgid "Services → review the drafts and publish them."
+msgstr "Hizmetler → taslakları gözden geçirip yayımlayın."
+
+#: inc/setup.php:184
+msgid "Search engines may index the site"
+msgstr "Arama motorları siteyi dizinleyebilir"
+
+#: inc/setup.php:186
+msgid "Settings → Reading → untick \"Discourage search engines\"."
+msgstr ""
+"Ayarlar → Okuma → \"Arama motorlarının bu siteyi dizinlerine eklememesini "
+"iste\" seçeneğinin işaretini kaldırın."
+
+#: inc/setup.php:189
+msgid "Mail can be sent (for the contact form)"
+msgstr "E-posta gönderilebiliyor (iletişim formu için)"
+
+#: inc/setup.php:191
+msgid ""
+"Install an SMTP plugin (e.g. WP Mail SMTP or FluentSMTP) and send a test "
+"email."
+msgstr ""
+"Bir SMTP eklentisi (ör. WP Mail SMTP veya FluentSMTP) yükleyin ve bir test "
+"e-postası gönderin."
+
+#: inc/setup.php:200 inc/setup.php:215
+msgid "Site setup"
+msgstr "Site kurulumu"
+
+#: inc/setup.php:232
+msgid "Set up languages"
+msgstr "Dilleri kur"
+
+#: inc/setup.php:233
+msgid ""
+"Adds English (default, at the site root), Turkish, French, Dutch, German and"
+" Italian to Polylang, downloads their WordPress translations and sets the "
+"recommended options. Safe to run again."
+msgstr ""
+"Polylang'a İngilizce (varsayılan, sitenin kök dizininde), Türkçe, Fransızca,"
+" Felemenkçe, Almanca ve İtalyancayı ekler, bunların WordPress çevirilerini "
+"indirir ve önerilen seçenekleri ayarlar. Tekrar çalıştırmak güvenlidir."
+
+#: inc/setup.php:263
+msgid "Done."
+msgstr "Tamamlandı."
+
+#: inc/setup.php:44
+msgid ""
+"Polylang is not ready on this request; the languages will be set up on the "
+"next admin page."
+msgstr ""
+"Polylang bu istekte henüz hazır değil; diller bir sonraki yönetim sayfasında"
+" kurulacak."
+
+#: style.css
+msgid ""
+"One-page personal theme for serhandemirel.com, with its projects, services, "
+"expertise cards, brand logos, profile, contact form, structured data and "
+"llms.txt built in. Works with or without Polylang. Tailwind (compiled), GSAP"
+" + ScrollTrigger and Lenis, all self-hosted."
+msgstr ""
+"serhandemirel.com için tek sayfalık kişisel tema; projeler, hizmetler, "
+"uzmanlık kartları, marka logoları, profil, iletişim formu, yapılandırılmış "
+"veri ve llms.txt içinde hazır. Polylang ile ya da onsuz çalışır. Tailwind "
+"(derlenmiş), GSAP + ScrollTrigger ve Lenis, hepsi temanın içinden yüklenir."
+
+#: inc/setup.php
+msgid "More than one language (optional)"
+msgstr "Birden fazla dil (isteğe bağlı)"
+
+#: functions.php
+msgid ""
+"The Serhan Demirel theme now includes everything the \"Serhan Demirel Core\""
+" plugin did. Deactivate and delete the plugin under Plugins; your projects, "
+"services, messages and profile stay as they are."
+msgstr ""
+"Serhan Demirel teması artık \"Serhan Demirel Core\" eklentisinin yaptığı her"
+" şeyi içeriyor. Eklentiyi Eklentiler sayfasından devre dışı bırakıp silin; "
+"projeleriniz, hizmetleriniz, mesajlarınız ve profiliniz olduğu gibi kalır."
+
+#: inc/setup.php
+msgid ""
+"The site runs in the language set under Settings → General. For the six-"
+"language site, install and activate Polylang (Plugins → Add New → "
+"\"Polylang\"), then press \"Set up languages\" below."
+msgstr ""
+"Site, Ayarlar → Genel bölümünde seçili dilde çalışır. Altı dilli site için "
+"Polylang'ı kurup etkinleştirin (Eklentiler → Yeni Ekle → \"Polylang\"), "
+"ardından aşağıdaki \"Dilleri kur\" düğmesine basın."
+
+#: inc/messages.php
+msgid "Too many messages. Please try again in an hour, or write on WhatsApp."
+msgstr ""
+"Çok fazla mesaj gönderildi. Lütfen bir saat sonra tekrar deneyin ya da "
+"WhatsApp'tan yazın."
+
+#: inc/profile.php
+msgctxt "job title"
+msgid "Digital Solutions Provider"
+msgstr "Dijital Çözüm Uzmanı"

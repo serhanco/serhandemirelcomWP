@@ -10,9 +10,7 @@ get_header();
 $projects = array();
 while ( have_posts() ) {
 	the_post();
-	if ( function_exists( 'sdc_project_data' ) ) {
-		$projects[] = sdc_project_data( get_post() );
-	}
+	$projects[] = sdc_project_data( get_post() );
 }
 $filters = is_post_type_archive( 'sd_project' ) ? sd_work_filters( $projects ) : array();
 ?>

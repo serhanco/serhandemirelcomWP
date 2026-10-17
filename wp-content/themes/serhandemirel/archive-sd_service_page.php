@@ -10,9 +10,7 @@ get_header();
 $services = array();
 while ( have_posts() ) {
 	the_post();
-	if ( function_exists( 'sdc_service_data' ) ) {
-		$services[] = sdc_service_data( get_post() );
-	}
+	$services[] = sdc_service_data( get_post() );
 }
 $accents = array( 'text-blue-400', 'text-purple-400', 'text-emerald-400', 'text-pink-400', 'text-amber-400' );
 ?>

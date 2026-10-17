@@ -9,8 +9,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'SD_THEME_VERSION', '1.0.0' );
+define( 'SD_THEME_VERSION', '1.2.0' );
 
+/*
+ * Content types, fields, the contact form, profile, structured data,
+ * llms.txt and site setup. They used to live in the "Serhan Demirel Core"
+ * plugin, which loads first and declares the same functions: while it is
+ * still active, its copy is used and an admin notice asks to remove it.
+ * Content, settings and messages are stored the same way by both.
+ */
+if ( ! defined( 'SDC_VERSION' ) ) {
+	foreach ( array( 'post-types', 'fields', 'meta-boxes', 'admin-columns', 'messages', 'multilingual', 'api', 'profile', 'schema', 'llms', 'setup', 'seed', 'seed-services' ) as $sd_file ) {
+		require get_template_directory() . '/inc/' . $sd_file . '.php';
+	}
+}
 require get_template_directory() . '/inc/brands.php';
 require get_template_directory() . '/inc/options.php';
 require get_template_directory() . '/inc/options-page.php';
@@ -19,16 +31,15 @@ require get_template_directory() . '/inc/content.php';
 require get_template_directory() . '/inc/i18n.php';
 
 /**
- * The contact form, content types and fields live in the companion
- * "Serhan Demirel Core" plugin (wp-content/plugins/serhandemirel-core).
+ * Ask to remove the old companion plugin: the theme now includes everything it did.
  */
-function sd_missing_core_notice() {
-	if ( defined( 'SDC_VERSION' ) || ! current_user_can( 'activate_plugins' ) ) {
+function sd_old_core_plugin_notice() {
+	if ( ! defined( 'SDC_VERSION' ) || ! current_user_can( 'activate_plugins' ) ) {
 		return;
 	}
-	echo '<div class="notice notice-warning"><p>' . esc_html__( 'The Serhan Demirel theme needs the "Serhan Demirel Core" plugin. Without it the contact form does not work.', 'serhandemirel' ) . '</p></div>';
+	echo '<div class="notice notice-warning"><p>' . esc_html__( 'The Serhan Demirel theme now includes everything the "Serhan Demirel Core" plugin did. Deactivate and delete the plugin under Plugins; your projects, services, messages and profile stay as they are.', 'serhandemirel' ) . '</p></div>';
 }
-add_action( 'admin_notices', 'sd_missing_core_notice' );
+add_action( 'admin_notices', 'sd_old_core_plugin_notice' );
 
 /**
  * Theme setup.
@@ -41,6 +52,9 @@ function sd_setup() {
 		)
 	);
 	add_theme_support( 'title-tag' );
+	add_theme_support( 'post-thumbnails' );
+	add_theme_support( 'automatic-feed-links' );
+	add_theme_support( 'responsive-embeds' );
 	add_theme_support( 'html5', array( 'script', 'style', 'search-form', 'gallery', 'caption' ) );
 }
 add_action( 'after_setup_theme', 'sd_setup' );
@@ -61,13 +75,13 @@ function sd_enqueue_assets() {
 
 	// Built from the theme's classes with `npm run build` (see README).
 	wp_enqueue_style( 'sd-tailwind', $uri . '/assets/css/tailwind.css', array(), filemtime( get_template_directory() . '/assets/css/tailwind.css' ) );
+	// style.css also holds the self-hosted Inter font faces.
+	wp_enqueue_style( 'sd-style', get_stylesheet_uri(), array( 'sd-tailwind' ), SD_THEME_VERSION );
 
-	wp_enqueue_style( 'sd-inter', 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800;900&display=swap', array(), null );
-	wp_enqueue_style( 'sd-style', get_stylesheet_uri(), array( 'sd-inter', 'sd-tailwind' ), SD_THEME_VERSION );
-
-	wp_enqueue_script( 'gsap', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js', array(), '3.12.2', true );
-	wp_enqueue_script( 'gsap-scrolltrigger', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js', array( 'gsap' ), '3.12.2', true );
-	wp_enqueue_script( 'lenis', 'https://unpkg.com/lenis@1.1.13/dist/lenis.min.js', array(), '1.1.13', true );
+	// Served from the theme, not a CDN: no third-party requests before the page can animate.
+	wp_enqueue_script( 'gsap', $uri . '/assets/vendor/gsap.min.js', array(), '3.12.2', true );
+	wp_enqueue_script( 'gsap-scrolltrigger', $uri . '/assets/vendor/ScrollTrigger.min.js', array( 'gsap' ), '3.12.2', true );
+	wp_enqueue_script( 'lenis', $uri . '/assets/vendor/lenis.min.js', array(), '1.1.13', true );
 
 	wp_enqueue_script( 'sd-main', $uri . '/assets/js/main.js', array( 'gsap', 'gsap-scrolltrigger', 'lenis' ), SD_THEME_VERSION, true );
 	wp_localize_script(
@@ -96,7 +110,6 @@ function sd_enqueue_assets() {
 		array(
 			'ajaxUrl' => admin_url( 'admin-ajax.php' ),
 			'action'  => 'sd_contact',
-			'nonce'   => wp_create_nonce( 'sd_contact' ),
 			'lang'    => sd_current_lang(),
 			'i18n'    => array(
 				'sending' => __( 'Sending...', 'serhandemirel' ),
@@ -124,6 +137,17 @@ remove_action( 'wp_footer', 'wp_enqueue_global_styles', 1 );
 
 remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
 remove_action( 'wp_print_styles', 'print_emoji_styles' );
+remove_action( 'wp_head', 'wp_generator' );
+remove_action( 'wp_head', 'rsd_link' );
+remove_action( 'wp_head', 'wp_shortlink_wp_head' );
+
+/**
+ * Preload the Latin Inter file so text does not swap fonts after the first paint.
+ */
+function sd_preload_font() {
+	printf( '<link rel="preload" href="%s" as="font" type="font/woff2" crossorigin>' . "\n", esc_url( get_template_directory_uri() . '/assets/fonts/inter-latin-wght-normal.woff2' ) );
+}
+add_action( 'wp_head', 'sd_preload_font', 1 );
 
 /**
  * Whether an SEO plugin prints description and social tags itself.
