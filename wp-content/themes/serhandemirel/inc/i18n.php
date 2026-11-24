@@ -28,9 +28,10 @@ function sd_nav_items() {
 					continue;
 				}
 				$links[] = array(
-					'url'   => $item->url,
-					'label' => $item->title,
-					'icon'  => (string) $item->attr_title,
+					'url'    => $item->url,
+					'label'  => $item->title,
+					'icon'   => (string) $item->attr_title,
+					'active' => sd_nav_is_current( $item->url ),
 				);
 			}
 			return $links;
@@ -43,17 +44,43 @@ function sd_nav_items() {
 		'work'      => array( '#portfolio', __( 'Work', 'serhandemirel' ), '💼' ),
 		'insights'  => array( '#insights', __( 'Insights', 'serhandemirel' ), '📝' ),
 	);
-	$links    = array();
+	// Away from the home page, Work and Insights lead to their own pages.
+	$pages = array(
+		'work'     => is_front_page() ? '' : (string) get_post_type_archive_link( 'sd_project' ),
+		'insights' => is_front_page() ? '' : sd_insights_url(),
+	);
+	$current = array(
+		'work'     => is_post_type_archive( 'sd_project' ) || is_singular( 'sd_project' ) || is_tax( array( 'sd_industry', 'sd_service' ) ),
+		'insights' => is_home() || is_singular( 'post' ) || is_category() || is_tag() || is_author() || is_date(),
+	);
+	$links = array();
 	foreach ( $sections as $section => $link ) {
 		if ( sd_show_section( $section ) ) {
 			$links[] = array(
-				'url'   => sd_anchor( $link[0] ),
-				'label' => $link[1],
-				'icon'  => $link[2],
+				'url'    => ! empty( $pages[ $section ] ) ? $pages[ $section ] : sd_anchor( $link[0] ),
+				'label'  => $link[1],
+				'icon'   => $link[2],
+				'active' => ! empty( $current[ $section ] ),
 			);
 		}
 	}
 	return $links;
+}
+
+/**
+ * Whether a menu link points at the page being viewed or a parent of it.
+ *
+ * @param string $url Menu item URL.
+ * @return bool
+ */
+function sd_nav_is_current( $url ) {
+	$path = trailingslashit( (string) wp_parse_url( $url, PHP_URL_PATH ) );
+	$home = trailingslashit( (string) wp_parse_url( home_url( '/' ), PHP_URL_PATH ) );
+	if ( $path === $home || false !== strpos( $url, '#' ) ) {
+		return false;
+	}
+	$here = trailingslashit( (string) wp_parse_url( isset( $_SERVER['REQUEST_URI'] ) ? esc_url_raw( wp_unslash( $_SERVER['REQUEST_URI'] ) ) : '', PHP_URL_PATH ) );
+	return 0 === strpos( $here, $path );
 }
 
 /**

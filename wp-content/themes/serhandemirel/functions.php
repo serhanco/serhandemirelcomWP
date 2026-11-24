@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'SD_THEME_VERSION', '1.2.0' );
+define( 'SD_THEME_VERSION', '1.3.0' );
 
 /*
  * Content types, fields, the contact form, profile, structured data,
@@ -29,6 +29,7 @@ require get_template_directory() . '/inc/options-page.php';
 require get_template_directory() . '/inc/tracking.php';
 require get_template_directory() . '/inc/content.php';
 require get_template_directory() . '/inc/i18n.php';
+require get_template_directory() . '/inc/subpages.php';
 
 /**
  * Ask to remove the old companion plugin: the theme now includes everything it did.
@@ -78,30 +79,46 @@ function sd_enqueue_assets() {
 	// style.css also holds the self-hosted Inter font faces.
 	wp_enqueue_style( 'sd-style', get_stylesheet_uri(), array( 'sd-tailwind' ), SD_THEME_VERSION );
 
-	// Served from the theme, not a CDN: no third-party requests before the page can animate.
-	wp_enqueue_script( 'gsap', $uri . '/assets/vendor/gsap.min.js', array(), '3.12.2', true );
-	wp_enqueue_script( 'gsap-scrolltrigger', $uri . '/assets/vendor/ScrollTrigger.min.js', array( 'gsap' ), '3.12.2', true );
-	wp_enqueue_script( 'lenis', $uri . '/assets/vendor/lenis.min.js', array(), '1.1.13', true );
-
-	wp_enqueue_script( 'sd-main', $uri . '/assets/js/main.js', array( 'gsap', 'gsap-scrolltrigger', 'lenis' ), SD_THEME_VERSION, true );
+	// Every page: menu, navbar, filters, clock, reading bar and the other
+	// small interactions, with no libraries.
+	wp_enqueue_script( 'sd-site', $uri . '/assets/js/site.js', array(), SD_THEME_VERSION, array( 'in_footer' => true, 'strategy' => 'defer' ) );
 	wp_localize_script(
-		'sd-main',
-		'sdMain',
+		'sd-site',
+		'sdSite',
 		array(
-			'words'         => sd_opt_lines( 'words' ),
 			'timezone'      => sd_opt( 'timezone' ),
 			'timezoneLabel' => sd_opt( 'timezone_label' ),
+			'copied'        => __( 'Link copied', 'serhandemirel' ),
+			'loading'       => __( 'Loading…', 'serhandemirel' ),
 		)
 	);
 
-	wp_enqueue_script( 'sd-brands', $uri . '/assets/js/brands.js', array(), SD_THEME_VERSION, true );
-	wp_localize_script(
-		'sd-brands',
-		'sdBrands',
-		array(
-			'logos' => sd_marquee_logos(),
-		)
-	);
+	// The front page alone runs the scroll animations, so inner pages skip
+	// GSAP, ScrollTrigger and Lenis (about 100 KB) and open faster.
+	// Served from the theme, not a CDN: no third-party requests.
+	if ( is_front_page() ) {
+		wp_enqueue_script( 'gsap', $uri . '/assets/vendor/gsap.min.js', array(), '3.12.2', true );
+		wp_enqueue_script( 'gsap-scrolltrigger', $uri . '/assets/vendor/ScrollTrigger.min.js', array( 'gsap' ), '3.12.2', true );
+		wp_enqueue_script( 'lenis', $uri . '/assets/vendor/lenis.min.js', array(), '1.1.13', true );
+
+		wp_enqueue_script( 'sd-main', $uri . '/assets/js/main.js', array( 'gsap', 'gsap-scrolltrigger', 'lenis' ), SD_THEME_VERSION, true );
+		wp_localize_script(
+			'sd-main',
+			'sdMain',
+			array(
+				'words' => sd_opt_lines( 'words' ),
+			)
+		);
+
+		wp_enqueue_script( 'sd-brands', $uri . '/assets/js/brands.js', array(), SD_THEME_VERSION, true );
+		wp_localize_script(
+			'sd-brands',
+			'sdBrands',
+			array(
+				'logos' => sd_marquee_logos(),
+			)
+		);
+	}
 
 	wp_enqueue_script( 'sd-project-modal', $uri . '/assets/js/project-modal.js', array(), SD_THEME_VERSION, true );
 	wp_localize_script(

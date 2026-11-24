@@ -184,6 +184,23 @@ function sd_option_tabs() {
 					'i18n'    => true,
 					'default' => __( 'Latest Thoughts', 'serhandemirel' ),
 				),
+				'insights_intro'    => array(
+					'label'   => __( 'Insights page: intro', 'serhandemirel' ),
+					'type'    => 'textarea',
+					'i18n'    => true,
+					'default' => __( 'Short, practical writing on AI visibility, performance, analytics and growth.', 'serhandemirel' ),
+				),
+				'newsletter_url'    => array(
+					'label' => __( 'Newsletter sign-up link', 'serhandemirel' ),
+					'type'  => 'url',
+					'help'  => __( 'A sign-up page on your newsletter service (Substack, Mailchimp, Beehiiv…). When set, the Insights page shows a newsletter card.', 'serhandemirel' ),
+				),
+				'newsletter_title'  => array(
+					'label'   => __( 'Newsletter card: heading', 'serhandemirel' ),
+					'type'    => 'text',
+					'i18n'    => true,
+					'default' => __( 'Get the next note in your inbox.', 'serhandemirel' ),
+				),
 			),
 		),
 		'contact'  => array(

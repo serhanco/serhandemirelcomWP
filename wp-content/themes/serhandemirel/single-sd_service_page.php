@@ -12,38 +12,44 @@ while ( have_posts() ) :
 	the_post();
 	$service = sdc_service_data( get_post() );
 	$updated = ! empty( $service['reviewed'] ) ? $service['reviewed'] : get_the_modified_date( 'Y-m-d' );
-	$facts   = array_filter(
-		array(
-			$service['duration'] ?? '',
-			$service['engagement_label'] ?? '',
-			$service['area_served'] ?? '',
-			! empty( $service['price_from'] ) ? sprintf(
-				/* translators: %s: price with currency, e.g. "2,000 EUR" */
-				__( 'From %s', 'serhandemirel' ),
-				number_format_i18n( $service['price_from'] ) . ' ' . $service['currency']
-			) : '',
-		)
-	);
+	$price   = ! empty( $service['price_from'] ) ? sprintf(
+		/* translators: %s: price with currency, e.g. "2,000 EUR" */
+		__( 'From %s', 'serhandemirel' ),
+		number_format_i18n( $service['price_from'] ) . ' ' . $service['currency']
+	) : '';
 	?>
-<main class="relative overflow-hidden">
-    <div class="absolute top-[-10%] right-[-20%] w-[400px] md:w-[50vw] h-[400px] md:h-[50vw] rounded-full bg-blue-900/20 blur-[120px] pointer-events-none z-0"></div>
+<main id="main" class="relative overflow-hidden">
+    <div class="sd-orb w-[50rem] h-[50rem] -top-80 -right-40 bg-blue-900/30"></div>
 
-    <article <?php post_class( 'relative z-10 max-w-5xl mx-auto px-6 lg:px-8 pt-40 pb-24' ); ?>>
-        <a href="<?php echo esc_url( get_post_type_archive_link( 'sd_service_page' ) ); ?>" class="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors mb-10">← <?php esc_html_e( 'Services', 'serhandemirel' ); ?></a>
+    <article <?php post_class( 'relative z-10 max-w-6xl mx-auto px-6 pt-36 md:pt-44' ); ?>>
+        <?php sd_breadcrumb( array( array( __( 'Services', 'serhandemirel' ), get_post_type_archive_link( 'sd_service_page' ) ), array( get_the_title(), '' ) ) ); ?>
 
-        <p class="text-sm font-bold tracking-[0.2em] uppercase text-purple-500 mb-4"><?php esc_html_e( 'Service', 'serhandemirel' ); ?></p>
-        <h1 class="text-4xl md:text-6xl lg:text-7xl font-black tracking-tight leading-tight text-white mb-8"><?php the_title(); ?></h1>
-
-        <?php if ( ! empty( $service['definition'] ) ) : ?>
-        <p class="text-lg md:text-2xl text-gray-300 font-light leading-relaxed max-w-3xl mb-10"><?php echo esc_html( $service['definition'] ); ?></p>
-        <?php endif; ?>
-
-        <div class="flex flex-wrap items-center gap-3 mb-16 text-sm">
-            <?php foreach ( $facts as $fact ) : ?>
-            <span class="px-4 py-2 rounded-full glass text-gray-300"><?php echo esc_html( $fact ); ?></span>
-            <?php endforeach; ?>
-            <button type="button" onclick="openProjectModal()" class="px-5 py-2 rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition-colors"><?php esc_html_e( 'Start a Project', 'serhandemirel' ); ?></button>
-        </div>
+        <header class="grid lg:grid-cols-[1.4fr_1fr] gap-10 items-end mb-20">
+            <div>
+                <p class="text-sm font-bold tracking-[0.2em] uppercase text-purple-400 mb-4"><?php esc_html_e( 'Service', 'serhandemirel' ); ?></p>
+                <h1 class="text-5xl md:text-7xl font-black tracking-tighter leading-[0.95] text-white [text-wrap:balance]"><?php the_title(); ?></h1>
+                <?php if ( ! empty( $service['definition'] ) ) : ?>
+                <p class="mt-6 text-xl text-gray-300 max-w-2xl leading-relaxed"><?php echo esc_html( $service['definition'] ); ?></p>
+                <?php endif; ?>
+            </div>
+            <div class="rounded-3xl glass p-6 text-sm">
+                <dl class="space-y-0">
+                    <?php if ( ! empty( $service['duration'] ) ) : ?>
+                    <div class="flex justify-between gap-4 border-b border-white/5 py-3"><dt class="text-gray-500"><?php esc_html_e( 'Typical duration', 'serhandemirel' ); ?></dt><dd class="font-semibold text-white text-right"><?php echo esc_html( $service['duration'] ); ?></dd></div>
+                    <?php endif; ?>
+                    <?php if ( ! empty( $service['engagement_label'] ) ) : ?>
+                    <div class="flex justify-between gap-4 border-b border-white/5 py-3"><dt class="text-gray-500"><?php esc_html_e( 'Engagement', 'serhandemirel' ); ?></dt><dd class="font-semibold text-white text-right"><?php echo esc_html( $service['engagement_label'] ); ?></dd></div>
+                    <?php endif; ?>
+                    <?php if ( ! empty( $service['area_served'] ) ) : ?>
+                    <div class="flex justify-between gap-4 border-b border-white/5 py-3"><dt class="text-gray-500"><?php esc_html_e( 'Where', 'serhandemirel' ); ?></dt><dd class="font-semibold text-white text-right"><?php echo esc_html( $service['area_served'] ); ?></dd></div>
+                    <?php endif; ?>
+                    <?php if ( $price ) : ?>
+                    <div class="flex justify-between gap-4 border-b border-white/5 py-3"><dt class="text-gray-500"><?php esc_html_e( 'Price', 'serhandemirel' ); ?></dt><dd class="font-semibold text-white text-right"><?php echo esc_html( $price ); ?></dd></div>
+                    <?php endif; ?>
+                </dl>
+                <button type="button" onclick="openProjectModal()" class="mt-5 w-full flex justify-between items-center px-5 py-3 rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition-colors"><?php esc_html_e( 'Start a Project', 'serhandemirel' ); ?> <span aria-hidden="true">→</span></button>
+            </div>
+        </header>
 
         <div class="grid md:grid-cols-2 gap-6 mb-16">
             <?php if ( ! empty( $service['who_for'] ) ) : ?>
@@ -67,10 +73,11 @@ while ( have_posts() ) :
         <?php if ( ! empty( $service['process'] ) ) : ?>
         <section class="mb-16">
             <h2 class="text-3xl md:text-4xl font-bold text-white mb-8"><?php esc_html_e( 'How it works', 'serhandemirel' ); ?></h2>
-            <ol class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <?php $cols = array( 1 => 'lg:grid-cols-2', 2 => 'lg:grid-cols-2', 3 => 'lg:grid-cols-3', 4 => 'lg:grid-cols-4' ); ?>
+            <ol class="grid sm:grid-cols-2 <?php echo esc_attr( $cols[ count( $service['process'] ) ] ?? 'lg:grid-cols-5' ); ?> gap-4">
                 <?php foreach ( $service['process'] as $i => $step ) : ?>
                 <li class="glass rounded-3xl p-6">
-                    <span class="block text-sm font-bold text-fuchsia-400 mb-2"><?php echo esc_html( sprintf( '%02d', $i + 1 ) ); ?></span>
+                    <span class="w-9 h-9 rounded-full bg-white text-black text-sm font-bold flex items-center justify-center mb-5"><?php echo esc_html( (string) ( $i + 1 ) ); ?></span>
                     <h3 class="text-lg font-bold text-white mb-2"><?php echo esc_html( $step['title'] ); ?></h3>
                     <?php if ( $step['text'] ) : ?>
                     <p class="text-gray-400 text-sm leading-relaxed"><?php echo esc_html( $step['text'] ); ?></p>
@@ -89,7 +96,7 @@ while ( have_posts() ) :
 
         <?php if ( ! empty( $service['projects'] ) ) : ?>
         <section class="mb-16">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-8"><?php esc_html_e( 'Related work', 'serhandemirel' ); ?></h2>
+            <div class="flex items-end justify-between gap-4 mb-8"><h2 class="text-3xl md:text-4xl font-bold text-white"><?php esc_html_e( 'Related work', 'serhandemirel' ); ?></h2><a href="<?php echo esc_url( get_post_type_archive_link( 'sd_project' ) ); ?>" class="text-sm text-gray-400 hover:text-white transition-colors"><?php esc_html_e( 'All work', 'serhandemirel' ); ?> →</a></div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <?php
                 foreach ( $service['projects'] as $i => $project ) {

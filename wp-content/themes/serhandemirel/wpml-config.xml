@@ -25,6 +25,16 @@
 		<custom-field action="copy">_sd_accent</custom-field>
 		<custom-field action="copy">_sd_icon</custom-field>
 		<custom-field action="translate">_sd_read_time</custom-field>
+		<custom-field action="translate">_sd_metrics</custom-field>
+		<custom-field action="translate">_sd_role</custom-field>
+		<custom-field action="copy">_sd_tools</custom-field>
+		<custom-field action="translate">_sd_challenge</custom-field>
+		<custom-field action="translate">_sd_approach</custom-field>
+		<custom-field action="translate">_sd_outcome</custom-field>
+		<custom-field action="translate">_sd_testimonial</custom-field>
+		<custom-field action="translate">_sd_testimonial_author</custom-field>
+		<custom-field action="translate">_sd_takeaways</custom-field>
+		<custom-field action="copy">_sd_related_service</custom-field>
 		<custom-field action="translate">_sd_definition</custom-field>
 		<custom-field action="translate">_sd_who_for</custom-field>
 		<custom-field action="translate">_sd_deliverables</custom-field>

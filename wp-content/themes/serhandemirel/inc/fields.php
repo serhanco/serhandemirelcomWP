@@ -93,6 +93,54 @@ function sdc_field_groups() {
 				),
 			),
 		),
+		'case'      => array(
+			'title'      => __( 'Case study', 'serhandemirel' ),
+			'post_types' => array( 'sd_project' ),
+			'context'    => 'normal',
+			'fields'     => array(
+				'metrics'            => array(
+					'label' => __( 'Results', 'serhandemirel' ),
+					'type'  => 'textarea',
+					'rows'  => 4,
+					'help'  => __( 'One per line, as "Value | what it measures | note", e.g. "+24% | conversion rate | 90 days after launch". Empty shows the result metric above.', 'serhandemirel' ),
+				),
+				'role'               => array(
+					'label' => __( 'My role', 'serhandemirel' ),
+					'type'  => 'text',
+					'help'  => __( 'e.g. "Strategy, UX, development, analytics".', 'serhandemirel' ),
+				),
+				'tools'              => array(
+					'label'  => __( 'Tools and platforms', 'serhandemirel' ),
+					'type'   => 'text',
+					'shared' => true,
+					'help'   => __( 'Comma separated, e.g. "Shopify, GA4, HubSpot".', 'serhandemirel' ),
+				),
+				'challenge'          => array(
+					'label' => __( 'Challenge', 'serhandemirel' ),
+					'type'  => 'textarea',
+					'rows'  => 4,
+				),
+				'approach'           => array(
+					'label' => __( 'Approach', 'serhandemirel' ),
+					'type'  => 'textarea',
+					'rows'  => 4,
+				),
+				'outcome'            => array(
+					'label' => __( 'Outcome', 'serhandemirel' ),
+					'type'  => 'textarea',
+					'rows'  => 4,
+				),
+				'testimonial'        => array(
+					'label' => __( 'Client quote', 'serhandemirel' ),
+					'type'  => 'textarea',
+				),
+				'testimonial_author' => array(
+					'label' => __( 'Quote by', 'serhandemirel' ),
+					'type'  => 'text',
+					'help'  => __( 'e.g. "Founder, Northwind".', 'serhandemirel' ),
+				),
+			),
+		),
 		'service'   => array(
 			'title'      => __( 'Service details', 'serhandemirel' ),
 			'post_types' => array( 'sd_service_page' ),
@@ -270,6 +318,38 @@ function sdc_field_groups() {
 					'type'   => 'checkbox',
 					'shared' => true,
 					'help'   => __( 'If no post is ticked, the two newest posts are shown.', 'serhandemirel' ),
+				),
+			),
+		),
+		'answer'    => array(
+			'title'      => __( 'Answer-first blocks', 'serhandemirel' ),
+			'post_types' => array( 'post' ),
+			'context'    => 'normal',
+			'fields'     => array(
+				'takeaways'       => array(
+					'label' => __( 'Key takeaways', 'serhandemirel' ),
+					'type'  => 'textarea',
+					'rows'  => 4,
+					'help'  => __( 'Three to five short points, one per line. Shown in a box above the article.', 'serhandemirel' ),
+				),
+				'faq'             => array(
+					'label' => __( 'Frequently asked questions', 'serhandemirel' ),
+					'type'  => 'textarea',
+					'rows'  => 8,
+					'help'  => __( 'A question on one line, its answer on the next lines; an empty line between questions.', 'serhandemirel' ),
+				),
+				'related_service' => array(
+					'label'     => __( 'Related service', 'serhandemirel' ),
+					'type'      => 'post',
+					'post_type' => 'sd_service_page',
+					'shared'    => true,
+					'help'      => __( 'Shown beside the article as a link to the service page.', 'serhandemirel' ),
+				),
+				'reviewed_date'   => array(
+					'label'  => __( 'Last reviewed', 'serhandemirel' ),
+					'type'   => 'date',
+					'shared' => true,
+					'help'   => __( 'Shown as "Updated" when it is later than the publish date.', 'serhandemirel' ),
 				),
 			),
 		),

@@ -32,10 +32,12 @@ The front page renders whenever "Your homepage displays" is left on "Your latest
 | `inc/setup.php` | **Tools → Site setup** checklist and the **Set up languages** button (`wp sdc setup`) |
 | `inc/seed.php`, `inc/seed-services.php` | The one-time starter content |
 | `inc/content.php` | Data for the front-page sections, with built-in fallbacks so the page never renders empty |
-| `single-sd_project.php`, `archive-sd_project.php` | Project page and `/work/` list (also industry and service archives) |
+| `single-sd_project.php`, `archive-sd_project.php` | Project page as a case study (results, challenge / approach / outcome, gallery, client quote, next project) and `/work/` list (also industry and service archives) |
 | `single-sd_service_page.php`, `archive-sd_service_page.php` | Service page (definition, who it is for, deliverables, process, related work, FAQ, last updated) and `/services/` list |
 | `template-profile.php` | Page template **Profile (About)**: photo, bio and facts from the Profile screen |
-| `home.php`, `single.php` | Insights list (posts page and archives) and article page |
+| `home.php`, `single.php` | Insights list (newest post as a wide card, category pills, search, "Load more", optional newsletter card) and article page (reading bar, key takeaways, outline, FAQ, author box, related service, two posts to read next). The list needs **Settings → Reading → Your homepage displays: A static page** with a page chosen as **Posts page** |
+| `404.php`, `search.php` | Not-found page with search and shortcuts; search results grouped into projects, services, insights and pages |
+| `inc/subpages.php` | Helpers for the inner pages: article outline, related posts, author box, breadcrumb, search form, cover image priority, prefetching (WordPress 6.8+ speculative loading) |
 | `inc/options.php` | Settings fields, defaults and `sd_opt()`; per-language values with fallback to the default language |
 | `inc/options-page.php` | The **Serhan Demirel** settings screen in wp-admin |
 | `inc/tracking.php` | GTM, GA4, Meta Pixel, LinkedIn, Clarity, extra code, Consent Mode defaults, per-page switch |
@@ -43,7 +45,7 @@ The front page renders whenever "Your homepage displays" is left on "Your latest
 | `inc/i18n.php` | Navigation links, language switcher data, first-visit browser-language redirect, `x-default` hreflang |
 | `assets/vendor/`, `assets/fonts/` | GSAP 3.12.2, ScrollTrigger, Lenis 1.1.13 and the Inter variable font (Latin and Latin Extended, OFL), served from the theme instead of CDNs and Google Fonts |
 | `assets/admin/` | Media picker and styles for the edit screens and the Profile screen |
-| `assets/js/` | The page scripts (`language.js` runs the switcher) that used to be inline in `index.html`; `tracking.js` pushes `sd_form_submit`, `sd_whatsapp_click` and `sd_email_click` to `dataLayer` and stores the UTM campaign in an `sd_utm` cookie |
+| `assets/js/` | `site.js` runs on every page without libraries (menu, navbar, filters, clock, reading bar, outline, copy link, Insights filter and "Load more"); `main.js` and `brands.js` run only on the front page, together with GSAP and Lenis. The page scripts (`language.js` runs the switcher) that used to be inline in `index.html`; `tracking.js` pushes `sd_form_submit`, `sd_whatsapp_click` and `sd_email_click` to `dataLayer` and stores the UTM campaign in an `sd_utm` cookie |
 
 ## Content types
 

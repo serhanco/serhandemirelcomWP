@@ -252,102 +252,7 @@ function initPortfolio() {
     // --- 4. LOGO MARQUEE (GSAP ile zıt yönlü sonsuz kayış) ---
     // Migrated to CSS Scroll-driven animations in the <style> tag.
 
-    // --- 5. PORTFOLIO FILTERS ---
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const portfolioItems = document.querySelectorAll('.portfolio-item');
-
-    if(filterBtns.length > 0) {
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                // Aktif buton stilini değiştir
-                filterBtns.forEach(b => {
-                    b.classList.remove('bg-white', 'text-black');
-                    b.classList.add('text-white');
-                });
-                btn.classList.add('bg-white', 'text-black');
-                btn.classList.remove('text-white');
-
-                const filter = btn.getAttribute('data-filter');
-
-                // Portfolyo öğelerini filtrele
-                portfolioItems.forEach(item => {
-                    if (filter === 'all' || (item.getAttribute('data-category') || '').split(' ').includes(filter)) {
-                        item.style.display = 'block';
-                        gsap.fromTo(item, {opacity: 0, scale: 0.95}, {opacity: 1, scale: 1, duration: 0.4});
-                    } else {
-                        item.style.display = 'none';
-                    }
-                });
-            });
-        });
-    }
-
-    // --- 6. PREMIUM FULLSCREEN MOBILE MENU ---
-    const mobileBtn = document.getElementById('mobile-menu-btn');
-    const iconMenu = document.getElementById('icon-menu');
-    const iconClose = document.getElementById('icon-close');
-    const fullscreenMenu = document.getElementById('mobile-fullscreen-menu');
-    const menuContent = document.getElementById('mobile-menu-content');
-    const mobileLinks = document.querySelectorAll('.mobile-link');
-    let isMobileMenuOpen = false;
-
-    function toggleMobileMenu() {
-        isMobileMenuOpen = !isMobileMenuOpen;
-
-        if (isMobileMenuOpen) {
-            // Açılış (Overlay & İçerik)
-            fullscreenMenu.classList.remove('opacity-0', 'pointer-events-none');
-            fullscreenMenu.classList.add('opacity-100', 'pointer-events-auto');
-
-            menuContent.classList.remove('translate-y-8', 'opacity-0', 'scale-90');
-            menuContent.classList.add('translate-y-0', 'opacity-100', 'scale-100');
-
-            // İkon Dönüşümü (Hamburger -> X)
-            iconMenu.classList.add('opacity-0', 'rotate-90', 'scale-50');
-            iconMenu.classList.remove('opacity-100', 'rotate-0');
-            iconClose.classList.remove('opacity-0', '-rotate-90', 'scale-50');
-            iconClose.classList.add('opacity-100', 'rotate-0', 'scale-100');
-
-            document.body.style.overflow = 'hidden'; // Arkaplan scroll'u kilitle
-        } else {
-            // Kapanış
-            fullscreenMenu.classList.add('opacity-0', 'pointer-events-none');
-            fullscreenMenu.classList.remove('opacity-100', 'pointer-events-auto');
-
-            menuContent.classList.add('translate-y-8', 'opacity-0', 'scale-90');
-            menuContent.classList.remove('translate-y-0', 'opacity-100', 'scale-100');
-
-            // İkon Dönüşümü (X -> Hamburger)
-            iconClose.classList.remove('opacity-100', 'rotate-0', 'scale-100');
-            iconClose.classList.add('opacity-0', '-rotate-90', 'scale-50');
-            iconMenu.classList.remove('opacity-0', 'rotate-90', 'scale-50');
-            iconMenu.classList.add('opacity-100', 'rotate-0');
-
-            document.body.style.overflow = ''; // Arkaplan kilidini aç
-        }
-    }
-
-    if (mobileBtn && fullscreenMenu) {
-        mobileBtn.addEventListener('click', toggleMobileMenu);
-        // Linke tıklanınca menüyü kapat
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', toggleMobileMenu);
-        });
-    }
-
-    // --- 7. FLOATING NAVBAR HIDE/SHOW ON SCROLL ---
-    const nav = document.getElementById('main-nav');
-    let lastScroll = 0;
-    window.addEventListener('scroll', () => {
-        const currentScroll = window.pageYOffset;
-        // Sadece aşağı doğru ve belirli bir miktar kaydırıldığında gizle
-        if (currentScroll > 150 && currentScroll > lastScroll) {
-            if (nav && !isMobileMenuOpen) nav.style.transform = 'translate(-50%, -150%)';
-        } else {
-            if (nav) nav.style.transform = 'translate(-50%, 0)';
-        }
-        lastScroll = currentScroll;
-    });
+    // Portfolio filters, mobile menu and the hiding navbar live in site.js (every page).
 
     // --- 8. FLOATING DUAL CONTACT BAR (Scroll tetikleyici) ---
     const stickyContact = document.getElementById('sticky-contact');
@@ -368,27 +273,7 @@ function initPortfolio() {
         });
     }
 
-    // --- 9. UTILITIES (Saat, Yıl, Yukarı Çık) ---
-    const yearEl = document.getElementById('current-year');
-    if(yearEl) yearEl.textContent = new Date().getFullYear();
-
-    const backToTop = document.getElementById('back-to-top');
-    if(backToTop) {
-        backToTop.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-    }
-
-    function updateTime() {
-        const timeString = new Date().toLocaleTimeString('en-US', {
-            timeZone: (window.sdMain && sdMain.timezone) || 'Europe/Istanbul', hour12: false,
-            hour: '2-digit', minute: '2-digit', second: '2-digit'
-        });
-        const timeElement = document.getElementById('footer-time');
-        if(timeElement) timeElement.textContent = timeString + ' ' + ((window.sdMain && sdMain.timezoneLabel) || '');
-    }
-    setInterval(updateTime, 1000);
-    updateTime();
+    // Year, back-to-top and the local clock live in site.js (every page).
 }
 
 // DOM tamamen hazır olduğunda çalıştır (Hataları önlemek için)

@@ -130,6 +130,83 @@ function sdc_project_data( $post ) {
 		'industries' => is_array( $industries ) ? wp_list_pluck( $industries, 'slug' ) : array(),
 		'brand_logo' => $brand ? sdc_attachment_src( (int) sdc_get( $brand, 'logo_white' ) ) : '',
 		'gallery'    => array_values( array_filter( array_map( 'absint', explode( ',', (string) sdc_get( $post->ID, 'gallery' ) ) ) ) ),
+		'metrics'    => sdc_parse_metrics( sdc_get( $post->ID, 'metrics' ) ),
+		'role'       => (string) sdc_get( $post->ID, 'role' ),
+		'tools'      => array_values( array_filter( array_map( 'trim', explode( ',', (string) sdc_get( $post->ID, 'tools' ) ) ) ) ),
+		'challenge'  => (string) sdc_get( $post->ID, 'challenge' ),
+		'approach'   => (string) sdc_get( $post->ID, 'approach' ),
+		'outcome'    => (string) sdc_get( $post->ID, 'outcome' ),
+		'quote'      => (string) sdc_get( $post->ID, 'testimonial' ),
+		'quote_by'   => (string) sdc_get( $post->ID, 'testimonial_author' ),
+	);
+}
+
+/**
+ * Results from a metrics field: one "Value | label | note" per line.
+ *
+ * @param string $text Field value.
+ * @return array<int, array{value: string, label: string, note: string}>
+ */
+function sdc_parse_metrics( $text ) {
+	$metrics = array();
+	foreach ( sdc_lines( $text ) as $line ) {
+		$parts     = array_map( 'trim', explode( '|', $line ) );
+		$metrics[] = array(
+			'value' => $parts[0],
+			'label' => $parts[1] ?? '',
+			'note'  => $parts[2] ?? '',
+		);
+	}
+	return $metrics;
+}
+
+/**
+ * The project after this one in display order, wrapping round to the first.
+ *
+ * @param int $post_id Current project.
+ * @return array|null Project data, or null when there is no other project.
+ */
+function sdc_next_project( $post_id ) {
+	$ids = get_posts(
+		array(
+			'post_type'      => 'sd_project',
+			'posts_per_page' => -1,
+			'fields'         => 'ids',
+			'orderby'        => array( 'menu_order' => 'ASC', 'date' => 'DESC' ),
+		)
+	);
+	$at  = array_search( (int) $post_id, array_map( 'intval', $ids ), true );
+	if ( count( $ids ) < 2 || false === $at ) {
+		return null;
+	}
+	return sdc_project_data( $ids[ ( $at + 1 ) % count( $ids ) ] );
+}
+
+/**
+ * Answer-first blocks of a post: key takeaways, FAQ, related service and
+ * the review date.
+ *
+ * @param int $post_id Post ID.
+ * @return array
+ */
+function sdc_post_extras( $post_id ) {
+	$service  = (int) sdc_get( $post_id, 'related_service' );
+	$reviewed = (string) sdc_get( $post_id, 'reviewed_date' );
+	if ( $reviewed && strtotime( $reviewed ) <= strtotime( get_the_date( 'Y-m-d', $post_id ) ) ) {
+		$reviewed = '';
+	}
+	if ( $service && function_exists( 'pll_get_post' ) && pll_get_post( $service ) ) {
+		$service = (int) pll_get_post( $service );
+	}
+	$service_url = $service ? sdc_translated_permalink( $service ) : '';
+	return array(
+		'takeaways' => sdc_lines( sdc_get( $post_id, 'takeaways' ) ),
+		'faq'       => sdc_parse_faq( sdc_get( $post_id, 'faq' ) ),
+		'service'   => $service_url ? array(
+			'title' => get_the_title( $service ),
+			'url'   => $service_url,
+		) : null,
+		'reviewed'  => $reviewed,
 	);
 }
 

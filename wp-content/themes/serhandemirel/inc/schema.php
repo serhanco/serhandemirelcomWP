@@ -197,7 +197,22 @@ function sdc_schema_main_entity( $post, $url, $person ) {
 			if ( $image ) {
 				$article['image'] = $image;
 			}
-			return array( $article );
+			$extras = sdc_post_extras( $post->ID );
+			if ( $extras['reviewed'] ) {
+				$article['dateModified'] = gmdate( 'c', strtotime( $extras['reviewed'] ) );
+			}
+			if ( $extras['service'] ) {
+				$article['about'] = array(
+					'@type' => 'Service',
+					'name'  => $extras['service']['title'],
+					'url'   => $extras['service']['url'],
+				);
+			}
+			$nodes = array( $article );
+			if ( $extras['faq'] ) {
+				$nodes[] = sdc_schema_faq( $extras['faq'], $url );
+			}
+			return $nodes;
 
 		case 'sd_project':
 			$project = sdc_project_data( $post );
@@ -214,6 +229,9 @@ function sdc_schema_main_entity( $post, $url, $person ) {
 					'inLanguage'  => sdc_schema_language(),
 				)
 			);
+			if ( $project['tools'] ) {
+				$work['keywords'] = implode( ', ', $project['tools'] );
+			}
 			if ( $project['client'] ) {
 				$work['sourceOrganization'] = array_filter(
 					array(

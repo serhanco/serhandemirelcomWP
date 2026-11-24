@@ -15,7 +15,7 @@ $sd_languages = sd_language_links();
 <div id="mobile-fullscreen-menu" class="fixed inset-0 z-[100] bg-[#0a0a0a]/95 backdrop-blur-3xl opacity-0 pointer-events-none transition-all duration-500 flex flex-col justify-[safe_center] items-center overflow-y-auto py-28">
     <div id="mobile-menu-content" class="flex flex-col gap-8 text-center scale-90 translate-y-8 opacity-0 transition-all duration-500 delay-100 w-full px-6">
         <?php foreach ( $sd_items as $sd_item ) : ?>
-        <a href="<?php echo esc_url( $sd_item['url'] ); ?>" class="mobile-link text-5xl font-black text-gray-400 hover:text-white transition-colors flex items-center justify-center gap-4">
+        <a href="<?php echo esc_url( $sd_item['url'] ); ?>" class="mobile-link text-5xl font-black <?php echo ! empty( $sd_item['active'] ) ? 'text-white' : 'text-gray-400'; ?> hover:text-white transition-colors flex items-center justify-center gap-4"<?php echo ! empty( $sd_item['active'] ) ? ' aria-current="page"' : ''; ?>>
             <?php if ( $sd_item['icon'] ) : ?><span class="text-4xl"><?php echo esc_html( $sd_item['icon'] ); ?></span><?php endif; ?> <?php echo esc_html( $sd_item['label'] ); ?>
         </a>
         <?php endforeach; ?>
@@ -47,7 +47,7 @@ $sd_languages = sd_language_links();
     <!-- Desktop Menu -->
     <div class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
         <?php foreach ( $sd_items as $sd_item ) : ?>
-        <a href="<?php echo esc_url( $sd_item['url'] ); ?>" class="hover:text-white transition-colors"><?php echo esc_html( $sd_item['label'] ); ?></a>
+        <a href="<?php echo esc_url( $sd_item['url'] ); ?>" class="relative py-1 transition-colors <?php echo ! empty( $sd_item['active'] ) ? 'text-white' : 'hover:text-white'; ?>"<?php echo ! empty( $sd_item['active'] ) ? ' aria-current="page"' : ''; ?>><?php echo esc_html( $sd_item['label'] ); ?><?php if ( ! empty( $sd_item['active'] ) ) : ?><span class="absolute -bottom-1 left-0 right-0 h-px bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500" aria-hidden="true"></span><?php endif; ?></a>
         <?php endforeach; ?>
         <?php if ( count( $sd_languages ) > 1 ) : ?>
         <div class="relative group" data-sd-lang-menu>
@@ -78,7 +78,7 @@ $sd_languages = sd_language_links();
     </div>
 
     <!-- Mobile Menu Trigger -->
-    <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none relative w-8 h-8 z-[120] flex items-center justify-center bg-transparent" aria-label="<?php esc_attr_e( 'Menu', 'serhandemirel' ); ?>">
+    <button id="mobile-menu-btn" aria-expanded="false" aria-controls="mobile-fullscreen-menu" class="md:hidden text-white focus:outline-none relative w-8 h-8 z-[120] flex items-center justify-center bg-transparent" aria-label="<?php esc_attr_e( 'Menu', 'serhandemirel' ); ?>">
         <!-- Hamburger Icon -->
         <svg id="icon-menu" class="w-6 h-6 absolute transition-all duration-300 transform rotate-0 opacity-100 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
         <!-- Close Icon -->

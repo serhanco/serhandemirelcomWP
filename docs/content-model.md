@@ -19,20 +19,21 @@ serhandemirel.com'da hangi içerik türlerinin ve alanların olduğunu, hangiler
 
 | Tür | Ortak alanlar | Çevrilen alanlar |
 |---|---|---|
-| Projects | client (text), year (number), url (url), brand (sd_brand), gallery (galeri), featured (checkbox) | location (text), summary (textarea), metric (text) |
+| Projects | client (text), year (number), url (url), brand (sd_brand), gallery (galeri), featured (checkbox), tools (virgülle ayrılmış text) | location (text), summary (textarea), metric (text), metrics ("Değer \| ne ölçtüğü \| not" satırları), role (text), challenge / approach / outcome (textarea), testimonial (textarea), testimonial_author (text) |
 | Services | engagement_model (select: project / retainer / workshop / hourly), price_from (number), currency (EUR / USD / GBP / TRY), area_served (text), reviewed_date (date) | definition (textarea, 40–60 kelime), who_for (textarea), deliverables (satır başına bir çıktı), process ("Adım: açıklama" satırları), duration (text), faq (soru satırı + cevap, aralarında boş satır) |
 | Expertise | accent (select), icon (select), service_page (sd_service_page) | description (textarea), tags (text) |
 | Brands | logo_white (image), logo_color (image, isteğe bağlı; tema yalnızca beyaz logoları içe aktarır ve gösterir), url (url), visible (checkbox) | |
-| Insights | featured (checkbox) | read_time (number) |
+| Insights | featured (checkbox), related_service (sd_service_page), reviewed_date (date; yayın tarihinden sonraysa "Updated" olarak görünür ve `dateModified` olur) | read_time (number), takeaways (satır başına bir madde), faq (soru satırı + cevap, aralarında boş satır; `FAQPage` şeması) |
 | Messages | status, name, email, lang, source_url, utm_source, utm_campaign (tek kayıt) | |
 | Sayfa, yazı, proje, hizmet | disable_tracking (checkbox), extra_head_code (kod, `unfiltered_html` gerekir) | |
 
 **Profil (Person)**: içerik türü değil, temadaki *Profile* ekranında tek kayıt (`sdc_profile` seçeneği). Ortak: full_name, alternate_names, headshot, city, country, languages_spoken, same_as, works_for, works_for_url, alumni_of, credentials. Dile göre: job_title, short_bio, long_bio, knows_about (boş bırakılırsa varsayılan dildeki değer kullanılır). Tema şablonu `template-profile.php` ("Profile (About)") bunu Hakkımda sayfasında gösterir.
 
 **Otomatik çıktılar**
-- JSON-LD (`inc/schema.php`): her sayfada Person + WebSite + sayfa düğümü (ana sayfa ve Hakkımda: ProfilePage; diğerleri WebPage / CollectionPage). Yazılarda BlogPosting, projelerde CreativeWork, hizmetlerde Service (offers, hasOfferCatalog) + FAQPage. Yoast, Rank Math, AIOSEO veya SEOPress etkinse basılmaz.
+- JSON-LD (`inc/schema.php`): her sayfada Person + WebSite + sayfa düğümü (ana sayfa ve Hakkımda: ProfilePage; diğerleri WebPage / CollectionPage). Yazılarda BlogPosting (+ FAQPage, ilgili hizmet `about` olarak), projelerde CreativeWork (araçlar `keywords`), hizmetlerde Service (offers, hasOfferCatalog) + FAQPage. Yoast, Rank Math, AIOSEO veya SEOPress etkinse basılmaz.
 - `/llms.txt` (`inc/llms.php`): profil, diller, hizmetler, projeler, yazılar ve iletişim; varsayılan dilde.
 - Hizmet sayfalarında görünür "Last updated" tarihi (reviewed_date, yoksa son değişiklik).
+- Yazılarda görünür yayın tarihi, yazar (Profil'den, Hakkımda'ya `rel=author` bağlantısı) ve reviewed_date yayın tarihinden sonraysa "Updated" tarihi.
 
 ## Planlanan (henüz kodda yok)
 
