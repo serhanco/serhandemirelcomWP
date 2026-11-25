@@ -70,7 +70,20 @@
                 printf( esc_html__( '© %s Serhan Demirel. All rights reserved.', 'serhandemirel' ), '<span id="current-year">' . esc_html( gmdate( 'Y' ) ) . '</span>' );
                 ?>
             </p>
-            <div class="flex gap-8">
+            <div class="flex flex-wrap justify-center gap-x-8 gap-y-2">
+                <?php
+                // Reference pages, shown once they have content.
+                $sd_more = array_filter(
+                    array(
+                        __( 'FAQ', 'serhandemirel' )           => sd_faq_url(),
+                        __( 'Glossary', 'serhandemirel' )      => sd_archive_url_if_any( 'sd_term' ),
+                        __( 'Talks & press', 'serhandemirel' ) => sd_archive_url_if_any( 'sd_appearance' ),
+                    )
+                );
+                foreach ( $sd_more as $sd_label => $sd_url ) :
+                    ?>
+                <a href="<?php echo esc_url( $sd_url ); ?>" class="hover:text-white transition-colors"><?php echo esc_html( $sd_label ); ?></a>
+                <?php endforeach; ?>
                 <?php
                 foreach ( array( 'linkedin' => 'LinkedIn', 'github' => 'GitHub', 'instagram' => 'Instagram' ) as $network => $label ) :
                     if ( ! sd_opt( $network ) ) {

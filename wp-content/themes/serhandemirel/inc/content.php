@@ -213,6 +213,11 @@ function sd_project_archive_query( $query ) {
 	if ( $query->is_post_type_archive( 'sd_project' ) || $query->is_tax( array( 'sd_industry', 'sd_service' ) ) ) {
 		$query->set( 'posts_per_page', -1 );
 		$query->set( 'orderby', array( 'menu_order' => 'ASC', 'date' => 'DESC' ) );
+		// Industries also tag brands; their pages list projects only.
+		$query->set( 'post_type', 'sd_project' );
+	}
+	if ( $query->is_post_type_archive( array( 'sd_term', 'sd_appearance' ) ) ) {
+		$query->set( 'posts_per_page', -1 );
 	}
 }
 add_action( 'pre_get_posts', 'sd_project_archive_query' );

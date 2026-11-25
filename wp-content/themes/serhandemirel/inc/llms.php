@@ -1,8 +1,9 @@
 <?php
 /**
  * /llms.txt: a plain-text summary of the site for AI assistants
- * (https://llmstxt.org), built from the profile, service pages, projects
- * and posts in the default language.
+ * (https://llmstxt.org), built from the profile, service pages, projects,
+ * posts, industries, glossary terms, talks and key pages in the default
+ * language. Pages marked "Hide from search engines" are left out.
  *
  * @package serhandemirel
  */
@@ -80,14 +81,68 @@ function sdc_llms_text() {
 		$lines[] = '## ' . $heading;
 		$lines[] = '';
 		foreach ( $posts as $post ) {
+			if ( sdc_is_noindex( $post->ID ) ) {
+				continue;
+			}
 			if ( 'sd_service_page' === $post->post_type ) {
 				$text = sdc_get( $post->ID, 'definition' );
 			} elseif ( 'sd_project' === $post->post_type ) {
 				$text = sdc_get( $post->ID, 'summary' );
 			} else {
-				$text = get_the_excerpt( $post );
+				$text     = get_the_excerpt( $post );
+				$question = trim( (string) sdc_get( $post->ID, 'target_question' ) );
+				$dates    = sdc_dates( $post->ID );
+				$text     = trim( ( $question ? 'Answers "' . $question . '" ' : '' ) . $text . ' (' . ( $dates['updated'] ? 'updated ' . $dates['updated'] : 'published ' . $dates['published'] ) . ')' );
 			}
 			$lines[] = sdc_llms_line( html_entity_decode( get_the_title( $post ), ENT_QUOTES, 'UTF-8' ), get_permalink( $post ), $text );
+		}
+	}
+
+	$industries = get_terms( array( 'taxonomy' => 'sd_industry', 'hide_empty' => true ) + $query );
+	if ( is_array( $industries ) && $industries ) {
+		$lines[] = '';
+		$lines[] = '## Industries';
+		$lines[] = '';
+		foreach ( $industries as $term ) {
+			$lines[] = sdc_llms_line( $term->name, get_term_link( $term ), sdc_term_get( $term->term_id, 'intro' ) );
+		}
+	}
+
+	$terms = get_posts( array( 'post_type' => 'sd_term', 'posts_per_page' => 100, 'orderby' => 'title', 'order' => 'ASC' ) + $query );
+	if ( $terms ) {
+		$lines[] = '';
+		$lines[] = '## Glossary';
+		$lines[] = '';
+		foreach ( $terms as $post ) {
+			if ( ! sdc_is_noindex( $post->ID ) ) {
+				$lines[] = sdc_llms_line( html_entity_decode( get_the_title( $post ), ENT_QUOTES, 'UTF-8' ), get_permalink( $post ), sdc_get( $post->ID, 'short_definition' ) );
+			}
+		}
+	}
+
+	$talks = sdc_get_appearances( 10 );
+	if ( $talks ) {
+		$lines[] = '';
+		$lines[] = '## Talks, trainings and press';
+		$lines[] = '';
+		foreach ( $talks as $item ) {
+			$link    = $item['url'] ? $item['url'] : ( $item['video_url'] ? $item['video_url'] : get_post_type_archive_link( 'sd_appearance' ) . '#item-' . $item['id'] );
+			$lines[] = sdc_llms_line( $item['title'], $link, implode( ', ', array_filter( array( $item['kind_label'], sdc_appearance_line( $item ), $item['date'] ) ) ) );
+		}
+	}
+
+	$pages = array_filter(
+		array(
+			__( 'About', 'serhandemirel' ) => function_exists( 'sd_about_url' ) ? sd_about_url() : '',
+			__( 'FAQ', 'serhandemirel' )   => function_exists( 'sd_faq_url' ) ? sd_faq_url() : '',
+		)
+	);
+	if ( $pages ) {
+		$lines[] = '';
+		$lines[] = '## Key pages';
+		$lines[] = '';
+		foreach ( $pages as $title => $url ) {
+			$lines[] = sdc_llms_line( $title, $url );
 		}
 	}
 

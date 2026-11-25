@@ -118,13 +118,54 @@ function sd_about_url() {
  */
 function sd_author() {
 	$profile = function_exists( 'sdc_get_profile' ) ? sdc_get_profile() : array();
+	$linkedin = '';
+	foreach ( (array) ( $profile['same_as'] ?? array() ) as $link ) {
+		if ( false !== stripos( $link, 'linkedin.com' ) ) {
+			$linkedin = $link;
+			break;
+		}
+	}
+	$since = (int) ( $profile['career_start'] ?? 0 );
 	return array(
-		'name'  => (string) ( $profile['full_name'] ?? get_bloginfo( 'name' ) ),
-		'title' => (string) ( $profile['job_title'] ?? '' ),
-		'bio'   => (string) ( $profile['short_bio'] ?? '' ),
-		'photo' => (string) ( $profile['headshot_url'] ?? '' ),
-		'place' => (string) ( $profile['city'] ?? '' ),
+		'name'      => (string) ( $profile['full_name'] ?? get_bloginfo( 'name' ) ),
+		'title'     => (string) ( $profile['job_title'] ?? '' ),
+		'bio'       => (string) ( $profile['short_bio'] ?? '' ),
+		'photo'     => (string) ( $profile['headshot_url'] ?? '' ),
+		'place'     => (string) ( $profile['city'] ?? '' ),
+		'years'     => $since > 1950 ? max( 1, (int) gmdate( 'Y' ) - $since ) : 0,
+		'expertise' => array_slice( (array) ( $profile['knows_about'] ?? array() ), 0, 3 ),
+		'linkedin'  => $linkedin,
+		'booking'   => (string) ( $profile['booking_url'] ?? '' ),
 	);
+}
+
+/**
+ * "Digital Solutions Architect · Istanbul · 12 years in digital".
+ *
+ * @param array $author From sd_author().
+ * @return string
+ */
+function sd_author_line( $author ) {
+	$parts = array( $author['title'], $author['place'] );
+	if ( $author['years'] ) {
+		/* translators: %d: number of years */
+		$parts[] = sprintf( _n( '%d year in digital', '%d years in digital', $author['years'], 'serhandemirel' ), $author['years'] );
+	}
+	return implode( ' · ', array_filter( $parts ) );
+}
+
+/**
+ * Padlock, for projects whose client is not named.
+ */
+function sd_icon_lock() {
+	echo '<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2" stroke-width="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3" stroke-width="2"></path></svg>';
+}
+
+/**
+ * LinkedIn logo.
+ */
+function sd_icon_linkedin() {
+	echo '<svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.4c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9V21H9z"/></svg>';
 }
 
 /**
@@ -171,6 +212,7 @@ function sd_search_groups() {
 		'sd_project'      => array( 'label' => __( 'Projects', 'serhandemirel' ), 'posts' => array() ),
 		'sd_service_page' => array( 'label' => __( 'Services', 'serhandemirel' ), 'posts' => array() ),
 		'post'            => array( 'label' => __( 'Insights', 'serhandemirel' ), 'posts' => array() ),
+		'sd_term'         => array( 'label' => __( 'Glossary', 'serhandemirel' ), 'posts' => array() ),
 		'page'            => array( 'label' => __( 'Pages', 'serhandemirel' ), 'posts' => array() ),
 	);
 	foreach ( $wp_query->posts as $post ) {
@@ -187,7 +229,7 @@ function sd_search_groups() {
 }
 
 /**
- * Search covers projects, services, posts and pages, 30 results a page.
+ * Search covers projects, services, posts, glossary terms and pages, 30 results a page.
  *
  * @param WP_Query $query Main query.
  */
@@ -196,7 +238,7 @@ function sd_search_query( $query ) {
 		return;
 	}
 	if ( ! $query->get( 'post_type' ) ) {
-		$query->set( 'post_type', array( 'sd_project', 'sd_service_page', 'post', 'page' ) );
+		$query->set( 'post_type', array( 'sd_project', 'sd_service_page', 'post', 'sd_term', 'page' ) );
 	}
 	$query->set( 'posts_per_page', 30 );
 }

@@ -5,6 +5,9 @@
 		<custom-type translate="1">sd_expertise</custom-type>
 		<custom-type translate="0">sd_brand</custom-type>
 		<custom-type translate="0">sd_message</custom-type>
+		<custom-type translate="1">sd_testimonial</custom-type>
+		<custom-type translate="1">sd_appearance</custom-type>
+		<custom-type translate="1">sd_term</custom-type>
 	</custom-types>
 	<taxonomies>
 		<taxonomy translate="1">sd_industry</taxonomy>
@@ -49,5 +52,54 @@
 		<custom-field action="copy">_sd_service_page</custom-field>
 		<custom-field action="copy">_sd_disable_tracking</custom-field>
 		<custom-field action="copy">_sd_extra_head_code</custom-field>
+		<custom-field action="translate">_sd_metrics_source</custom-field>
+		<custom-field action="copy">_sd_start_date</custom-field>
+		<custom-field action="copy">_sd_end_date</custom-field>
+		<custom-field action="copy">_sd_client_hidden</custom-field>
+		<custom-field action="translate">_sd_anon_name</custom-field>
+		<custom-field action="copy">_sd_video_url</custom-field>
+		<custom-field action="translate">_sd_not_for</custom-field>
+		<custom-field action="translate">_sd_languages</custom-field>
+		<custom-field action="copy">_sd_booking_url</custom-field>
+		<custom-field action="copy">_sd_logo_white</custom-field>
+		<custom-field action="copy">_sd_logo_color</custom-field>
+		<custom-field action="copy">_sd_visible</custom-field>
+		<custom-field action="copy">_sd_relationship</custom-field>
+		<custom-field action="copy">_sd_period</custom-field>
+		<custom-field action="copy">_sd_legal_name</custom-field>
+		<custom-field action="copy">_sd_same_as</custom-field>
+		<custom-field action="translate">_sd_target_question</custom-field>
+		<custom-field action="copy">_sd_format</custom-field>
+		<custom-field action="copy">_sd_experience_project</custom-field>
+		<custom-field action="translate">_sd_experience_note</custom-field>
+		<custom-field action="copy">_sd_glossary_terms</custom-field>
+		<custom-field action="translate">_sd_update_note</custom-field>
+		<custom-field action="translate">_sd_sources</custom-field>
+		<custom-field action="translate">_sd_seo_title</custom-field>
+		<custom-field action="translate">_sd_seo_description</custom-field>
+		<custom-field action="copy">_sd_share_image</custom-field>
+		<custom-field action="copy">_sd_noindex</custom-field>
+		<custom-field action="translate">_sd_quote</custom-field>
+		<custom-field action="copy">_sd_person</custom-field>
+		<custom-field action="copy">_sd_company</custom-field>
+		<custom-field action="copy">_sd_company_name</custom-field>
+		<custom-field action="copy">_sd_photo</custom-field>
+		<custom-field action="copy">_sd_linkedin</custom-field>
+		<custom-field action="copy">_sd_project</custom-field>
+		<custom-field action="copy">_sd_services</custom-field>
+		<custom-field action="copy">_sd_date</custom-field>
+		<custom-field action="copy">_sd_consent</custom-field>
+		<custom-field action="copy">_sd_kind</custom-field>
+		<custom-field action="translate">_sd_event</custom-field>
+		<custom-field action="copy">_sd_host</custom-field>
+		<custom-field action="copy">_sd_withheld</custom-field>
+		<custom-field action="copy">_sd_language</custom-field>
+		<custom-field action="copy">_sd_participants</custom-field>
+		<custom-field action="copy">_sd_slides_url</custom-field>
+		<custom-field action="translate">_sd_short_definition</custom-field>
+		<custom-field action="translate">_sd_aliases</custom-field>
+		<custom-field action="translate">_sd_example</custom-field>
+		<custom-field action="copy">_sd_example_project</custom-field>
+		<custom-field action="copy">_sd_related_terms</custom-field>
 	</custom-fields>
 </wpml-config>

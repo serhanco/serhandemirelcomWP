@@ -37,13 +37,13 @@ function sdc_profile_fields() {
 			'label'   => __( 'Job title', 'serhandemirel' ),
 			'type'    => 'text',
 			'i18n'    => true,
-			'default' => _x( 'Digital Solutions Provider', 'job title', 'serhandemirel' ),
+			'default' => _x( 'Digital Solutions Architect', 'job title', 'serhandemirel' ),
 		),
 		'short_bio'        => array(
 			'label'   => __( 'Short bio (about 50 words)', 'serhandemirel' ),
 			'type'    => 'textarea',
 			'i18n'    => true,
-			'default' => __( 'Serhan Demirel is an Istanbul-based digital solutions provider. He helps companies grow through data-driven digital marketing, builds web products and landing pages, automates work with AI, improves search and AI visibility, and trains teams for digital transformation.', 'serhandemirel' ),
+			'default' => __( 'Serhan Demirel is an Istanbul-based digital solutions architect. He helps companies grow through data-driven digital marketing, builds web products and landing pages, automates work with AI, improves search and AI visibility, and trains teams for digital transformation.', 'serhandemirel' ),
 			'help'    => __( 'Written in the third person. Used as the description in structured data and llms.txt.', 'serhandemirel' ),
 		),
 		'long_bio'         => array(
@@ -104,7 +104,34 @@ function sdc_profile_fields() {
 		'credentials'      => array(
 			'label' => __( 'Certificates', 'serhandemirel' ),
 			'type'  => 'lines',
-			'help'  => __( 'One per line, e.g. "Google Ads Search Certification".', 'serhandemirel' ),
+			'help'  => __( 'One per line, as "Name | issuer | year | link", e.g. "Google Ads Search Certification | Google | 2025". Only the name is required.', 'serhandemirel' ),
+		),
+		'awards'           => array(
+			'label' => __( 'Awards', 'serhandemirel' ),
+			'type'  => 'lines',
+			'i18n'  => true,
+			'help'  => __( 'One per line, as "Award | year".', 'serhandemirel' ),
+		),
+		'memberships'      => array(
+			'label' => __( 'Memberships', 'serhandemirel' ),
+			'type'  => 'lines',
+			'help'  => __( 'Professional bodies, one per line, as "Organisation | since year".', 'serhandemirel' ),
+		),
+		'career_start'     => array(
+			'label' => __( 'Working in digital since (year)', 'serhandemirel' ),
+			'type'  => 'number',
+			'help'  => __( 'Shows "12 years in digital" in the author box and on the profile page.', 'serhandemirel' ),
+		),
+		'stats'            => array(
+			'label' => __( 'Numbers on the profile page', 'serhandemirel' ),
+			'type'  => 'lines',
+			'i18n'  => true,
+			'help'  => __( 'Up to four lines as "Number | what it counts", e.g. "60+ | projects shipped". Empty counts years, projects, industries and talks for you.', 'serhandemirel' ),
+		),
+		'booking_url'      => array(
+			'label' => __( 'Booking link', 'serhandemirel' ),
+			'type'  => 'url',
+			'help'  => __( 'A Calendly or Cal.com link for a short call. Adds a "Book a 15-min call" button to the profile and service pages.', 'serhandemirel' ),
 		),
 	);
 }

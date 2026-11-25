@@ -86,11 +86,49 @@ function sdc_schema_person() {
 			'name'  => $school,
 		);
 	}
-	foreach ( $profile['credentials'] as $credential ) {
-		$person['hasCredential'][] = array(
-			'@type' => 'EducationalOccupationalCredential',
-			'name'  => $credential,
+	foreach ( sdc_parse_credentials( $profile['credentials'] ) as $credential ) {
+		$person['hasCredential'][] = array_filter(
+			array(
+				'@type' => 'EducationalOccupationalCredential',
+				'name'  => $credential['name'],
+				'url'   => $credential['url'],
+			)
 		);
+	}
+	foreach ( sdc_parse_credentials( $profile['awards'] ) as $award ) {
+		$person['award'][] = trim( $award['name'] . ( $award['detail'] ? ' (' . $award['detail'] . ')' : '' ) );
+	}
+	foreach ( sdc_parse_credentials( $profile['memberships'] ) as $membership ) {
+		$person['memberOf'][] = array(
+			'@type' => 'Organization',
+			'name'  => $membership['name'],
+		);
+	}
+	$about = function_exists( 'sd_about_url' ) ? sd_about_url() : '';
+	if ( $about ) {
+		$person['mainEntityOfPage'] = $about;
+	}
+	$email = function_exists( 'sd_opt' ) ? (string) sd_opt( 'email' ) : '';
+	if ( $email ) {
+		$person['contactPoint'] = array(
+			'@type'       => 'ContactPoint',
+			'contactType' => 'sales',
+			'email'       => $email,
+			'url'         => home_url( '/#contact' ),
+		);
+	}
+	// Talks, trainings and press: other pages about the person.
+	foreach ( sdc_get_appearances( 10 ) as $item ) {
+		$link = $item['url'] ? $item['url'] : $item['video_url'];
+		if ( $link ) {
+			$person['subjectOf'][] = array_filter(
+				array(
+					'@type' => in_array( $item['kind'], array( 'press', 'interview' ), true ) ? 'Article' : ( 'podcast' === $item['kind'] ? 'PodcastEpisode' : 'Event' ),
+					'name'  => $item['title'],
+					'url'   => $link,
+				)
+			);
+		}
 	}
 	return $person;
 }
@@ -105,7 +143,7 @@ function sdc_schema_graph() {
 	$person   = array( '@id' => $home . '#person' );
 	$website  = array( '@id' => $home . '#website' );
 	$language = sdc_schema_language();
-	$url      = is_singular() ? get_permalink() : ( is_post_type_archive() ? get_post_type_archive_link( get_query_var( 'post_type' ) ) : home_url( add_query_arg( array() ) ) );
+	$url      = function_exists( 'sd_page_meta' ) ? sd_page_meta()['url'] : ( is_singular() ? get_permalink() : home_url( add_query_arg( array() ) ) );
 	if ( is_front_page() ) {
 		$url = home_url( '/' );
 	}
@@ -142,10 +180,18 @@ function sdc_schema_graph() {
 		$page['mainEntity'] = $person;
 	}
 
+	$crumbs = sdc_schema_breadcrumbs( $url );
+	if ( $crumbs ) {
+		$page['breadcrumb'] = array( '@id' => $crumbs['@id'] );
+		$graph[]            = $crumbs;
+	}
+
 	if ( is_singular() ) {
 		$post                  = get_queried_object();
+		$dates                 = sdc_dates( $post->ID );
 		$page['datePublished'] = get_post_time( 'c', true, $post );
-		$page['dateModified']  = get_post_modified_time( 'c', true, $post );
+		$page['dateModified']  = $dates['updated'] ? gmdate( 'c', strtotime( $dates['updated'] ) ) : get_post_time( 'c', true, $post );
+		$page['author']        = $person;
 		if ( has_post_thumbnail( $post ) ) {
 			$page['primaryImageOfPage'] = array(
 				'@type' => 'ImageObject',
@@ -157,6 +203,18 @@ function sdc_schema_graph() {
 			$page['mainEntity'] = array( '@id' => $main[0]['@id'] );
 			$graph              = array_merge( $graph, $main );
 		}
+		if ( is_page_template( 'template-faq.php' ) ) {
+			$items = array();
+			foreach ( sdc_faq_hub() as $group ) {
+				$items = array_merge( $items, $group['items'] );
+			}
+			if ( $items ) {
+				$graph[]            = sdc_schema_faq( $items, $url );
+				$page['mainEntity'] = array( '@id' => $url . '#faq' );
+			}
+		}
+	} else {
+		$graph = array_merge( $graph, sdc_schema_archive( $url, $person, $page ) );
 	}
 	$graph[] = $page;
 
@@ -201,6 +259,34 @@ function sdc_schema_main_entity( $post, $url, $person ) {
 			if ( $extras['reviewed'] ) {
 				$article['dateModified'] = gmdate( 'c', strtotime( $extras['reviewed'] ) );
 			}
+			if ( $extras['question'] ) {
+				$article['alternativeHeadline'] = $extras['question'];
+			}
+			foreach ( $extras['sources'] as $source ) {
+				$article['citation'][] = array_filter(
+					array(
+						'@type'     => 'CreativeWork',
+						'name'      => $source['title'],
+						'url'       => $source['url'],
+						'publisher' => $source['publisher'],
+					)
+				);
+			}
+			foreach ( $extras['terms'] as $term ) {
+				$article['mentions'][] = array(
+					'@type' => 'DefinedTerm',
+					'@id'   => $term['url'] . '#term',
+					'name'  => $term['title'],
+					'url'   => $term['url'],
+				);
+			}
+			if ( $extras['experience'] && $extras['experience']['project'] ) {
+				$article['isBasedOn'] = array(
+					'@type' => 'CreativeWork',
+					'name'  => $extras['experience']['project']['title'],
+					'url'   => $extras['experience']['project']['permalink'],
+				);
+			}
 			if ( $extras['service'] ) {
 				$article['about'] = array(
 					'@type' => 'Service',
@@ -225,14 +311,16 @@ function sdc_schema_main_entity( $post, $url, $person ) {
 					'url'         => $url,
 					'image'       => $image,
 					'creator'     => $person,
-					'dateCreated' => $project['year'] ? (string) $project['year'] : '',
-					'inLanguage'  => sdc_schema_language(),
+					'dateCreated'      => $project['start'] ? $project['start'] : ( $project['year'] ? (string) $project['year'] : '' ),
+					'temporalCoverage' => $project['start'] ? $project['start'] . '/' . ( $project['end'] ? $project['end'] : '..' ) : '',
+					'datePublished'    => get_post_time( 'c', true, $post ),
+					'inLanguage'       => sdc_schema_language(),
 				)
 			);
 			if ( $project['tools'] ) {
 				$work['keywords'] = implode( ', ', $project['tools'] );
 			}
-			if ( $project['client'] ) {
+			if ( $project['client'] && ! $project['hidden'] ) {
 				$work['sourceOrganization'] = array_filter(
 					array(
 						'@type' => 'Organization',
@@ -241,7 +329,41 @@ function sdc_schema_main_entity( $post, $url, $person ) {
 					)
 				);
 			}
+			$quotes = sdc_get_testimonials( array( 'project' => $post->ID, 'limit' => 1 ) );
+			if ( $quotes ) {
+				$work['comment'] = array(
+					'@type'  => 'Comment',
+					'text'   => $quotes[0]['quote'],
+					'author' => array_filter(
+						array(
+							'@type'    => 'Person',
+							'name'     => $quotes[0]['person'],
+							'jobTitle' => $quotes[0]['role'],
+							'sameAs'   => $quotes[0]['linkedin'],
+						)
+					),
+				);
+			}
 			return array( $work );
+
+		case 'sd_term':
+			$term = sdc_term_data( $post );
+			$node = array_filter(
+				array(
+					'@type'            => 'DefinedTerm',
+					'@id'              => $url . '#term',
+					'name'             => $term['title'],
+					'alternateName'    => $term['aliases'],
+					'description'      => $term['short'],
+					'url'              => $url,
+					'inDefinedTermSet' => array( '@id' => get_post_type_archive_link( 'sd_term' ) . '#set' ),
+				)
+			);
+			$nodes = array( $node );
+			if ( $term['faq'] ) {
+				$nodes[] = sdc_schema_faq( $term['faq'], $url );
+			}
+			return $nodes;
 
 		case 'sd_service_page':
 			$service = sdc_service_data( $post );
@@ -322,6 +444,184 @@ function sdc_schema_faq( $faq, $url ) {
 			$faq
 		),
 	);
+}
+
+/**
+ * BreadcrumbList for the current page: home, the section, the page.
+ *
+ * @param string $url Page URL.
+ * @return array|null
+ */
+function sdc_schema_breadcrumbs( $url ) {
+	if ( is_front_page() ) {
+		return null;
+	}
+	$items = array( array( get_bloginfo( 'name' ), home_url( '/' ) ) );
+	$label = function_exists( 'sd_opt' ) ? 'sd_opt' : '__return_empty_string';
+	if ( is_singular() ) {
+		$post = get_queried_object();
+		switch ( $post->post_type ) {
+			case 'post':
+				if ( function_exists( 'sd_insights_url' ) && sd_insights_url() ) {
+					$items[] = array( call_user_func( $label, 'insights_eyebrow' ), sd_insights_url() );
+				}
+				break;
+			case 'sd_project':
+				$items[] = array( call_user_func( $label, 'work_eyebrow' ), get_post_type_archive_link( 'sd_project' ) );
+				$terms   = get_the_terms( $post, 'sd_industry' );
+				if ( is_array( $terms ) ) {
+					$items[] = array( $terms[0]->name, get_term_link( $terms[0] ) );
+				}
+				break;
+			case 'sd_service_page':
+				$items[] = array( __( 'Services', 'serhandemirel' ), get_post_type_archive_link( 'sd_service_page' ) );
+				break;
+			case 'sd_term':
+				$items[] = array( __( 'Glossary', 'serhandemirel' ), get_post_type_archive_link( 'sd_term' ) );
+				break;
+		}
+		$items[] = array( get_the_title( $post ), $url );
+	} elseif ( is_tax( 'sd_industry' ) || is_tax( 'sd_service' ) ) {
+		$items[] = array( call_user_func( $label, 'work_eyebrow' ), get_post_type_archive_link( 'sd_project' ) );
+		$items[] = array( single_term_title( '', false ), $url );
+	} else {
+		$items[] = array( wp_strip_all_tags( wp_get_document_title() ), $url );
+	}
+	$list = array();
+	foreach ( array_values( array_filter( $items, function ( $item ) {
+		return '' !== (string) $item[0] && ! is_wp_error( $item[1] ) && $item[1];
+	} ) ) as $i => $item ) {
+		$list[] = array(
+			'@type'    => 'ListItem',
+			'position' => $i + 1,
+			'name'     => wp_strip_all_tags( (string) $item[0] ),
+			'item'     => $item[1],
+		);
+	}
+	return count( $list ) > 1 ? array(
+		'@type'           => 'BreadcrumbList',
+		'@id'             => $url . '#breadcrumb',
+		'itemListElement' => $list,
+	) : null;
+}
+
+/**
+ * Nodes for list pages: the glossary as a DefinedTermSet, talks as events
+ * and episodes, industries with their questions.
+ *
+ * @param string $url    Page URL.
+ * @param array  $person Person reference.
+ * @param array  $page   The page node, changed in place.
+ * @return array[]
+ */
+function sdc_schema_archive( $url, $person, &$page ) {
+	$nodes = array();
+	if ( is_post_type_archive( 'sd_term' ) ) {
+		$set = array(
+			'@type'          => 'DefinedTermSet',
+			'@id'            => $url . '#set',
+			'name'           => __( 'Glossary', 'serhandemirel' ),
+			'url'            => $url,
+			'publisher'      => $person,
+			'hasDefinedTerm' => array(),
+		);
+		foreach ( sdc_get_glossary() as $terms ) {
+			foreach ( $terms as $term ) {
+				$set['hasDefinedTerm'][] = array_filter(
+					array(
+						'@type'       => 'DefinedTerm',
+						'@id'         => $term['url'] . '#term',
+						'name'        => $term['title'],
+						'description' => $term['short'],
+						'url'         => $term['url'],
+					)
+				);
+			}
+		}
+		$page['mainEntity'] = array( '@id' => $set['@id'] );
+		$nodes[]            = $set;
+	} elseif ( is_post_type_archive( 'sd_appearance' ) ) {
+		$list = array();
+		foreach ( sdc_get_appearances() as $i => $item ) {
+			$link = $item['url'] ? $item['url'] : ( $item['video_url'] ? $item['video_url'] : $url . '#item-' . $item['id'] );
+			if ( in_array( $item['kind'], array( 'press', 'interview' ), true ) ) {
+				$node = array(
+					'@type'         => 'Article',
+					'headline'      => $item['title'],
+					'datePublished' => $item['date'],
+					'publisher'     => $item['event'] ? array( '@type' => 'Organization', 'name' => $item['event'] ) : null,
+					'about'         => $person,
+				);
+			} elseif ( 'podcast' === $item['kind'] ) {
+				$node = array(
+					'@type'         => 'PodcastEpisode',
+					'name'          => $item['title'],
+					'datePublished' => $item['date'],
+					'partOfSeries'  => $item['event'] ? array( '@type' => 'PodcastSeries', 'name' => $item['event'] ) : null,
+					'actor'         => $person,
+				);
+			} else {
+				$node = array(
+					'@type'               => 'Event',
+					'name'                => $item['title'],
+					'startDate'           => $item['date'],
+					'eventStatus'         => 'https://schema.org/EventScheduled',
+					'eventAttendanceMode' => $item['location'] ? 'https://schema.org/OfflineEventAttendanceMode' : 'https://schema.org/OnlineEventAttendanceMode',
+					'location'            => $item['location'] ? array( '@type' => 'Place', 'name' => $item['location'], 'address' => $item['location'] ) : array( '@type' => 'VirtualLocation', 'url' => $link ),
+					'organizer'           => $item['host'] ? array( '@type' => 'Organization', 'name' => $item['host'] ) : null,
+					'performer'           => $person,
+					'inLanguage'          => $item['language'],
+				);
+			}
+			$node['url']         = $link;
+			$node['description'] = $item['excerpt'];
+			if ( $item['video_url'] && $item['image'] ) {
+				$node['subjectOf'] = array(
+					'@type'        => 'VideoObject',
+					'name'         => $item['title'],
+					'contentUrl'   => $item['video_url'],
+					'thumbnailUrl' => $item['image'],
+					'uploadDate'   => $item['date'],
+					'duration'     => $item['duration'] ? 'PT' . $item['duration'] . 'M' : null,
+				);
+				$node['subjectOf'] = array_filter( $node['subjectOf'] );
+			}
+			$list[] = array(
+				'@type'    => 'ListItem',
+				'position' => $i + 1,
+				'item'     => array_filter( $node ),
+			);
+		}
+		if ( $list ) {
+			$nodes[]            = array(
+				'@type'           => 'ItemList',
+				'@id'             => $url . '#list',
+				'itemListElement' => $list,
+			);
+			$page['mainEntity'] = array( '@id' => $url . '#list' );
+			$page['about']      = $person;
+		}
+	} elseif ( is_tax( 'sd_industry' ) ) {
+		$term          = get_queried_object();
+		$data          = sdc_industry_data( $term );
+		$page['about'] = array(
+			'@type' => 'Thing',
+			'name'  => $term->name,
+		);
+		if ( $data['intro'] ) {
+			$page['description'] = wp_strip_all_tags( $data['intro'] );
+		}
+		if ( $data['updated'] ) {
+			$page['dateModified'] = gmdate( 'c', strtotime( $data['updated'] ) );
+		}
+		if ( $data['published'] ) {
+			$page['datePublished'] = gmdate( 'c', strtotime( $data['published'] ) );
+		}
+		if ( $data['faq'] ) {
+			$nodes[] = sdc_schema_faq( $data['faq'], $url );
+		}
+	}
+	return $nodes;
 }
 
 /**

@@ -23,6 +23,10 @@
             <div class="mb-8 text-center">
                 <h3 class="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 mb-2"><?php echo esc_html( sd_opt( 'form_title' ) ); ?></h3>
                 <p class="text-gray-400 text-lg"><?php echo esc_html( sd_opt( 'form_intro' ) ); ?></p>
+                <span id="sd-service-chip" class="mt-4 hidden items-center gap-2 text-xs px-3 py-1.5 rounded-full border border-purple-500/30 bg-purple-500/10 text-purple-200">
+                    <span><?php esc_html_e( 'About:', 'serhandemirel' ); ?> <span id="sd-service-name"></span></span>
+                    <button type="button" id="sd-service-clear" class="text-purple-300 hover:text-white text-base leading-none" aria-label="<?php esc_attr_e( 'Remove the service', 'serhandemirel' ); ?>">×</button>
+                </span>
             </div>
 
             <form id="projectForm" class="space-y-6" autocomplete="off">
@@ -42,6 +46,35 @@
                     <textarea id="message" name="Message" rows="4" required class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-transparent transition-all resize-none" placeholder="<?php esc_attr_e( 'Describe your project, goals, and timeline...', 'serhandemirel' ); ?>" autocomplete="off"></textarea>
                 </div>
 
+                <input type="hidden" name="Service" id="sd-service" value="">
+                <input type="hidden" name="referrer" id="sd-referrer" value="">
+
+                <?php if ( sd_opt( 'form_ask_source' ) ) : ?>
+                <fieldset class="text-left">
+                    <legend class="text-sm font-medium text-gray-400 ml-1 mb-3"><?php esc_html_e( 'How did you find me?', 'serhandemirel' ); ?> <span class="text-gray-600"><?php esc_html_e( 'Optional', 'serhandemirel' ); ?></span></legend>
+                    <div class="flex flex-wrap gap-2">
+                        <?php foreach ( sdc_found_via_options() as $sd_key => $sd_label ) : ?>
+                        <label class="cursor-pointer">
+                            <input type="radio" name="found_via" value="<?php echo esc_attr( $sd_key ); ?>" class="peer sr-only">
+                            <span class="block px-4 py-2 rounded-full border text-sm border-white/10 text-gray-300 hover:bg-white/5 peer-checked:bg-white peer-checked:text-black peer-checked:border-white peer-checked:font-semibold peer-focus-visible:ring-2 peer-focus-visible:ring-purple-500/60 transition-colors"><?php echo esc_html( $sd_label ); ?></span>
+                        </label>
+                        <?php endforeach; ?>
+                    </div>
+                </fieldset>
+                <?php endif; ?>
+
+                <?php
+                $sd_privacy = sd_opt( 'privacy_url' ) ? sd_opt( 'privacy_url' ) : get_privacy_policy_url();
+                ?>
+                <label class="flex gap-3 items-start text-sm text-gray-400 text-left">
+                    <input type="checkbox" name="consent" value="1" required class="mt-0.5 w-4 h-4 accent-purple-500 shrink-0">
+                    <span>
+                        <?php esc_html_e( 'I agree that my details are used to reply to this message.', 'serhandemirel' ); ?>
+                        <?php if ( $sd_privacy ) : ?>
+                        <a href="<?php echo esc_url( $sd_privacy ); ?>" target="_blank" rel="noopener" class="text-gray-200 underline decoration-purple-500 underline-offset-4"><?php esc_html_e( 'Privacy notice', 'serhandemirel' ); ?></a>
+                        <?php endif; ?>
+                    </span>
+                </label>
 
                 <!-- Left empty by people; spam bots fill it in. -->
                 <div style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden" aria-hidden="true">

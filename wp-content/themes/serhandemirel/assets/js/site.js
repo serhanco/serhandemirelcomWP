@@ -216,5 +216,51 @@
                 });
             });
         }
+
+        // Live search on the glossary and FAQ pages: hide items that do not
+        // match, and groups left empty.
+        document.querySelectorAll('[data-live-search]').forEach(function (input) {
+            var scope = document.querySelector(input.getAttribute('data-live-search'));
+            var none = document.querySelector('[data-live-empty]');
+            if (!scope) return;
+            input.addEventListener('input', function () {
+                var q = input.value.trim().toLowerCase();
+                var shown = 0;
+                scope.querySelectorAll('[data-live-item]').forEach(function (item) {
+                    var hit = !q || item.textContent.toLowerCase().indexOf(q) !== -1;
+                    item.hidden = !hit;
+                    if (hit) shown++;
+                    if (hit && q && item.tagName === 'DETAILS') item.open = true;
+                });
+                scope.querySelectorAll('[data-live-group]').forEach(function (group) {
+                    group.hidden = !group.querySelector('[data-live-item]:not([hidden])');
+                });
+                if (none) none.hidden = shown > 0;
+            });
+        });
+
+        // Kind filter on the talks page.
+        var kindBtns = document.querySelectorAll('[data-kind-filter]');
+        kindBtns.forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                var kind = btn.getAttribute('data-kind-filter');
+                kindBtns.forEach(function (b) {
+                    var on = b === btn;
+                    b.setAttribute('aria-pressed', on ? 'true' : 'false');
+                    b.classList.toggle('bg-white', on);
+                    b.classList.toggle('text-black', on);
+                    b.classList.toggle('border-white', on);
+                    b.classList.toggle('font-semibold', on);
+                    b.classList.toggle('text-gray-300', !on);
+                    b.classList.toggle('border-white/10', !on);
+                });
+                document.querySelectorAll('[data-kind]').forEach(function (row) {
+                    row.hidden = kind !== 'all' && row.getAttribute('data-kind') !== kind;
+                });
+                document.querySelectorAll('[data-year-group]').forEach(function (group) {
+                    group.hidden = !group.querySelector('[data-kind]:not([hidden])');
+                });
+            });
+        });
     });
 })();

@@ -59,6 +59,7 @@ $sd_next_page = $sd_has_next ? get_pagenum_link( $sd_paged + 1 ) : '';
                     <?php if ( $sd_lead_cats && 'uncategorized' !== $sd_lead_cats[0]->slug ) : ?>
                     <p class="text-xs font-semibold tracking-[0.15em] uppercase text-blue-400 mb-3"><?php echo esc_html( $sd_lead_cats[0]->name ); ?></p>
                     <?php endif; ?>
+                    <?php sd_insight_badges( $sd_lead->ID ); ?>
                     <h2 class="text-3xl md:text-4xl font-bold tracking-tight leading-tight text-white [text-wrap:balance]"><?php echo esc_html( get_the_title( $sd_lead ) ); ?></h2>
                     <?php if ( has_excerpt( $sd_lead ) ) : ?>
                     <p class="mt-4 text-gray-400 leading-relaxed"><?php echo esc_html( get_the_excerpt( $sd_lead ) ); ?></p>

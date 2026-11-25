@@ -2,7 +2,10 @@
 /**
  * "Start a Project" form: the Messages post type and its AJAX endpoint.
  *
- * Submissions are stored as private Messages and emailed to the site admin.
+ * Submissions are stored as private Messages and emailed to the site admin,
+ * with the service page they came from, the answer to "How did you find
+ * me?", the first outside page that sent the visitor (flagged when it is an
+ * AI assistant) and when they agreed to the use of their details.
  * Spam protection is a hidden "website" field that people leave empty and a
  * limit of five messages per visitor per hour. There is no nonce: the form
  * is public, and a nonce in a cached page expires and blocks real visitors.
@@ -81,6 +84,48 @@ function sdc_request_utm() {
 }
 
 /**
+ * Answers to "How did you find me?", key => label.
+ *
+ * @return array<string, string>
+ */
+function sdc_found_via_options() {
+	return array(
+		'google'   => __( 'Google', 'serhandemirel' ),
+		'ai'       => __( 'ChatGPT or another AI assistant', 'serhandemirel' ),
+		'linkedin' => __( 'LinkedIn', 'serhandemirel' ),
+		'referral' => __( 'A referral', 'serhandemirel' ),
+		'event'    => __( 'An event or training', 'serhandemirel' ),
+		'other'    => __( 'Other', 'serhandemirel' ),
+	);
+}
+
+/**
+ * Name of the AI assistant a referrer URL belongs to, or empty.
+ *
+ * @param string $url Referrer.
+ * @return string
+ */
+function sdc_ai_referrer( $url ) {
+	$host = strtolower( (string) wp_parse_url( $url, PHP_URL_HOST ) );
+	$ais  = array(
+		'chatgpt.com'           => 'ChatGPT',
+		'chat.openai.com'       => 'ChatGPT',
+		'perplexity.ai'         => 'Perplexity',
+		'gemini.google.com'     => 'Gemini',
+		'claude.ai'             => 'Claude',
+		'copilot.microsoft.com' => 'Copilot',
+		'chat.deepseek.com'     => 'DeepSeek',
+		'you.com'               => 'You.com',
+	);
+	foreach ( $ais as $domain => $name ) {
+		if ( $host === $domain || str_ends_with( $host, '.' . $domain ) ) {
+			return $name;
+		}
+	}
+	return '';
+}
+
+/**
  * Count a submission from the visitor's IP address; false once the
  * visitor has sent five in the last hour.
  *
@@ -124,6 +169,16 @@ function sdc_handle_contact() {
 		wp_send_json( array( 'status' => 'error', 'message' => __( 'Invalid email format.', 'serhandemirel' ) ), 400 );
 	}
 
+	if ( empty( $_POST['consent'] ) ) {
+		wp_send_json( array( 'status' => 'error', 'message' => __( 'Please agree to the use of your details so I can reply.', 'serhandemirel' ) ), 400 );
+	}
+
+	$found_via = sanitize_key( wp_unslash( $_POST['found_via'] ?? '' ) );
+	$found_via = isset( sdc_found_via_options()[ $found_via ] ) ? $found_via : '';
+	$service   = sanitize_text_field( wp_unslash( $_POST['Service'] ?? '' ) );
+	$referrer  = esc_url_raw( wp_unslash( $_POST['referrer'] ?? '' ) );
+	$ai_from   = sdc_ai_referrer( $referrer );
+
 	$lang   = sdc_request_language();
 	$utm    = sdc_request_utm();
 	$source = isset( $_POST['source'] ) ? esc_url_raw( wp_unslash( $_POST['source'] ) ) : (string) wp_get_referer();
@@ -142,6 +197,10 @@ function sdc_handle_contact() {
 				sdc_meta_key( 'source_url' )   => $source,
 				sdc_meta_key( 'utm_source' )   => $utm['source'],
 				sdc_meta_key( 'utm_campaign' ) => $utm['campaign'],
+				sdc_meta_key( 'service' )      => $service,
+				sdc_meta_key( 'found_via' )    => $found_via,
+				sdc_meta_key( 'referrer' )     => $referrer,
+				sdc_meta_key( 'consent_at' )   => current_time( 'mysql' ),
 			),
 		),
 		true
@@ -162,6 +221,15 @@ function sdc_handle_contact() {
 	if ( $utm['source'] ) {
 		$lines[] = 'Campaign: ' . trim( $utm['source'] . ' / ' . $utm['campaign'], ' /' );
 	}
+	if ( $service ) {
+		$lines[] = 'About: ' . $service;
+	}
+	if ( $found_via ) {
+		$lines[] = 'Found via: ' . sdc_found_via_options()[ $found_via ];
+	}
+	if ( $referrer ) {
+		$lines[] = 'Came from: ' . $referrer . ( $ai_from ? ' (AI assistant: ' . $ai_from . ')' : '' );
+	}
 
 	/**
 	 * Address that receives form messages; the Form settings tab sets it.
@@ -172,7 +240,7 @@ function sdc_handle_contact() {
 
 	wp_mail(
 		$recipient,
-		sprintf( 'New project inquiry from %s', $name ),
+		sprintf( 'New project inquiry from %s%s', $name, $ai_from ? ' via ' . $ai_from : '' ),
 		implode( "\n", $lines ) . "\n\n" . $message . "\n\n" . admin_url( 'post.php?post=' . $post_id . '&action=edit' ),
 		array( 'Reply-To: ' . $name . ' <' . $email . '>' )
 	);

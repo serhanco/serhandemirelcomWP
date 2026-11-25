@@ -1,4 +1,31 @@
 
+// Remember the first outside page that sent the visitor (search engine,
+// AI assistant, LinkedIn...) for this visit; it is sent with the form.
+(function () {
+    try {
+        if (!sessionStorage.getItem('sdReferrer')) {
+            var ref = document.referrer;
+            var external = ref && new URL(ref).host !== window.location.host;
+            sessionStorage.setItem('sdReferrer', external ? ref : '-');
+        }
+    } catch (e) {}
+})();
+
+// Service chip: "About: Digital Products", removable.
+function sdSetService(name) {
+    var input = document.getElementById('sd-service');
+    var chip = document.getElementById('sd-service-chip');
+    if (!input || !chip) return;
+    input.value = name || '';
+    document.getElementById('sd-service-name').textContent = name || '';
+    chip.classList.toggle('hidden', !name);
+    chip.classList.toggle('inline-flex', !!name);
+}
+(function () {
+    var clear = document.getElementById('sd-service-clear');
+    if (clear) clear.addEventListener('click', function () { sdSetService(''); });
+})();
+
 // Form Submission AJAX
 document.getElementById('projectForm').addEventListener('submit', function(e) {
     e.preventDefault();
@@ -21,6 +48,10 @@ document.getElementById('projectForm').addEventListener('submit', function(e) {
     formData.append('action', sdContact.action);
     formData.append('lang', sdContact.lang || '');
     formData.append('source', window.location.href);
+    try {
+        var ref = sessionStorage.getItem('sdReferrer');
+        if (ref && ref !== '-') formData.set('referrer', ref);
+    } catch (err) {}
 
     fetch(sdContact.ajaxUrl, {
         method: 'POST',
@@ -74,8 +105,14 @@ document.getElementById('projectForm').addEventListener('submit', function(e) {
     });
 });
 
-function openProjectModal() {
+function openProjectModal(service) {
     const modal = document.getElementById('projectModal');
+    // On a service page every "Start a project" button carries the service.
+    if (typeof service !== 'string') {
+        const page = document.querySelector('[data-sd-service]');
+        service = page ? page.getAttribute('data-sd-service') : '';
+    }
+    sdSetService(service);
     const backdrop = document.getElementById('projectModalBackdrop');
     const content = document.getElementById('projectModalContent');
 

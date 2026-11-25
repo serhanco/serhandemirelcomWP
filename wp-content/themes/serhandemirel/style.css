@@ -4,7 +4,7 @@ Theme URI: https://serhandemirel.com
 Author: Serhan Demirel
 Author URI: https://serhandemirel.com
 Description: One-page personal theme for serhandemirel.com, with its projects, services, expertise cards, brand logos, profile, contact form, structured data and llms.txt built in. Works with or without Polylang. Tailwind (compiled), GSAP + ScrollTrigger and Lenis, all self-hosted.
-Version: 1.3.0
+Version: 1.4.0
 Requires at least: 6.0
 Requires PHP: 7.4
 License: All rights reserved
@@ -142,6 +142,12 @@ body {
 .sd-prose pre { background: #0a0a0a; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 1rem; padding: 1.25em; overflow-x: auto; }
 .sd-prose pre code { background: none; padding: 0; }
 .sd-prose hr { border-color: rgba(255, 255, 255, 0.1); margin: 2.5em 0; }
+.sd-prose sup { line-height: 0; }
+.sd-prose a.sd-cite { color: #d8b4fe; font-size: 0.7rem; font-weight: 600; text-decoration: none; }
+.sd-prose a.sd-cite:hover { color: #fff; }
+
+/* Live filters hide items with the hidden attribute, even grid and flex ones. */
+[hidden] { display: none !important; }
 
 /* Pagination */
 .nav-links { display: flex; flex-wrap: wrap; gap: 0.5rem; }

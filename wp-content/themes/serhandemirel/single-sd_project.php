@@ -1,8 +1,10 @@
 <?php
 /**
- * Project page as a case study: big title and one-line result, cover,
- * results, challenge / approach / outcome, the page content, a gallery,
- * the client's quote and a full-width link to the next project.
+ * Project page as a case study: big title and one-line result, cover with
+ * client (or "name withheld"), role and duration, results and how they
+ * were measured, challenge / approach / outcome, the page content, a
+ * gallery and video, a testimonial, publish and review dates and a
+ * full-width link to the next project.
  *
  * @package serhandemirel
  */
@@ -18,7 +20,11 @@ while ( have_posts() ) :
 	if ( ! $sd_metrics && $sd_project['metric'] ) {
 		$sd_metrics = array( array( 'value' => $sd_project['metric'], 'label' => '', 'note' => '' ) );
 	}
-	$sd_eyebrow = implode( ' · ', array_filter( array( $sd_project['location'], $sd_project['year'] ? (string) $sd_project['year'] : '' ) ) );
+	$sd_when    = $sd_project['period'] ? $sd_project['period'] : ( $sd_project['year'] ? (string) $sd_project['year'] : '' );
+	// The location label usually names the industry already ("Fintech / London").
+	$sd_place   = $sd_project['location'] ? $sd_project['location'] : ( $sd_industry ? $sd_industry->name : '' );
+	$sd_eyebrow = implode( ' · ', array_filter( array( $sd_place, $sd_when ) ) );
+	$sd_quotes  = sdc_get_testimonials( array( 'project' => get_the_ID(), 'limit' => 1 ) );
 	$sd_acts    = array_filter(
 		array(
 			array( __( 'Challenge', 'serhandemirel' ), $sd_project['challenge'] ),
@@ -73,13 +79,18 @@ while ( have_posts() ) :
         <div class="max-w-7xl mx-auto px-4 md:px-6 mt-12">
             <div class="relative aspect-[16/9] md:aspect-[21/9] rounded-[2rem] overflow-hidden border border-white/10">
                 <?php echo sd_cover_image( get_the_ID(), 'absolute inset-0 w-full h-full object-cover', '(min-width: 1280px) 1232px, 100vw' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- core image markup. ?>
-                <?php if ( $sd_project['role'] || $sd_project['client'] ) : ?>
+                <?php if ( $sd_project['role'] || $sd_project['client'] || $sd_project['hidden'] || $sd_project['duration'] ) : ?>
                 <div class="absolute bottom-4 left-4 right-4 md:bottom-8 md:left-8 flex flex-wrap gap-2">
-                    <?php if ( $sd_project['client'] ) : ?>
+                    <?php if ( $sd_project['hidden'] ) : ?>
+                    <span class="px-3 py-1.5 rounded-full bg-black/40 backdrop-blur border border-white/10 text-xs text-white inline-flex items-center gap-1.5"><?php sd_icon_lock(); ?><?php esc_html_e( 'Client name withheld', 'serhandemirel' ); ?></span>
+                    <?php elseif ( $sd_project['client'] ) : ?>
                     <span class="px-3 py-1.5 rounded-full bg-black/40 backdrop-blur border border-white/10 text-xs text-white"><?php echo esc_html( $sd_project['client'] ); ?></span>
                     <?php endif; ?>
                     <?php if ( $sd_project['role'] ) : ?>
                     <span class="px-3 py-1.5 rounded-full bg-black/40 backdrop-blur border border-white/10 text-xs text-white"><?php echo esc_html( sprintf( /* translators: %s: what Serhan did on the project */ __( 'Role: %s', 'serhandemirel' ), $sd_project['role'] ) ); ?></span>
+                    <?php endif; ?>
+                    <?php if ( $sd_project['duration'] ) : ?>
+                    <span class="px-3 py-1.5 rounded-full bg-black/40 backdrop-blur border border-white/10 text-xs text-white"><?php echo esc_html( $sd_project['duration'] ); ?></span>
                     <?php endif; ?>
                 </div>
                 <?php endif; ?>
@@ -101,6 +112,9 @@ while ( have_posts() ) :
             </div>
             <?php endforeach; ?>
         </section>
+            <?php if ( $sd_project['measured'] ) : ?>
+        <p class="max-w-6xl mx-auto px-6 mt-4 text-sm text-gray-500 flex items-center gap-2"><svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke-width="2"></circle><path d="M12 8v4m0 4h.01" stroke-width="2" stroke-linecap="round"></path></svg><?php echo esc_html( $sd_project['measured'] ); ?></p>
+            <?php endif; ?>
         <?php endif; ?>
 
         <?php if ( $sd_acts ) : ?>
@@ -135,7 +149,21 @@ while ( have_posts() ) :
         </section>
         <?php endif; ?>
 
-        <?php if ( $sd_project['quote'] ) : ?>
+        <?php if ( $sd_project['video_url'] ) : ?>
+        <div class="max-w-6xl mx-auto px-6 mt-6">
+            <a href="<?php echo esc_url( $sd_project['video_url'] ); ?>" target="_blank" rel="noopener" class="group flex items-center gap-4 rounded-3xl glass p-4 pr-6 hover:bg-white/[0.06] transition-colors">
+                <span class="w-14 h-14 shrink-0 rounded-full bg-white text-black flex items-center justify-center transition-transform group-hover:scale-105" aria-hidden="true"><svg class="w-5 h-5 ml-0.5" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+                <span class="font-semibold text-white"><?php esc_html_e( 'Watch the walkthrough', 'serhandemirel' ); ?></span>
+                <span class="ml-auto text-gray-400" aria-hidden="true">↗</span>
+            </a>
+        </div>
+        <?php endif; ?>
+
+        <?php if ( $sd_quotes ) : ?>
+        <section class="max-w-4xl mx-auto px-6 mt-24">
+            <?php get_template_part( 'template-parts/testimonial', null, array( 'item' => $sd_quotes[0], 'large' => true ) ); ?>
+        </section>
+        <?php elseif ( $sd_project['quote'] ) : ?>
         <figure class="max-w-4xl mx-auto px-6 mt-24 text-center">
             <blockquote class="text-2xl md:text-4xl font-semibold tracking-tight leading-snug text-white [text-wrap:balance]">“<?php echo esc_html( $sd_project['quote'] ); ?>”</blockquote>
             <?php if ( $sd_project['quote_by'] ) : ?>
@@ -143,6 +171,8 @@ while ( have_posts() ) :
             <?php endif; ?>
         </figure>
         <?php endif; ?>
+
+        <div class="max-w-6xl mx-auto px-6 mt-12"><div class="pt-6 border-t border-white/10"><?php get_template_part( 'template-parts/dates', null, array( 'dates' => sdc_dates( get_the_ID() ) ) ); ?></div></div>
     </article>
 
     <?php if ( $sd_next ) : ?>

@@ -1,8 +1,9 @@
 <?php
 /**
- * Insight (post) page: reading bar, title and byline, cover, key
- * takeaways, outline beside the text, FAQ, author box and two posts to
- * read next.
+ * Insight (post) page: reading bar, format and question, title, short
+ * answer, byline with published and updated dates, cover, key takeaways,
+ * the "From my work" box, outline beside the text, sources, FAQ, author
+ * box, glossary links and two posts to read next.
  *
  * @package serhandemirel
  */
@@ -16,6 +17,7 @@ while ( have_posts() ) :
 	$sd_author   = sd_author();
 	$sd_outline  = sd_article_outline( apply_filters( 'the_content', get_the_content() ) ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound -- core filter.
 	$sd_toc      = $sd_outline['toc'];
+	$sd_outline['html'] = sdc_link_citations( $sd_outline['html'], count( $sd_extras['sources'] ) );
 	$sd_cats     = get_the_category();
 	$sd_cat      = ( $sd_cats && 'uncategorized' !== $sd_cats[0]->slug ) ? $sd_cats[0] : null;
 	$sd_blog_url = sd_insights_url();
@@ -23,6 +25,9 @@ while ( have_posts() ) :
 	$sd_share    = rawurlencode( get_permalink() );
 	if ( $sd_extras['takeaways'] ) {
 		array_unshift( $sd_toc, array( 'id' => 'key-takeaways', 'title' => __( 'Key takeaways', 'serhandemirel' ) ) );
+	}
+	if ( $sd_extras['sources'] ) {
+		$sd_toc[] = array( 'id' => 'sources', 'title' => __( 'Sources', 'serhandemirel' ) );
 	}
 	if ( $sd_extras['faq'] ) {
 		$sd_toc[] = array( 'id' => 'faq', 'title' => __( 'FAQ', 'serhandemirel' ) );
@@ -48,32 +53,34 @@ while ( have_posts() ) :
                 sd_breadcrumb( $sd_crumbs );
                 ?>
             </div>
+            <?php if ( $sd_extras['format'] || $sd_extras['question'] ) : ?>
+            <div class="flex flex-wrap justify-center items-center gap-2 mb-6">
+                <?php if ( $sd_extras['format'] ) : ?>
+                <span class="text-[11px] font-semibold px-3 py-1 rounded-full border border-white/10 text-gray-300"><?php echo esc_html( $sd_extras['format'] ); ?></span>
+                <?php endif; ?>
+                <?php if ( $sd_extras['question'] ) : ?>
+                <span class="text-xs text-gray-400"><?php esc_html_e( 'Answers:', 'serhandemirel' ); ?> <span class="text-gray-200"><?php echo esc_html( $sd_extras['question'] ); ?></span></span>
+                <?php endif; ?>
+            </div>
+            <?php endif; ?>
             <h1 class="text-4xl md:text-6xl font-black tracking-tighter leading-[1.02] text-white [text-wrap:balance]"><?php the_title(); ?></h1>
+            <?php if ( has_excerpt() ) : ?>
+            <p class="mt-6 text-lg md:text-xl text-gray-300 leading-relaxed [text-wrap:pretty]"><?php echo esc_html( get_the_excerpt() ); ?></p>
+            <?php endif; ?>
             <div class="mt-8 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm text-gray-400">
                 <span class="flex items-center gap-2">
                     <?php if ( $sd_author['photo'] ) : ?>
                     <img src="<?php echo esc_url( $sd_author['photo'] ); ?>" alt="" width="28" height="28" class="w-7 h-7 rounded-full object-cover">
                     <?php endif; ?>
                     <?php if ( $sd_about ) : ?>
-                    <a href="<?php echo esc_url( $sd_about ); ?>" rel="author" class="hover:text-white transition-colors"><?php echo esc_html( $sd_author['name'] ); ?></a>
+                    <a href="<?php echo esc_url( $sd_about ); ?>" rel="author" class="text-gray-200 hover:text-white transition-colors"><?php echo esc_html( $sd_author['name'] ); ?></a>
                     <?php else : ?>
-                    <span><?php echo esc_html( $sd_author['name'] ); ?></span>
+                    <span class="text-gray-200"><?php echo esc_html( $sd_author['name'] ); ?></span>
                     <?php endif; ?>
                 </span>
-                <time datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>"><?php echo esc_html( get_the_date() ); ?></time>
                 <span><?php echo esc_html( sprintf( /* translators: %d: minutes */ _n( '%d min read', '%d min read', sd_read_time( $sd_id ), 'serhandemirel' ), sd_read_time( $sd_id ) ) ); ?></span>
-                <?php if ( $sd_extras['reviewed'] ) : ?>
-                <span class="text-gray-500">
-                    <?php
-                    printf(
-                        /* translators: %s: date */
-                        esc_html__( 'Updated %s', 'serhandemirel' ),
-                        '<time datetime="' . esc_attr( $sd_extras['reviewed'] ) . '">' . esc_html( date_i18n( get_option( 'date_format' ), strtotime( $sd_extras['reviewed'] ) ) ) . '</time>'
-                    );
-                    ?>
-                </span>
-                <?php endif; ?>
             </div>
+            <div class="mt-3"><?php get_template_part( 'template-parts/dates', null, array( 'dates' => sdc_dates( $sd_id ), 'center' => true ) ); ?></div>
         </header>
 
         <?php if ( has_post_thumbnail() ) : ?>
@@ -119,44 +126,47 @@ while ( have_posts() ) :
                 </section>
                 <?php endif; ?>
 
+                <?php if ( $sd_extras['experience'] ) : ?>
+                    <?php $sd_exp = $sd_extras['experience']; ?>
+                    <?php if ( $sd_exp['project'] ) : ?>
+                <a href="<?php echo esc_url( $sd_exp['project']['permalink'] ); ?>" class="group flex gap-4 items-center rounded-3xl border border-white/10 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-transparent p-3 pr-5 mb-10 hover:border-white/20 transition-colors">
+                    <span class="relative w-20 h-20 md:w-24 shrink-0 rounded-2xl overflow-hidden" style="<?php echo $sd_exp['project']['image'] ? '' : esc_attr( sd_placeholder_style( 1 ) ); ?>">
+                        <?php if ( $sd_exp['project']['image'] ) : ?>
+                        <img src="<?php echo esc_url( $sd_exp['project']['image'] ); ?>" alt="" loading="lazy" class="absolute inset-0 w-full h-full object-cover">
+                        <?php endif; ?>
+                    </span>
+                    <span class="min-w-0">
+                        <span class="block text-[11px] font-semibold tracking-[0.2em] uppercase text-blue-400"><?php esc_html_e( 'From my work', 'serhandemirel' ); ?></span>
+                        <span class="block mt-1 text-[15px] leading-snug text-gray-200"><?php echo esc_html( $sd_exp['note'] ? $sd_exp['note'] : $sd_exp['project']['title'] ); ?> <span class="text-white whitespace-nowrap"><?php esc_html_e( 'Read the case study', 'serhandemirel' ); ?> <span class="inline-block transition-transform group-hover:translate-x-1" aria-hidden="true">→</span></span></span>
+                    </span>
+                </a>
+                    <?php else : ?>
+                <div class="rounded-3xl border border-white/10 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-transparent p-5 mb-10">
+                    <p class="text-[11px] font-semibold tracking-[0.2em] uppercase text-blue-400"><?php esc_html_e( 'From my work', 'serhandemirel' ); ?></p>
+                    <p class="mt-1 text-[15px] leading-snug text-gray-200"><?php echo esc_html( $sd_exp['note'] ); ?></p>
+                </div>
+                    <?php endif; ?>
+                <?php endif; ?>
+
                 <div class="sd-prose">
                     <?php echo $sd_outline['html']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- filtered post content. ?>
                 </div>
 
+                <?php if ( $sd_extras['sources'] ) : ?>
+                <h2 id="sources" class="text-2xl md:text-3xl font-bold tracking-tight text-white mt-16 mb-5 scroll-mt-28"><?php esc_html_e( 'Sources', 'serhandemirel' ); ?></h2>
+                <?php get_template_part( 'template-parts/sources', null, array( 'sources' => $sd_extras['sources'] ) ); ?>
+                <?php endif; ?>
+
                 <?php if ( $sd_extras['faq'] ) : ?>
                 <section id="faq" class="mt-16 scroll-mt-28">
                     <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-white mb-6"><?php esc_html_e( 'FAQ', 'serhandemirel' ); ?></h2>
-                    <div class="space-y-3">
-                        <?php foreach ( $sd_extras['faq'] as $sd_qa ) : ?>
-                        <details class="group glass rounded-2xl px-5 py-4">
-                            <summary class="flex justify-between items-center gap-4 font-semibold text-white cursor-pointer"><?php echo esc_html( $sd_qa['question'] ); ?><svg class="w-5 h-5 shrink-0 text-gray-400 transition-transform group-open:rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v14M5 12h14"></path></svg></summary>
-                            <p class="mt-3 text-gray-400 leading-relaxed"><?php echo esc_html( $sd_qa['answer'] ); ?></p>
-                        </details>
-                        <?php endforeach; ?>
-                    </div>
+                    <?php get_template_part( 'template-parts/faq-list', null, array( 'items' => $sd_extras['faq'] ) ); ?>
                 </section>
                 <?php endif; ?>
 
                 <?php the_tags( '<p class="mt-12 flex flex-wrap gap-2 text-sm [&>a]:px-3 [&>a]:py-1.5 [&>a]:rounded-full [&>a]:border [&>a]:border-white/10 [&>a]:text-gray-300 hover:[&>a]:bg-white/10">', '', '</p>' ); ?>
 
-                <section class="mt-14 rounded-3xl border border-white/10 p-6 flex flex-col sm:flex-row gap-5 items-start" aria-label="<?php esc_attr_e( 'About the author', 'serhandemirel' ); ?>">
-                    <?php if ( $sd_author['photo'] ) : ?>
-                    <img src="<?php echo esc_url( $sd_author['photo'] ); ?>" alt="<?php echo esc_attr( $sd_author['name'] ); ?>" width="64" height="64" class="w-16 h-16 rounded-2xl object-cover" loading="lazy">
-                    <?php endif; ?>
-                    <div>
-                        <p class="font-bold text-white"><?php echo esc_html( $sd_author['name'] ); ?></p>
-                        <p class="text-sm text-gray-400"><?php echo esc_html( trim( $sd_author['title'] . ( $sd_author['place'] ? ' · ' . $sd_author['place'] : '' ), ' ·' ) ); ?></p>
-                        <?php if ( $sd_author['bio'] ) : ?>
-                        <p class="mt-3 text-[15px] text-gray-300 leading-relaxed"><?php echo esc_html( $sd_author['bio'] ); ?></p>
-                        <?php endif; ?>
-                        <div class="mt-4 flex flex-wrap gap-2 text-sm">
-                            <button type="button" onclick="openProjectModal()" class="px-4 py-1.5 rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition-colors"><?php esc_html_e( 'Work with me', 'serhandemirel' ); ?></button>
-                            <?php if ( $sd_about ) : ?>
-                            <a href="<?php echo esc_url( $sd_about ); ?>" class="px-4 py-1.5 rounded-full border border-white/10 text-gray-200 hover:bg-white/10 transition-colors"><?php esc_html_e( 'About', 'serhandemirel' ); ?></a>
-                            <?php endif; ?>
-                        </div>
-                    </div>
-                </section>
+                <?php get_template_part( 'template-parts/author-box' ); ?>
 
                 <div class="lg:hidden mt-8 flex flex-wrap gap-2 text-sm">
                     <button type="button" data-copy-link class="px-4 py-2 rounded-full border border-white/10 text-gray-200 hover:bg-white/10"><?php esc_html_e( 'Copy link', 'serhandemirel' ); ?></button>
@@ -177,6 +187,14 @@ while ( have_posts() ) :
                         <span class="block font-semibold text-white"><?php echo esc_html( $sd_extras['service']['title'] ); ?></span>
                         <span class="text-gray-400 group-hover:text-white text-xs"><?php esc_html_e( 'See the service', 'serhandemirel' ); ?> →</span>
                     </a>
+                    <?php endif; ?>
+                    <?php if ( $sd_extras['terms'] ) : ?>
+                    <div class="rounded-2xl glass p-4">
+                        <p class="text-[11px] font-semibold tracking-[0.2em] uppercase text-pink-500 mb-2"><?php esc_html_e( 'In the glossary', 'serhandemirel' ); ?></p>
+                        <?php foreach ( $sd_extras['terms'] as $sd_term ) : ?>
+                        <a href="<?php echo esc_url( $sd_term['url'] ); ?>" class="block font-semibold text-gray-200 hover:text-white py-0.5"><?php echo esc_html( $sd_term['title'] ); ?></a>
+                        <?php endforeach; ?>
+                    </div>
                     <?php endif; ?>
                 </div>
             </aside>

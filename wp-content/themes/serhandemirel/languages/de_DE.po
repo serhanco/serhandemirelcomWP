@@ -241,8 +241,8 @@ msgid "Default SEO title"
 msgstr "Standard-SEO-Titel"
 
 #: inc/options.php:44
-msgid "Serhan Demirel | Digital Solutions Provider"
-msgstr "Serhan Demirel | Anbieter digitaler Lösungen"
+msgid "Serhan Demirel | Digital Solutions Architect"
+msgstr "Serhan Demirel | Architekt für digitale Lösungen"
 
 #: inc/options.php:45
 msgid ""
@@ -257,13 +257,8 @@ msgid "Default SEO description"
 msgstr "Standard-SEO-Beschreibung"
 
 #: inc/options.php:51
-msgid ""
-"Serhan Demirel - Digital Solutions Provider specializing in business "
-"transformation, scalable digital foundations, and AI & automation."
-msgstr ""
-"Serhan Demirel – Anbieter digitaler Lösungen mit Fokus auf "
-"Unternehmenstransformation, skalierbare digitale Grundlagen sowie KI & "
-"Automatisierung."
+msgid "Serhan Demirel - Digital Solutions Architect specializing in business transformation, scalable digital foundations, and AI & automation."
+msgstr "Serhan Demirel – Architekt für digitale Lösungen mit Fokus auf Unternehmenstransformation, skalierbare digitale Grundlagen sowie KI & Automatisierung."
 
 #: inc/options.php:54
 msgid "Sharing image"
@@ -299,8 +294,8 @@ msgid "Subtitle"
 msgstr "Untertitel"
 
 #: inc/options.php:78 inc/profile.php:40
-msgid "Digital Solutions Provider"
-msgstr "Anbieter digitaler Lösungen"
+msgid "Digital Solutions Architect"
+msgstr "Architekt für digitale Lösungen"
 
 #: inc/options.php:81
 msgid "Scroll hint"
@@ -1398,17 +1393,8 @@ msgid "Short bio (about 50 words)"
 msgstr "Kurzbiografie (ca. 50 Wörter)"
 
 #: inc/profile.php:46
-msgid ""
-"Serhan Demirel is an Istanbul-based digital solutions provider. He helps "
-"companies grow through data-driven digital marketing, builds web products "
-"and landing pages, automates work with AI, improves search and AI "
-"visibility, and trains teams for digital transformation."
-msgstr ""
-"Serhan Demirel ist ein in Istanbul ansässiger Anbieter digitaler Lösungen. "
-"Er hilft Unternehmen, mit datengetriebenem digitalem Marketing zu wachsen, "
-"entwickelt Webprodukte und Landingpages, automatisiert Arbeit mit KI, "
-"verbessert die Sichtbarkeit in Suchmaschinen und KI-Systemen und schult "
-"Teams für die digitale Transformation."
+msgid "Serhan Demirel is an Istanbul-based digital solutions architect. He helps companies grow through data-driven digital marketing, builds web products and landing pages, automates work with AI, improves search and AI visibility, and trains teams for digital transformation."
+msgstr "Serhan Demirel ist ein in Istanbul ansässiger Architekt für digitale Lösungen. Er hilft Unternehmen, mit datengetriebenem digitalem Marketing zu wachsen, entwickelt Webprodukte und Landingpages, automatisiert Arbeit mit KI, verbessert die Sichtbarkeit in Suchmaschinen und KI-Systemen und schult Teams für die digitale Transformation."
 
 #: inc/profile.php:47
 msgid ""
@@ -1712,5 +1698,5 @@ msgstr ""
 
 #: inc/profile.php
 msgctxt "job title"
-msgid "Digital Solutions Provider"
-msgstr "Anbieter digitaler Lösungen"
+msgid "Digital Solutions Architect"
+msgstr "Architekt für digitale Lösungen"
