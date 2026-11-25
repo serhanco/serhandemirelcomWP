@@ -31,6 +31,7 @@ require get_template_directory() . '/inc/content.php';
 require get_template_directory() . '/inc/i18n.php';
 require get_template_directory() . '/inc/subpages.php';
 require get_template_directory() . '/inc/seo.php';
+require get_template_directory() . '/inc/staging.php';
 
 /**
  * After a theme update, rebuild permalinks once so new pages such as

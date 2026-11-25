@@ -29,6 +29,7 @@ The front page renders whenever "Your homepage displays" is left on "Your latest
 | `inc/messages.php` | The contact form endpoint and the **Messages** list |
 | `inc/profile.php`, `inc/schema.php`, `inc/llms.php` | **Profile** screen, JSON-LD graph, `/llms.txt` |
 | `inc/trust.php` | Dates, sources, noindex, testimonials, talks, glossary, industry page fields (term meta), the FAQ hub, credentials and profile numbers |
+| `inc/staging.php` | Keeps test copies (`staging.` hosts, non-production environments) out of search engines |
 | `inc/seo.php` | Page title, description and sharing image per page, noindex, sitemap rules and the AI crawler lines in `robots.txt` |
 | `inc/multilingual.php`, `wpml-config.xml` | Which types and fields Polylang (or WPML) translates or shares |
 | `inc/setup.php` | **Tools → Site setup** checklist and the **Set up languages** button (`wp sdc setup`) |
@@ -83,6 +84,8 @@ Spam protection: a hidden `website` field that people leave empty (bots that fil
 wp-admin → **Serhan Demirel** has tabs for General (SEO, sharing image and **Keep AI training crawlers out**), Hero, Word slot, Sections (show/hide and headings), Contact, Form and Tracking. With Polylang, texts marked with a globe are saved per language; an empty field shows the theme's translation of the built-in text (or the default-language text in a language the theme has no translation for). Sections also holds the general FAQ and the glossary and talks intros; Form holds **Ask "How did you find me?"** and the privacy link. Tracking codes are skipped for logged-in editors (unless enabled), in previews and on pages with **Turn off tracking codes on this page** ticked. When Yoast, Rank Math, AIOSEO or SEOPress is active, the theme leaves the title, description and social tags to it.
 
 **Search and AI crawlers.** `robots.txt` names the AI search and answer bots (OAI-SearchBot, ChatGPT-User, Claude-SearchBot, Claude-User, PerplexityBot, Perplexity-User) as welcome, allows or blocks the AI training bots (GPTBot, ClaudeBot, Google-Extended and others) according to **Keep AI training crawlers out**, and points to `/llms.txt`. Pages with **Hide from search engines** get `noindex, follow` and leave the sitemap and `/llms.txt`. For the FAQ hub, create a page with the **FAQ** template.
+
+**Test copies.** On a host that starts with `staging.` (or with `WP_ENVIRONMENT_TYPE` set to `staging`, `development` or `local`) the site always behaves as if **Discourage search engines** were ticked: noindex on every page and in an `X-Robots-Tag` header, no sitemap (`inc/staging.php`).
 
 ## Styles
 
