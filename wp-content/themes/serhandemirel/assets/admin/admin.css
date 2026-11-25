@@ -10,3 +10,6 @@
 .sdc-media__preview { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 6px; }
 .sdc-media__preview img { max-height: 64px; width: auto; padding: 6px; background: #1d2327; border-radius: 4px; }
 .column-sdc_logo img { max-height: 32px; width: auto; padding: 4px; background: #1d2327; border-radius: 3px; }
+.sdc-checklist { max-height: 180px; overflow: auto; padding: 8px 10px; border: 1px solid #dcdcde; border-radius: 4px; background: #fff; }
+.sdc-checklist label { display: block; margin: 2px 0; }
+.sdc-term-field { max-width: 640px; }

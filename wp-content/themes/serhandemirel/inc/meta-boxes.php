@@ -113,6 +113,29 @@ function sdc_render_field( $name, $field, $value ) {
 				echo '</select>';
 				break;
 
+			case 'posts':
+				$choices  = get_posts(
+					array(
+						'post_type'      => $field['post_type'],
+						'posts_per_page' => 200,
+						'orderby'        => 'title',
+						'order'          => 'ASC',
+						'post_status'    => array( 'publish', 'draft', 'private' ),
+						'lang'           => '',
+						'exclude'        => array( (int) get_the_ID() ),
+					)
+				);
+				$selected = array_map( 'intval', array_filter( explode( ',', (string) $value ) ) );
+				printf( '<input type="hidden" name="%s[]" value=""><div class="sdc-checklist" id="%s">', esc_attr( $input_name ), esc_attr( $id ) );
+				if ( ! $choices ) {
+					echo '<p class="description">' . esc_html__( 'Nothing to choose yet.', 'serhandemirel' ) . '</p>';
+				}
+				foreach ( $choices as $choice ) {
+					printf( '<label><input type="checkbox" name="%s[]" value="%d" %s> %s</label>', esc_attr( $input_name ), (int) $choice->ID, checked( in_array( (int) $choice->ID, $selected, true ), true, false ), esc_html( get_the_title( $choice ) ) );
+				}
+				echo '</div>';
+				break;
+
 			case 'image':
 				$src = sdc_attachment_src( (int) $value, 'medium' );
 				printf(

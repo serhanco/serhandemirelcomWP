@@ -110,6 +110,75 @@ function sdc_register_post_types() {
 			'supports'            => array( 'title', 'page-attributes' ),
 		)
 	);
+
+	register_post_type(
+		'sd_testimonial',
+		array(
+			'labels'              => array(
+				'name'          => __( 'Testimonials', 'serhandemirel' ),
+				'singular_name' => __( 'Testimonial', 'serhandemirel' ),
+				'add_new_item'  => __( 'Add New Testimonial', 'serhandemirel' ),
+				'edit_item'     => __( 'Edit Testimonial', 'serhandemirel' ),
+				'all_items'     => __( 'All Testimonials', 'serhandemirel' ),
+				'not_found'     => __( 'No testimonials found.', 'serhandemirel' ),
+			),
+			'description'         => __( 'Client quotes, written once and shown on projects, service pages, industry pages and the profile page.', 'serhandemirel' ),
+			'public'              => false,
+			'publicly_queryable'  => false,
+			'exclude_from_search' => true,
+			'show_ui'             => true,
+			'show_in_rest'        => true,
+			'menu_icon'           => 'dashicons-format-quote',
+			'menu_position'       => 7,
+			'supports'            => array( 'title', 'custom-fields' ),
+		)
+	);
+
+	register_post_type(
+		'sd_appearance',
+		array(
+			'labels'        => array(
+				'name'          => __( 'Talks & press', 'serhandemirel' ),
+				'singular_name' => __( 'Talk, training or press item', 'serhandemirel' ),
+				'add_new_item'  => __( 'Add New Talk, Training or Press Item', 'serhandemirel' ),
+				'edit_item'     => __( 'Edit Talk, Training or Press Item', 'serhandemirel' ),
+				'all_items'     => __( 'All Talks & Press', 'serhandemirel' ),
+				'not_found'     => __( 'Nothing here yet.', 'serhandemirel' ),
+				'archives'      => __( 'Talks, trainings & press', 'serhandemirel' ),
+			),
+			'description'   => __( 'Talks, workshops, corporate trainings, podcasts, interviews and press mentions. Listed on one page; each item links out to the event, recording or article.', 'serhandemirel' ),
+			'public'        => true,
+			'show_in_rest'  => true,
+			'menu_icon'     => 'dashicons-microphone',
+			'menu_position' => 6,
+			'has_archive'   => 'speaking',
+			'rewrite'       => array( 'slug' => 'speaking', 'with_front' => false ),
+			'supports'      => array( 'title', 'excerpt', 'thumbnail', 'custom-fields' ),
+		)
+	);
+
+	register_post_type(
+		'sd_term',
+		array(
+			'labels'        => array(
+				'name'          => __( 'Glossary', 'serhandemirel' ),
+				'singular_name' => __( 'Glossary term', 'serhandemirel' ),
+				'add_new_item'  => __( 'Add New Term', 'serhandemirel' ),
+				'edit_item'     => __( 'Edit Term', 'serhandemirel' ),
+				'all_items'     => __( 'All Terms', 'serhandemirel' ),
+				'not_found'     => __( 'No terms found.', 'serhandemirel' ),
+				'archives'      => __( 'Glossary', 'serhandemirel' ),
+			),
+			'description'   => __( 'Short definitions of the terms you use with clients. Each term has its own page.', 'serhandemirel' ),
+			'public'        => true,
+			'show_in_rest'  => true,
+			'menu_icon'     => 'dashicons-book-alt',
+			'menu_position' => 6,
+			'has_archive'   => 'glossary',
+			'rewrite'       => array( 'slug' => 'glossary', 'with_front' => false ),
+			'supports'      => array( 'title', 'editor', 'custom-fields', 'revisions' ),
+		)
+	);
 }
 add_action( 'init', 'sdc_register_post_types' );
 
@@ -119,7 +188,7 @@ add_action( 'init', 'sdc_register_post_types' );
 function sdc_register_taxonomies() {
 	register_taxonomy(
 		'sd_industry',
-		'sd_project',
+		array( 'sd_project', 'sd_brand' ),
 		array(
 			'labels'            => array(
 				'name'          => __( 'Industries', 'serhandemirel' ),
@@ -154,3 +223,31 @@ function sdc_register_taxonomies() {
 	);
 }
 add_action( 'init', 'sdc_register_taxonomies' );
+
+/**
+ * Kinds of talks, trainings and press items.
+ *
+ * @return array<string, string>
+ */
+function sdc_appearance_kinds() {
+	return array(
+		'talk'      => __( 'Talk', 'serhandemirel' ),
+		'workshop'  => __( 'Workshop', 'serhandemirel' ),
+		'training'  => __( 'Training', 'serhandemirel' ),
+		'podcast'   => __( 'Podcast', 'serhandemirel' ),
+		'interview' => __( 'Interview', 'serhandemirel' ),
+		'press'     => __( 'Press', 'serhandemirel' ),
+	);
+}
+
+/**
+ * A talk or press item has no page of its own: send its address to its
+ * place in the list.
+ */
+function sdc_redirect_single_appearance() {
+	if ( is_singular( 'sd_appearance' ) ) {
+		wp_safe_redirect( get_post_type_archive_link( 'sd_appearance' ) . '#item-' . get_queried_object_id(), 301 );
+		exit;
+	}
+}
+add_action( 'template_redirect', 'sdc_redirect_single_appearance' );

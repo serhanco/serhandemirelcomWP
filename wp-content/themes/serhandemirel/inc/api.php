@@ -116,20 +116,168 @@ function sdc_project_data( $post ) {
 	$post       = get_post( $post );
 	$industries = get_the_terms( $post, 'sd_industry' );
 	$brand      = (int) sdc_get( $post->ID, 'brand' );
+	$hidden     = (bool) sdc_get( $post->ID, 'client_hidden' );
+	$start      = (string) sdc_get( $post->ID, 'start_date' );
+	$end        = (string) sdc_get( $post->ID, 'end_date' );
 	return array(
 		'id'         => $post->ID,
 		'title'      => $post->post_title,
 		'permalink'  => get_permalink( $post ),
 		'image'      => (string) get_the_post_thumbnail_url( $post, 'large' ),
-		'client'     => (string) sdc_get( $post->ID, 'client' ),
+		'client'     => $hidden ? (string) sdc_get( $post->ID, 'anon_name' ) : (string) sdc_get( $post->ID, 'client' ),
+		'hidden'     => $hidden,
+		'start'      => $start,
+		'end'        => $end,
+		'period'     => sdc_period_label( $start, $end ),
+		'duration'   => sdc_duration_label( $start, $end ),
+		'video_url'  => (string) sdc_get( $post->ID, 'video_url' ),
+		'measured'   => (string) sdc_get( $post->ID, 'metrics_source' ),
 		'location'   => (string) sdc_get( $post->ID, 'location' ),
 		'summary'    => (string) sdc_get( $post->ID, 'summary' ),
 		'metric'     => (string) sdc_get( $post->ID, 'metric' ),
 		'year'       => (int) sdc_get( $post->ID, 'year' ),
-		'url'        => (string) sdc_get( $post->ID, 'url' ),
+		'url'        => $hidden ? '' : (string) sdc_get( $post->ID, 'url' ),
 		'industries' => is_array( $industries ) ? wp_list_pluck( $industries, 'slug' ) : array(),
-		'brand_logo' => $brand ? sdc_attachment_src( (int) sdc_get( $brand, 'logo_white' ) ) : '',
+		'brand_logo' => $brand && ! $hidden ? sdc_attachment_src( (int) sdc_get( $brand, 'logo_white' ) ) : '',
 		'gallery'    => array_values( array_filter( array_map( 'absint', explode( ',', (string) sdc_get( $post->ID, 'gallery' ) ) ) ) ),
+		'metrics'    => sdc_parse_metrics( sdc_get( $post->ID, 'metrics' ) ),
+		'role'       => (string) sdc_get( $post->ID, 'role' ),
+		'tools'      => array_values( array_filter( array_map( 'trim', explode( ',', (string) sdc_get( $post->ID, 'tools' ) ) ) ) ),
+		'challenge'  => (string) sdc_get( $post->ID, 'challenge' ),
+		'approach'   => (string) sdc_get( $post->ID, 'approach' ),
+		'outcome'    => (string) sdc_get( $post->ID, 'outcome' ),
+		'quote'      => (string) sdc_get( $post->ID, 'testimonial' ),
+		'quote_by'   => (string) sdc_get( $post->ID, 'testimonial_author' ),
+	);
+}
+
+/**
+ * "Mar–Jun 2025", "Nov 2024 – Feb 2025" or "Since Mar 2025".
+ *
+ * @param string $start Start date (Y-m-d).
+ * @param string $end   End date, empty while ongoing.
+ * @return string
+ */
+function sdc_period_label( $start, $end ) {
+	if ( ! $start ) {
+		return '';
+	}
+	$from = strtotime( $start );
+	if ( ! $end ) {
+		/* translators: %s: month and year */
+		return sprintf( __( 'Since %s', 'serhandemirel' ), date_i18n( 'M Y', $from ) );
+	}
+	$to = strtotime( $end );
+	if ( gmdate( 'Y-m', $from ) === gmdate( 'Y-m', $to ) ) {
+		return date_i18n( 'M Y', $from );
+	}
+	if ( gmdate( 'Y', $from ) === gmdate( 'Y', $to ) ) {
+		return date_i18n( 'M', $from ) . '–' . date_i18n( 'M Y', $to );
+	}
+	return date_i18n( 'M Y', $from ) . ' – ' . date_i18n( 'M Y', $to );
+}
+
+/**
+ * "4 months", "2 weeks", or empty without both dates.
+ *
+ * @param string $start Start date (Y-m-d).
+ * @param string $end   End date.
+ * @return string
+ */
+function sdc_duration_label( $start, $end ) {
+	if ( ! $start || ! $end || strtotime( $end ) < strtotime( $start ) ) {
+		return '';
+	}
+	$days = (int) round( ( strtotime( $end ) - strtotime( $start ) ) / DAY_IN_SECONDS ) + 1;
+	if ( $days < 56 ) {
+		$weeks = max( 1, (int) round( $days / 7 ) );
+		/* translators: %d: number of weeks */
+		return sprintf( _n( '%d week', '%d weeks', $weeks, 'serhandemirel' ), $weeks );
+	}
+	$months = max( 1, (int) round( $days / 30.44 ) );
+	/* translators: %d: number of months */
+	return sprintf( _n( '%d month', '%d months', $months, 'serhandemirel' ), $months );
+}
+
+/**
+ * Results from a metrics field: one "Value | label | note" per line.
+ *
+ * @param string $text Field value.
+ * @return array<int, array{value: string, label: string, note: string}>
+ */
+function sdc_parse_metrics( $text ) {
+	$metrics = array();
+	foreach ( sdc_lines( $text ) as $line ) {
+		$parts     = array_map( 'trim', explode( '|', $line ) );
+		$metrics[] = array(
+			'value' => $parts[0],
+			'label' => $parts[1] ?? '',
+			'note'  => $parts[2] ?? '',
+		);
+	}
+	return $metrics;
+}
+
+/**
+ * The project after this one in display order, wrapping round to the first.
+ *
+ * @param int $post_id Current project.
+ * @return array|null Project data, or null when there is no other project.
+ */
+function sdc_next_project( $post_id ) {
+	$ids = get_posts(
+		array(
+			'post_type'      => 'sd_project',
+			'posts_per_page' => -1,
+			'fields'         => 'ids',
+			'orderby'        => array( 'menu_order' => 'ASC', 'date' => 'DESC' ),
+		)
+	);
+	$at  = array_search( (int) $post_id, array_map( 'intval', $ids ), true );
+	if ( count( $ids ) < 2 || false === $at ) {
+		return null;
+	}
+	return sdc_project_data( $ids[ ( $at + 1 ) % count( $ids ) ] );
+}
+
+/**
+ * Answer-first blocks of a post: question, format, key takeaways, the
+ * "From my work" box, glossary terms, sources, FAQ, related service and
+ * the review date.
+ *
+ * @param int $post_id Post ID.
+ * @return array
+ */
+function sdc_post_extras( $post_id ) {
+	$service  = (int) sdc_get( $post_id, 'related_service' );
+	$reviewed = (string) sdc_get( $post_id, 'reviewed_date' );
+	if ( $reviewed && strtotime( $reviewed ) <= strtotime( get_the_date( 'Y-m-d', $post_id ) ) ) {
+		$reviewed = '';
+	}
+	if ( $service && function_exists( 'pll_get_post' ) && pll_get_post( $service ) ) {
+		$service = (int) pll_get_post( $service );
+	}
+	$service_url = $service ? sdc_translated_permalink( $service ) : '';
+	$formats     = sdc_field_groups()['answer']['fields']['format']['options'];
+	$format      = (string) sdc_get( $post_id, 'format' );
+	$project     = sdc_current_lang_id( (int) sdc_get( $post_id, 'experience_project' ) );
+	$note        = trim( (string) sdc_get( $post_id, 'experience_note' ) );
+	return array(
+		'question'   => trim( (string) sdc_get( $post_id, 'target_question' ) ),
+		'format'     => $format && isset( $formats[ $format ] ) ? $formats[ $format ] : '',
+		'experience' => ( $note || ( $project && 'publish' === get_post_status( $project ) ) ) ? array(
+			'note'    => $note,
+			'project' => $project && 'publish' === get_post_status( $project ) ? sdc_project_data( $project ) : null,
+		) : null,
+		'terms'      => sdc_post_links( sdc_get_ids( $post_id, 'glossary_terms' ) ),
+		'sources'    => sdc_sources( $post_id ),
+		'takeaways' => sdc_lines( sdc_get( $post_id, 'takeaways' ) ),
+		'faq'       => sdc_parse_faq( sdc_get( $post_id, 'faq' ) ),
+		'service'   => $service_url ? array(
+			'title' => get_the_title( $service ),
+			'url'   => $service_url,
+		) : null,
+		'reviewed'  => $reviewed,
 	);
 }
 
@@ -265,6 +413,9 @@ function sdc_service_data( $post ) {
 		'area_served'      => (string) sdc_get( $post->ID, 'area_served' ),
 		'faq'              => sdc_parse_faq( sdc_get( $post->ID, 'faq' ) ),
 		'reviewed'         => (string) sdc_get( $post->ID, 'reviewed_date' ),
+		'not_for'          => sdc_lines( sdc_get( $post->ID, 'not_for' ) ),
+		'languages'        => (string) sdc_get( $post->ID, 'languages' ),
+		'booking_url'      => (string) sdc_get( $post->ID, 'booking_url' ),
 		'modified'         => get_post_modified_time( 'Y-m-d', false, $post ),
 		'projects'         => $term_ids ? array_map(
 			'sdc_project_data',

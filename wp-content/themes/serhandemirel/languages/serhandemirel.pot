@@ -235,7 +235,7 @@ msgid "Default SEO title"
 msgstr ""
 
 #: inc/options.php:44
-msgid "Serhan Demirel | Digital Solutions Provider"
+msgid "Serhan Demirel | Digital Solutions Architect"
 msgstr ""
 
 #: inc/options.php:45
@@ -249,9 +249,7 @@ msgid "Default SEO description"
 msgstr ""
 
 #: inc/options.php:51
-msgid ""
-"Serhan Demirel - Digital Solutions Provider specializing in business "
-"transformation, scalable digital foundations, and AI & automation."
+msgid "Serhan Demirel - Digital Solutions Architect specializing in business transformation, scalable digital foundations, and AI & automation."
 msgstr ""
 
 #: inc/options.php:54
@@ -285,7 +283,7 @@ msgid "Subtitle"
 msgstr ""
 
 #: inc/options.php:78 inc/profile.php:40
-msgid "Digital Solutions Provider"
+msgid "Digital Solutions Architect"
 msgstr ""
 
 #: inc/options.php:81
@@ -1320,11 +1318,7 @@ msgid "Short bio (about 50 words)"
 msgstr ""
 
 #: inc/profile.php:46
-msgid ""
-"Serhan Demirel is an Istanbul-based digital solutions provider. He helps "
-"companies grow through data-driven digital marketing, builds web products "
-"and landing pages, automates work with AI, improves search and AI "
-"visibility, and trains teams for digital transformation."
+msgid "Serhan Demirel is an Istanbul-based digital solutions architect. He helps companies grow through data-driven digital marketing, builds web products and landing pages, automates work with AI, improves search and AI visibility, and trains teams for digital transformation."
 msgstr ""
 
 #: inc/profile.php:47
@@ -1580,5 +1574,5 @@ msgstr ""
 
 #: inc/profile.php
 msgctxt "job title"
-msgid "Digital Solutions Provider"
+msgid "Digital Solutions Architect"
 msgstr ""

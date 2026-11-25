@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'SD_THEME_VERSION', '1.2.0' );
+define( 'SD_THEME_VERSION', '1.4.0' );
 
 /*
  * Content types, fields, the contact form, profile, structured data,
@@ -19,7 +19,7 @@ define( 'SD_THEME_VERSION', '1.2.0' );
  * Content, settings and messages are stored the same way by both.
  */
 if ( ! defined( 'SDC_VERSION' ) ) {
-	foreach ( array( 'post-types', 'fields', 'meta-boxes', 'admin-columns', 'messages', 'multilingual', 'api', 'profile', 'schema', 'llms', 'setup', 'seed', 'seed-services' ) as $sd_file ) {
+	foreach ( array( 'post-types', 'fields', 'meta-boxes', 'admin-columns', 'messages', 'multilingual', 'api', 'trust', 'profile', 'schema', 'llms', 'setup', 'seed', 'seed-services' ) as $sd_file ) {
 		require get_template_directory() . '/inc/' . $sd_file . '.php';
 	}
 }
@@ -29,6 +29,21 @@ require get_template_directory() . '/inc/options-page.php';
 require get_template_directory() . '/inc/tracking.php';
 require get_template_directory() . '/inc/content.php';
 require get_template_directory() . '/inc/i18n.php';
+require get_template_directory() . '/inc/subpages.php';
+require get_template_directory() . '/inc/seo.php';
+require get_template_directory() . '/inc/staging.php';
+
+/**
+ * After a theme update, rebuild permalinks once so new pages such as
+ * /glossary/ and /speaking/ open instead of showing "not found".
+ */
+function sd_flush_after_update() {
+	if ( get_option( 'sd_theme_version' ) !== SD_THEME_VERSION ) {
+		update_option( 'sd_theme_version', SD_THEME_VERSION );
+		update_option( 'sdc_flush_rewrite', 1 );
+	}
+}
+add_action( 'init', 'sd_flush_after_update', 99 );
 
 /**
  * Ask to remove the old companion plugin: the theme now includes everything it did.
@@ -78,30 +93,46 @@ function sd_enqueue_assets() {
 	// style.css also holds the self-hosted Inter font faces.
 	wp_enqueue_style( 'sd-style', get_stylesheet_uri(), array( 'sd-tailwind' ), SD_THEME_VERSION );
 
-	// Served from the theme, not a CDN: no third-party requests before the page can animate.
-	wp_enqueue_script( 'gsap', $uri . '/assets/vendor/gsap.min.js', array(), '3.12.2', true );
-	wp_enqueue_script( 'gsap-scrolltrigger', $uri . '/assets/vendor/ScrollTrigger.min.js', array( 'gsap' ), '3.12.2', true );
-	wp_enqueue_script( 'lenis', $uri . '/assets/vendor/lenis.min.js', array(), '1.1.13', true );
-
-	wp_enqueue_script( 'sd-main', $uri . '/assets/js/main.js', array( 'gsap', 'gsap-scrolltrigger', 'lenis' ), SD_THEME_VERSION, true );
+	// Every page: menu, navbar, filters, clock, reading bar and the other
+	// small interactions, with no libraries.
+	wp_enqueue_script( 'sd-site', $uri . '/assets/js/site.js', array(), SD_THEME_VERSION, array( 'in_footer' => true, 'strategy' => 'defer' ) );
 	wp_localize_script(
-		'sd-main',
-		'sdMain',
+		'sd-site',
+		'sdSite',
 		array(
-			'words'         => sd_opt_lines( 'words' ),
 			'timezone'      => sd_opt( 'timezone' ),
 			'timezoneLabel' => sd_opt( 'timezone_label' ),
+			'copied'        => __( 'Link copied', 'serhandemirel' ),
+			'loading'       => __( 'Loading…', 'serhandemirel' ),
 		)
 	);
 
-	wp_enqueue_script( 'sd-brands', $uri . '/assets/js/brands.js', array(), SD_THEME_VERSION, true );
-	wp_localize_script(
-		'sd-brands',
-		'sdBrands',
-		array(
-			'logos' => sd_marquee_logos(),
-		)
-	);
+	// The front page alone runs the scroll animations, so inner pages skip
+	// GSAP, ScrollTrigger and Lenis (about 100 KB) and open faster.
+	// Served from the theme, not a CDN: no third-party requests.
+	if ( is_front_page() ) {
+		wp_enqueue_script( 'gsap', $uri . '/assets/vendor/gsap.min.js', array(), '3.12.2', true );
+		wp_enqueue_script( 'gsap-scrolltrigger', $uri . '/assets/vendor/ScrollTrigger.min.js', array( 'gsap' ), '3.12.2', true );
+		wp_enqueue_script( 'lenis', $uri . '/assets/vendor/lenis.min.js', array(), '1.1.13', true );
+
+		wp_enqueue_script( 'sd-main', $uri . '/assets/js/main.js', array( 'gsap', 'gsap-scrolltrigger', 'lenis' ), SD_THEME_VERSION, true );
+		wp_localize_script(
+			'sd-main',
+			'sdMain',
+			array(
+				'words' => sd_opt_lines( 'words' ),
+			)
+		);
+
+		wp_enqueue_script( 'sd-brands', $uri . '/assets/js/brands.js', array(), SD_THEME_VERSION, true );
+		wp_localize_script(
+			'sd-brands',
+			'sdBrands',
+			array(
+				'logos' => sd_marquee_logos(),
+			)
+		);
+	}
 
 	wp_enqueue_script( 'sd-project-modal', $uri . '/assets/js/project-modal.js', array(), SD_THEME_VERSION, true );
 	wp_localize_script(
@@ -160,7 +191,8 @@ function sd_has_seo_plugin() {
 
 /**
  * Meta, social and favicon tags. Description and social tags come from the
- * General settings tab and are left to an SEO plugin when one is active.
+ * page's "Sources, updates and search" fields, then its summary, then the
+ * General settings tab; they are left to an SEO plugin when one is active.
  */
 function sd_head_meta() {
 	$icons = get_template_directory_uri() . '/assets/icons/';
@@ -181,24 +213,28 @@ function sd_head_meta() {
 		return;
 	}
 
-	$title = sd_opt( 'seo_title' );
-	$desc  = sd_opt( 'seo_description' );
-	$image = sd_opt( 'og_image' ) ? wp_get_attachment_image_url( (int) sd_opt( 'og_image' ), 'full' ) : '';
-	$image = $image ? $image : get_template_directory_uri() . '/assets/img/SD-logo-300px.webp';
-	$url   = is_singular() ? get_permalink() : home_url( '/' );
-	if ( is_singular() && ! is_front_page() ) {
-		$title = wp_get_document_title();
-		$desc  = has_excerpt() ? get_the_excerpt() : $desc;
-	}
+	$meta  = sd_page_meta();
+	$title = $meta['title'];
+	$desc  = $meta['description'];
+	$image = $meta['image'];
+	$url   = $meta['url'];
 	?>
 	<meta name="description" content="<?php echo esc_attr( $desc ); ?>">
 
 	<!-- Open Graph / Facebook / LinkedIn / WhatsApp -->
-	<meta property="og:type" content="<?php echo is_singular( 'post' ) ? 'article' : 'website'; ?>">
+	<meta property="og:type" content="<?php echo esc_attr( $meta['type'] ); ?>">
+	<meta property="og:site_name" content="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">
+	<meta property="og:locale" content="<?php echo esc_attr( determine_locale() ); ?>">
 	<meta property="og:url" content="<?php echo esc_url( $url ); ?>">
 	<meta property="og:title" content="<?php echo esc_attr( $title ); ?>">
 	<meta property="og:description" content="<?php echo esc_attr( $desc ); ?>">
 	<meta property="og:image" content="<?php echo esc_url( $image ); ?>">
+	<?php if ( 'article' === $meta['type'] ) : ?>
+		<?php $dates = sdc_dates( get_queried_object_id() ); ?>
+	<meta property="article:published_time" content="<?php echo esc_attr( get_post_time( 'c', true, get_queried_object() ) ); ?>">
+	<meta property="article:modified_time" content="<?php echo esc_attr( $dates['updated'] ? gmdate( 'c', strtotime( $dates['updated'] ) ) : get_post_time( 'c', true, get_queried_object() ) ); ?>">
+	<meta property="article:author" content="<?php echo esc_attr( sd_author()['name'] ); ?>">
+	<?php endif; ?>
 
 	<!-- Twitter / X -->
 	<meta property="twitter:card" content="summary_large_image">

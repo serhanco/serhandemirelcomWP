@@ -1,167 +1,86 @@
 # İçerik modeli
 
-serhandemirel.com'da hangi içerik türlerinin ve alanların olduğunu, hangilerinin eklenmesinin planlandığını anlatır. Bu dosya kodun spesifikasyonudur: `serhandemirel` temasında bir tür ya da alan eklendiğinde veya değiştirildiğinde aynı PR'da burası da güncellenir.
+serhandemirel.com'daki içerik türlerini ve alanları, kalan önerileri anlatır. Bu dosya kodun spesifikasyonudur: `serhandemirel` temasında bir tür ya da alan eklendiğinde veya değiştirildiğinde aynı PR'da burası da güncellenir.
 
-- Alanların tek tanım yeri: [`inc/fields.php`](../wp-content/themes/serhandemirel/inc/fields.php). Meta anahtarları `_sd_<alan>` biçiminde.
-- Hangi içeriğin ne zaman yazılacağı bu dosyada değil, [İçerik Yol Haritası](https://claude.ai/code/artifact/67e2ea58-54af-4f9e-a697-ad2c1449dc7e) belgesinde takip edilir.
-- "Ortak" = Polylang'de tüm dillerde aynı kalır. "Çevrilir" = yeni çeviriye bir kez kopyalanır, sonra her dilde ayrı düzenlenir.
+- Alanların tek tanım yeri: [`inc/fields.php`](../wp-content/themes/serhandemirel/inc/fields.php). Meta anahtarları `_sd_<alan>` biçiminde. Sektör sayfası alanları terim meta'sında, [`inc/trust.php`](../wp-content/themes/serhandemirel/inc/trust.php) içindeki `sdc_industry_fields()`'ta.
+- Hangi içeriğin ne zaman yazılacağı bu dosyada değil, [İçerik Yol Haritası](https://claude.ai/code/artifact/67e2ea58-54af-4f9e-a697-ad2c1449dc7e) belgesinde takip edilir. Alanların gerekçesi: [İçerik tipleri ve alan önerileri](https://claude.ai/artifact/7ydnFqvpi2yL8oK38sjg91) (25 Kasım 2026).
+- "Ortak" = Polylang'de tüm dillerde aynı kalır. "Çevrilir" = yeni çeviriye bir kez kopyalanır, sonra her dilde ayrı düzenlenir. WPML için aynı ayrım `wpml-config.xml`'de.
 
-## Şu an kodda olanlar
+## İlkeler (2026)
 
-| Tür | Slug | Destekler | Çeviri |
-|---|---|---|---|
-| Projects | `sd_project` | başlık, editör, öne çıkan görsel (1200×900), sıralama, revizyonlar; `/work/`; taksonomiler `sd_industry`, `sd_service` | Her dilde ayrı kopya |
-| Services | `sd_service_page` | başlık, editör, özet, öne çıkan görsel, sıralama, revizyonlar; `/services/`; taksonomi `sd_service` (aynı terim projelerle ortak, "Related work" buradan gelir) | Her dilde ayrı kopya |
-| Expertise | `sd_expertise` | başlık, sıralama | Her dilde ayrı kopya |
-| Brands | `sd_brand` | başlık, sıralama | Tek kayıt |
-| Messages | `sd_message` | başlık, editör; yalnızca iletişim formu oluşturur | Tek kayıt |
-| Insights | `post` (normal yazılar) | WordPress varsayılanları | Her dilde ayrı kopya |
+AI yanıt motorları (Google AI Overviews, ChatGPT, Perplexity, Claude) ve arama bir sayfayı kaynak gösterirken şunlara bakıyor; alanlar bunun için var:
+
+1. **Varlık netliği:** kim, ne yapar, nerede, kiminle çalıştı. Person şeması, `sameAs`, tek unvan ("Digital Solutions Architect").
+2. **Önce cevap:** sayfanın başında 40–60 kelimelik özet ya da tanım (`definition`, `short_definition`, yazı özeti, sektör `intro`).
+3. **Ölçülebilir, kaynaklı gerçekler:** metrikler ve ölçüm kaynağı, `sources` listesi, metinde `[1]` işaretleri.
+4. **Soru–cevap blokları:** her türde `faq`. Google FAQ zengin sonucunu 7 Mayıs 2026'da tamamen kaldırdı; `FAQPage` şeması zararsız, değeri artık AI cevapları ve sayfadaki içerik.
+5. **E-E-A-T:** görünür yazar ve unvan, deneyim yılı, "From my work" deneyim kutusu, referanslar, sertifikalar, konuşmalar.
+6. **Tarihler:** her sayfada görünür yayın tarihi; "Updated" yalnızca elle girilen `reviewed_date` yayın tarihinden sonraysa görünür, `update_note` ne değiştiğini söyler. JSON-LD'de `datePublished` / `dateModified` aynı alanlardan gelir.
+
+## İçerik türleri
+
+| Tür | Slug | Adres | Destekler | Çeviri |
+|---|---|---|---|---|
+| Projects | `sd_project` | `/work/` | başlık, editör, öne çıkan görsel (1200×900), sıralama, revizyonlar; taksonomiler `sd_industry`, `sd_service` | Her dilde ayrı kopya |
+| Services | `sd_service_page` | `/services/` | başlık, editör, özet, öne çıkan görsel, sıralama, revizyonlar; taksonomi `sd_service` (aynı terim projelerle ortak, "Related work" buradan gelir) | Her dilde ayrı kopya |
+| Insights | `post` | blog sayfası (`/insights/`) | WordPress varsayılanları | Her dilde ayrı kopya |
+| Glossary | `sd_term` | `/glossary/` | başlık, editör, revizyonlar | Her dilde ayrı kopya |
+| Talks, trainings & press | `sd_appearance` | `/speaking/` (tek kayıt sayfası yok, listedeki satırına yönlenir) | başlık, özet, görsel | Her dilde ayrı kopya |
+| Testimonials | `sd_testimonial` | sayfası yok; hizmet, proje, sektör ve Hakkımda'da görünür | başlık | Her dilde ayrı kopya |
+| Expertise | `sd_expertise` | ana sayfa kartları | başlık, sıralama | Her dilde ayrı kopya |
+| Brands | `sd_brand` | ana sayfa, Hakkımda, sektör | başlık, sıralama; taksonomi `sd_industry` | Tek kayıt |
+| Messages | `sd_message` | yalnızca iletişim formu oluşturur | başlık, editör | Tek kayıt |
+
+**Sektörler (`sd_industry`)** taksonomisi aynı zamanda `/industry/<slug>/` sektör sayfasıdır (`taxonomy-sd_industry.php`). **SSS merkezi** ayrı tür değil, "FAQ" şablonlu bir sayfa (`template-faq.php`); soruları diğer türlerden toplar.
+
+## Alanlar
+
+### Her türde ortak alanlar ("Sources, updates and search" kutusu)
+Yazı, sayfa, proje, hizmet ve terimde:
+
+| Ortak | Çevrilir |
+|---|---|
+| reviewed_date (date; yayından sonraysa "Updated" ve `dateModified`), share_image (image; `og:image`), noindex (checkbox; `noindex,follow`, site haritası ve llms.txt dışında) | update_note (text; "What changed"), sources ("Başlık \| URL \| yayıncı" satırları; metinde `[1]` 1. kaynağa bağlanır), seo_title, seo_description |
+
+SEO başlık ve açıklaması bir SEO eklentisi (Yoast, Rank Math, AIOSEO, SEOPress) etkinse ona bırakılır. Ayrıca sayfa, yazı, proje, hizmet ve terimde: disable_tracking, extra_head_code (`unfiltered_html` gerekir).
+
+### Tür başına alanlar
 
 | Tür | Ortak alanlar | Çevrilen alanlar |
 |---|---|---|
-| Projects | client (text), year (number), url (url), brand (sd_brand), gallery (galeri), featured (checkbox) | location (text), summary (textarea), metric (text) |
-| Services | engagement_model (select: project / retainer / workshop / hourly), price_from (number), currency (EUR / USD / GBP / TRY), area_served (text), reviewed_date (date) | definition (textarea, 40–60 kelime), who_for (textarea), deliverables (satır başına bir çıktı), process ("Adım: açıklama" satırları), duration (text), faq (soru satırı + cevap, aralarında boş satır) |
-| Expertise | accent (select), icon (select), service_page (sd_service_page) | description (textarea), tags (text) |
-| Brands | logo_white (image), logo_color (image, isteğe bağlı; tema yalnızca beyaz logoları içe aktarır ve gösterir), url (url), visible (checkbox) | |
-| Insights | featured (checkbox) | read_time (number) |
-| Messages | status, name, email, lang, source_url, utm_source, utm_campaign (tek kayıt) | |
-| Sayfa, yazı, proje, hizmet | disable_tracking (checkbox), extra_head_code (kod, `unfiltered_html` gerekir) | |
+| Projects | client, year, url, brand (sd_brand), gallery, featured, tools (virgülle), start_date, end_date, client_hidden (müşteri adı gizli: kart ve sayfada kilit, logo ve bağlantı gizlenir, şemada `sourceOrganization` yok), video_url | location ("Fintech / London"), summary, metric, metrics ("Değer \| ne ölçtüğü \| not" satırları), metrics_source (ölçüm kaynağı), role, challenge / approach / outcome, anon_name (gizli müşteri için ad, ör. "A European fintech"), testimonial + testimonial_author (eski alıntı; referans kaydı yoksa gösterilir) |
+| Services | engagement_model (project / retainer / workshop / hourly), price_from, currency, area_served, booking_url ("Book a 15-min call"; boşsa profildeki) | definition (40–60 kelime), who_for ("A good fit if"), not_for ("Not a fit if", satır başına bir madde), deliverables, process ("Adım: açıklama"), duration, languages, faq |
+| Insights | featured, related_service, format (guide / how-to / comparison / opinion / case note), experience_project, glossary_terms | read_time, target_question ("Answers: …"), takeaways, experience_note ("From my work"), faq |
+| Glossary | example_project, related_terms, related_service | short_definition (25–40 kelime, alıntılanabilir "Definition" kutusu), aliases (satır başına bir diğer ad), example ("From the field"), faq |
+| Talks & press | kind (talk / workshop / training / podcast / interview / press), host (sd_brand), withheld (kurum adı gizli), date, language, participants, url, video_url, slides_url, duration (dakika), related_service | event, location |
+| Testimonials | person, company (sd_brand) ya da company_name, photo, linkedin, project, services, date, consent (işaretli değilse hiçbir yerde görünmez) | quote, role |
+| Brands | logo_white, logo_color (isteğe bağlı), url, visible, relationship (client / employer / partner), period, legal_name, same_as | |
+| Expertise | accent, icon, service_page | description, tags |
+| Messages | status, name, email, lang, source_url, utm_source, utm_campaign, service (formun açıldığı hizmet), found_via (google / ai / linkedin / referral / event / other), referrer (ilk dış yönlendiren; chatgpt.com, perplexity.ai gibi AI kaynakları e-postada işaretlenir), consent_at | |
 
-**Profil (Person)**: içerik türü değil, temadaki *Profile* ekranında tek kayıt (`sdc_profile` seçeneği). Ortak: full_name, alternate_names, headshot, city, country, languages_spoken, same_as, works_for, works_for_url, alumni_of, credentials. Dile göre: job_title, short_bio, long_bio, knows_about (boş bırakılırsa varsayılan dildeki değer kullanılır). Tema şablonu `template-profile.php` ("Profile (About)") bunu Hakkımda sayfasında gösterir.
+### Sektör sayfası alanları (terim meta'sı, Sektörler ekranında)
+headline, intro (önce cevap), problems ("Sorun \| cevap \| hizmet slug'ı" satırları), faq, published_date, reviewed_date, update_note, seo_title, seo_description. Sayfada ayrıca sektörün projeleri, markaları ve referansları otomatik listelenir.
 
-**Otomatik çıktılar**
-- JSON-LD (`inc/schema.php`): her sayfada Person + WebSite + sayfa düğümü (ana sayfa ve Hakkımda: ProfilePage; diğerleri WebPage / CollectionPage). Yazılarda BlogPosting, projelerde CreativeWork, hizmetlerde Service (offers, hasOfferCatalog) + FAQPage. Yoast, Rank Math, AIOSEO veya SEOPress etkinse basılmaz.
-- `/llms.txt` (`inc/llms.php`): profil, diller, hizmetler, projeler, yazılar ve iletişim; varsayılan dilde.
-- Hizmet sayfalarında görünür "Last updated" tarihi (reviewed_date, yoksa son değişiklik).
+### Profil (Person)
+İçerik türü değil, temadaki *Profile* ekranında tek kayıt (`sdc_profile`). Ortak: full_name, alternate_names, headshot, city, country, languages_spoken, same_as, works_for, works_for_url, alumni_of, credentials ("Ad \| veren \| yıl \| bağlantı"), memberships, career_start (yıl; "13+ years" buradan), booking_url. Dile göre: job_title (varsayılan "Digital Solutions Architect"), short_bio, long_bio, knows_about, stats ("Değer \| etiket"; boşsa otomatik), awards. `template-profile.php` ("Profile (About)") bunları Hakkımda'da gösterir.
 
-## Planlanan (henüz kodda yok)
+### Site ayarları (Theme settings)
+İçerikle ilgili yeni ayarlar: block_ai_training (AI eğitim tarayıcılarını engelle; varsayılan kapalı), faq_general_title + faq_general (SSS merkezinin "Working together" grubu), glossary_intro, speaking_intro, form_ask_source ("How did you find me?" sorusu; varsayılan açık), privacy_url (formdaki onay bağlantısı; boşsa WordPress gizlilik sayfası).
 
-Aşağıdaki öneriler 4 Ekim 2026'da SEO, GEO, AEO ve AI görünürlüğü hedefiyle hazırlandı. Bir madde koda girdiğinde yukarıdaki "Şu an kodda olanlar" bölümüne taşınır.
+## Otomatik çıktılar
 
-### Neden bu alanlar? (2026 için kısa ilke listesi)
+- **JSON-LD** (`inc/schema.php`; bir SEO eklentisi etkinse basılmaz): her sayfada Person (hasCredential, award, memberOf, subjectOf = konuşmalar, contactPoint) + WebSite + sayfa düğümü + BreadcrumbList. Yazılarda BlogPosting (alternativeHeadline, citation, mentions = sözlük terimleri, isBasedOn = deneyim projesi) + FAQPage; projelerde CreativeWork (dateCreated, temporalCoverage, referans `comment`); hizmetlerde Service + FAQPage; terimlerde DefinedTerm + FAQPage; sözlük arşivinde DefinedTermSet; konuşmalarda ItemList (Event / PodcastEpisode / Article, VideoObject); sektörde `about` + FAQPage; SSS sayfasında tüm sorularla FAQPage.
+- **Meta etiketleri** (`inc/seo.php` + `functions.php`): description, Open Graph, Twitter, `article:published_time` / `modified_time` / `author`. Başlık `seo_title`'dan.
+- **Site haritası:** noindex kayıtlar, konuşmalar ve referanslar dışarıda.
+- **robots.txt:** AI arama ve cevap botları (OAI-SearchBot, ChatGPT-User, Claude-SearchBot, Claude-User, PerplexityBot, Perplexity-User) açıkça izinli; eğitim botları (GPTBot, ClaudeBot, Google-Extended, Applebot-Extended, CCBot, Meta-ExternalAgent, Bytespider, cohere) `block_ai_training` ayarına göre; sonunda llms.txt bağlantısı.
+- **`/llms.txt`** (`inc/llms.php`): profil, hizmetler, sektörler, projeler, yazılar (cevapladığı soru ve tarih), sözlük, konuşmalar, Hakkımda ve SSS; noindex sayfalar hariç.
+- **SSS merkezi** genel sorular, her hizmetin, sektörün, yazının ve terimin SSS'sini kaynağıyla toplar; her cevabın altında kendi sayfasına bağlantı var.
 
-Google'ın AI Overviews'u, ChatGPT, Perplexity ve Claude gibi yapay zekâ yanıt motorları bir sayfayı kaynak gösterirken şunlara bakıyor:
+## Kalan öneriler (henüz kodda yok)
 
-1. **Varlık netliği (entity):** "Serhan Demirel kim, ne yapar, nerede, hangi markalarla çalıştı?" Bu sorulara tutarlı ve makine tarafından okunabilir cevaplar gerekiyor. Bunun için Person ve Organization şeması ile `sameAs` profil bağlantıları kullanılıyor.
-2. **Önce cevap:** Her sayfanın başında 40–60 kelimelik net bir özet ya da tanım olmalı. LLM'ler en çok bu kısmı alıntılıyor.
-3. **Ölçülebilir, kaynaklı gerçekler:** "+24% dönüşüm", tarih, süre ve kaynak gibi bilgiler. Sayılar ve kaynaklar alıntılanma olasılığını belirgin şekilde artırıyor.
-4. **Soru–cevap blokları:** FAQ içeriği hâlâ AEO için çok değerli. Not: Google, 2023'ten beri FAQ zengin sonucunu çoğu siteye göstermiyor. Yine de içerik hem yanıt motorlarına hem de LLM'lere doğrudan besleniyor.
-5. **Tazelik ve yazar güvenilirliği (E-E-A-T):** Görünür "son güncelleme" tarihi, gerçek yazar bilgisi ve ilgili deneyim.
-6. **Yapılandırılmış veri (JSON-LD):** Alanlar ayrı ayrı tutulursa tema bunlardan otomatik şema üretebilir. Eklentinin JSON-LD çıktısı bu alanlardan beslenir.
-
----
-
-### 1. Mevcut türler için eklenmesi önerilen alanlar
-
-#### Projects (`sd_project`)
-| Alan | Tip | Dil | Neden |
-|---|---|---|---|
-| tldr (tek paragraf özet) | textarea | Çevrilir | Önce cevap; LLM alıntısı için |
-| challenge / approach / outcome | textarea ×3 | Çevrilir | Vaka çalışması yapısı; AI bu bölümleri ayrı ayrı alıntılayabiliyor |
-| metrics (etiket, değer, dönem) | tekrarlayıcı | Etiket çevrilir, değer ortak | Tek "metric" yerine birden fazla ölçülebilir sonuç |
-| services_used | sd_service ilişkisi | Ortak | Proje ile hizmet sayfası arasında iç bağlantı |
-| tools (ör. GA4, HubSpot, Shopify) | text / etiket | Ortak | Varlık ilişkisi ("X aracında uzman") |
-| start_date / end_date | date | Ortak | Tazelik ve süre bilgisi |
-| testimonial | sd_testimonial ilişkisi | Ortak | Kanıt; sayfada alıntı olarak görünür |
-| video_url | url | Ortak | VideoObject şeması |
-| updated_note | date | Ortak | Görünür "son güncelleme" |
-
-#### Brands (`sd_brand`)
-| Alan | Tip | Dil | Neden |
-|---|---|---|---|
-| legal_name | text | Ortak | Organization şemasında doğru isim |
-| same_as (LinkedIn, Wikipedia/Wikidata) | url listesi | Ortak | AI, markayı doğru varlıkla eşleştirir |
-| industry | sd_industry terimi | Ortak | "Fintech markalarıyla çalıştı" gibi çıkarımlar için |
-| relationship (müşteri / işveren / partner) | select | Ortak | Bağlamı netleştirir |
-
-#### Insights (normal yazılar, `post`)
-| Alan | Tip | Dil | Neden |
-|---|---|---|---|
-| key_takeaways (3–5 madde) | tekrarlayıcı | Çevrilir | Önce cevap; AI Overviews'ta en çok alıntılanan blok |
-| target_question | text | Çevrilir | Yazının cevapladığı asıl soru; başlık ve H2 planı için rehber |
-| faq (soru, cevap) | tekrarlayıcı | Çevrilir | AEO; FAQPage şeması |
-| sources (başlık, url) | tekrarlayıcı | Ortak | Kaynak gösterilen içerik daha güvenilir sayılıyor |
-| reviewed_date | date | Ortak | Tazelik sinyali (`dateModified`) |
-| related_service | sd_service ilişkisi | Ortak | İç bağlantı ve konu kümesi (topical cluster) |
-| (mevcut) read_time, featured | | | Kalsın |
-
-#### Messages (`sd_message`)
-| Alan | Tip | Neden |
-|---|---|---|
-| service_interest | select (hizmetler) | Hangi hizmet talep görüyor |
-| budget_range | select | Lead nitelemesi |
-| found_via (Google / LinkedIn / **ChatGPT veya başka bir AI** / tavsiye / diğer) | select | **AI görünürlüğünü ölçmenin en basit yolu.** Formda tek bir soru yeterli |
-| referrer | url | chatgpt.com, perplexity.ai, gemini.google.com gibi yönlendirenleri otomatik yakalar |
-| consent | checkbox + tarih | KVKK/GDPR kaydı |
-
----
-
-### 2. Yeni içerik türü önerileri (öncelik sırasıyla)
-
-#### ① Services: koda girdi
-`sd_service_page` olarak eklendi (yukarıya bakın). Kalanlar: related_insights ilişkisi; deliverables, process ve faq şimdilik satır bazlı metin, ileride tekrarlayıcı alana çevrilebilir.
-
-#### ② FAQ (`sd_faq`)
-Merkezi bir soru bankası. Aynı soru hizmet, proje ve ana sayfada tekrar kullanılabilir; tek yerde güncellenir.
-
-| Alan | Tip | Dil |
-|---|---|---|
-| (başlık = soru) | | Çevrilir |
-| short_answer (1–2 cümle, doğrudan cevap) | textarea | Çevrilir |
-| long_answer | editör | Çevrilir |
-| topics | sd_service ilişkisi | Ortak |
-| show_on_home | checkbox | Ortak |
-
-#### ③ Testimonials (`sd_testimonial`)
-Kanıt, E-E-A-T ve AI'nın "müşteriler ne diyor" sorusuna verdiği cevaplar için.
-
-| Alan | Tip | Dil |
-|---|---|---|
-| quote | textarea | Çevrilir (orijinal dil işaretlenir) |
-| person_name, person_title | text | Ortak |
-| brand | sd_brand ilişkisi | Ortak |
-| project | sd_project ilişkisi | Ortak |
-| photo | image | Ortak |
-| source_url (LinkedIn önerisi vb.) | url | Ortak |
-| date | date | Ortak |
-
-Not: Google, sitenin kendisi hakkındaki yorumlar için yıldız göstermiyor. Amaç yıldız değil, güven ve alıntılanabilir kanıt.
-
-#### ④ Appearances / Press (`sd_appearance`)
-Konuşmalar, podcastler, röportajlar, ödüller ve başka sitelerde yayınlanan yazılar. AI'nın bir kişiyi "otorite" olarak tanımasında dış kaynaklar çok güçlü bir sinyal.
-
-| Alan | Tip | Dil |
-|---|---|---|
-| kind (talk / podcast / interview / award / guest post) | select | Ortak |
-| outlet_or_event | text | Ortak |
-| date | date | Ortak |
-| url, video_url | url | Ortak |
-| summary | textarea | Çevrilir |
-| topics | sd_service ilişkisi | Ortak |
-
-#### ⑤ (İsteğe bağlı) Glossary (`sd_term`)
-"CRO nedir?", "Lead scoring nedir?" gibi kısa tanım sayfaları. AEO ve LLM tanım cevapları için çok etkili, ama düzenli içerik üretimi gerektiriyor. Alanlar: short_definition, long_explanation, related_terms, related_service. Şema: `DefinedTerm`.
-
-#### ⑥ (İsteğe bağlı) Resources (`sd_resource`)
-Şablon, kontrol listesi ya da araç gibi indirilebilir içerikler. Lead toplamak ve backlink kazanmak için. Alanlar: file, format, gated (form arkasında mı), related_service.
-
----
-
-### 3. İçerik türü değil, site ayarı olarak eklenmeli
-
-**Kişi / varlık profili (Person)** ve JSON-LD grafiği koda girdi (yukarıya bakın).
-
-**Diğer teknik maddeler** (alan değil, ama aynı hedefe hizmet ediyor):
-- ~~`llms.txt`~~: koda girdi.
-- AI tarayıcı politikası: GPTBot, ClaudeBot, PerplexityBot ve Google-Extended için izin verilip verilmeyeceği bilinçli seçilmeli. Görünürlük isteniyorsa açık kalmalı.
-- Görünür "son güncelleme" tarihi ve `dateModified`.
-- hreflang Polylang ile zaten var. Her dilde tldr ve definition alanları gerçekten çevrilmeli, makine çevirisi bırakılmamalı.
-
----
-
-### Önerilen sıra
-1. ~~Person profili ve JSON-LD altyapısı~~ (yapıldı)
-2. ~~Services türü ve Expertise kartlarının hizmet sayfalarına bağlanması~~ (yapıldı)
-3. Mevcut türlere eklenecek alanlar (Projects, Insights, Brands, Messages)
-4. FAQ ve Testimonials
-5. Appearances; ihtiyaç olursa Glossary ve Resources
+- **Merkezi soru bankası (`sd_faq`):** şimdilik yapılmadı; sorular kendi sayfalarında duruyor ve SSS merkezi onları topluyor. Aynı soru çok yerde tekrar ederse türe çevrilir.
+- **Resources (`sd_resource`):** şablon ve kontrol listeleri; alanlar file, format, gated, related_service. İçerik hazır olunca.
+- **Formda bütçe aralığı (`budget_range`):** lead nitelemesi için; istenirse eklenir.
+- **Marka için Organization şeması:** `legal_name` ve `same_as` alanları var, şemaya henüz ayrı düğüm olarak basılmıyor.
+- **Tekrarlayıcı alanlar:** deliverables, process, faq, metrics şimdilik satır bazlı metin; ihtiyaç olursa tekrarlayıcı alana çevrilir.
+- **Dil:** hreflang Polylang ile var. Özet ve tanım alanları her dilde gerçekten çevrilmeli, makine çevirisi bırakılmamalı.

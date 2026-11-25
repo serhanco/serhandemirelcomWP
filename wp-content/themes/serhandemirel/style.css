@@ -4,7 +4,7 @@ Theme URI: https://serhandemirel.com
 Author: Serhan Demirel
 Author URI: https://serhandemirel.com
 Description: One-page personal theme for serhandemirel.com, with its projects, services, expertise cards, brand logos, profile, contact form, structured data and llms.txt built in. Works with or without Polylang. Tailwind (compiled), GSAP + ScrollTrigger and Lenis, all self-hosted.
-Version: 1.2.0
+Version: 1.4.0
 Requires at least: 6.0
 Requires PHP: 7.4
 License: All rights reserved
@@ -142,8 +142,56 @@ body {
 .sd-prose pre { background: #0a0a0a; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 1rem; padding: 1.25em; overflow-x: auto; }
 .sd-prose pre code { background: none; padding: 0; }
 .sd-prose hr { border-color: rgba(255, 255, 255, 0.1); margin: 2.5em 0; }
+.sd-prose sup { line-height: 0; }
+.sd-prose a.sd-cite { color: #d8b4fe; font-size: 0.7rem; font-weight: 600; text-decoration: none; }
+.sd-prose a.sd-cite:hover { color: #fff; }
+
+/* Live filters hide items with the hidden attribute, even grid and flex ones. */
+[hidden] { display: none !important; }
 
 /* Pagination */
 .nav-links { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 .nav-links .page-numbers { padding: 0.5rem 1rem; border-radius: 9999px; border: 1px solid rgba(255, 255, 255, 0.15); }
 .nav-links .page-numbers.current, .nav-links a.page-numbers:hover { background: #fff; color: #000; }
+
+/* ---------- Inner pages ---------- */
+
+/* Smooth page-to-page fade in browsers that support cross-document view transitions. */
+@view-transition { navigation: auto; }
+::view-transition-old(root), ::view-transition-new(root) { animation-duration: 220ms; }
+
+/* Smooth in-page jumps (the front page uses Lenis instead). */
+@media (prefers-reduced-motion: no-preference) {
+    html:not(.lenis) { scroll-behavior: smooth; }
+}
+
+/* Entrance: content is visible at rest, the animation only adds a short rise. */
+.sd-rise { animation: sd-rise 0.7s cubic-bezier(.2,.7,.2,1) both; }
+@keyframes sd-rise { from { opacity: 0.001; transform: translateY(18px); } }
+
+/* Soft colour spheres behind page headers, like the home page glow. */
+.sd-orb { position: absolute; border-radius: 9999px; filter: blur(120px); pointer-events: none; z-index: 0; }
+
+/* Reading progress bar at the top of an article. */
+#sd-reading-bar { transform: scaleX(0); transform-origin: 0 50%; will-change: transform; }
+
+/* Article headings stay clear of the floating navbar when jumped to. */
+.sd-prose h2, .sd-prose h3 { scroll-margin-top: 7rem; text-wrap: balance; }
+.sd-prose { max-width: 68ch; }
+.sd-prose p, .sd-prose li { color: #c9c9d1; }
+.sd-prose blockquote { font-style: normal; font-size: 1.3em; line-height: 1.5; font-weight: 500; border-left-width: 2px; margin: 2em 0; }
+
+/* FAQ and outline disclosure markers. */
+details > summary { list-style: none; }
+details > summary::-webkit-details-marker { display: none; }
+
+/* Visible keyboard focus everywhere. */
+:focus-visible { outline: 2px solid #a855f7; outline-offset: 3px; }
+
+@media (prefers-reduced-motion: reduce) {
+    .sd-rise, .gradient-text { animation: none; }
+    ::view-transition-old(root), ::view-transition-new(root) { animation: none; }
+}
+
+/* Inner pages: keep the last element clear of the contact footer, which overlaps the page by 1.5rem. */
+#main { padding-bottom: 7rem; }

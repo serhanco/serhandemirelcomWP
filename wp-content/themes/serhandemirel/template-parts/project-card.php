@@ -18,7 +18,9 @@ $accent  = $accents[ ( $args['index'] ?? 0 ) % count( $accents ) ];
     <?php endif; ?>
     <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-8">
         <div class="translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-            <?php if ( $project['location'] ) : ?>
+            <?php if ( ! empty( $project['hidden'] ) ) : ?>
+            <p class="text-gray-300 text-xs mb-2 flex items-center gap-1.5"><?php sd_icon_lock(); ?><?php esc_html_e( 'Client name withheld', 'serhandemirel' ); ?><?php echo $project['location'] ? ' · ' . esc_html( $project['location'] ) : ''; ?></p>
+            <?php elseif ( $project['location'] ) : ?>
             <p class="<?php echo esc_attr( $accent ); ?> text-sm font-bold mb-2"><?php echo esc_html( $project['location'] ); ?></p>
             <?php endif; ?>
             <h4 class="text-2xl md:text-3xl font-bold text-white mb-2"><?php echo esc_html( $project['title'] ); ?></h4>
